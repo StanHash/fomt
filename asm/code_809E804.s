@@ -100305,7 +100305,7 @@ _080CF7E8:
 	adds r0, r4, #0
 	bl sub_800C894
 	mov sb, r0
-	bl sub_809BCAC
+	bl GetGrowthStage__7Chicken
 	cmp r0, #1
 	bne _080CF810
 	ldr r5, _080CF80C @ =0x08117A1C

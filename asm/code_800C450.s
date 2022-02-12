@@ -875,12 +875,12 @@ _0800CA8A:
 	cmp r0, #0
 	bne _0800CAE6
 	adds r0, r4, #0
-	bl sub_809BCAC
+	bl GetGrowthStage__7Chicken
 	cmp r0, #0
 	bne _0800CAC0
 _0800CAA0:
 	adds r0, r4, #0
-	bl sub_809BCF0
+	bl method_0809BCF0__7Chicken
 	b _0800CAE6
 	.align 2, 0
 _0800CAA8: .4byte 0x55555555
@@ -906,12 +906,12 @@ _0800CAC0:
 	rsbs r0, r0, #0
 	add sl, r0
 	adds r0, r4, #0
-	bl sub_809BCF0
+	bl method_0809BCF0__7Chicken
 _0800CAE6:
 	adds r0, r4, #0
-	bl sub_809BD38
+	bl method_0809BD38__7Chicken
 	adds r0, r4, #0
-	bl sub_809BCC0
+	bl method_0809BCC0__7Chicken
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _0800CB30
@@ -919,7 +919,7 @@ _0800CAE6:
 	adds r1, r4, #0
 	bl sub_809B114
 	adds r0, r4, #0
-	bl sub_809BCFC
+	bl method_0809BCFC__7Chicken
 	adds r4, r0, #0
 	mov r0, sp
 	ldr r1, [sp, #0x14]
@@ -1112,7 +1112,7 @@ _0800CBEA:
 	mov r1, sp
 	movs r2, #0
 	movs r3, #0
-	bl sub_809BC8C
+	bl __7ChickenPUiUiUi
 	bl rand
 	movs r1, #0xa
 	bl __modsi3
