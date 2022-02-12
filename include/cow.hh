@@ -1,20 +1,25 @@
-extern "C"
-{
-#include "barn_animal.h"
-}
+#pragma once
 
-struct Cow // : BarnAnimal
+#include "barn_animal.hh"
+
+struct Cow : public BarnAnimal
 {
+    enum GrowthStage
+    {
+        STAGE_0,
+        STAGE_1,
+        STAGE_2,
+    };
+
     Cow(u8 * name, u32 * param, u32 age, u32 days_fed);
     Cow(u32 * param, u32 age, u32 days_fed);
 
-    u32 method_0809BD90(void);
-    bool method_0809BDC0(void);
+    GrowthStage GetGrowthStage(void);
+    bool CanBeMilked(void);
     bool method_0809BE08(void);
-    bool method_0809BE38(void);
+    bool HasBeenMilked(void);
     u32 method_0809BE44(void);
     void method_0809BE74(void);
 
-    struct BarnAnimal barnAnimal;
-    bool milked : 1;
+    /* +34 */ bool milked : 1;
 };

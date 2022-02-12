@@ -10,52 +10,50 @@ extern u8 gUnk_8103680[];
 
 // Initializes a cow struct with a name
 Cow::Cow(u8 * name, u32 * param, u32 age, u32 days_fed)
+    : BarnAnimal(name, param, age, days_fed), milked(false)
 {
-    sub_809B828(&barnAnimal, name, param, age, days_fed);
-    milked = 0;
 }
 
 // Initializes a cow struct
 Cow::Cow(u32 * param, u32 age, u32 days_fed)
+    : BarnAnimal(param, age, days_fed), milked(false)
 {
-    sub_809B870(&barnAnimal, param, age, days_fed);
-    milked = 0;
 }
 
 // Returns a cow's stage
-u32 Cow::method_0809BD90(void)
+Cow::GrowthStage Cow::GetGrowthStage(void)
 {
     u32 days_fed = sub_809B4F4((struct Livestock *) this);
     u32 age = sub_809B220((struct Animal *) this);
 
     if (days_fed < 14 && age < 20)
-        return 0;
+        return STAGE_0;
     else if (days_fed < 21 && age < 34)
-        return 1;
+        return STAGE_1;
     else
-        return 2;
+        return STAGE_2;
 }
 
 // Returns whether a cow can be milked or not
-bool Cow::method_0809BDC0(void)
+bool Cow::CanBeMilked(void)
 {
     return !milked
-        && !sub_809B8B0(&barnAnimal)
+        && !IsPregnant()
         && !sub_809B50C((struct Livestock *) this)
         && !sub_809B504((struct Livestock *) this)
-        && method_0809BD90() == 2;
+        && GetGrowthStage() == STAGE_2;
 }
 
 // Returns whether a cow can be impregnated
 bool Cow::method_0809BE08(void)
 {
-    return !sub_809B8B0(&barnAnimal)
+    return !IsPregnant()
         && !sub_809B50C((struct Livestock *) this)
-        && method_0809BD90() == 2;
+        && GetGrowthStage() == STAGE_2;
 }
 
 // Returns whether a cow has been milked
-bool Cow::method_0809BE38(void)
+bool Cow::HasBeenMilked(void)
 {
     return milked;
 }
@@ -85,6 +83,6 @@ u32 Cow::method_0809BE44(void)
 // Checks if you fed a cow and resets the milked flag
 void Cow::method_0809BE74(void)
 {
-    sub_809B970(&barnAnimal, gUnk_8103680);
+    method_0809B970(gUnk_8103680);
     milked = false;
 }

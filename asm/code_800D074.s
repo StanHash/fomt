@@ -101,7 +101,7 @@ _0800D106:
 	bl sub_800DA14
 	cmp r0, #0
 	beq _0800D134
-	bl sub_809B8B0
+	bl IsPregnant__10BarnAnimal
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800D13C
@@ -157,11 +157,11 @@ sub_800D158: @ 0x0800D158
 	cmp r4, #0
 	beq _0800D1AA
 	movs r5, #0
-	bl sub_809B8D4
+	bl method_0809B8D4__10BarnAnimal
 	cmp r0, #0x14
 	bhi _0800D1A4
 	adds r0, r4, #0
-	bl sub_809B8BC
+	bl method_0809B8BC__10BarnAnimal
 	cmp r0, #0x1d
 	bls _0800D1A6
 _0800D1A4:
@@ -788,7 +788,7 @@ _0800D63A:
 	adds r7, r4, #0
 	cmp r4, #0
 	beq _0800D70C
-	bl sub_809B8B0
+	bl IsPregnant__10BarnAnimal
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _0800D70C
@@ -805,7 +805,7 @@ _0800D63A:
 	rsbs r1, r1, #0
 	add sl, r1
 	adds r0, r4, #0
-	bl sub_809B8F0
+	bl method_0809B8F0__10BarnAnimal
 _0800D688:
 	add r0, sp, #0x10
 	mov r1, sb
@@ -925,7 +925,7 @@ _0800D762:
 	cmp r8, r0
 	bne _0800D7A0
 	adds r0, r4, #0
-	bl sub_809B8F0
+	bl method_0809B8F0__10BarnAnimal
 	b _0800D7DE
 	.align 2, 0
 _0800D780: .4byte 0x55555555
@@ -943,7 +943,7 @@ _0800D7A0:
 	cmp r0, #0
 	bne _0800D7DE
 	adds r0, r4, #0
-	bl sub_809B8B0
+	bl IsPregnant__10BarnAnimal
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800D7DE
@@ -963,7 +963,7 @@ _0800D7A0:
 	rsbs r0, r0, #0
 	add sl, r0
 	adds r0, r4, #0
-	bl sub_809B8F0
+	bl method_0809B8F0__10BarnAnimal
 _0800D7DE:
 	cmp r5, #0
 	beq _0800D7EA
@@ -1060,7 +1060,7 @@ sub_800D864: @ 0x0800D864
 	bl sub_800DA64
 	cmp r0, #0
 	beq _0800D8A0
-	bl sub_809B8B0
+	bl IsPregnant__10BarnAnimal
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _0800D8A0
@@ -1167,7 +1167,7 @@ _0800D8C4:
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0800D9A4
-	bl sub_809B91C
+	bl ResetPregnancy__10BarnAnimal
 	add r5, sp, #0x10
 	adds r0, r5, #0
 	mov r1, sp
@@ -1198,7 +1198,7 @@ _0800D9A4:
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0800D9E8
-	bl sub_809B91C
+	bl ResetPregnancy__10BarnAnimal
 	adds r0, r7, #0
 	mov r1, sp
 	movs r2, #0
