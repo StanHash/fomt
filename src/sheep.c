@@ -49,8 +49,7 @@ bool8 sub_809BF00(struct Sheep *sheep){
 
 
 //RNG functions
-extern u32 sub_80D11E4();
-extern u32 sub_80D0ED0(u32 param_1, u32 param_2);
+extern int sub_80D11E4();
 
 
 //Returns whether a sheep can be sheared
@@ -75,7 +74,7 @@ u32 sub_809BF84(struct Sheep *sheep){
     sheep->daysUntilProduct = 7;
     level = sub_809B538((struct Livestock *)sheep);
     if(level == 4){
-        if(sub_80D0ED0(sub_80D11E4(), 255))
+        if (sub_80D11E4() % 255 != 0)
             temp = 4;
         else
             temp = 5;

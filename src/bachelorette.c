@@ -94,8 +94,7 @@ void sub_809E550(struct Bachelorette *bach){
 
 
 //uknown functions
-extern u32 sub_80D11E4();
-extern u32 sub_80D0ED0(u32 param_1, u32 param_2);
+extern int sub_80D11E4(void);
 
 //Checks if you talked to a bachelorette
 void sub_809E574(struct Bachelorette *bach, u8 param_2, u32 param_3){
@@ -112,7 +111,7 @@ void sub_809E574(struct Bachelorette *bach, u8 param_2, u32 param_3){
 
     if(param_2){
         if((u32)bach->playerEvents > 5){
-            if(4 < sub_809E340(&bach->npc) && (s32)sub_80D0ED0(sub_80D11E4(), 100) < 10) //No idea what these last two do
+            if(4 < sub_809E340(&bach->npc) && (sub_80D11E4() % 100) < 10) //No idea what these last two do
                 sub_809E4E8(bach, 1000); //Decrease love points
         }else{
             sub_809E4E8(bach, 100); //Decrease love points

@@ -116,12 +116,11 @@ void sub_809E75C(struct HarvestSprite *hsprite){
 }
 
 //uknown functions
-extern u32 sub_80D11E4();
-extern u32 sub_80D0ED0(u32 param_1, u32 param_2);
+extern int sub_80D11E4();
 
 //Checks if you talked to a sprite that day and resets the playedMinigame flag
 void sub_809E7A0(struct HarvestSprite *hsprite){
-    sub_809E3E8(&hsprite->npc, sub_80D0ED0(sub_80D11E4(), 100));
+    sub_809E3E8(&hsprite->npc, sub_80D11E4() % 100);
     hsprite->playedMinigame = FALSE;
 }
 

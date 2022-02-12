@@ -1115,7 +1115,7 @@ _0800CBEA:
 	bl sub_809BC8C
 	bl sub_80D11E4
 	movs r1, #0xa
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809B2A8

@@ -1,8 +1,7 @@
 #include "chicken.h"
 
 //RNG functions
-extern u32 sub_80D11E4();
-extern u32 sub_80D0ED0(u32 param_1, u32 param_2);
+extern int sub_80D11E4(void);
 
 extern u8 gUnk_8103660[];
 
@@ -50,7 +49,7 @@ u32 sub_809BCFC(struct Chicken *chicken){
     
     level = sub_809B538(&chicken->lstock);
     if(level == 4){
-        if(sub_80D0ED0(sub_80D11E4(), 255))
+        if (sub_80D11E4() % 255 != 0)
             temp = 4;
         else
             temp = 5;

@@ -214,7 +214,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
         beq _0809B6FC\n\
         bl sub_80D11E4\n\
         movs r1, #0x64\n\
-        bl sub_80D0ED0\n\
+        bl __modsi3\n\
         ldrb r1, [r7]\n\
         cmp r0, r1\n\
         bge _0809B6FC\n\
@@ -230,7 +230,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
         bne _0809B6FC\n\
         bl sub_80D11E4\n\
         movs r1, #0x64\n\
-        bl sub_80D0ED0\n\
+        bl __modsi3\n\
         ldrb r1, [r7, #1]\n\
         cmp r0, r1\n\
         bge _0809B6FC\n\
@@ -291,7 +291,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
     _0809B752:\n\
         bl sub_80D11E4\n\
         movs r1, #0x64\n\
-        bl sub_80D0ED0\n\
+        bl __modsi3\n\
         adds r1, r7, #2\n\
         adds r1, r1, r4\n\
         ldrb r1, [r1]\n\
@@ -346,7 +346,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
     _0809B7B6:\n\
         bl sub_80D11E4\n\
         movs r1, #0x64\n\
-        bl sub_80D0ED0\n\
+        bl __modsi3\n\
         adds r1, r7, #0\n\
         adds r1, #9\n\
         adds r1, r1, r4\n\
@@ -381,7 +381,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
     _0809B7FA:\n\
         bl sub_80D11E4\n\
         movs r1, #0x64\n\
-        bl sub_80D0ED0\n\
+        bl __modsi3\n\
         ldrb r4, [r4, #2]\n\
         cmp r0, r4\n\
         bge _0809B80E\n\
@@ -424,13 +424,13 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
     unhappy = lstock->unhappy;
     if(unhappy){
         if(fed){
-            if((s32)sub_80D0ED0(sub_80D11E4(), 100) < param[0]){
+            if((s32)__modsi3(sub_80D11E4(), 100) < param[0]){
                 lstock->unhappy = 0;
             }
         }
     }else{
         if(!fed){
-            if((s32)sub_80D0ED0(sub_80D11E4(), 100) < param[1]){
+            if((s32)__modsi3(sub_80D11E4(), 100) < param[1]){
                 lstock->unhappy = 1;
             }
         }
@@ -461,7 +461,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
             if(6 < index)
                 index = 6;
             
-            if((s32)sub_80D0ED0(sub_80D11E4(), 100) < param[2 + index]){
+            if((s32)__modsi3(sub_80D11E4(), 100) < param[2 + index]){
                lstock->sick = 1;
             }
         }
@@ -492,7 +492,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
             index = 4;
         }
 
-        if((s32)sub_80D0ED0(sub_80D11E4(), 100) < *(param + 9 + index)){
+        if((s32)__modsi3(sub_80D11E4(), 100) < *(param + 9 + index)){
             val = 2;
         }
     }
@@ -508,7 +508,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
             p3 = p1 + 4;
         }
 
-        if ((s32)sub_80D0ED0(sub_80D11E4(), 100) < p1[2])
+        if ((s32)__modsi3(sub_80D11E4(), 100) < p1[2])
             val = 1;
     }
     

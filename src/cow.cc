@@ -5,7 +5,6 @@ extern "C"
 
 //RNG functions
 extern int sub_80D11E4(void);
-extern int sub_80D0ED0(int param_1, int param_2); // __umodsi3
 
 extern u8 gUnk_8103680[];
 
@@ -74,8 +73,7 @@ u32 Cow::method_0809BE44(void)
     {
         u32 temp;
 
-        // TODO: rand() % 255 != 0
-        if (sub_80D0ED0(sub_80D11E4(), 255) != 0)
+        if (sub_80D11E4() % 255 != 0)
             temp = 4;
         else
             temp = 5;

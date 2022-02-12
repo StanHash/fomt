@@ -409,7 +409,7 @@ sub_809EAF8: @ 0x0809EAF8
 	adds r4, r0, #0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -553,7 +553,7 @@ sub_809EBEC: @ 0x0809EBEC
 	adds r4, r0, #0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -871,7 +871,7 @@ sub_809EE4C: @ 0x0809EE4C
 	adds r4, r0, #0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4401,14 +4401,14 @@ sub_80A0B18: @ 0x080A0B18
 	adds r4, #0x70
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
 	adds r4, #0x14
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4425,7 +4425,7 @@ sub_80A0B18: @ 0x080A0B18
 _080A0B88:
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
@@ -4435,14 +4435,14 @@ _080A0B9C:
 	adds r4, #0xb0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
 	adds r4, #0x14
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4452,7 +4452,7 @@ _080A0B9C:
 	adds r4, #0x2c
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4461,7 +4461,7 @@ _080A0B9C:
 	adds r4, r7, r2
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4470,7 +4470,7 @@ _080A0B9C:
 	adds r4, r7, r3
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4479,7 +4479,7 @@ _080A0B9C:
 	adds r4, r7, r0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4488,7 +4488,7 @@ _080A0B9C:
 	adds r4, r7, r1
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4497,7 +4497,7 @@ _080A0B9C:
 	adds r4, r7, r2
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
@@ -4507,7 +4507,7 @@ _080A0B9C:
 	adds r4, r7, r3
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4516,7 +4516,7 @@ _080A0B9C:
 	adds r4, r7, r0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4525,7 +4525,7 @@ _080A0B9C:
 	adds r4, r7, r1
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4534,7 +4534,7 @@ _080A0B9C:
 	adds r4, r7, r2
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4543,7 +4543,7 @@ _080A0B9C:
 	adds r4, r7, r3
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4552,7 +4552,7 @@ _080A0B9C:
 	adds r4, r7, r0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4561,7 +4561,7 @@ _080A0B9C:
 	adds r4, r7, r1
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
@@ -4571,7 +4571,7 @@ _080A0B9C:
 	adds r4, r7, r2
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4580,7 +4580,7 @@ _080A0B9C:
 	adds r4, r7, r3
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
@@ -4590,7 +4590,7 @@ _080A0B9C:
 	adds r4, r7, r0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4599,7 +4599,7 @@ _080A0B9C:
 	adds r4, r7, r1
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4608,7 +4608,7 @@ _080A0B9C:
 	adds r4, r7, r2
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4617,7 +4617,7 @@ _080A0B9C:
 	adds r4, r7, r3
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
@@ -4635,7 +4635,7 @@ _080A0B9C:
 	adds r5, r0, #0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4659,7 +4659,7 @@ _080A0DDE:
 	adds r4, r7, r2
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4668,7 +4668,7 @@ _080A0DDE:
 	adds r4, r7, r3
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4677,7 +4677,7 @@ _080A0DDE:
 	adds r4, r7, r0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4686,7 +4686,7 @@ _080A0DDE:
 	adds r4, r7, r1
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
@@ -4696,7 +4696,7 @@ _080A0DDE:
 	adds r4, r7, r2
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4712,7 +4712,7 @@ _080A0DDE:
 	adds r4, r7, r3
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -4729,7 +4729,7 @@ _080A0E88:
 	adds r4, r7, r0
 	bl sub_80D11E4
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
@@ -8962,7 +8962,7 @@ _080A307A:
 	adds r1, r1, r0
 	lsls r0, r1, #1
 	movs r1, #7
-	bl sub_80D0ED0
+	bl __modsi3
 	mov sb, r0
 	movs r0, #0
 	str r0, [sp]
@@ -10753,7 +10753,7 @@ _080A3EE4:
 	cmp r1, #0
 	blt _080A3F1E
 	movs r1, #6
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r4, r0, #5
 _080A3F1E:
 	lsls r0, r4, #1
@@ -10810,7 +10810,7 @@ sub_80A3F4C: @ 0x080A3F4C
 	bl sub_80D11E4
 	asrs r0, r0, #8
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	movs r4, #0
 	movs r3, #0
 	ldr r1, _080A3FDC @ =0x08104EAC
@@ -11043,7 +11043,7 @@ _080A4118:
 	bl sub_80D11E4
 	asrs r0, r0, #8
 	movs r1, #0x64
-	bl sub_80D0ED0
+	bl __modsi3
 	cmp r0, #0x45
 	bgt _080A413C
 	movs r0, #0
@@ -11073,7 +11073,7 @@ _080A415A:
 	bl sub_80D11E4
 	asrs r0, r0, #8
 	adds r1, r7, #0
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r7, r0, #0
 	b _080A4170
 _080A416E:
@@ -11468,7 +11468,7 @@ _080A44C4:
 	mov r4, sp
 	asrs r0, r0, #8
 	adds r1, r6, #1
-	bl sub_80D0ED0
+	bl __modsi3
 	ldrh r1, [r4, #4]
 	adds r1, r1, r0
 	strh r1, [r5, #4]
@@ -103204,8 +103204,8 @@ sub_80D0EC8:
 	svc #6
 	bx lr
 
-    .global sub_80D0ED0
-sub_80D0ED0:
+    .global __modsi3
+__modsi3:
 	cmp r1, #0
 	beq sub_80D0EC0
 	svc #6
@@ -103286,7 +103286,7 @@ _080D0F48:
 sub_80D0F4E: @ 0x080D0F4E
 	adds r3, r0, #0
 	orrs r3, r1
-	bpl sub_80D0ED0
+	bpl __modsi3
 	cmp r1, #0
 	beq sub_80D0EC0
 	movs r3, #1
@@ -126513,7 +126513,7 @@ _080DCC1E:
 _080DCC32:
 	bl sub_80D11E4
 	movs r1, #3
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r6, r0, #0
 	bl sub_80D11E4
 	movs r1, #0xf0
@@ -126523,12 +126523,12 @@ _080DCC32:
 	ldr r4, _080DCC98 @ =0x080F1672
 	bl sub_80D11E4
 	movs r1, #3
-	bl sub_80D0ED0
+	bl __modsi3
 	adds r0, r0, r4
 	ldrb r4, [r0]
 	bl sub_80D11E4
 	movs r1, #3
-	bl sub_80D0ED0
+	bl __modsi3
 	lsls r0, r0, #2
 	ldr r1, _080DCC9C @ =0x080F1678
 	adds r0, r0, r1
