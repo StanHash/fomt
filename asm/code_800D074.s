@@ -968,7 +968,7 @@ _0800D7DE:
 	cmp r5, #0
 	beq _0800D7EA
 	adds r0, r5, #0
-	bl sub_809BE74
+	bl method_0809BE74__3Cow
 	b _0800D7F0
 _0800D7EA:
 	adds r0, r6, #0
@@ -1173,7 +1173,7 @@ _0800D8C4:
 	mov r1, sp
 	movs r2, #0
 	movs r3, #0
-	bl sub_809BD70
+	bl __3CowPUiUiUi
 	adds r0, r4, #0
 	bl sub_809B228
 	lsrs r4, r0, #1

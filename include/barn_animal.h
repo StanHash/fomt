@@ -16,11 +16,6 @@ struct BarnAnimal{
     u32 unk_0x30; //48 0x30
 };
 
-typedef struct Cow {
-    struct BarnAnimal barnAnimal;
-    u32 milked:1; //0x34
-} Cow;
-
 typedef struct Sheep {
     struct BarnAnimal barnAnimal;
     u8 daysUntilProduct:3; //0x34

@@ -23,6 +23,7 @@ BUILD_NAME := hmfomt
 
 CC1      := tools/agbcc/bin/agbcc$(EXE)
 CC1_OLD  := tools/agbcc/bin/old_agbcc$(EXE)
+CC1PLUS  := tools/agbcc/bin/agbcp$(EXE)
 
 CPPFLAGS := -I tools/agbcc/include -I tools/agbcc -iquote include -Wno-trigraphs
 CFLAGS   := -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
@@ -49,13 +50,16 @@ LDSCRIPT     := ldscript.txt
 C_SRCS := $(wildcard $(C_SUBDIR)/*.c $(C_SUBDIR)/*/*.c $(C_SUBDIR)/*/*/*.c)
 C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(C_BUILDDIR)/%.o,$(C_SRCS))
 
+CC_SRCS := $(wildcard $(C_SUBDIR)/*.cc $(C_SUBDIR)/**/*.cc)
+CC_OBJS := $(patsubst $(C_SUBDIR)/%.cc,$(C_BUILDDIR)/%.o,$(CC_SRCS))
+
 ASM_SRCS := $(wildcard $(ASM_SUBDIR)/*.s)
 ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(ASM_BUILDDIR)/%.o,$(ASM_SRCS))
 
 DATA_ASM_SRCS := $(wildcard $(DATA_ASM_SUBDIR)/*.s)
 DATA_ASM_OBJS := $(patsubst $(DATA_ASM_SUBDIR)/%.s,$(DATA_ASM_BUILDDIR)/%.o,$(DATA_ASM_SRCS))
 
-ALL_OBJS := $(C_OBJS) $(ASM_OBJS) $(DATA_ASM_OBJS)
+ALL_OBJS := $(C_OBJS) $(CC_OBJS) $(ASM_OBJS) $(DATA_ASM_OBJS)
 
 SUBDIRS := $(sort $(dir $(ALL_OBJS)))
 
@@ -72,12 +76,18 @@ $(ELF): $(ALL_OBJS) $(LDSCRIPT)
 $(C_BUILDDIR)/%.o: $(C_SUBDIR)/%.c
 	$(CPP) $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
 	$(CC1) $(CFLAGS) $(C_BUILDDIR)/$*.i -o $(C_BUILDDIR)/$*.s
-	echo -e ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
+	echo ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
+	$(AS) $(ASFLAGS) $(C_BUILDDIR)/$*.s -o $@ 
+
+$(C_BUILDDIR)/%.o: $(C_SUBDIR)/%.cc
+	$(CPP) $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
+	$(CC1PLUS) $(CFLAGS) $(C_BUILDDIR)/$*.i -o $(C_BUILDDIR)/$*.s
+	echo ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
 	$(AS) $(ASFLAGS) $(C_BUILDDIR)/$*.s -o $@ 
 
 $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) $< -o $@
-    
+
 $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) $< -o $@
 
