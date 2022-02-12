@@ -1,9 +1,10 @@
 #include "sheep.hh"
 
+// TODO: cstdlib
+#include <stdlib.h>
+
 extern "C"
 {
-// RNG functions
-extern int sub_80D11E4();
 extern u8 gUnk_81036A0[];
 }
 
@@ -67,7 +68,7 @@ u32 Sheep::method_0809BF84(void)
     {
         u32 temp;
 
-        if (sub_80D11E4() % 255 != 0)
+        if (rand() % 255 != 0)
             temp = 4;
         else
             temp = 5;

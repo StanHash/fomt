@@ -1824,7 +1824,7 @@ sub_8000FF8: @ 0x08000FF8
 
 	non_word_aligned_thumb_func_start sub_080010BE
 sub_080010BE: @ 0x080010BE
-	bl sub_80D11E4
+	bl rand
 	adds r0, r7, #0
 	bl sub_80087C8
 	adds r0, r7, #0
@@ -18656,7 +18656,7 @@ _08009CDC:
 	bls _08009CE4
 	b _08009F6E
 _08009CE4:
-	bl sub_80D11E4
+	bl rand
 	movs r1, #1
 	ands r1, r0
 	movs r2, #0x23
@@ -18684,11 +18684,11 @@ _08009D12:
 	mov r2, sl
 	cmp r2, #0
 	beq _08009D38
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x2a
 	bl sub_80D0F4E
 	adds r6, r0, #0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x18
 	b _08009D4A
 	.align 2, 0
@@ -18696,11 +18696,11 @@ _08009D2C: .4byte 0x000005DC
 _08009D30: .4byte 0x000009C8
 _08009D34: .4byte 0x00001A94
 _08009D38:
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x2b
 	bl sub_80D0F4E
 	adds r6, r0, #0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x19
 _08009D4A:
 	bl sub_80D0F4E
@@ -18813,7 +18813,7 @@ _08009DCA:
 	movs r2, #8
 	bl sub_800A134
 _08009E2E:
-	bl sub_80D11E4
+	bl rand
 	movs r1, #1
 	ands r1, r0
 	movs r2, #0x23
@@ -18838,19 +18838,19 @@ _08009E56:
 	mov r1, sl
 	cmp r1, #0
 	beq _08009E70
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x2a
 	bl sub_80D0F4E
 	adds r6, r0, #0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x18
 	b _08009E82
 _08009E70:
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x2b
 	bl sub_80D0F4E
 	adds r6, r0, #0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x19
 _08009E82:
 	bl sub_80D0F4E
@@ -19284,7 +19284,7 @@ _0800A1B6:
 _0800A1CE:
 	cmp r4, #1
 	bne _0800A230
-	bl sub_80D11E4
+	bl rand
 	adds r1, r0, #0
 	movs r0, #0xff
 	ands r1, r0
@@ -20349,7 +20349,7 @@ _0800AA06:
 	beq _0800AA52
 	cmp r0, #1
 	bne _0800AA34
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #3
 	movs r1, #0xff
 	ands r0, r1
@@ -20369,7 +20369,7 @@ _0800AA34:
 	lsrs r0, r0, #0x1a
 	cmp r0, #0x18
 	bne _0800AAD2
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #3
 	movs r1, #0xff
 	ands r0, r1
@@ -20387,7 +20387,7 @@ _0800AA52:
 	cmp r0, #3
 	bne _0800AA8C
 _0800AA5E:
-	bl sub_80D11E4
+	bl rand
 	asrs r1, r0, #3
 	movs r0, #0xff
 	ands r1, r0
@@ -20413,7 +20413,7 @@ _0800AA7C:
 _0800AA8C:
 	cmp r0, #1
 	bne _0800AAD2
-	bl sub_80D11E4
+	bl rand
 	asrs r1, r0, #3
 	movs r0, #0xff
 	ands r1, r0
@@ -20594,7 +20594,7 @@ _0800AC26:
 	beq _0800AC32
 	b _0800AF1A
 _0800AC32:
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #3
 	movs r1, #0xff
 	ands r0, r1

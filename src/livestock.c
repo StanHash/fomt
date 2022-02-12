@@ -1,5 +1,8 @@
 #include "livestock.h"
 
+// TODO: cstdlib
+#include <stdlib.h>
+
 //Initializes a livestock struct with a name
 struct Livestock * sub_809B454(struct Livestock *lstock, u8 *name, u32 *param, u32 age, u32 daysFed){
     sub_809B12C(&lstock->animal, name, param, age);
@@ -212,7 +215,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
         bge _0809B6E0\n\
         cmp r3, #0\n\
         beq _0809B6FC\n\
-        bl sub_80D11E4\n\
+        bl rand\n\
         movs r1, #0x64\n\
         bl __modsi3\n\
         ldrb r1, [r7]\n\
@@ -228,7 +231,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
     _0809B6E0:\n\
         cmp r3, #0\n\
         bne _0809B6FC\n\
-        bl sub_80D11E4\n\
+        bl rand\n\
         movs r1, #0x64\n\
         bl __modsi3\n\
         ldrb r1, [r7, #1]\n\
@@ -289,7 +292,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
         bls _0809B752\n\
         movs r4, #6\n\
     _0809B752:\n\
-        bl sub_80D11E4\n\
+        bl rand\n\
         movs r1, #0x64\n\
         bl __modsi3\n\
         adds r1, r7, #2\n\
@@ -344,7 +347,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
         bls _0809B7B6\n\
         movs r4, #4\n\
     _0809B7B6:\n\
-        bl sub_80D11E4\n\
+        bl rand\n\
         movs r1, #0x64\n\
         bl __modsi3\n\
         adds r1, r7, #0\n\
@@ -379,7 +382,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
         cmp r0, r1\n\
         bls _0809B7EC\n\
     _0809B7FA:\n\
-        bl sub_80D11E4\n\
+        bl rand\n\
         movs r1, #0x64\n\
         bl __modsi3\n\
         ldrb r4, [r4, #2]\n\
@@ -424,13 +427,13 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
     unhappy = lstock->unhappy;
     if(unhappy){
         if(fed){
-            if((s32)__modsi3(sub_80D11E4(), 100) < param[0]){
+            if((s32)__modsi3(rand(), 100) < param[0]){
                 lstock->unhappy = 0;
             }
         }
     }else{
         if(!fed){
-            if((s32)__modsi3(sub_80D11E4(), 100) < param[1]){
+            if((s32)__modsi3(rand(), 100) < param[1]){
                 lstock->unhappy = 1;
             }
         }
@@ -461,7 +464,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
             if(6 < index)
                 index = 6;
             
-            if((s32)__modsi3(sub_80D11E4(), 100) < param[2 + index]){
+            if((s32)__modsi3(rand(), 100) < param[2 + index]){
                lstock->sick = 1;
             }
         }
@@ -492,7 +495,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
             index = 4;
         }
 
-        if((s32)__modsi3(sub_80D11E4(), 100) < *(param + 9 + index)){
+        if((s32)__modsi3(rand(), 100) < *(param + 9 + index)){
             val = 2;
         }
     }
@@ -508,7 +511,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
             p3 = p1 + 4;
         }
 
-        if ((s32)__modsi3(sub_80D11E4(), 100) < p1[2])
+        if ((s32)__modsi3(rand(), 100) < p1[2])
             val = 1;
     }
     

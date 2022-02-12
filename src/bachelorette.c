@@ -1,5 +1,8 @@
 #include "bachelorette.h"
 
+// TODO: cstdlib
+#include <stdlib.h>
+
 extern void sub_809E2D4(struct NPC *npc, u32 *param);
 
 //Initializes a Bachelorette struct
@@ -92,10 +95,6 @@ void sub_809E550(struct Bachelorette *bach){
     }
 }
 
-
-//uknown functions
-extern int sub_80D11E4(void);
-
 //Checks if you talked to a bachelorette
 void sub_809E574(struct Bachelorette *bach, u8 param_2, u32 param_3){
     //Increase love points if talked to today
@@ -111,7 +110,7 @@ void sub_809E574(struct Bachelorette *bach, u8 param_2, u32 param_3){
 
     if(param_2){
         if((u32)bach->playerEvents > 5){
-            if(4 < sub_809E340(&bach->npc) && (sub_80D11E4() % 100) < 10) //No idea what these last two do
+            if(4 < sub_809E340(&bach->npc) && (rand() % 100) < 10) //No idea what these last two do
                 sub_809E4E8(bach, 1000); //Decrease love points
         }else{
             sub_809E4E8(bach, 100); //Decrease love points

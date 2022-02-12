@@ -1,5 +1,8 @@
 #include "inventory.h"
 
+// TODO: cstdlib
+#include <stdlib.h>
+
 typedef struct FarmHouse {
     u8 unk_0_0:2; // Number of upgrades
     u8 unk_0_2:2; // Window style
@@ -407,9 +410,6 @@ void sub_800C364(FarmHouse *house, u32 param) {
     house->unk_3_6 = param;
 }
 
-// Random
-extern s32 sub_80D11E4();
-
 // Clears the fireplace and item in the vase
 void sub_800C390(FarmHouse *house, u32 param) {
     house->unk_4_6 = FALSE;
@@ -439,6 +439,6 @@ void sub_800C390(FarmHouse *house, u32 param) {
             break;
     }
     
-    if(house->unk_2_7 == 0 && ((sub_80D11E4() & 0xFF) <= 100) )
+    if(house->unk_2_7 == 0 && ((rand() & 0xFF) <= 100) )
         house->unk_1_7 = ARTICLE_NONE;
 }

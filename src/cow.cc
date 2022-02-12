@@ -1,13 +1,11 @@
 #include "cow.hh"
 
+// TODO: cstdlib
+#include <stdlib.h>
+
 extern "C"
 {
-
-//RNG functions
-extern int sub_80D11E4(void);
-
 extern u8 gUnk_8103680[];
-
 }
 
 // Initializes a cow struct with a name
@@ -73,7 +71,7 @@ u32 Cow::method_0809BE44(void)
     {
         u32 temp;
 
-        if (sub_80D11E4() % 255 != 0)
+        if (rand() % 255 != 0)
             temp = 4;
         else
             temp = 5;

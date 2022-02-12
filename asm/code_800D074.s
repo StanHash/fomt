@@ -1179,7 +1179,7 @@ _0800D8C4:
 	lsrs r4, r0, #1
 	cmp r4, #1
 	bls _0800D996
-	bl sub_80D11E4
+	bl rand
 	adds r1, r4, #0
 	bl sub_80D0F4E
 	adds r1, r0, #0
@@ -1209,7 +1209,7 @@ _0800D9A4:
 	lsrs r4, r0, #1
 	cmp r4, #1
 	bls _0800D9DE
-	bl sub_80D11E4
+	bl rand
 	adds r1, r4, #0
 	bl sub_80D0F4E
 	adds r1, r0, #0

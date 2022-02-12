@@ -1,7 +1,7 @@
 #include "pet.h"
 
-//Unknown function
-extern int sub_80D11E4(void);
+// TODO: cstdlib
+#include <stdlib.h>
 
 //Initializes a pet struct with a name
 struct Pet * sub_809B32C(struct Pet *pet, u8 *name, u32 *param, u32 age){
@@ -78,7 +78,7 @@ void sub_809B3C8(struct Pet *pet, u8 param){
     && !talked
     && !pet->_0x1D_0
     && pet->unk_0x1D_1 < 1
-    && (sub_80D11E4() % 100) < 30)
+    && (rand() % 100) < 30)
         sub_809B2DC(&pet->animal, 1);
     
     temp = pet->_0x1D_0;

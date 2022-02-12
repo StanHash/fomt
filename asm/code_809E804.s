@@ -407,7 +407,7 @@ sub_809EAEC: @ 0x0809EAEC
 sub_809EAF8: @ 0x0809EAF8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -551,7 +551,7 @@ sub_809EBD4: @ 0x0809EBD4
 sub_809EBEC: @ 0x0809EBEC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -869,7 +869,7 @@ _0809EE48: .4byte 0xFFFFFE3F
 sub_809EE4C: @ 0x0809EE4C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4399,14 +4399,14 @@ sub_80A0B18: @ 0x080A0B18
 	mov r8, r0
 	adds r4, r7, #0
 	adds r4, #0x70
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
 	adds r4, #0x14
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4423,7 +4423,7 @@ sub_80A0B18: @ 0x080A0B18
 	cmp r0, #1
 	bne _080A0B9C
 _080A0B88:
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r2, r0, #0
@@ -4433,14 +4433,14 @@ _080A0B88:
 _080A0B9C:
 	adds r4, r7, #0
 	adds r4, #0xb0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_809E3E8
 	adds r4, #0x14
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4450,7 +4450,7 @@ _080A0B9C:
 	adds r0, #0xd8
 	bl sub_809EE4C
 	adds r4, #0x2c
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4459,7 +4459,7 @@ _080A0B9C:
 	movs r2, #0x82
 	lsls r2, r2, #1
 	adds r4, r7, r2
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4468,7 +4468,7 @@ _080A0B9C:
 	movs r3, #0x8c
 	lsls r3, r3, #1
 	adds r4, r7, r3
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4477,7 +4477,7 @@ _080A0B9C:
 	movs r0, #0x96
 	lsls r0, r0, #1
 	adds r4, r7, r0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4486,7 +4486,7 @@ _080A0B9C:
 	movs r1, #0xa0
 	lsls r1, r1, #1
 	adds r4, r7, r1
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4495,7 +4495,7 @@ _080A0B9C:
 	movs r2, #0xaa
 	lsls r2, r2, #1
 	adds r4, r7, r2
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r2, r0, #0
@@ -4505,7 +4505,7 @@ _080A0B9C:
 	movs r3, #0xb6
 	lsls r3, r3, #1
 	adds r4, r7, r3
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4514,7 +4514,7 @@ _080A0B9C:
 	movs r0, #0xc0
 	lsls r0, r0, #1
 	adds r4, r7, r0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4523,7 +4523,7 @@ _080A0B9C:
 	movs r1, #0xca
 	lsls r1, r1, #1
 	adds r4, r7, r1
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4532,7 +4532,7 @@ _080A0B9C:
 	movs r2, #0xd4
 	lsls r2, r2, #1
 	adds r4, r7, r2
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4541,7 +4541,7 @@ _080A0B9C:
 	movs r3, #0xde
 	lsls r3, r3, #1
 	adds r4, r7, r3
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4550,7 +4550,7 @@ _080A0B9C:
 	movs r0, #0xe8
 	lsls r0, r0, #1
 	adds r4, r7, r0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4559,7 +4559,7 @@ _080A0B9C:
 	movs r1, #0xf2
 	lsls r1, r1, #1
 	adds r4, r7, r1
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r2, r0, #0
@@ -4569,7 +4569,7 @@ _080A0B9C:
 	movs r2, #0xfe
 	lsls r2, r2, #1
 	adds r4, r7, r2
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4578,7 +4578,7 @@ _080A0B9C:
 	movs r3, #0x84
 	lsls r3, r3, #2
 	adds r4, r7, r3
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r2, r0, #0
@@ -4588,7 +4588,7 @@ _080A0B9C:
 	movs r0, #0x8a
 	lsls r0, r0, #2
 	adds r4, r7, r0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4597,7 +4597,7 @@ _080A0B9C:
 	movs r1, #0x8f
 	lsls r1, r1, #2
 	adds r4, r7, r1
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4606,7 +4606,7 @@ _080A0B9C:
 	movs r2, #0x94
 	lsls r2, r2, #2
 	adds r4, r7, r2
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4615,7 +4615,7 @@ _080A0B9C:
 	movs r3, #0x99
 	lsls r3, r3, #2
 	adds r4, r7, r3
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r2, r0, #0
@@ -4633,7 +4633,7 @@ _080A0B9C:
 	adds r0, r4, #0
 	bl sub_809E33C
 	adds r5, r0, #0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4657,7 +4657,7 @@ _080A0DDE:
 	movs r2, #0xaa
 	lsls r2, r2, #2
 	adds r4, r7, r2
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4666,7 +4666,7 @@ _080A0DDE:
 	movs r3, #0xaf
 	lsls r3, r3, #2
 	adds r4, r7, r3
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4675,7 +4675,7 @@ _080A0DDE:
 	movs r0, #0xb4
 	lsls r0, r0, #2
 	adds r4, r7, r0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4684,7 +4684,7 @@ _080A0DDE:
 	movs r1, #0xb9
 	lsls r1, r1, #2
 	adds r4, r7, r1
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r2, r0, #0
@@ -4694,7 +4694,7 @@ _080A0DDE:
 	movs r2, #0xbf
 	lsls r2, r2, #2
 	adds r4, r7, r2
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4710,7 +4710,7 @@ _080A0DDE:
 	movs r3, #0xc4
 	lsls r3, r3, #2
 	adds r4, r7, r3
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -4727,7 +4727,7 @@ _080A0E88:
 	movs r0, #0xca
 	lsls r0, r0, #2
 	adds r4, r7, r0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
@@ -10745,7 +10745,7 @@ _080A3EE4:
 	orrs r0, r1
 	str r0, [sp]
 	movs r4, #0
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #8
 	ldr r1, [sp, #4]
 	cmp r1, #6
@@ -10807,7 +10807,7 @@ sub_80A3F4C: @ 0x080A3F4C
 	str r0, [sp, #0x10]
 	strb r4, [r5, #0x14]
 	movs r6, #0
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #8
 	movs r1, #0x64
 	bl __modsi3
@@ -11040,7 +11040,7 @@ _080A4118:
 	lsls r0, r4, #0x18
 	cmp r0, #0
 	ble _080A413E
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #8
 	movs r1, #0x64
 	bl __modsi3
@@ -11070,7 +11070,7 @@ _080A4154:
 _080A415A:
 	cmp r7, #1
 	ble _080A416E
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #8
 	adds r1, r7, #0
 	bl __modsi3
@@ -11463,7 +11463,7 @@ _080A44C4:
 	subs r6, r1, r0
 	cmp r6, #0
 	ble _080A44F2
-	bl sub_80D11E4
+	bl rand
 	mov r5, sp
 	mov r4, sp
 	asrs r0, r0, #8
@@ -26242,7 +26242,7 @@ _080AB778:
 sub_80AB788: @ 0x080AB788
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080AB7A0 @ =0x0000FFFF
 	ands r1, r0
 	adds r0, r1, #0
@@ -37447,7 +37447,7 @@ _080B0EAC:
 	movs r6, #4
 	mov sl, r6
 _080B0EB4:
-	bl sub_80D11E4
+	bl rand
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	muls r0, r5, r0
@@ -42577,7 +42577,7 @@ _080B36BE:
 	cmp r0, #0
 	beq _080B36EA
 	movs r4, #0xb4
-	bl sub_80D11E4
+	bl rand
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	adds r1, r0, #0
@@ -50512,7 +50512,7 @@ _080B75CC:
 	b _080B7612
 _080B75D2:
 	movs r4, #6
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B75E4 @ =0x0000FFFF
 	ands r1, r0
 	adds r0, r1, #0
@@ -50523,7 +50523,7 @@ _080B75D2:
 _080B75E4: .4byte 0x0000FFFF
 _080B75E8:
 	movs r4, #7
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B75FC @ =0x0000FFFF
 	ands r1, r0
 	adds r0, r1, #0
@@ -50535,7 +50535,7 @@ _080B75E8:
 _080B75FC: .4byte 0x0000FFFF
 _080B7600:
 	movs r4, #7
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B763C @ =0x0000FFFF
 	ands r1, r0
 	adds r0, r1, #0
@@ -52730,7 +52730,7 @@ _080B86F6:
 	cmp r0, #0
 	bne _080B8720
 	movs r4, #0x56
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B871C @ =0x0000FFFF
 	ands r1, r0
 	adds r0, r1, #0
@@ -52743,7 +52743,7 @@ _080B86F6:
 _080B8718: .4byte 0x00000B2C
 _080B871C: .4byte 0x0000FFFF
 _080B8720:
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B872C @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #9
@@ -52757,7 +52757,7 @@ _080B8730:
 	cmp r0, #0
 	bne _080B8762
 	movs r4, #0xab
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B8754 @ =0x0000FFFF
 	ands r1, r0
 	adds r0, r1, #0
@@ -52776,7 +52776,7 @@ _080B8758:
 	cmp r0, #0
 	bne _080B877C
 _080B8762:
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B8778 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #8
@@ -52790,7 +52790,7 @@ _080B8774: .4byte 0x00000B2C
 _080B8778: .4byte 0x0000FFFF
 _080B877C:
 	movs r4, #0x55
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B87B8 @ =0x0000FFFF
 	ands r1, r0
 	adds r0, r1, #0
@@ -54228,7 +54228,7 @@ _080B92C4:
 	ldrb r0, [r0]
 	cmp r0, #0x50
 	bls _080B9320
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B9318 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #9
@@ -54239,7 +54239,7 @@ _080B9314: .4byte 0x00000B5D
 _080B9318: .4byte 0x0000FFFF
 _080B931C: .4byte 0x00000B6A
 _080B9320:
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B9338 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #9
@@ -54265,7 +54265,7 @@ _080B9340:
 	ldrb r0, [r0]
 	cmp r0, #0x50
 	bls _080B9370
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B9368 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #9
@@ -54275,7 +54275,7 @@ _080B9340:
 _080B9368: .4byte 0x0000FFFF
 _080B936C: .4byte 0x00000B6C
 _080B9370:
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B9388 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #9
@@ -54294,7 +54294,7 @@ _080B9390:
 	ldrb r0, [r0]
 	cmp r0, #0x50
 	bls _080B93B8
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B93B0 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #9
@@ -54308,7 +54308,7 @@ _080B9390:
 _080B93B0: .4byte 0x0000FFFF
 _080B93B4: .4byte 0x00000B6E
 _080B93B8:
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B93C8 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #9
@@ -54324,7 +54324,7 @@ _080B93D0:
 	ldrb r0, [r0]
 	cmp r0, #0x50
 	bls _080B93FC
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B93F8 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #9
@@ -54343,7 +54343,7 @@ _080B93F0:
 	.align 2, 0
 _080B93F8: .4byte 0x0000FFFF
 _080B93FC:
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B9420 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #9
@@ -54769,7 +54769,7 @@ sub_80B9734: @ 0x080B9734
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	movs r4, #0x64
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B9780 @ =0x0000FFFF
 	ands r1, r0
 	adds r0, r1, #0
@@ -55351,7 +55351,7 @@ _080B9B7C:
 	adds r5, #0x74
 	adds r6, r5, r4
 	ldr r7, [r6]
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B9BE8 @ =0x0000FFFF
 	mov sb, r1
 	ands r0, r1
@@ -55379,7 +55379,7 @@ _080B9BB0:
 	cmp ip, r0
 	bgt _080B9C32
 	movs r4, #0x64
-	bl sub_80D11E4
+	bl rand
 	mov r3, sb
 	ands r0, r3
 	muls r0, r4, r0
@@ -55440,7 +55440,7 @@ _080B9C24:
 	b _080B9CC8
 _080B9C32:
 	movs r4, #0x64
-	bl sub_80D11E4
+	bl rand
 	mov r1, sb
 	ands r0, r1
 	muls r0, r4, r0
@@ -55581,7 +55581,7 @@ _080B9CF6:
 	ldrb r0, [r0]
 	cmp r0, #0xef
 	bls _080B9DA8
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B9D70 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #9
@@ -55647,7 +55647,7 @@ _080B9DB2:
 	ldr r4, [r0]
 	cmp r4, #0
 	bne _080B9DEC
-	bl sub_80D11E4
+	bl rand
 	ldr r5, _080B9DE8 @ =0x0000FFFF
 	ands r0, r5
 	lsrs r0, r0, #9
@@ -55656,7 +55656,7 @@ _080B9DB2:
 	ldrb r1, [r1]
 	cmp r0, r1
 	blo _080B9DDE
-	bl sub_80D11E4
+	bl rand
 	ands r0, r5
 	lsrs r0, r0, #9
 	cmp r0, #0x6e
@@ -55724,7 +55724,7 @@ _080B9E42:
 	adds r5, #0x74
 	adds r0, r5, r4
 	ldr r6, [r0]
-	bl sub_80D11E4
+	bl rand
 	ldr r2, _080B9E90 @ =0x0000FFFF
 	mov sl, r2
 	ands r0, r2
@@ -55736,7 +55736,7 @@ _080B9E42:
 	ldrb r1, [r1]
 	cmp r0, r1
 	bhs _080B9EE6
-	bl sub_80D11E4
+	bl rand
 	mov r1, sl
 	ands r0, r1
 	lsrs r4, r0, #0xf
@@ -55828,7 +55828,7 @@ sub_80B9F0C: @ 0x080B9F0C
 	adds r0, r0, r5
 	movs r1, #2
 	str r1, [r0]
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B9F34 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #0xe
@@ -55851,7 +55851,7 @@ sub_80B9F38: @ 0x080B9F38
 	adds r0, r0, r5
 	movs r1, #4
 	str r1, [r0]
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080B9F60 @ =0x0000FFFF
 	ands r1, r0
 	lsrs r1, r1, #0xe
@@ -56071,7 +56071,7 @@ sub_80BA0C4: @ 0x080BA0C4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r4, #0x64
-	bl sub_80D11E4
+	bl rand
 	ldr r1, _080BA0F8 @ =0x0000FFFF
 	ands r1, r0
 	adds r0, r1, #0
@@ -69851,7 +69851,7 @@ _080C0B18: .4byte 0x0000060A
 _080C0B1C: .4byte 0x08107FB0
 _080C0B20: .4byte 0x00000614
 _080C0B24:
-	bl sub_80D11E4
+	bl rand
 	adds r1, r0, #0
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x1f
@@ -78974,7 +78974,7 @@ _080C5412:
 	subs r4, r4, r5
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
-	bl sub_80D11E4
+	bl rand
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	muls r0, r4, r0
@@ -103667,8 +103667,8 @@ _080D11DC:
 	.byte 0x06, 0x49, 0x08, 0x60
 	.byte 0x70, 0x47, 0x00, 0x00
 
-	thumb_func_start sub_80D11E4
-sub_80D11E4: @ 0x080D11E4
+	thumb_func_start rand
+rand: @ 0x080D11E4
 	add r0, pc, #0x10
 	ldm r0!, {r1, r2, r3}
 	ldr r0, [r1]
@@ -119278,7 +119278,7 @@ _080D8FE8:
 	ldr r0, _080D9030 @ =0x000004CC
 	add r0, sp
 	str r1, [r0]
-	bl sub_80D11E4
+	bl rand
 	movs r4, #0
 	ldr r5, _080D9034 @ =0x000004F4
 	add r5, sp
@@ -126511,22 +126511,22 @@ _080DCC1E:
 	adds r3, #0x59
 	str r3, [sp, #0x64]
 _080DCC32:
-	bl sub_80D11E4
+	bl rand
 	movs r1, #3
 	bl __modsi3
 	adds r6, r0, #0
-	bl sub_80D11E4
+	bl rand
 	movs r1, #0xf0
 	lsls r1, r1, #1
 	bl sub_80D0F4E
 	adds r5, r0, #0
 	ldr r4, _080DCC98 @ =0x080F1672
-	bl sub_80D11E4
+	bl rand
 	movs r1, #3
 	bl __modsi3
 	adds r0, r0, r4
 	ldrb r4, [r0]
-	bl sub_80D11E4
+	bl rand
 	movs r1, #3
 	bl __modsi3
 	lsls r0, r0, #2
@@ -127543,7 +127543,7 @@ sub_80DD460: @ 0x080DD460
 	beq _080DD4A4
 	b _080DD4B8
 _080DD476:
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #4
 	movs r1, #3
 	ands r0, r1
@@ -128350,7 +128350,7 @@ _080DDA3E:
 	b _080DDBD6
 _080DDA50:
 	strh r2, [r1]
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #4
 	movs r1, #3
 	ands r0, r1
@@ -128673,7 +128673,7 @@ _080DDCA8:
 	mov r8, r1
 	b _080DDE1E
 _080DDCB4:
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #8
 	movs r1, #1
 	ands r0, r1
@@ -128691,7 +128691,7 @@ _080DDCB4:
 	adds r4, r6, #0
 	adds r4, #0x60
 	strh r0, [r4]
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #8
 	ands r0, r5
 	lsls r0, r0, #0xb

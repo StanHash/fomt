@@ -2110,7 +2110,7 @@ _0809D060:
 	mov r1, r8
 	cmp r1, #0
 	beq _0809D10E
-	bl sub_80D11E4
+	bl rand
 	adds r4, r0, #0
 	adds r0, r6, #0
 	bl sub_809D8A4
@@ -2122,7 +2122,7 @@ _0809D060:
 	mov sb, r0
 	mov r5, sb
 	adds r5, #1
-	bl sub_80D11E4
+	bl rand
 	adds r4, r0, #0
 	adds r0, r6, #0
 	bl sub_809D8B8
@@ -2146,7 +2146,7 @@ _0809D060:
 	movs r1, #3
 	orrs r0, r1
 	strb r0, [r2, #4]
-	bl sub_80D11E4
+	bl rand
 	asrs r1, r0, #8
 	movs r0, #3
 	ands r1, r0
@@ -2260,7 +2260,7 @@ sub_809D168: @ 0x0809D168
 	ldr r1, [sp]
 	bl sub_809D418
 	str r0, [sp, #0x14]
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #4
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0xc]
@@ -2305,7 +2305,7 @@ _0809D1C0:
 	str r5, [sp, #0x24]
 	cmp r0, #1
 	bgt _0809D2D0
-	bl sub_80D11E4
+	bl rand
 	asrs r2, r0, #4
 	movs r0, #0xff
 	ands r2, r0
@@ -2449,12 +2449,12 @@ _0809D2EC:
 	subs r4, #1
 	str r4, [sp, #0x20]
 _0809D2FA:
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #8
 	ldr r1, [sp, #0xc]
 	bl sub_80D0F4E
 	adds r4, r0, #0
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #8
 	ldr r1, [sp, #0x10]
 	bl sub_80D0F4E
@@ -2537,7 +2537,7 @@ _0809D38C:
 	movs r2, #4
 	orrs r0, r2
 	strb r0, [r1, #4]
-	bl sub_80D11E4
+	bl rand
 	asrs r2, r0, #8
 	movs r0, #0xff
 	ands r2, r0
@@ -2756,7 +2756,7 @@ sub_809D500: @ 0x0809D500
 	ldr r1, [sp]
 	bl sub_809D79C
 	str r0, [sp, #0x14]
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #4
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0xc]
@@ -2800,7 +2800,7 @@ _0809D558:
 	str r5, [sp, #0x24]
 	cmp r0, #1
 	bgt _0809D660
-	bl sub_80D11E4
+	bl rand
 	asrs r2, r0, #4
 	movs r0, #0xff
 	ands r2, r0
@@ -2941,12 +2941,12 @@ _0809D67C:
 	subs r2, #1
 	str r2, [sp, #0x20]
 _0809D68A:
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #8
 	ldr r1, [sp, #0xc]
 	bl sub_80D0F4E
 	adds r4, r0, #0
-	bl sub_80D11E4
+	bl rand
 	asrs r0, r0, #8
 	ldr r1, [sp, #0x10]
 	bl sub_80D0F4E
@@ -3028,7 +3028,7 @@ _0809D71C:
 	movs r2, #4
 	orrs r0, r2
 	strb r0, [r1, #4]
-	bl sub_80D11E4
+	bl rand
 	asrs r2, r0, #8
 	movs r0, #0xff
 	ands r2, r0

@@ -1,5 +1,8 @@
 #include "harvest_sprite.h"
 
+// TODO: cstdlib
+#include <stdlib.h>
+
 extern void sub_809E2D4(struct NPC *npc, u32 *param);
 
 //Initializes a Harvest Sprite struct
@@ -115,12 +118,9 @@ void sub_809E75C(struct HarvestSprite *hsprite){
     }
 }
 
-//uknown functions
-extern int sub_80D11E4();
-
 //Checks if you talked to a sprite that day and resets the playedMinigame flag
 void sub_809E7A0(struct HarvestSprite *hsprite){
-    sub_809E3E8(&hsprite->npc, sub_80D11E4() % 100);
+    sub_809E3E8(&hsprite->npc, rand() % 100);
     hsprite->playedMinigame = FALSE;
 }
 
