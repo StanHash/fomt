@@ -972,7 +972,7 @@ _0800D7DE:
 	b _0800D7F0
 _0800D7EA:
 	adds r0, r6, #0
-	bl sub_809BFB4
+	bl method_0809BFB4__5Sheep
 _0800D7F0:
 	adds r7, #0x3c
 	movs r1, #1
@@ -1203,7 +1203,7 @@ _0800D9A4:
 	mov r1, sp
 	movs r2, #0
 	movs r3, #0
-	bl sub_809BEBC
+	bl __5SheepPUiUiUi
 	adds r0, r4, #0
 	bl sub_809B228
 	lsrs r4, r0, #1

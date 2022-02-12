@@ -16,11 +16,6 @@ struct BarnAnimal{
     u32 unk_0x30; //48 0x30
 };
 
-typedef struct Sheep {
-    struct BarnAnimal barnAnimal;
-    u8 daysUntilProduct:3; //0x34
-} Sheep;
-
 //Initializes a barn animal struct with a name
 struct BarnAnimal * sub_809B828(struct BarnAnimal *barnAnimal, u8 *name, u32 *param, u32 age, u32 daysFed);
 //Initializes a barn animal struct
