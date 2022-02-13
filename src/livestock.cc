@@ -4,8 +4,8 @@
 #include <stdlib.h>
 
 // Initializes a livestock struct with a name
-Livestock::Livestock(u8 * name, u32 * param, u32 age, u32 days_fed)
-    : Animal(name, param, age)
+Livestock::Livestock(char const * name, ActorLocation const * location, u32 age, u32 days_fed)
+    : Animal(name, location, age)
 {
     this->days_fed = days_fed;
     fed = false;
@@ -19,8 +19,8 @@ Livestock::Livestock(u8 * name, u32 * param, u32 age, u32 days_fed)
 }
 
 // Initializes a livestock struct
-Livestock::Livestock(u32 * param, u32 age, u32 days_fed)
-    : Animal(param, age)
+Livestock::Livestock(ActorLocation const * location, u32 age, u32 days_fed)
+    : Animal(location, age)
 {
     this->days_fed = days_fed;
     fed = false;
@@ -72,9 +72,10 @@ u32 sub_809B524(struct Livestock *lstock){
 }
 
 //Returns a livestock's product level
-u32 sub_809B538(struct Livestock *lstock){
-    u32 affection = sub_809B228(lstock);
-    
+u32 sub_809B538(struct Livestock *lstock)
+{
+    u32 affection = lstock->GetAffection();
+
     //0-3 Hearts
     if(affection <= 100)
         return 0;
@@ -84,7 +85,8 @@ u32 sub_809B538(struct Livestock *lstock){
         return 1;
     
     //Festival winner + 8-10 Hearts
-    else if(sub_809B218(lstock)){
+    else if (lstock->IsFestivalWinner())
+    {
         //600 outdoor hours
         if(sub_809B524(lstock) >= 36000)
             return 4;
@@ -175,7 +177,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
         push {r7}\n\
         adds r5, r0, #0\n\
         adds r7, r1, #0\n\
-        bl sub_809B2E8\n\
+        bl DayUpdate__6Animal\n\
         ldrb r2, [r5, #0x1c]\n\
         lsls r0, r2, #0x1a\n\
         lsrs r3, r0, #0x1f\n\
@@ -362,7 +364,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
         adds r6, r7, #0\n\
         adds r6, #0x20\n\
         adds r0, r5, #0\n\
-        bl sub_809B220\n\
+        bl GetAge__6Animal\n\
         adds r1, r0, #0\n\
         adds r0, r7, #0\n\
         adds r0, #0x14\n\
@@ -408,7 +410,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
     u32 temp, index, val;
     u8 *p1, *p2, *p3;
     
-    sub_809B2E8(&lstock->animal);
+    DayUpdate__6Animal(&lstock->animal);
 
     fed = lstock->fed;
     if(fed){
@@ -498,7 +500,7 @@ void sub_809B674(struct Livestock *lstock, u8 *param){
     if(val == 0){
         p1 = param + 16;
         p2 = param + 32;
-        temp = sub_809B220(&lstock->animal);
+        temp = GetAge__6Animal(&lstock->animal);
         p3 = param + 20;
         
         while(p3 != p2 && (*(u16 *)(p1 + 4) <= temp)){

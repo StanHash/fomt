@@ -608,7 +608,7 @@ sub_800D4D4: @ 0x0800D4D4
 	mov sl, r7
 	cmp r7, #0
 	beq _0800D598
-	bl sub_809B220
+	bl GetAge__6Animal
 	adds r4, r0, #0
 	adds r5, r4, #0
 	adds r0, r6, #0
@@ -631,7 +631,7 @@ sub_800D4D4: @ 0x0800D4D4
 	orrs r0, r1
 	strh r0, [r6, #4]
 	adds r0, r7, #0
-	bl sub_809B1F4
+	bl GetName__6Animal
 	adds r5, r0, #0
 	adds r7, r6, #0
 	adds r7, #0xc
@@ -666,7 +666,7 @@ _0800D550:
 	orrs r0, r1
 	str r0, [r6, #4]
 	mov r0, sl
-	bl sub_809B1F4
+	bl GetName__6Animal
 	adds r5, r0, #0
 	adds r7, r6, #0
 	adds r7, #0x1c
@@ -869,7 +869,7 @@ _0800D688:
 	strb r1, [r4, #6]
 	adds r0, r7, #0
 	mov r1, sp
-	bl SetLocation__7LocatedPC8Location
+	bl SetLocation__5ActorPC13ActorLocation
 _0800D70C:
 	adds r6, #1
 	ldr r2, [sp, #0x18]
@@ -952,7 +952,7 @@ _0800D7A0:
 	beq _0800D7DE
 	mov r0, sp
 	adds r1, r4, #0
-	bl __7LocatedRC7Located
+	bl __5ActorRC5Actor
 	mov r0, sp
 	ldrh r0, [r0]
 	lsls r0, r0, #0x16
@@ -1173,9 +1173,9 @@ _0800D8C4:
 	mov r1, sp
 	movs r2, #0
 	movs r3, #0
-	bl __3CowPUiUiUi
+	bl __3CowPC13ActorLocationUiUi
 	adds r0, r4, #0
-	bl sub_809B228
+	bl GetAffection__6Animal
 	lsrs r4, r0, #1
 	cmp r4, #1
 	bls _0800D996
@@ -1184,7 +1184,7 @@ _0800D8C4:
 	bl sub_80D0F4E
 	adds r1, r0, #0
 	adds r0, r5, #0
-	bl sub_809B2A8
+	bl AddAffection__6Animali
 _0800D996:
 	mov r0, sl
 	adds r1, r5, #0
@@ -1203,9 +1203,9 @@ _0800D9A4:
 	mov r1, sp
 	movs r2, #0
 	movs r3, #0
-	bl __5SheepPUiUiUi
+	bl __5SheepPC13ActorLocationUiUi
 	adds r0, r4, #0
-	bl sub_809B228
+	bl GetAffection__6Animal
 	lsrs r4, r0, #1
 	cmp r4, #1
 	bls _0800D9DE
@@ -1214,7 +1214,7 @@ _0800D9A4:
 	bl sub_80D0F4E
 	adds r1, r0, #0
 	adds r0, r7, #0
-	bl sub_809B2A8
+	bl AddAffection__6Animali
 _0800D9DE:
 	mov r0, sl
 	adds r1, r7, #0

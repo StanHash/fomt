@@ -4,8 +4,8 @@
 
 struct Livestock : public Animal
 {
-    Livestock::Livestock(u8 * name, u32 * param, u32 age, u32 days_fed);
-    Livestock::Livestock(u32 * param, u32 age, u32 days_fed);
+    Livestock::Livestock(char const * name, ActorLocation const * location, u32 age, u32 days_fed);
+    Livestock::Livestock(ActorLocation const * location, u32 age, u32 days_fed);
 
     /* +28 */ u8 days_fed:5;
     /* +28 */ bool fed:1;

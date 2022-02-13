@@ -32,6 +32,7 @@ SECTIONS
         src/code_800EFEC.o(.text); /* RucksackSlot  */
         asm/code_800F170.o(.text);
 
+        src/actor.o(.text);
         src/animal.o(.text);
         src/pet.o(.text);
         src/livestock.o(.text);

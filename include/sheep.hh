@@ -10,8 +10,8 @@ struct Sheep : public BarnAnimal
         STAGE_1,
     };
 
-    Sheep(u8 * name, u32 * param, u32 age, u32 days_fed);
-    Sheep(u32 * param, u32 age, u32 days_fed);
+    Sheep(char const * name, ActorLocation const * location, u32 age, u32 days_fed);
+    Sheep(ActorLocation const * location, u32 age, u32 days_fed);
 
     GrowthStage GetGrowthStage(void);
     bool IsSheared(void);

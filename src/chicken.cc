@@ -9,8 +9,8 @@ extern u8 gUnk_8103660[];
 }
 
 // Initializes a chicken struct with a name
-Chicken::Chicken(u8 * name, u32 * param, u32 age, u32 days_fed)
-    : Livestock(name, param, age, days_fed)
+Chicken::Chicken(char const * name, ActorLocation const * location, u32 age, u32 days_fed)
+    : Livestock(name, location, age, days_fed)
 {
     unk_24 = 0;
     unk_28.unk_00 = 0;
@@ -18,8 +18,8 @@ Chicken::Chicken(u8 * name, u32 * param, u32 age, u32 days_fed)
 }
 
 // Initializes a chicken struct
-Chicken::Chicken(u32 * param, u32 age, u32 days_fed)
-    : Livestock(param, age, days_fed)
+Chicken::Chicken(ActorLocation const * location, u32 age, u32 days_fed)
+    : Livestock(location, age, days_fed)
 {
     unk_24 = 0;
     unk_28.unk_00 = 0;
@@ -29,7 +29,7 @@ Chicken::Chicken(u32 * param, u32 age, u32 days_fed)
 // Returns whether the chicken is an adult or not
 Chicken::GrowthStage Chicken::GetGrowthStage(void)
 {
-    if (sub_809B220((struct Animal *) this) < 7)
+    if (GetAge() < 7)
         return STAGE_0;
     else
         return STAGE_1;

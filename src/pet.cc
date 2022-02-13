@@ -4,8 +4,8 @@
 #include <stdlib.h>
 
 //Initializes a pet struct with a name
-Pet::Pet(u8 * name, u32 * param, u32 age)
-    : Animal(name, param, age)
+Pet::Pet(char const * name, ActorLocation const * location, u32 age)
+    : Animal(name, location, age)
 {
     _0x1C = 0;
     _0x1D_0 = FALSE;
@@ -13,8 +13,8 @@ Pet::Pet(u8 * name, u32 * param, u32 age)
 }
 
 //Initializes a pet struct without a name
-Pet::Pet(u32 * param, u32 age)
-    : Animal(param, age)
+Pet::Pet(ActorLocation const * location, u32 age)
+    : Animal(location, age)
 {
     _0x1C = 0;
     _0x1D_0 = FALSE;
@@ -68,12 +68,13 @@ void sub_809B3BC(struct Pet *pet){
 }
 
 //Checks if you talked, brushed, or played with/rode your dog/horse
-void sub_809B3C8(struct Pet *pet, u8 param){
-    u8 brushed = sub_809B230(pet);
-    u8 talked = sub_809B238(pet);
+void sub_809B3C8(struct Pet *pet, u8 param)
+{
+    u8 brushed = pet->HasBeenBrushed();
+    u8 talked = pet->HasBeenTalkedTo();
     u8 temp; //Won't match without these
 
-    sub_809B2E8(pet);
+    pet->DayUpdate();
 
     if(!param
     && !brushed
@@ -81,7 +82,7 @@ void sub_809B3C8(struct Pet *pet, u8 param){
     && !pet->_0x1D_0
     && !pet->unk_0x1D_1
     && (rand() % 100) < 30)
-        sub_809B2DC(pet, 1);
+        pet->SubtractAffection(1);
 
     temp = pet->_0x1D_0;
     if(temp){
@@ -89,7 +90,7 @@ void sub_809B3C8(struct Pet *pet, u8 param){
         pet->_0x1D_0 = FALSE;
     }
     if(pet->unk_0x1D_1){
-        sub_809B2A8(pet, 1);
+        pet->AddAffection(1);
         pet->unk_0x1D_1 = FALSE;
     }
 }

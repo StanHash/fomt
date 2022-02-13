@@ -692,7 +692,7 @@ sub_800C91C: @ 0x0800C91C
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0800C988
-	bl sub_809B220
+	bl GetAge__6Animal
 	adds r2, r0, #0
 	ldrb r1, [r5, #3]
 	ldrb r0, [r5, #4]
@@ -712,7 +712,7 @@ sub_800C91C: @ 0x0800C91C
 	orrs r1, r0
 	strb r1, [r5, #4]
 	adds r0, r4, #0
-	bl sub_809B1F4
+	bl GetName__6Animal
 	adds r6, r0, #0
 	adds r7, r5, #0
 	adds r7, #8
@@ -895,7 +895,7 @@ _0800CAC0:
 	beq _0800CAE6
 	mov r0, sp
 	adds r1, r4, #0
-	bl __7LocatedRC7Located
+	bl __5ActorRC5Actor
 	mov r3, sb
 	ldrh r0, [r3]
 	lsls r0, r0, #0x16
@@ -917,7 +917,7 @@ _0800CAE6:
 	beq _0800CB30
 	ldr r0, [sp, #0x14]
 	adds r1, r4, #0
-	bl __7LocatedRC7Located
+	bl __5ActorRC5Actor
 	adds r0, r4, #0
 	bl method_0809BCFC__7Chicken
 	adds r4, r0, #0
@@ -1112,13 +1112,13 @@ _0800CBEA:
 	mov r1, sp
 	movs r2, #0
 	movs r3, #0
-	bl __7ChickenPUiUiUi
+	bl __7ChickenPC13ActorLocationUiUi
 	bl rand
 	movs r1, #0xa
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809B2A8
+	bl AddAffection__6Animali
 	adds r0, r7, #0
 	adds r1, r4, #0
 	bl sub_800C8BC

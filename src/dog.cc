@@ -58,7 +58,7 @@ void sub_809B9D4(struct Dog *dog, u8 *name){
         mov r1, sb\n\
         mov r2, sp\n\
         movs r3, #1\n\
-        bl __3PetPcPUiUi\n\
+        bl __3PetPCcPC13ActorLocationUi\n\
         mov r0, r8\n\
         str r0, [r6, #0x20]\n\
         ldrh r0, [r6, #0x2c]\n\
@@ -113,7 +113,7 @@ void sub_809B9D4(struct Dog *dog, u8 *name){
 
 //Returns whether the dog is an adult or not
 bool8 sub_809BB34(struct Dog *dog){
-    return 59 < sub_809B220((struct Animal *)dog);
+    return 59 < dog->GetAge();
 }
 
 void sub_809BB48(struct Dog *dog, u32 *param){
@@ -169,8 +169,8 @@ void sub_809BBA8(struct Dog *dog){
 }
 
 //Initializes a dog struct with a name
-Dog::Dog(u8 * name, u32 * param, u32 age)
-    : Pet(name, param, age)
+Dog::Dog(char const * name, ActorLocation const * location, u32 age)
+    : Pet(name, location, age)
 {
     unk_0x20 = 0;
     unk_0x24 = 0;

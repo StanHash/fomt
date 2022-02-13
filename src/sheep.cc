@@ -9,22 +9,24 @@ extern u8 gUnk_81036A0[];
 }
 
 // Initializes a sheep struct with a name
-Sheep::Sheep(u8 * name, u32 * param, u32 age, u32 days_fed)
-    : BarnAnimal(name, param, age, days_fed), days_until_product(0)
+Sheep::Sheep(char const * name, ActorLocation const * location, u32 age, u32 days_fed)
+    : BarnAnimal(name, location, age, days_fed)
 {
+    days_until_product = 0;
 }
 
 // Initializes a sheep struct
-Sheep::Sheep(u32 * param, u32 age, u32 days_fed)
-    : BarnAnimal(param, age, days_fed), days_until_product(0)
+Sheep::Sheep(ActorLocation const * location, u32 age, u32 days_fed)
+    : BarnAnimal(location, age, days_fed)
 {
+    days_until_product = 0;
 }
 
 // Returns a sheep's stage
 Sheep::GrowthStage Sheep::GetGrowthStage(void)
 {
     u32 days_fed = sub_809B4F4((struct Livestock *) this);
-    u32 age = sub_809B220((struct Animal *) this);
+    u32 age = GetAge();
 
     if (days_fed < 14 && age < 20)
         return STAGE_0;

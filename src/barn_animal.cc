@@ -1,8 +1,8 @@
 #include "barn_animal.hh"
 
 // Initializes a barn animal struct with a name
-BarnAnimal::BarnAnimal(u8 * name, u32 * param, u32 age, u32 days_fed)
-    : Livestock(name, param, age, days_fed)
+BarnAnimal::BarnAnimal(char const * name, ActorLocation const * location, u32 age, u32 days_fed)
+    : Livestock(name, location, age, days_fed)
 {
     pregnant = false;
     days_pregnant = 0;
@@ -13,8 +13,8 @@ BarnAnimal::BarnAnimal(u8 * name, u32 * param, u32 age, u32 days_fed)
 }
 
 // Initializes a barn animal struct
-BarnAnimal::BarnAnimal(u32 * param, u32 age, u32 days_fed)
-    : Livestock(param, age, days_fed)
+BarnAnimal::BarnAnimal(ActorLocation const * location, u32 age, u32 days_fed)
+    : Livestock(location, age, days_fed)
 {
     pregnant = false;
     days_pregnant = 0;

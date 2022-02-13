@@ -2,7 +2,7 @@
 
 struct Dog : public Pet
 {
-    Dog(u8 * name, u32 * param, u32 age);
+    Dog(char const * name, ActorLocation const * location, u32 age);
 
     /* +20 */ u32 unk_0x20;
     /* +24 */ u16 unk_0x24;

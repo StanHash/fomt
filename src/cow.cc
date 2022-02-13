@@ -9,22 +9,24 @@ extern u8 gUnk_8103680[];
 }
 
 // Initializes a cow struct with a name
-Cow::Cow(u8 * name, u32 * param, u32 age, u32 days_fed)
-    : BarnAnimal(name, param, age, days_fed), milked(false)
+Cow::Cow(char const * name, ActorLocation const * location, u32 age, u32 days_fed)
+    : BarnAnimal(name, location, age, days_fed)
 {
+    milked = false;
 }
 
 // Initializes a cow struct
-Cow::Cow(u32 * param, u32 age, u32 days_fed)
-    : BarnAnimal(param, age, days_fed), milked(false)
+Cow::Cow(ActorLocation const * location, u32 age, u32 days_fed)
+    : BarnAnimal(location, age, days_fed)
 {
+    milked = false;
 }
 
 // Returns a cow's stage
 Cow::GrowthStage Cow::GetGrowthStage(void)
 {
     u32 days_fed = sub_809B4F4((struct Livestock *) this);
-    u32 age = sub_809B220((struct Animal *) this);
+    u32 age = GetAge();
 
     if (days_fed < 14 && age < 20)
         return STAGE_0;

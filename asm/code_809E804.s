@@ -4985,7 +4985,7 @@ _080A10D6:
 	bl sub_800C5CC
 	cmp r0, #0
 	beq _080A10EE
-	bl sub_809B228
+	bl GetAffection__6Animal
 	adds r6, r6, r0
 _080A10EE:
 	adds r5, #1
@@ -9958,7 +9958,7 @@ _080A3846:
 	mov sb, r1
 	strb r0, [r7, #0x10]
 	mov r0, r8
-	bl sub_809B1F4
+	bl GetName__6Animal
 	adds r6, r0, #0
 	bl strlen
 	adds r4, r0, #0
@@ -9974,7 +9974,7 @@ _080A3862:
 	mov r2, sb
 	strb r2, [r0]
 	mov r0, r8
-	bl sub_809B228
+	bl GetAffection__6Animal
 	strb r0, [r7, #0x11]
 	add r6, sp, #0x18
 	adds r0, r6, #0
@@ -9998,7 +9998,7 @@ _080A389E:
 	cmp r0, #0
 	beq _080A38B0
 	mov r0, r8
-	bl sub_809B26C
+	bl SetFestivalWinner__6Animal
 _080A38B0:
 	ldr r4, [r5, #4]
 	adds r0, r6, #0
@@ -10624,7 +10624,7 @@ _080A3DEC:
 	bl sub_8007110
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809B240
+	bl SetName__6AnimalPCc
 	b _080A3E56
 _080A3E02:
 	ldr r0, [r5, #8]
@@ -100277,7 +100277,7 @@ _080CF7AC:
 	ldr r0, [r7, #8]
 	ldr r1, _080CF7E4 @ =0x00001C70
 	adds r0, r0, r1
-	bl sub_809B1F4
+	bl GetName__6Animal
 	mov r8, r0
 	mov r4, r8
 	adds r0, r6, #0
@@ -100330,7 +100330,7 @@ _080CF820:
 	movs r0, #0
 	strb r0, [r1]
 	mov r0, sb
-	bl sub_809B1F4
+	bl GetName__6Animal
 	mov r8, r0
 	mov r4, r8
 	adds r0, r6, #0

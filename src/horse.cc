@@ -3,8 +3,8 @@
 //TODO: Document and revise the pointer casts
 
 //Initializes a horse struct
-Horse::Horse(u32 * param, u32 age)
-    : Pet(param, age)
+Horse::Horse(ActorLocation const * location, u32 age)
+    : Pet(location, age)
 {
     unk_0x20 = 0;
     unk_0x24 = 0;
@@ -16,7 +16,7 @@ extern "C"
 
 //Returns whether the horse is an adult or not
 bool8 sub_809BC10(struct Horse *horse){
-    return 119 < sub_809B220((struct Animal *)horse);
+    return 119 < horse->GetAge();
 }
 
 void sub_809BC24(struct Horse *horse, u32 *param){

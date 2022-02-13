@@ -12,8 +12,8 @@ struct Chicken : public Livestock
         STAGE_1,
     };
 
-    Chicken(u8 * name, u32 * param, u32 age, u32 days_fed);
-    Chicken(u32 * param, u32 age, u32 days_fed);
+    Chicken(char const * name, ActorLocation const * location, u32 age, u32 days_fed);
+    Chicken(ActorLocation const * location, u32 age, u32 days_fed);
 
     GrowthStage GetGrowthStage(void);
     bool method_0809BCC0(void);

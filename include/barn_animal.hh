@@ -6,8 +6,8 @@
 
 struct BarnAnimal : public Livestock
 {
-    BarnAnimal(u8 * name, u32 * param, u32 age, u32 days_fed);
-    BarnAnimal(u32 * param, u32 age, u32 days_fed);
+    BarnAnimal(char const * name, ActorLocation const * location, u32 age, u32 days_fed);
+    BarnAnimal(ActorLocation const * location, u32 age, u32 days_fed);
 
     bool IsPregnant(void);
     u8 method_0809B8BC(void);

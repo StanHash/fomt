@@ -2,7 +2,7 @@
 
 struct Horse : public Pet
 {
-    Horse(u32 * param, u32 age);
+    Horse(ActorLocation const * location, u32 age);
 
     /* +20 */ u32 unk_0x20;
     /* +24 */ u16 unk_0x24;
