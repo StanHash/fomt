@@ -1112,7 +1112,7 @@ _0800CBEA:
 	mov r1, sp
 	movs r2, #0
 	movs r3, #0
-	bl __7ChickenPC13ActorLocationUiUi
+	bl __7ChickenRC13ActorLocationUiUi
 	bl rand
 	movs r1, #0xa
 	bl __modsi3

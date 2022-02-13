@@ -9,7 +9,7 @@ extern LivestockDayUpdateInfo const gUnk_8103660;
 }
 
 // Initializes a chicken struct with a name
-Chicken::Chicken(char const * name, ActorLocation const * location, u32 age, u32 days_fed)
+Chicken::Chicken(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
     : Livestock(name, location, age, days_fed)
 {
     unk_24 = 0;
@@ -18,7 +18,7 @@ Chicken::Chicken(char const * name, ActorLocation const * location, u32 age, u32
 }
 
 // Initializes a chicken struct
-Chicken::Chicken(ActorLocation const * location, u32 age, u32 days_fed)
+Chicken::Chicken(ActorLocation const & location, u32 age, u32 days_fed)
     : Livestock(location, age, days_fed)
 {
     unk_24 = 0;

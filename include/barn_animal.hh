@@ -6,12 +6,12 @@
 
 struct BarnAnimal : public Livestock
 {
-    BarnAnimal(char const * name, ActorLocation const * location, u32 age, u32 days_fed);
-    BarnAnimal(ActorLocation const * location, u32 age, u32 days_fed);
+    BarnAnimal(char const * name, ActorLocation const & location, u32 age, u32 days_fed);
+    BarnAnimal(ActorLocation const & location, u32 age, u32 days_fed);
 
     bool IsPregnant(void);
-    u8 method_0809B8BC(void);
-    u8 method_0809B8D4(void);
+    u8 GetDaysPregnant(void);
+    u8 GetDaysPregnantHealthy(void);
     void SetFed(void);
     void StartPregnancy(void);
     void ResetPregnancy(void);
@@ -25,6 +25,5 @@ struct BarnAnimal : public Livestock
     /* +24 */ u32 days_pregnant : 5;
     /* +24 */ u32 days_pregnant_healthy : 5;
     /* +28 */ u32 unk_28;
-    /* +2C */ UnkBarnAnimal2C unk_2C;
-    /* +30 */ UnkBarnAnimal2C unk_30;
+    /* +2C */ UnkBarnAnimal2C_x2 unk_2C;
 };

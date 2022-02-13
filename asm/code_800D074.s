@@ -157,11 +157,11 @@ sub_800D158: @ 0x0800D158
 	cmp r4, #0
 	beq _0800D1AA
 	movs r5, #0
-	bl method_0809B8D4__10BarnAnimal
+	bl GetDaysPregnantHealthy__10BarnAnimal
 	cmp r0, #0x14
 	bhi _0800D1A4
 	adds r0, r4, #0
-	bl method_0809B8BC__10BarnAnimal
+	bl GetDaysPregnant__10BarnAnimal
 	cmp r0, #0x1d
 	bls _0800D1A6
 _0800D1A4:
@@ -869,7 +869,7 @@ _0800D688:
 	strb r1, [r4, #6]
 	adds r0, r7, #0
 	mov r1, sp
-	bl SetLocation__5ActorPC13ActorLocation
+	bl SetLocation__5ActorRC13ActorLocation
 _0800D70C:
 	adds r6, #1
 	ldr r2, [sp, #0x18]
@@ -1173,7 +1173,7 @@ _0800D8C4:
 	mov r1, sp
 	movs r2, #0
 	movs r3, #0
-	bl __3CowPC13ActorLocationUiUi
+	bl __3CowRC13ActorLocationUiUi
 	adds r0, r4, #0
 	bl GetAffection__6Animal
 	lsrs r4, r0, #1
@@ -1203,7 +1203,7 @@ _0800D9A4:
 	mov r1, sp
 	movs r2, #0
 	movs r3, #0
-	bl __5SheepPC13ActorLocationUiUi
+	bl __5SheepRC13ActorLocationUiUi
 	adds r0, r4, #0
 	bl GetAffection__6Animal
 	lsrs r4, r0, #1

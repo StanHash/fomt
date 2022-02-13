@@ -4,8 +4,8 @@
 
 struct Pet : public Animal
 {
-    Pet(char const * name, ActorLocation const * location, u32 age);
-    Pet(ActorLocation const * location, u32 age);
+    Pet(char const * name, ActorLocation const & location, u32 age);
+    Pet(ActorLocation const & location, u32 age);
 
     // TODO:
     // what are Pet::HasTalkedToday and Animal::HasBeenTalkedTo?

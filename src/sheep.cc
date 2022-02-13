@@ -9,14 +9,14 @@ extern LivestockDayUpdateInfo const gUnk_81036A0;
 }
 
 // Initializes a sheep struct with a name
-Sheep::Sheep(char const * name, ActorLocation const * location, u32 age, u32 days_fed)
+Sheep::Sheep(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
     : BarnAnimal(name, location, age, days_fed)
 {
     days_until_product = 0;
 }
 
 // Initializes a sheep struct
-Sheep::Sheep(ActorLocation const * location, u32 age, u32 days_fed)
+Sheep::Sheep(ActorLocation const & location, u32 age, u32 days_fed)
     : BarnAnimal(location, age, days_fed)
 {
     days_until_product = 0;

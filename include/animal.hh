@@ -4,8 +4,8 @@
 
 struct Animal : public Actor
 {
-    Animal::Animal(char const * name, ActorLocation const * location, u32 age);
-    Animal::Animal(ActorLocation const * location, u32 age);
+    Animal::Animal(char const * name, ActorLocation const & location, u32 age);
+    Animal::Animal(ActorLocation const & location, u32 age);
 
     char const * GetName(void);
     bool IsFestivalWinner(void);

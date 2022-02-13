@@ -9,14 +9,14 @@ extern LivestockDayUpdateInfo const gUnk_8103680;
 }
 
 // Initializes a cow struct with a name
-Cow::Cow(char const * name, ActorLocation const * location, u32 age, u32 days_fed)
+Cow::Cow(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
     : BarnAnimal(name, location, age, days_fed)
 {
     milked = false;
 }
 
 // Initializes a cow struct
-Cow::Cow(ActorLocation const * location, u32 age, u32 days_fed)
+Cow::Cow(ActorLocation const & location, u32 age, u32 days_fed)
     : BarnAnimal(location, age, days_fed)
 {
     milked = false;

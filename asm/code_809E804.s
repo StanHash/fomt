@@ -100249,7 +100249,7 @@ _080CF782:
 	ldr r0, [r7, #8]
 	ldr r1, _080CF794 @ =0x00001C70
 	adds r0, r0, r1
-	bl sub_809BB34
+	bl GetGrowthStage__3Dog
 	cmp r0, #1
 	bne _080CF79C
 	ldr r5, _080CF798 @ =0x08117A0C

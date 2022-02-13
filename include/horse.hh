@@ -1,12 +1,26 @@
+#pragma once
+
 #include "pet.hh"
+
+#include "unk-types.hh"
 
 struct Horse : public Pet
 {
-    Horse(ActorLocation const * location, u32 age);
+    enum GrowthStage
+    {
+        STAGE_0,
+        STAGE_1,
+    };
 
-    /* +20 */ u32 unk_0x20;
-    /* +24 */ u16 unk_0x24;
-    /* +26 */ u8  unk_0x26;
-    /* +27 */ u8  unk_0x27;
-    /* +28 */ u32 unk_0x28;
+    Horse(char const * name, ActorLocation const & location, u32 age);
+    Horse(ActorLocation const & location, u32 age);
+
+    GrowthStage GetGrowthStage(void);
+    void method_0809BC24(UnkBarnAnimal2C const * param);
+    void method_0809BC30(UnkBarnAnimal2C_x2 const * param);
+    void method_0809BC40(void);
+    void DayUpdate(void);
+
+    /* +20 */ u32 unk_20;
+    /* +24 */ UnkBarnAnimal2C_x2 unk_24;
 };

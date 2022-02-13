@@ -1,5 +1,7 @@
 #pragma once
 
+#include "global.h"
+
 // TODO: move elsewhere
 struct UnkBarnAnimal2C
 {
@@ -8,7 +10,7 @@ struct UnkBarnAnimal2C
     /* +03 */ u8 unk_03;
 };
 
-// TODO: move elsewhere, and figure out if we need this
+// TODO: move elsewhere
 struct UnkBarnAnimal2C_x2
 {
     /* +00 */ UnkBarnAnimal2C a;

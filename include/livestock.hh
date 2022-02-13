@@ -29,8 +29,8 @@ struct Livestock : public Animal
         PRODUCT_RANK_5,
     };
 
-    Livestock::Livestock(char const * name, ActorLocation const * location, u32 age, u32 days_fed);
-    Livestock::Livestock(ActorLocation const * location, u32 age, u32 days_fed);
+    Livestock::Livestock(char const * name, ActorLocation const & location, u32 age, u32 days_fed);
+    Livestock::Livestock(ActorLocation const & location, u32 age, u32 days_fed);
 
     u32 GetDaysFed(void);
     bool HasBeenFed(void);

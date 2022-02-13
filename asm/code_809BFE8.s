@@ -42,7 +42,7 @@ sub_809BFE8: @ 0x0809BFE8
 	strb r6, [r4, #6]
 	adds r0, r5, #0
 	mov r1, sp
-	bl __5ActorPC13ActorLocation
+	bl __5ActorRC13ActorLocation
 	ldrb r1, [r5, #8]
 	movs r0, #0x80
 	rsbs r0, r0, #0
@@ -180,7 +180,7 @@ sub_809C0D4: @ 0x0809C0D4
 	strb r6, [r4, #6]
 	adds r0, r5, #0
 	mov r1, sp
-	bl SetLocation__5ActorPC13ActorLocation
+	bl SetLocation__5ActorRC13ActorLocation
 	add r1, sp, #0x10
 	adds r0, r5, #0
 	bl sub_809C098

@@ -5,7 +5,7 @@
 
 #include "unk-inl.hh"
 
-Livestock::Livestock(char const * name, ActorLocation const * location, u32 age, u32 days_fed)
+Livestock::Livestock(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
     : Animal(name, location, age)
 {
     this->days_fed = days_fed;
@@ -19,7 +19,7 @@ Livestock::Livestock(char const * name, ActorLocation const * location, u32 age,
     total_outdoor_minutes = 0;
 }
 
-Livestock::Livestock(ActorLocation const * location, u32 age, u32 days_fed)
+Livestock::Livestock(ActorLocation const & location, u32 age, u32 days_fed)
     : Animal(location, age)
 {
     this->days_fed = days_fed;

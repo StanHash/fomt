@@ -3,20 +3,20 @@
 // TODO: cstdlib
 #include <stdlib.h>
 
-Pet::Pet(char const * name, ActorLocation const * location, u32 age)
+Pet::Pet(char const * name, ActorLocation const & location, u32 age)
     : Animal(name, location, age)
 {
     adequacy = 0;
     has_played_today = false;
-    has_talked_today = FALSE;
+    has_talked_today = false;
 }
 
-Pet::Pet(ActorLocation const * location, u32 age)
+Pet::Pet(ActorLocation const & location, u32 age)
     : Animal(location, age)
 {
     adequacy = 0;
     has_played_today = false;
-    has_talked_today = FALSE;
+    has_talked_today = false;
 }
 
 u32 Pet::GetAdequacy(void)
@@ -62,7 +62,6 @@ void Pet::SetHasTalkedToday(void)
     has_talked_today = true;
 }
 
-// Checks if you talked, brushed, or played with/rode your dog/horse
 void Pet::DayUpdate(bool disable_affection_decay)
 {
     bool brushed = HasBeenBrushedToday();

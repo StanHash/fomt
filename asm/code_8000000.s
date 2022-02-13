@@ -18615,7 +18615,7 @@ sub_8009C6C: @ 0x08009C6C
 	bl sub_8009C3C
 	cmp r0, #0
 	beq _08009C94
-	bl sub_809BC48
+	bl DayUpdate__5Horse
 _08009C94:
 	movs r1, #0xf0
 	lsls r1, r1, #1

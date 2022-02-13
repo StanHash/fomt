@@ -1,47 +1,49 @@
 #include "horse.hh"
 
-//TODO: Document and revise the pointer casts
+Horse::Horse(char const * name, ActorLocation const & location, u32 age)
+    : Pet(name, location, age)
+{
+    unk_20 = 0;
+    unk_24.a.unk_00 = 0;
+    unk_24.a.unk_02 = 0;
+}
 
 //Initializes a horse struct
-Horse::Horse(ActorLocation const * location, u32 age)
+Horse::Horse(ActorLocation const & location, u32 age)
     : Pet(location, age)
 {
-    unk_0x20 = 0;
-    unk_0x24 = 0;
-    unk_0x26 = 0;
+    unk_20 = 0;
+    unk_24.a.unk_00 = 0;
+    unk_24.a.unk_02 = 0;
 }
 
-extern "C"
+Horse::GrowthStage Horse::GetGrowthStage(void)
 {
-
-//Returns whether the horse is an adult or not
-bool8 sub_809BC10(struct Horse *horse){
-    return 119 < horse->GetAge();
+    return GetAge() < 120 ? STAGE_0 : STAGE_1;
 }
 
-void sub_809BC24(struct Horse *horse, u32 *param){
-    *(u32 *)&horse->unk_0x24 = *param;
-    horse->unk_0x20 = 0;
+void Horse::method_0809BC24(UnkBarnAnimal2C const * param)
+{
+    unk_24.a = *param;
+    unk_20 = 0;
 }
 
-void sub_809BC30(struct Horse *horse, u32 *param){
-    u32 temp = param[1];
-
-    *(u32 *)&horse->unk_0x24 = *param;
-    horse->unk_0x28 = temp;
-    horse->unk_0x20 = 1;
+void Horse::method_0809BC30(UnkBarnAnimal2C_x2 const * param)
+{
+    unk_24 = *param;
+    unk_20 = 1;
 }
 
-void sub_809BC40(struct Horse *horse){
-    horse->unk_0x20 = 2;
+void Horse::method_0809BC40(void)
+{
+    unk_20 = 2;
 }
 
-//Checks if you talked, brushed or rode your horse
-void sub_809BC48(struct Horse *horse){
-    horse->DayUpdate(false);
-    horse->unk_0x20 = 0;
-    horse->unk_0x24 = 0;
-    horse->unk_0x26 = 0;
-}
+void Horse::DayUpdate(void)
+{
+    Pet::DayUpdate(false);
 
+    unk_20 = 0;
+    unk_24.a.unk_00 = 0;
+    unk_24.a.unk_02 = 0;
 }

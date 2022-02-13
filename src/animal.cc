@@ -12,7 +12,7 @@ extern u8 gUnk_8103658[];
 }
 
 // Initializes an animal struct with a name
-Animal::Animal(char const * name, ActorLocation const * location, u32 age)
+Animal::Animal(char const * name, ActorLocation const & location, u32 age)
     : Actor(location)
 {
     char * temp = this->name;
@@ -28,7 +28,7 @@ Animal::Animal(char const * name, ActorLocation const * location, u32 age)
 }
 
 // Initializes an animal struct without a name
-Animal::Animal(ActorLocation const * location, u32 age)
+Animal::Animal(ActorLocation const & location, u32 age)
     : Actor(location)
 {
     name[0] = '\0';

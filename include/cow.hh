@@ -11,8 +11,8 @@ struct Cow : public BarnAnimal
         STAGE_2,
     };
 
-    Cow(char const * name, ActorLocation const * location, u32 age, u32 days_fed);
-    Cow(ActorLocation const * location, u32 age, u32 days_fed);
+    Cow(char const * name, ActorLocation const & location, u32 age, u32 days_fed);
+    Cow(ActorLocation const & location, u32 age, u32 days_fed);
 
     GrowthStage GetGrowthStage(void);
     bool CanBeMilked(void);
