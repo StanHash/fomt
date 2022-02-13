@@ -70,7 +70,7 @@ u32 Animal::GetAffection(void)
 }
 
 // Returns whether the animal has been brushed
-bool Animal::HasBeenBrushed(void)
+bool Animal::HasBeenBrushedToday(void)
 {
     return brushed;
 }

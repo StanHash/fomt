@@ -38,7 +38,7 @@ void sub_809BC40(struct Horse *horse){
 
 //Checks if you talked, brushed or rode your horse
 void sub_809BC48(struct Horse *horse){
-    sub_809B3C8(horse, FALSE);
+    horse->DayUpdate(false);
     horse->unk_0x20 = 0;
     horse->unk_0x24 = 0;
     horse->unk_0x26 = 0;

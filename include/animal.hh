@@ -1,3 +1,5 @@
+#pragma once
+
 #include "actor.hh"
 
 struct Animal : public Actor
@@ -9,7 +11,7 @@ struct Animal : public Actor
     bool IsFestivalWinner(void);
     u32 GetAge(void);
     u32 GetAffection(void);
-    bool HasBeenBrushed(void);
+    bool HasBeenBrushedToday(void);
     bool HasBeenTalkedTo(void);
     void SetName(char const * name);
     void SetFestivalWinner(void);

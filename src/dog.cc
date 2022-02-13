@@ -162,7 +162,7 @@ void sub_809BB9C(struct Dog *dog, u32 *param){
 
 //Checks if you talked to or played catch/frisbee your dog
 void sub_809BBA8(struct Dog *dog){
-    sub_809B3C8(dog, (((u8 *)dog)[0x2D] & 0x1C) != 0);
+    dog->DayUpdate((((u8 *)dog)[0x2D] & 0x1C) != 0);
     dog->unk_0x2D_2 = 0;
 }
 
