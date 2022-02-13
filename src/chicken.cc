@@ -5,7 +5,7 @@
 
 extern "C"
 {
-extern u8 gUnk_8103660[];
+extern LivestockDayUpdateInfo const gUnk_8103660;
 }
 
 // Initializes a chicken struct with a name
@@ -39,19 +39,19 @@ Chicken::GrowthStage Chicken::GetGrowthStage(void)
 bool Chicken::method_0809BCC0(void)
 {
     return GetGrowthStage() == STAGE_1
-        && !sub_809B50C(this)
-        && !sub_809B504(this);
+        && !IsSick()
+        && !IsUnhappy();
 }
 
-void Chicken::method_0809BCF0(void)
+void Chicken::SetFed(void)
 {
-    sub_809B65C(this);
+    Livestock::SetFed();
 }
 
 // Returns a chicken's product level
 u32 Chicken::method_0809BCFC(void)
 {
-    u32 level = sub_809B538(this);
+    u32 level = GetProductRank();
 
     if (level == 4)
     {
@@ -81,7 +81,7 @@ void Chicken::method_0809BD2C(UnkBarnAnimal2C const * param)
 }
 
 // Checks if you fed a chicken
-void Chicken::method_0809BD38(void)
+void Chicken::DayUpdate(void)
 {
-    sub_809B674(this, gUnk_8103660);
+    Livestock::DayUpdate(&gUnk_8103660);
 }

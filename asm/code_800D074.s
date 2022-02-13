@@ -805,7 +805,7 @@ _0800D63A:
 	rsbs r1, r1, #0
 	add sl, r1
 	adds r0, r4, #0
-	bl method_0809B8F0__10BarnAnimal
+	bl SetFed__10BarnAnimal
 _0800D688:
 	add r0, sp, #0x10
 	mov r1, sb
@@ -925,7 +925,7 @@ _0800D762:
 	cmp r8, r0
 	bne _0800D7A0
 	adds r0, r4, #0
-	bl method_0809B8F0__10BarnAnimal
+	bl SetFed__10BarnAnimal
 	b _0800D7DE
 	.align 2, 0
 _0800D780: .4byte 0x55555555
@@ -938,7 +938,7 @@ _0800D798: .4byte 0xFFFFFC00
 _0800D79C: .4byte 0x000003FF
 _0800D7A0:
 	adds r0, r4, #0
-	bl sub_809B4FC
+	bl HasBeenFed__9Livestock
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800D7DE
@@ -963,16 +963,16 @@ _0800D7A0:
 	rsbs r0, r0, #0
 	add sl, r0
 	adds r0, r4, #0
-	bl method_0809B8F0__10BarnAnimal
+	bl SetFed__10BarnAnimal
 _0800D7DE:
 	cmp r5, #0
 	beq _0800D7EA
 	adds r0, r5, #0
-	bl method_0809BE74__3Cow
+	bl DayUpdate__3Cow
 	b _0800D7F0
 _0800D7EA:
 	adds r0, r6, #0
-	bl method_0809BFB4__5Sheep
+	bl DayUpdate__5Sheep
 _0800D7F0:
 	adds r7, #0x3c
 	movs r1, #1

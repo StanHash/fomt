@@ -17,11 +17,11 @@ struct Chicken : public Livestock
 
     GrowthStage GetGrowthStage(void);
     bool method_0809BCC0(void);
-    void method_0809BCF0(void);
+    void SetFed(void);
     u32 method_0809BCFC(void);
     void method_0809BD20(UnkBarnAnimal2C const * param);
     void method_0809BD2C(UnkBarnAnimal2C const * param);
-    void method_0809BD38(void);
+    void DayUpdate(void);
 
     /* +24 */ u32 unk_24;
     /* +28 */ UnkBarnAnimal2C unk_28;

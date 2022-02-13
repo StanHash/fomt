@@ -5,7 +5,7 @@
 
 extern "C"
 {
-extern u8 gUnk_8103680[];
+extern LivestockDayUpdateInfo const gUnk_8103680;
 }
 
 // Initializes a cow struct with a name
@@ -25,7 +25,7 @@ Cow::Cow(ActorLocation const * location, u32 age, u32 days_fed)
 // Returns a cow's stage
 Cow::GrowthStage Cow::GetGrowthStage(void)
 {
-    u32 days_fed = sub_809B4F4((struct Livestock *) this);
+    u32 days_fed = GetDaysFed();
     u32 age = GetAge();
 
     if (days_fed < 14 && age < 20)
@@ -41,8 +41,8 @@ bool Cow::CanBeMilked(void)
 {
     return !milked
         && !IsPregnant()
-        && !sub_809B50C((struct Livestock *) this)
-        && !sub_809B504((struct Livestock *) this)
+        && !IsSick()
+        && !IsUnhappy()
         && GetGrowthStage() == STAGE_2;
 }
 
@@ -50,7 +50,7 @@ bool Cow::CanBeMilked(void)
 bool Cow::method_0809BE08(void)
 {
     return !IsPregnant()
-        && !sub_809B50C((struct Livestock *) this)
+        && !IsSick()
         && GetGrowthStage() == STAGE_2;
 }
 
@@ -60,31 +60,31 @@ bool Cow::HasBeenMilked(void)
     return milked;
 }
 
-// Returns a cow's product level
+// Returns a cow's product rank
 u32 Cow::method_0809BE44(void)
 {
     milked = true;
 
-    u32 level = sub_809B538((struct Livestock *) this);
+    ProductRank rank = GetProductRank();
 
-    if (level == 4)
+    if (rank == PRODUCT_RANK_4)
     {
-        u32 temp;
+        ProductRank temp;
 
         if (rand() % 255 != 0)
-            temp = 4;
+            temp = PRODUCT_RANK_4;
         else
-            temp = 5;
+            temp = PRODUCT_RANK_5;
 
-        level = temp;
+        rank = temp;
     }
 
-    return level;
+    return rank;
 }
 
 // Checks if you fed a cow and resets the milked flag
-void Cow::method_0809BE74(void)
+void Cow::DayUpdate(void)
 {
-    method_0809B970(gUnk_8103680);
+    BarnAnimal::DayUpdate(&gUnk_8103680);
     milked = false;
 }

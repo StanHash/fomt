@@ -12,14 +12,14 @@ struct BarnAnimal : public Livestock
     bool IsPregnant(void);
     u8 method_0809B8BC(void);
     u8 method_0809B8D4(void);
-    void method_0809B8F0(void);
+    void SetFed(void);
     void StartPregnancy(void);
     void ResetPregnancy(void);
     void method_0809B940(UnkBarnAnimal2C const * param);
     void method_0809B94C(UnkBarnAnimal2C const * param);
     void method_0809B958(UnkBarnAnimal2C_x2 const * param);
     void method_0809B968(void);
-    void method_0809B970(u8 * param);
+    void DayUpdate(LivestockDayUpdateInfo const * info);
 
     /* +24 */ bool pregnant : 1;
     /* +24 */ u32 days_pregnant : 5;

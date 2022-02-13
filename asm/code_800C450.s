@@ -870,7 +870,7 @@ _0800CA64:
 	beq _0800CAA0
 _0800CA8A:
 	adds r0, r4, #0
-	bl sub_809B4FC
+	bl HasBeenFed__9Livestock
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800CAE6
@@ -880,7 +880,7 @@ _0800CA8A:
 	bne _0800CAC0
 _0800CAA0:
 	adds r0, r4, #0
-	bl method_0809BCF0__7Chicken
+	bl SetFed__7Chicken
 	b _0800CAE6
 	.align 2, 0
 _0800CAA8: .4byte 0x55555555
@@ -906,10 +906,10 @@ _0800CAC0:
 	rsbs r0, r0, #0
 	add sl, r0
 	adds r0, r4, #0
-	bl method_0809BCF0__7Chicken
+	bl SetFed__7Chicken
 _0800CAE6:
 	adds r0, r4, #0
-	bl method_0809BD38__7Chicken
+	bl DayUpdate__7Chicken
 	adds r0, r4, #0
 	bl method_0809BCC0__7Chicken
 	lsls r0, r0, #0x18

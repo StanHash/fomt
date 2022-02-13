@@ -19,7 +19,7 @@ struct Cow : public BarnAnimal
     bool method_0809BE08(void);
     bool HasBeenMilked(void);
     u32 method_0809BE44(void);
-    void method_0809BE74(void);
+    void DayUpdate(void);
 
     /* +34 */ bool milked : 1;
 };

@@ -100356,7 +100356,7 @@ _080CF858:
 	strb r0, [r1]
 _080CF868:
 	mov r0, sb
-	bl sub_809B50C
+	bl IsSick__9Livestock
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov sl, r0
@@ -100373,7 +100373,7 @@ _080CF888: .4byte 0x08117A28
 _080CF88C: .4byte 0x08117A30
 _080CF890:
 	mov r0, sb
-	bl sub_809B504
+	bl IsUnhappy__9Livestock
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov r8, r0

@@ -48,10 +48,9 @@ u8 BarnAnimal::method_0809B8D4(void)
         return days_pregnant_healthy;
 }
 
-// Sets the fed flag
-void BarnAnimal::method_0809B8F0(void)
+void BarnAnimal::SetFed(void)
 {
-    sub_809B65C(this);
+    Livestock::SetFed();
 }
 
 // Sets the pregnant flag
@@ -97,24 +96,18 @@ void BarnAnimal::method_0809B968(void)
 }
 
 // Checks if you fed a barn animal
-void BarnAnimal::method_0809B970(u8 * param)
+void BarnAnimal::DayUpdate(LivestockDayUpdateInfo const * info)
 {
-    u32 temp;
-
-    sub_809B674(this, param);
+    Livestock::DayUpdate(info);
 
     if (IsPregnant())
     {
-        temp = days_pregnant;
-
-        if (temp < 31)
+        if (days_pregnant < 31)
             days_pregnant++;
 
-        if (!sub_809B50C(this))
+        if (!IsSick())
         {
-            temp = days_pregnant_healthy;
-
-            if (temp < 31)
+            if (days_pregnant_healthy < 31)
                 days_pregnant_healthy++;
         }
     }

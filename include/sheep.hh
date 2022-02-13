@@ -18,7 +18,7 @@ struct Sheep : public BarnAnimal
     bool CanBeSheared(void);
     bool method_0809BF48(void);
     u32 method_0809BF84(void);
-    void method_0809BFB4(void);
+    void DayUpdate(void);
 
     /* +34 */ u8 days_until_product : 3;
 };
