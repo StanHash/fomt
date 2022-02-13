@@ -1,13 +1,10 @@
 #pragma once
 
-extern "C"
-{
-#include "livestock.h"
-}
+#include "livestock.hh"
 
 #include "unk-types.hh"
 
-struct Chicken
+struct Chicken : public Livestock
 {
     enum GrowthStage
     {
@@ -26,7 +23,6 @@ struct Chicken
     void method_0809BD2C(UnkBarnAnimal2C const * param);
     void method_0809BD38(void);
 
-    /* +00 */ struct Livestock lstock;
     /* +24 */ u32 unk_24;
     /* +28 */ UnkBarnAnimal2C unk_28;
 };

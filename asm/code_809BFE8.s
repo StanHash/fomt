@@ -38,11 +38,11 @@ sub_809BFE8: @ 0x0809BFE8
 	mov r4, sp
 	mov r0, sp
 	movs r2, #6
-	bl sub_80D3994
+	bl memcpy
 	strb r6, [r4, #6]
 	adds r0, r5, #0
 	mov r1, sp
-	bl sub_809B104
+	bl __7LocatedPC8Location
 	ldrb r1, [r5, #8]
 	movs r0, #0x80
 	rsbs r0, r0, #0
@@ -176,11 +176,11 @@ sub_809C0D4: @ 0x0809C0D4
 	mov r4, sp
 	mov r0, sp
 	movs r2, #6
-	bl sub_80D3994
+	bl memcpy
 	strb r6, [r4, #6]
 	adds r0, r5, #0
 	mov r1, sp
-	bl sub_809B124
+	bl SetLocation__7LocatedPC8Location
 	add r1, sp, #0x10
 	adds r0, r5, #0
 	bl sub_809C098

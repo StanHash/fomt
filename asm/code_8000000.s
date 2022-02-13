@@ -3172,7 +3172,7 @@ _08001B04:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r4}
@@ -3239,7 +3239,7 @@ _08001C6C:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -3294,7 +3294,7 @@ _08001CDE:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -3353,7 +3353,7 @@ _08001D5C:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	b _08001E80
 	.align 2, 0
 _08001DAC: .4byte 0xFFFFEFC8
@@ -3460,7 +3460,7 @@ _08001EAE:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -3518,7 +3518,7 @@ _08001F1A:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -3574,7 +3574,7 @@ _08001F96:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -3618,7 +3618,7 @@ _08001F96:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -3685,7 +3685,7 @@ _0800206E:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -3745,7 +3745,7 @@ _08002120:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -3790,7 +3790,7 @@ _0800217E:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -3837,7 +3837,7 @@ _080021E0:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -3950,7 +3950,7 @@ _0800230A:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r4}
@@ -3997,7 +3997,7 @@ _0800237C:
 	adds r0, r6, #0
 	adds r1, r6, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r6, #0
 	ldm r0!, {r2, r3, r5}
@@ -4233,7 +4233,7 @@ _08002596:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r6}
@@ -4302,7 +4302,7 @@ _08002618:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r6}
@@ -4372,7 +4372,7 @@ _080026A6:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r4}
@@ -4431,7 +4431,7 @@ _0800273E:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r5}
@@ -4491,7 +4491,7 @@ _080027C4:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r6}
@@ -4568,7 +4568,7 @@ _08002846:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r4}
@@ -4671,7 +4671,7 @@ _08002976:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r6}
@@ -4954,7 +4954,7 @@ _08002B9A:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r6}
@@ -5211,7 +5211,7 @@ _08002DAA:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r6}
@@ -5496,7 +5496,7 @@ _08002FE2:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r6}
@@ -5751,7 +5751,7 @@ _080031C2:
 	mov r0, sb
 	mov r1, sb
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r1, sp, #0x1c
 	mov r0, sb
 	ldm r0!, {r2, r3, r6}
@@ -6000,7 +6000,7 @@ _080033AC:
 	adds r0, r4, #0
 	adds r1, r4, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	add r0, sp, #0x1c
 	ldm r4!, {r1, r2, r6}
 	stm r0!, {r1, r2, r6}
@@ -6343,7 +6343,7 @@ _08003666:
 	adds r0, r4, #0
 	adds r1, r4, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	mov r0, r8
 	ldm r4!, {r1, r2, r3}
 	stm r0!, {r1, r2, r3}
@@ -6506,14 +6506,14 @@ _080037C6:
 	ldr r2, _08003B24 @ =0x080E874C
 	mov r8, r2
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r7, r6, r0
 	movs r1, #0x7f
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _08003802
 	mov r0, r8
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _080037F2
@@ -6522,21 +6522,21 @@ _080037F2:
 	adds r0, r7, #0
 	mov r1, r8
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r0, r7, r4
 	mov r1, sb
 	strb r1, [r0]
 _08003802:
 	mov r8, r6
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r7, r6, r0
 	movs r1, #0x7f
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _08003832
 	mov r0, sp
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _08003822
@@ -6545,7 +6545,7 @@ _08003822:
 	adds r0, r7, #0
 	mov r1, sp
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -6553,7 +6553,7 @@ _08003832:
 	ldr r2, _08003B28 @ =0x080E8754
 	mov sb, r2
 	mov r0, r8
-	bl sub_80D3B78
+	bl strlen
 	mov r1, r8
 	adds r7, r1, r0
 	movs r1, #0x7f
@@ -6561,7 +6561,7 @@ _08003832:
 	cmp r5, #0
 	beq _08003866
 	mov r0, sb
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _08003856
@@ -6570,7 +6570,7 @@ _08003856:
 	adds r0, r7, #0
 	mov r1, sb
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -6583,14 +6583,14 @@ _08003866:
 	mov r8, r0
 	mov r4, r8
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r7, r6, r0
 	movs r1, #0x7f
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _080038A4
 	adds r0, r4, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _08003894
@@ -6599,7 +6599,7 @@ _08003894:
 	adds r0, r7, #0
 	mov r1, r8
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -6615,14 +6615,14 @@ _080038A4:
 	ldr r2, _08003B2C @ =0x080E8758
 	mov r8, r2
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r7, r6, r0
 	movs r1, #0x7f
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _080038E8
 	mov r0, r8
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _080038D8
@@ -6631,20 +6631,20 @@ _080038D8:
 	adds r0, r7, #0
 	mov r1, r8
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
 _080038E8:
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r7, r6, r0
 	movs r1, #0x7f
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _08003916
 	mov r0, sp
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _08003906
@@ -6653,7 +6653,7 @@ _08003906:
 	adds r0, r7, #0
 	mov r1, sp
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -6661,14 +6661,14 @@ _08003916:
 	ldr r0, _08003B30 @ =0x080E8760
 	mov r8, r0
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r7, r6, r0
 	movs r1, #0x7f
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _08003948
 	mov r0, r8
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _08003938
@@ -6677,7 +6677,7 @@ _08003938:
 	adds r0, r7, #0
 	mov r1, r8
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -6715,14 +6715,14 @@ _0800397A:
 	mov sb, r6
 	mov r4, r8
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r7, r6, r0
 	movs r1, #0x7f
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _080039B8
 	adds r0, r4, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _080039A8
@@ -6731,7 +6731,7 @@ _080039A8:
 	adds r0, r7, #0
 	mov r1, r8
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -6739,7 +6739,7 @@ _080039B8:
 	ldr r2, _08003B34 @ =0x080E8764
 	mov r8, r2
 	mov r0, sb
-	bl sub_80D3B78
+	bl strlen
 	mov r1, sb
 	adds r7, r1, r0
 	movs r1, #0x7f
@@ -6747,7 +6747,7 @@ _080039B8:
 	cmp r5, #0
 	beq _080039EC
 	mov r0, r8
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _080039DC
@@ -6756,7 +6756,7 @@ _080039DC:
 	adds r0, r7, #0
 	mov r1, r8
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -6765,7 +6765,7 @@ _080039EC:
 	add r0, sp, #0x20
 	strb r1, [r0]
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r3, r0, #1
 	cmp r3, #0x7f
 	bhi _08003A0A
@@ -6781,7 +6781,7 @@ _08003A0A:
 	adds r0, #0x21
 	strb r1, [r0]
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r3, r0, #1
 	cmp r3, #0x7f
 	bhi _08003A2A
@@ -6798,14 +6798,14 @@ _08003A2A:
 	mov r8, r0
 	mov r4, r8
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r7, r6, r0
 	movs r1, #0x7f
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _08003A64
 	adds r0, r4, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _08003A54
@@ -6814,7 +6814,7 @@ _08003A54:
 	adds r0, r7, #0
 	mov r1, r8
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -6822,14 +6822,14 @@ _08003A64:
 	ldr r2, _08003B38 @ =0x080E8768
 	mov r8, r2
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r7, r6, r0
 	movs r1, #0x7f
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _08003A96
 	mov r0, r8
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _08003A86
@@ -6838,7 +6838,7 @@ _08003A86:
 	adds r0, r7, #0
 	mov r1, r8
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -6848,7 +6848,7 @@ _08003A96:
 	adds r0, #0x22
 	strb r1, [r0]
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r3, r0, #1
 	cmp r3, #0x7f
 	bhi _08003AB6
@@ -6864,7 +6864,7 @@ _08003AB6:
 	adds r0, #0x23
 	strb r1, [r0]
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r3, r0, #1
 	cmp r3, #0x7f
 	bhi _08003AD6
@@ -6882,14 +6882,14 @@ _08003AD6:
 	adds r7, r0, #0
 	adds r4, r7, #0
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r6, r6, r0
 	movs r1, #0x7f
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _08003B12
 	adds r0, r4, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _08003B02
@@ -6898,7 +6898,7 @@ _08003B02:
 	adds r0, r6, #0
 	adds r1, r7, #0
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r6, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -8349,7 +8349,7 @@ _080046D6:
 	add r1, sp, #0x30
 	adds r0, r1, #0
 	movs r2, #0x20
-	bl sub_80D3994
+	bl memcpy
 	ldr r1, [sp, #0x30]
 	ldrb r0, [r1]
 	adds r5, r6, #0
@@ -9096,7 +9096,7 @@ _08004CD8:
 	adds r0, r6, #0
 	bl sub_8007110
 	adds r5, r0, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _08004CEC
@@ -9105,7 +9105,7 @@ _08004CEC:
 	mov r0, sl
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sl
 	adds r0, r1, r4
 	movs r1, #0
@@ -9153,7 +9153,7 @@ _08004D5C:
 	adds r0, r6, #0
 	bl sub_8007110
 	adds r5, r0, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _08004D70
@@ -9162,7 +9162,7 @@ _08004D70:
 	mov r0, sb
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sb
 	adds r0, r1, r4
 	movs r1, #0
@@ -9189,7 +9189,7 @@ _08004DAE:
 	adds r0, r6, #0
 	bl sub_8007110
 	adds r5, r0, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _08004DC2
@@ -9198,7 +9198,7 @@ _08004DC2:
 	add r0, sp, #0x28
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	mov r0, sp
 	adds r0, r0, r4
 	adds r0, #0x28
@@ -9252,7 +9252,7 @@ _08004E22:
 	ldr r1, _08004EF8 @ =0x080E5A78
 	adds r5, r6, #0
 	stm r5!, {r1}
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _08004E4C
@@ -9261,14 +9261,14 @@ _08004E4C:
 	adds r0, r5, #0
 	mov r1, sb
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r0, r5, r4
 	movs r7, #0
 	strb r7, [r0]
 	adds r5, r6, #0
 	adds r5, #0x14
 	mov r0, sl
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _08004E6E
@@ -9277,7 +9277,7 @@ _08004E6E:
 	adds r0, r5, #0
 	add r1, sp, #8
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r0, r5, r4
 	strb r7, [r0]
 	adds r0, r6, #0
@@ -9287,7 +9287,7 @@ _08004E6E:
 	adds r5, r6, #0
 	adds r5, #0x28
 	ldr r0, [sp, #0x50]
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _08004E96
@@ -9296,7 +9296,7 @@ _08004E96:
 	adds r0, r5, #0
 	add r1, sp, #0x28
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r0, r5, r4
 	movs r1, #0
 	strb r1, [r0]
@@ -9426,7 +9426,7 @@ _08004F96:
 	ldr r0, _080050B4 @ =0x00001A34
 	adds r5, r7, r0
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xf
 	bls _08004FBE
@@ -9435,7 +9435,7 @@ _08004FBE:
 	adds r0, r5, #0
 	adds r1, r6, #0
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r0, r5, r4
 	mov r1, sl
 	strb r1, [r0]
@@ -9455,7 +9455,7 @@ _08004FBE:
 	adds r6, r7, r2
 	mov r4, sb
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r1, r6, r0
 	mov r8, r1
 	movs r1, #0xf
@@ -9463,7 +9463,7 @@ _08004FBE:
 	cmp r5, #0
 	beq _08005022
 	adds r0, r4, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _08005010
@@ -9472,21 +9472,21 @@ _08005010:
 	mov r0, r8
 	mov r1, sb
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	mov r2, r8
 	adds r0, r2, r4
 	mov r1, sl
 	strb r1, [r0]
 _08005022:
 	adds r0, r6, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r6, r6, r0
 	movs r1, #0xf
 	subs r5, r1, r0
 	cmp r5, #0
 	beq _08005050
 	add r0, sp, #0x14
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, r5
 	bls _08005040
@@ -9495,7 +9495,7 @@ _08005040:
 	adds r0, r6, #0
 	add r1, sp, #0x14
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r6, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -9503,7 +9503,7 @@ _08005050:
 	ldr r2, _080050C0 @ =0x00001A54
 	adds r5, r7, r2
 	ldr r0, [sp, #0x24]
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xf
 	bls _08005062
@@ -9512,14 +9512,14 @@ _08005062:
 	adds r0, r5, #0
 	ldr r1, [sp, #0x24]
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r0, r5, r4
 	movs r6, #0
 	strb r6, [r0]
 	ldr r0, _080050C4 @ =0x00001A64
 	adds r5, r7, r0
 	ldr r0, [sp, #0x48]
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xf
 	bls _08005084
@@ -9528,7 +9528,7 @@ _08005084:
 	adds r0, r5, #0
 	ldr r1, [sp, #0x48]
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r0, r5, r4
 	strb r6, [r0]
 	adds r0, r7, #0
@@ -18286,7 +18286,7 @@ sub_8009A48: @ 0x08009A48
 	adds r6, r0, #0
 	adds r5, r1, #0
 	adds r0, r5, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _08009A5C
@@ -18295,7 +18295,7 @@ _08009A5C:
 	adds r0, r6, #0
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r6, r4
 	movs r0, #0
 	strb r0, [r1]

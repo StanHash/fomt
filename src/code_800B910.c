@@ -175,7 +175,7 @@ u32 sub_800BAA8(Shelf *shelf, u32 article, u32 amount) {
         adds r0, r5, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
-        bl sub_80D3994\n\
+        bl memcpy\n\
         b _0800BB46\n\
     _0800BB06:\n\
         adds r0, r5, #0\n\

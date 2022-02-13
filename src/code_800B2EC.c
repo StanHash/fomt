@@ -48,7 +48,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r0, r6, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
-        bl sub_80D3994\n\
+        bl memcpy\n\
         adds r4, r6, #2\n\
         mov r0, sb\n\
         movs r1, #0x10\n\
@@ -62,7 +62,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r0, r4, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
-        bl sub_80D3994\n\
+        bl memcpy\n\
         adds r4, r6, #4\n\
         mov r0, sl\n\
         movs r1, #8\n\
@@ -76,7 +76,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r0, r4, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
-        bl sub_80D3994\n\
+        bl memcpy\n\
         adds r4, r6, #6\n\
         ldr r0, [sp, #0xc]\n\
         movs r1, #0x18\n\
@@ -90,7 +90,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r0, r4, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
-        bl sub_80D3994\n\
+        bl memcpy\n\
         adds r4, #2\n\
         ldr r0, [sp, #0x10]\n\
         movs r1, #0x20\n\
@@ -103,7 +103,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r0, r4, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
-        bl sub_80D3994\n\
+        bl memcpy\n\
         adds r4, #2\n\
         ldr r0, [sp, #0x14]\n\
         movs r1, #0x4c\n\
@@ -117,7 +117,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r0, r4, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
-        bl sub_80D3994\n\
+        bl memcpy\n\
         adds r0, r6, #0\n\
         add sp, #0x18\n\
         pop {r3, r4, r5}\n\
@@ -294,7 +294,7 @@ u32 sub_800B5A8(ToolChest *chest, u32 tool, u32 amount) {
         adds r0, r5, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
-        bl sub_80D3994\n\
+        bl memcpy\n\
         b _0800B646\n\
     _0800B606:\n\
         adds r0, r5, #0\n\

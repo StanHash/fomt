@@ -375,10 +375,16 @@ typedef struct __attribute__((__packed__)) ToolSlot {
     u8 quantity;
 } ToolSlot;
 
-typedef struct FoodSlot {
-    u8 food;
+typedef struct Item
+{
+    u8 id;
     s8 stamina;
     s8 fatigue;
+}
+__attribute__((packed)) Item;
+
+typedef struct FoodSlot {
+    Item item;
     u8 quantity;
 } FoodSlot;
 
@@ -472,23 +478,23 @@ bool8 sub_800DC34(ToolSlot *slot);
 u32 sub_800DC48(ToolSlot *slot);
 
 // Initializes a food slot
-FoodSlot * sub_800DCA8(FoodSlot *slot, u8 food);
+Item * sub_800DCA8(Item * slot, u8 food);
 // Returns a slot's food
-u32 sub_800DCB4(FoodSlot *slot);
+u32 sub_800DCB4(Item const * slot);
 // Returns a pointer to a slot's food name
-const u8 * sub_800DCB8(FoodSlot *slot);
+const u8 * sub_800DCB8(Item const * slot);
 // Returns a slot's icon index
-u16 sub_800DCE0(FoodSlot *slot);
+u16 sub_800DCE0(Item const * slot);
 // Returns a slot's stamina bonus
 s8 sub_800DD6C(FoodSlot *slot);
 // Returns a slot's fatigue bonus
 s8 sub_800DD8C(FoodSlot *slot);
 // Adds to the slot's stamina and fatigue bonus
-void sub_800DE0C(FoodSlot *slot, s8 param1, s8 param2);
+void sub_800DE0C(Item * slot, s8 stamina, s8 fatigue);
 // Initializes a food slot
 FoodSlot * sub_800DE68(FoodSlot *slot);
 // Initializes a food slot
-FoodSlot * sub_800DEB8(FoodSlot *slot1, FoodSlot *slot2);
+Item * sub_800DEB8(Item * result, FoodSlot const * slot2);
 // Returns whether a slot is empty or not
 u8 sub_800DEDC(FoodSlot *slot);
 // Returns a slot's quantity

@@ -1,8 +1,8 @@
 #include "inventory.h"
 
 // Initializes a food slot
-FoodSlot * sub_800DCA8(FoodSlot *slot, u8 food) {
-    slot->food = food;
+Item * sub_800DCA8(Item * slot, u8 food) {
+    slot->id = food;
     slot->stamina = 0;
     slot->fatigue = 0;
 
@@ -10,50 +10,50 @@ FoodSlot * sub_800DCA8(FoodSlot *slot, u8 food) {
 }
 
 // Returns a slot's food
-u32 sub_800DCB4(FoodSlot *slot) {
-    return slot->food;
+u32 sub_800DCB4(Item const * slot) {
+    return slot->id;
 }
 
 // Returns a pointer to a slot's food name
-const u8 * sub_800DCB8(FoodSlot *slot) {
-    u8 food = slot->food;
+const u8 * sub_800DCB8(Item const * slot) {
+    u8 food = slot->id;
     u8 bool = food < NUM_FOODS;
 
     if(bool)
-        return gFoods[slot->food].name;
+        return gFoods[slot->id].name;
     else
         return gText_BrokenFood;
 }
 
 // Returns a slot's icon index
-u16 sub_800DCE0(FoodSlot *slot) {
-    u8 food = slot->food;
+u16 sub_800DCE0(Item const * slot) {
+    u8 food = slot->id;
     u8 bool = food < NUM_FOODS;
 
     if(bool)
-        return gFoods[slot->food].icon;
+        return gFoods[slot->id].icon;
     else
         return 428; // Stones
 }
 
 // Returns a slot's stamina bonus + the food's stamina bonus
-s32 sub_800DD08(FoodSlot *slot) {
-    u8 food = slot->food;
+s32 sub_800DD08(Item const * slot) {
+    u8 food = slot->id;
     u8 bool = food < NUM_FOODS;
 
     if(bool)
-        return gFoods[slot->food].stamina + slot->stamina;
+        return gFoods[slot->id].stamina + slot->stamina;
     else
         return -100;
 }
 
 // Returns a slot's fatigue bonus + the food's fatigue bonus
-s32 sub_800DD3C(FoodSlot *slot) {
-    u8 food = slot->food;
+s32 sub_800DD3C(Item const * slot) {
+    u8 food = slot->id;
     u8 bool = food < NUM_FOODS;
 
     if(bool)
-        return gFoods[slot->food].fatigue + slot->fatigue;
+        return gFoods[slot->id].fatigue + slot->fatigue;
     else
         return 100;
 }
@@ -111,23 +111,23 @@ s8 sub_800DD8C(FoodSlot *slot) {
 
 // Returns whether the slot contains a drink
 u8 sub_800DDAC(FoodSlot *slot) {
-    u8 food = slot->food;
+    u8 food = slot->item.id;
     u8 bool = food < NUM_FOODS;
 
     if(bool)
-        return gFoods[slot->food].isDrink;
+        return gFoods[slot->item.id].isDrink;
     else
         return FALSE;
 }
 
 // Returns a pointer to a slot's food description
 const u8 * sub_800DDD4(FoodSlot *slot) {
-    u8 food = slot->food;
+    u8 food = slot->item.id;
     u8 bool = food < NUM_FOODS;
 
     if(bool){
-        if(gFoods[slot->food].desc != NULL)
-            return gFoods[slot->food].desc;
+        if(gFoods[slot->item.id].desc != NULL)
+            return gFoods[slot->item.id].desc;
         else
             return gText_NoExplanation;
     }
@@ -140,12 +140,13 @@ const u8 * sub_800DDD4(FoodSlot *slot) {
 }
 
 // Adds to the slot's stamina and fatigue bonus
-void sub_800DE0C(FoodSlot *slot, s8 stamina, s8 fatigue) {
+void sub_800DE0C(Item * slot, s8 stamina, s8 fatigue) {
     s32 total;
-    u8 food = slot->food;
+    u8 food = slot->id;
     u8 bool = food < NUM_FOODS;
 
-    if(bool){
+    if(bool)
+    {
         total = slot->stamina + stamina;
 
         if(total < -128)
@@ -156,21 +157,20 @@ void sub_800DE0C(FoodSlot *slot, s8 stamina, s8 fatigue) {
         slot->stamina = total;
 
         total = slot->fatigue + fatigue;
-        
+
         if(total < -128)
             total = -128;
         else if(total > 127)
             total = 127;
-        
+
         slot->fatigue = total;
     }
 }
 
 // Initializes a food slot
-FoodSlot * sub_800DE68(FoodSlot *slot) {
-    sub_800DCA8(slot, FOOD_NONE);
+FoodSlot * sub_800DE68(FoodSlot * slot) {
+    sub_800DCA8(&slot->item, FOOD_NONE);
     slot->quantity = 0;
-    
     return slot;
 }
 
@@ -180,46 +180,56 @@ struct UnkStruct_C {
     u32 _8;
 };
 
-// Copies bytes from one place to another
-extern void sub_80D3994(void *dest, void *src, u32 num);
-
 // No idea
-FoodSlot * sub_800DE80(FoodSlot *slot1, FoodSlot *slot2, u32 param) {
-    struct UnkStruct_C _struct;
-    u32 val;
-    u32 temp;
+FoodSlot * sub_800DE80(FoodSlot * result, Item a_item, u32 a_amount) {
+    result->item = a_item;
 
-    _struct._0 = (u32)slot2;
-    _struct._8 = param;
-    sub_80D3994(slot1, &_struct, 3);
+    if (a_amount != 0)
+    {
+        u32 max_amount = 99;
 
-    temp = _struct._8;
-    if(temp){
-        u32 *ptr, *ptr2;
-        u32 nn = 99;
-        _struct._4 = nn;
-        
-        ptr2 = &_struct._8;
-        ptr = &_struct._4;
+        u8 * p_max_amount = (u8 *) &max_amount;
+        u8 * p_a_amount = (u8 *) &a_amount;
 
-        if (nn > temp)
-            ptr = ptr2;
-        val = *(u8 *)ptr;
-    }else{
-        val = 1;
+        result->quantity = *(max_amount > a_amount ? p_a_amount : p_max_amount);
+    }
+    else
+    {
+        result->quantity = 1;
     }
 
-    slot1->quantity = val;
-    return slot1;
+    return result;
 }
 
-// Initializes a food slot
-FoodSlot * sub_800DEB8(FoodSlot *slot1, FoodSlot *slot2) {
-    if(slot2->quantity > 0)
-        sub_80D3994(slot1, slot2, 3);
+/* // note: this matches
+ItemStack::ItemStack(Item a_item, u32 a_amount)
+{
+    item = a_item;
+
+    if (a_amount != 0)
+    {
+        u32 max_amount = 99;
+
+        u8 * p_max_amount = (u8 *) &max_amount;
+        u8 * p_a_amount = (u8 *) &a_amount;
+
+        amount = *(max_amount > a_amount ? p_a_amount : p_max_amount);
+    }
     else
-        sub_800DCA8(slot1, FOOD_NONE);
-    return slot1;
+    {
+        amount = 1;
+    }
+}
+*/
+
+// Initializes a food slot
+Item * sub_800DEB8(Item * result, FoodSlot const * self)
+{
+    if (self->quantity > 0)
+        *result = self->item;
+    else
+        sub_800DCA8(result, FOOD_NONE);
+    return result;
 }
 
 // Returns whether a slot is empty or not

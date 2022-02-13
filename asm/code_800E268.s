@@ -95,7 +95,7 @@ sub_800E354: @ 0x0800E354
 	adds r5, r1, #0
 	adds r7, r2, #0
 	adds r0, r5, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _0800E374
@@ -104,7 +104,7 @@ _0800E374:
 	adds r0, r6, #0
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r6, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -142,7 +142,7 @@ _0800E374:
 	adds r4, #0x24
 	adds r0, r4, #0
 	movs r2, #6
-	bl sub_80D3994
+	bl memcpy
 	strb r5, [r4, #6]
 	adds r4, #8
 	movs r5, #5
@@ -880,7 +880,7 @@ sub_800E9A8: @ 0x0800E9A8
 	adds r6, r0, #0
 	adds r5, r1, #0
 	adds r0, r5, #0
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _0800E9BE
@@ -889,7 +889,7 @@ _0800E9BE:
 	mov r0, sp
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	mov r1, sp
 	adds r0, r1, r4
 	movs r1, #0
@@ -1230,7 +1230,7 @@ _0800EC74:
 	adds r0, r5, #0
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_80D3994
+	bl memcpy
 	mov r0, sp
 	mov r1, r8
 	adds r2, r5, #0
@@ -1238,7 +1238,7 @@ _0800EC74:
 	adds r0, r4, #0
 	mov r1, sp
 	movs r2, #2
-	bl sub_80D3994
+	bl memcpy
 	adds r7, #1
 	adds r0, r4, #0
 	bl sub_800DC34
@@ -1281,7 +1281,7 @@ _0800ECD8:
 	adds r0, r5, #0
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_80D3994
+	bl memcpy
 	mov r0, sp
 	mov r1, r8
 	adds r2, r5, #0
@@ -1289,7 +1289,7 @@ _0800ECD8:
 	adds r0, r4, #0
 	mov r1, sp
 	movs r2, #2
-	bl sub_80D3994
+	bl memcpy
 	adds r7, #1
 	adds r0, r4, #0
 	bl sub_800DC34

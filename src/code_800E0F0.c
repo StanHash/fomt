@@ -12,14 +12,13 @@ void sub_800E0F8(ProductSlot *slot, u8 product) {
 
 // Initializes a product slot from a food slot
 ProductSlot * sub_800E0FC(ProductSlot *pSlot, FoodSlot fSlot) {
-    FoodSlot sp = fSlot;
     u32 food;
     s32 product;
     const Product *ptr;
 
     pSlot->product = PRODUCT_NONE;
 
-    food = sub_800DCB4(&sp);
+    food = sub_800DCB4(&fSlot.item);
     product = 0;
     ptr = &gProducts[0];
 
@@ -102,8 +101,8 @@ const u8 * sub_800E1C0(ProductSlot *slot) {
     if(bool) {
         const Product *ptr = &gProducts[product];
         if(!ptr->type){
-            sub_800DCA8((FoodSlot *)&sp, ptr->item);
-            return sub_800DCB8((FoodSlot *)&sp);
+            sub_800DCA8((Item *)&sp, ptr->item);
+            return sub_800DCB8((Item const *)&sp);
         } else {
             sub_800DF50((ArticleSlot *)&sp._4, ptr->item);
             return sub_800DF58((ArticleSlot *)&sp._4);
@@ -128,8 +127,8 @@ u16 sub_800E214(ProductSlot *slot) {
     if(bool) {
         const Product *ptr = &gProducts[product];
         if(!ptr->type){
-            sub_800DCA8((FoodSlot *)&sp, ptr->item);
-            return sub_800DCE0((FoodSlot *)&sp);
+            sub_800DCA8((Item *)&sp, ptr->item);
+            return sub_800DCE0((Item *)&sp);
         } else {
             sub_800DF50((ArticleSlot *)&sp._4, ptr->item);
             return sub_800DF84((ArticleSlot *)&sp._4);

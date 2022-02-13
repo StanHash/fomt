@@ -1,5 +1,7 @@
 #pragma once
 
+#define nullptr 0
+
 // TODO: move elsewhere
 struct UnkBarnAnimal2C
 {

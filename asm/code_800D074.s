@@ -635,7 +635,7 @@ sub_800D4D4: @ 0x0800D4D4
 	adds r5, r0, #0
 	adds r7, r6, #0
 	adds r7, #0xc
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _0800D536
@@ -644,7 +644,7 @@ _0800D536:
 	adds r0, r7, #0
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r1, r7, r4
 	movs r0, #0
 	strb r0, [r1]
@@ -670,7 +670,7 @@ _0800D550:
 	adds r5, r0, #0
 	adds r7, r6, #0
 	adds r7, #0x1c
-	bl sub_80D3B78
+	bl strlen
 	adds r4, r0, #0
 	cmp r4, #0xc
 	bls _0800D580
@@ -679,7 +679,7 @@ _0800D580:
 	adds r0, r7, #0
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_80D3994
+	bl memcpy
 	adds r0, r7, r4
 	mov r1, sb
 	strb r1, [r0]
@@ -864,12 +864,12 @@ _0800D688:
 	mov r0, sp
 	adds r1, r5, #0
 	movs r2, #6
-	bl sub_80D3994
+	bl memcpy
 	movs r1, #3
 	strb r1, [r4, #6]
 	adds r0, r7, #0
 	mov r1, sp
-	bl sub_809B124
+	bl SetLocation__7LocatedPC8Location
 _0800D70C:
 	adds r6, #1
 	ldr r2, [sp, #0x18]
@@ -952,7 +952,7 @@ _0800D7A0:
 	beq _0800D7DE
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_809B114
+	bl __7LocatedRC7Located
 	mov r0, sp
 	ldrh r0, [r0]
 	lsls r0, r0, #0x16
@@ -1153,7 +1153,7 @@ _0800D8C4:
 	mov r0, sp
 	adds r1, r7, #0
 	movs r2, #6
-	bl sub_80D3994
+	bl memcpy
 	strb r4, [r5, #6]
 	mov r1, sb
 	lsls r0, r1, #4

@@ -2,8 +2,8 @@
 
 // Initializes a barn animal struct with a name
 BarnAnimal::BarnAnimal(u8 * name, u32 * param, u32 age, u32 days_fed)
+    : Livestock(name, param, age, days_fed)
 {
-    sub_809B454(&lstock, name, param, age, days_fed);
     pregnant = false;
     days_pregnant = 0;
     days_pregnant_healthy = 0;
@@ -14,8 +14,8 @@ BarnAnimal::BarnAnimal(u8 * name, u32 * param, u32 age, u32 days_fed)
 
 // Initializes a barn animal struct
 BarnAnimal::BarnAnimal(u32 * param, u32 age, u32 days_fed)
+    : Livestock(param, age, days_fed)
 {
-    sub_809B4A4(&lstock, param, age, days_fed);
     pregnant = false;
     days_pregnant = 0;
     days_pregnant_healthy = 0;
@@ -51,7 +51,7 @@ u8 BarnAnimal::method_0809B8D4(void)
 // Sets the fed flag
 void BarnAnimal::method_0809B8F0(void)
 {
-    sub_809B65C(&lstock);
+    sub_809B65C(this);
 }
 
 // Sets the pregnant flag
@@ -101,7 +101,7 @@ void BarnAnimal::method_0809B970(u8 * param)
 {
     u32 temp;
 
-    sub_809B674(&lstock, param);
+    sub_809B674(this, param);
 
     if (IsPregnant())
     {
@@ -110,7 +110,7 @@ void BarnAnimal::method_0809B970(u8 * param)
         if (temp < 31)
             days_pregnant++;
 
-        if (!sub_809B50C(&lstock))
+        if (!sub_809B50C(this))
         {
             temp = days_pregnant_healthy;
 

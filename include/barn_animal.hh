@@ -1,13 +1,10 @@
 #pragma once
 
-extern "C"
-{
-#include "livestock.h"
-}
+#include "livestock.hh"
 
 #include "unk-types.hh"
 
-struct BarnAnimal
+struct BarnAnimal : public Livestock
 {
     BarnAnimal(u8 * name, u32 * param, u32 age, u32 days_fed);
     BarnAnimal(u32 * param, u32 age, u32 days_fed);
@@ -24,7 +21,6 @@ struct BarnAnimal
     void method_0809B968(void);
     void method_0809B970(u8 * param);
 
-    /* +00 */ struct Livestock lstock;
     /* +24 */ bool pregnant : 1;
     /* +24 */ u32 days_pregnant : 5;
     /* +24 */ u32 days_pregnant_healthy : 5;

@@ -1,6 +1,6 @@
 #include "inventory.h"
 
-extern u8 sub_80D3994();
+#include <string.h>
 
 typedef struct RucksackSlot {
     u32 type:1;
@@ -30,7 +30,7 @@ RucksackSlot * sub_800F004(RucksackSlot *rSlot, FoodSlot fSlot) {
     rSlot->type = 0;
     rSlot->wrapped = 0;
 
-    rSlot->item = sub_800DCB4(&fSlot);
+    rSlot->item = sub_800DCB4(&fSlot.item);
     rSlot->stamina = sub_800DD6C(&fSlot);
     rSlot->fatigue = sub_800DD8C(&fSlot);
 
@@ -69,14 +69,14 @@ u8 sub_800F09C(RucksackSlot *slot) {
 
 // Initializes a food slot from a rucksack slot
 FoodSlot * sub_800F0A4(FoodSlot *fSlot, RucksackSlot *rSlot) {
-    FoodSlot sp;
-    
-    if(rSlot->type == 0) {
-        sub_800DCA8(&sp, rSlot->item);
-        sub_800DE0C(&sp, rSlot->stamina, rSlot->fatigue);
-        sub_80D3994(fSlot, &sp, 3);
+    Item item;
+
+    if (rSlot->type == 0) {
+        sub_800DCA8(&item, rSlot->item);
+        sub_800DE0C(&item, rSlot->stamina, rSlot->fatigue);
+        fSlot->item = item;
     } else {
-        sub_800DCA8(fSlot, FOOD_NONE);
+        sub_800DCA8(&fSlot->item, FOOD_NONE);
     }
 
     return fSlot;

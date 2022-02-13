@@ -31,8 +31,8 @@ u32 sub_800B68C(Fridge *fridge, u32 food) {
         if(sub_800DEDC(ptr)){
             val += 99;
         }else{
-            sub_800DEB8(&sp, ptr);
-            bool = sub_800DCB4(&sp) == food;
+            sub_800DEB8(&sp.item, ptr);
+            bool = sub_800DCB4(&sp.item) == food;
             if(bool){
                 u32 temp = sub_800DEF0(ptr);
                 u32 temp2 = val + 99;
@@ -56,8 +56,8 @@ u32 sub_800B6E8(Fridge *fridge, u32 food) {
     while(ptr != ptr2){
         FoodSlot * r7 = &sp;
         if(!sub_800DEDC(ptr)){
-            sub_800DEB8(&sp, ptr);
-            bool = sub_800DCB4(&sp) == food;
+            sub_800DEB8(&sp.item, ptr);
+            bool = sub_800DCB4(&sp.item) == food;
 
             if(bool)
                 val += sub_800DEF0(ptr);
@@ -109,8 +109,8 @@ u32 sub_800B7B8(Fridge *fridge, u32 food) {
     while(ptr != ptr2){
         FoodSlot * r7 = &sp;
         if(!sub_800DEDC(ptr)){
-            sub_800DEB8(&sp, ptr);
-            bool = sub_800DCB4(&sp) == food;
+            sub_800DEB8(&sp.item, ptr);
+            bool = sub_800DCB4(&sp.item) == food;
             if(bool){
                 return idx;
             }
