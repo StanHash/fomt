@@ -15,7 +15,7 @@ struct Horse : public Pet
     Horse(char const * name, ActorLocation const & location, u32 age);
     Horse(ActorLocation const & location, u32 age);
 
-    GrowthStage GetGrowthStage(void);
+    GrowthStage GetGrowthStage(void) const;
     void method_0809BC24(UnkBarnAnimal2C const * param);
     void method_0809BC30(UnkBarnAnimal2C_x2 const * param);
     void method_0809BC40(void);

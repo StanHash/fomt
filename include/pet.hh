@@ -10,9 +10,9 @@ struct Pet : public Animal
     // TODO:
     // what are Pet::HasTalkedToday and Animal::HasBeenTalkedTo?
 
-    u32 GetAdequacy(void);
-    bool HasPlayedToday(void);
-    bool HasTalkedToday(void);
+    u32 GetAdequacy(void) const;
+    bool HasPlayedToday(void) const;
+    bool HasTalkedToday(void) const;
     void AddAdequacy(int amount);
     void SubtractAdequacy(int amount);
     void SetHasPlayedToday(void);

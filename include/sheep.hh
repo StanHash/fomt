@@ -13,11 +13,11 @@ struct Sheep : public BarnAnimal
     Sheep(char const * name, ActorLocation const & location, u32 age, u32 days_fed);
     Sheep(ActorLocation const & location, u32 age, u32 days_fed);
 
-    GrowthStage GetGrowthStage(void);
-    bool IsSheared(void);
-    bool CanBeSheared(void);
-    bool method_0809BF48(void);
-    u32 method_0809BF84(void);
+    GrowthStage GetGrowthStage(void) const;
+    bool IsSheared(void) const;
+    bool CanBeSheared(void) const;
+    bool CanBeMadePregnant(void) const;
+    ProductRank ConsumeProduct(void);
     void DayUpdate(void);
 
     /* +34 */ u8 days_until_product : 3;

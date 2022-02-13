@@ -8,22 +8,19 @@ extern "C"
 extern LivestockDayUpdateInfo const gUnk_8103680;
 }
 
-// Initializes a cow struct with a name
 Cow::Cow(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
     : BarnAnimal(name, location, age, days_fed)
 {
     milked = false;
 }
 
-// Initializes a cow struct
 Cow::Cow(ActorLocation const & location, u32 age, u32 days_fed)
     : BarnAnimal(location, age, days_fed)
 {
     milked = false;
 }
 
-// Returns a cow's stage
-Cow::GrowthStage Cow::GetGrowthStage(void)
+Cow::GrowthStage Cow::GetGrowthStage(void) const
 {
     u32 days_fed = GetDaysFed();
     u32 age = GetAge();
@@ -36,8 +33,7 @@ Cow::GrowthStage Cow::GetGrowthStage(void)
         return STAGE_2;
 }
 
-// Returns whether a cow can be milked or not
-bool Cow::CanBeMilked(void)
+bool Cow::CanBeMilked(void) const
 {
     return !milked
         && !IsPregnant()
@@ -46,22 +42,19 @@ bool Cow::CanBeMilked(void)
         && GetGrowthStage() == STAGE_2;
 }
 
-// Returns whether a cow can be impregnated
-bool Cow::method_0809BE08(void)
+bool Cow::CanBeMadePregnant(void) const
 {
     return !IsPregnant()
         && !IsSick()
         && GetGrowthStage() == STAGE_2;
 }
 
-// Returns whether a cow has been milked
-bool Cow::HasBeenMilked(void)
+bool Cow::HasBeenMilked(void) const
 {
     return milked;
 }
 
-// Returns a cow's product rank
-u32 Cow::method_0809BE44(void)
+Livestock::ProductRank Cow::ConsumeProduct(void)
 {
     milked = true;
 
@@ -82,7 +75,6 @@ u32 Cow::method_0809BE44(void)
     return rank;
 }
 
-// Checks if you fed a cow and resets the milked flag
 void Cow::DayUpdate(void)
 {
     BarnAnimal::DayUpdate(&gUnk_8103680);

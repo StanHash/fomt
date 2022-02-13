@@ -40,7 +40,7 @@ Animal::Animal(ActorLocation const & location, u32 age)
 }
 
 // Returns a pointer to an animal's name if it isn't empty, otherwise returns gUnk_8103658
-char const * Animal::GetName(void)
+char const * Animal::GetName(void) const
 {
     char const * temp = name;
     bool is_empty = temp[0] == '\0';
@@ -52,31 +52,31 @@ char const * Animal::GetName(void)
 }
 
 // Returns whether the animal has won a festival
-bool Animal::IsFestivalWinner(void)
+bool Animal::IsFestivalWinner(void) const
 {
     return festival_winner;
 }
 
 // Returns an animal's age
-u32 Animal::GetAge(void)
+u32 Animal::GetAge(void) const
 {
     return age;
 }
 
 // Returns an animal's affection
-u32 Animal::GetAffection(void)
+u32 Animal::GetAffection(void) const
 {
     return affection;
 }
 
 // Returns whether the animal has been brushed
-bool Animal::HasBeenBrushedToday(void)
+bool Animal::HasBeenBrushedToday(void) const
 {
     return brushed;
 }
 
 // Returns whether the animal has been talked to
-bool Animal::HasBeenTalkedTo(void)
+bool Animal::HasBeenTalkedTo(void) const
 {
     return talked;
 }

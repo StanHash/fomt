@@ -4985,7 +4985,7 @@ _080A10D6:
 	bl sub_800C5CC
 	cmp r0, #0
 	beq _080A10EE
-	bl GetAffection__6Animal
+	bl GetAffection__C6Animal
 	adds r6, r6, r0
 _080A10EE:
 	adds r5, #1
@@ -9958,7 +9958,7 @@ _080A3846:
 	mov sb, r1
 	strb r0, [r7, #0x10]
 	mov r0, r8
-	bl GetName__6Animal
+	bl GetName__C6Animal
 	adds r6, r0, #0
 	bl strlen
 	adds r4, r0, #0
@@ -9974,7 +9974,7 @@ _080A3862:
 	mov r2, sb
 	strb r2, [r0]
 	mov r0, r8
-	bl GetAffection__6Animal
+	bl GetAffection__C6Animal
 	strb r0, [r7, #0x11]
 	add r6, sp, #0x18
 	adds r0, r6, #0
@@ -100249,7 +100249,7 @@ _080CF782:
 	ldr r0, [r7, #8]
 	ldr r1, _080CF794 @ =0x00001C70
 	adds r0, r0, r1
-	bl GetGrowthStage__3Dog
+	bl GetGrowthStage__C3Dog
 	cmp r0, #1
 	bne _080CF79C
 	ldr r5, _080CF798 @ =0x08117A0C
@@ -100277,7 +100277,7 @@ _080CF7AC:
 	ldr r0, [r7, #8]
 	ldr r1, _080CF7E4 @ =0x00001C70
 	adds r0, r0, r1
-	bl GetName__6Animal
+	bl GetName__C6Animal
 	mov r8, r0
 	mov r4, r8
 	adds r0, r6, #0
@@ -100305,7 +100305,7 @@ _080CF7E8:
 	adds r0, r4, #0
 	bl sub_800C894
 	mov sb, r0
-	bl GetGrowthStage__7Chicken
+	bl GetGrowthStage__C7Chicken
 	cmp r0, #1
 	bne _080CF810
 	ldr r5, _080CF80C @ =0x08117A1C
@@ -100330,7 +100330,7 @@ _080CF820:
 	movs r0, #0
 	strb r0, [r1]
 	mov r0, sb
-	bl GetName__6Animal
+	bl GetName__C6Animal
 	mov r8, r0
 	mov r4, r8
 	adds r0, r6, #0
@@ -100356,7 +100356,7 @@ _080CF858:
 	strb r0, [r1]
 _080CF868:
 	mov r0, sb
-	bl IsSick__9Livestock
+	bl IsSick__C9Livestock
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov sl, r0
@@ -100373,7 +100373,7 @@ _080CF888: .4byte 0x08117A28
 _080CF88C: .4byte 0x08117A30
 _080CF890:
 	mov r0, sb
-	bl IsUnhappy__9Livestock
+	bl IsUnhappy__C9Livestock
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov r8, r0

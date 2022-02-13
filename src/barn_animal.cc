@@ -22,12 +22,12 @@ BarnAnimal::BarnAnimal(ActorLocation const & location, u32 age, u32 days_fed)
     unk_2C.a.unk_02 = 0;
 }
 
-bool BarnAnimal::IsPregnant(void)
+bool BarnAnimal::IsPregnant(void) const
 {
     return pregnant;
 }
 
-u8 BarnAnimal::GetDaysPregnant(void)
+u8 BarnAnimal::GetDaysPregnant(void) const
 {
     if (!pregnant)
         return 0;
@@ -35,7 +35,7 @@ u8 BarnAnimal::GetDaysPregnant(void)
         return days_pregnant;
 }
 
-u8 BarnAnimal::GetDaysPregnantHealthy(void)
+u8 BarnAnimal::GetDaysPregnantHealthy(void) const
 {
     if (!pregnant)
         return 0;

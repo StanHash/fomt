@@ -7,12 +7,12 @@ struct Animal : public Actor
     Animal::Animal(char const * name, ActorLocation const & location, u32 age);
     Animal::Animal(ActorLocation const & location, u32 age);
 
-    char const * GetName(void);
-    bool IsFestivalWinner(void);
-    u32 GetAge(void);
-    u32 GetAffection(void);
-    bool HasBeenBrushedToday(void);
-    bool HasBeenTalkedTo(void);
+    char const * GetName(void) const;
+    bool IsFestivalWinner(void) const;
+    u32 GetAge(void) const;
+    u32 GetAffection(void) const;
+    bool HasBeenBrushedToday(void) const;
+    bool HasBeenTalkedTo(void) const;
     void SetName(char const * name);
     void SetFestivalWinner(void);
     void SetBrushed(void);

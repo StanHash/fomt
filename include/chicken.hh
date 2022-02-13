@@ -15,10 +15,10 @@ struct Chicken : public Livestock
     Chicken(char const * name, ActorLocation const & location, u32 age, u32 days_fed);
     Chicken(ActorLocation const & location, u32 age, u32 days_fed);
 
-    GrowthStage GetGrowthStage(void);
-    bool method_0809BCC0(void);
+    GrowthStage GetGrowthStage(void) const;
+    bool method_0809BCC0(void) const;
     void SetFed(void);
-    u32 method_0809BCFC(void);
+    ProductRank ConsumeProduct(void);
     void method_0809BD20(UnkBarnAnimal2C const * param);
     void method_0809BD2C(UnkBarnAnimal2C const * param);
     void DayUpdate(void);

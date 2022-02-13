@@ -19,17 +19,17 @@ Pet::Pet(ActorLocation const & location, u32 age)
     has_talked_today = false;
 }
 
-u32 Pet::GetAdequacy(void)
+u32 Pet::GetAdequacy(void) const
 {
     return adequacy;
 }
 
-bool Pet::HasPlayedToday(void)
+bool Pet::HasPlayedToday(void) const
 {
     return has_played_today;
 }
 
-bool Pet::HasTalkedToday(void)
+bool Pet::HasTalkedToday(void) const
 {
     return has_talked_today;
 }

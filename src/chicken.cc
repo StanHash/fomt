@@ -8,7 +8,6 @@ extern "C"
 extern LivestockDayUpdateInfo const gUnk_8103660;
 }
 
-// Initializes a chicken struct with a name
 Chicken::Chicken(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
     : Livestock(name, location, age, days_fed)
 {
@@ -17,7 +16,6 @@ Chicken::Chicken(char const * name, ActorLocation const & location, u32 age, u32
     unk_28.unk_02 = 0;
 }
 
-// Initializes a chicken struct
 Chicken::Chicken(ActorLocation const & location, u32 age, u32 days_fed)
     : Livestock(location, age, days_fed)
 {
@@ -26,8 +24,7 @@ Chicken::Chicken(ActorLocation const & location, u32 age, u32 days_fed)
     unk_28.unk_02 = 0;
 }
 
-// Returns whether the chicken is an adult or not
-Chicken::GrowthStage Chicken::GetGrowthStage(void)
+Chicken::GrowthStage Chicken::GetGrowthStage(void) const
 {
     if (GetAge() < 7)
         return STAGE_0;
@@ -35,8 +32,7 @@ Chicken::GrowthStage Chicken::GetGrowthStage(void)
         return STAGE_1;
 }
 
-// Returns whether the chicken is an adult, healthy and happy
-bool Chicken::method_0809BCC0(void)
+bool Chicken::method_0809BCC0(void) const
 {
     return GetGrowthStage() == STAGE_1
         && !IsSick()
@@ -48,24 +44,23 @@ void Chicken::SetFed(void)
     Livestock::SetFed();
 }
 
-// Returns a chicken's product level
-u32 Chicken::method_0809BCFC(void)
+Livestock::ProductRank Chicken::ConsumeProduct(void)
 {
-    u32 level = GetProductRank();
+    ProductRank rank = GetProductRank();
 
-    if (level == 4)
+    if (rank == PRODUCT_RANK_4)
     {
-        u32 temp;
+        ProductRank temp;
 
         if (rand() % 255 != 0)
-            temp = 4;
+            temp = PRODUCT_RANK_4;
         else
-            temp = 5;
+            temp = PRODUCT_RANK_5;
 
-        level = temp;
+        rank = temp;
     }
 
-    return level;
+    return rank;
 }
 
 void Chicken::method_0809BD20(UnkBarnAnimal2C const * param)
@@ -80,7 +75,6 @@ void Chicken::method_0809BD2C(UnkBarnAnimal2C const * param)
     unk_24 = 1;
 }
 
-// Checks if you fed a chicken
 void Chicken::DayUpdate(void)
 {
     Livestock::DayUpdate(&gUnk_8103660);

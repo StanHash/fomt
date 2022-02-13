@@ -8,7 +8,6 @@ Horse::Horse(char const * name, ActorLocation const & location, u32 age)
     unk_24.a.unk_02 = 0;
 }
 
-//Initializes a horse struct
 Horse::Horse(ActorLocation const & location, u32 age)
     : Pet(location, age)
 {
@@ -17,7 +16,7 @@ Horse::Horse(ActorLocation const & location, u32 age)
     unk_24.a.unk_02 = 0;
 }
 
-Horse::GrowthStage Horse::GetGrowthStage(void)
+Horse::GrowthStage Horse::GetGrowthStage(void) const
 {
     return GetAge() < 120 ? STAGE_0 : STAGE_1;
 }

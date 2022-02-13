@@ -33,43 +33,43 @@ Livestock::Livestock(ActorLocation const & location, u32 age, u32 days_fed)
     total_outdoor_minutes = 0;
 }
 
-u32 Livestock::GetDaysFed(void)
+u32 Livestock::GetDaysFed(void) const
 {
     return days_fed;
 }
 
-bool Livestock::HasBeenFed(void)
+bool Livestock::HasBeenFed(void) const
 {
     return fed;
 }
 
-bool Livestock::IsUnhappy(void)
+bool Livestock::IsUnhappy(void) const
 {
     return unhappy;
 }
 
-bool Livestock::IsSick(void)
+bool Livestock::IsSick(void) const
 {
     return sick;
 }
 
 // Returns the unknown 2bit value 0x1D_0
-u8 Livestock::method_0809B514(void)
+u8 Livestock::method_0809B514(void) const
 {
     return unk_0x1D_0;
 }
 
-u32 Livestock::GetCurrentOutdoorMinutes(void)
+u32 Livestock::GetCurrentOutdoorMinutes(void) const
 {
     return current_outdoor_minutes;
 }
 
-u32 Livestock::GetOutdoorMinutes(void)
+u32 Livestock::GetOutdoorMinutes(void) const
 {
     return total_outdoor_minutes;
 }
 
-Livestock::ProductRank Livestock::GetProductRank(void)
+Livestock::ProductRank Livestock::GetProductRank(void) const
 {
     u32 affection = GetAffection();
 
@@ -115,7 +115,6 @@ void Livestock::ResetCurrentOutdoorMinutes(void)
     current_outdoor_minutes = 0;
 }
 
-//Sets the sick flag
 void Livestock::SetSick(void)
 {
     sick = true;

@@ -22,7 +22,7 @@ Dog::Dog(void)
     unk_24.a.unk_02 = 0;
 }
 
-Dog::GrowthStage Dog::GetGrowthStage(void)
+Dog::GrowthStage Dog::GetGrowthStage(void) const
 {
     return GetAge() < 60 ? STAGE_0 : STAGE_1;
 }

@@ -8,22 +8,19 @@ extern "C"
 extern LivestockDayUpdateInfo const gUnk_81036A0;
 }
 
-// Initializes a sheep struct with a name
 Sheep::Sheep(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
     : BarnAnimal(name, location, age, days_fed)
 {
     days_until_product = 0;
 }
 
-// Initializes a sheep struct
 Sheep::Sheep(ActorLocation const & location, u32 age, u32 days_fed)
     : BarnAnimal(location, age, days_fed)
 {
     days_until_product = 0;
 }
 
-// Returns a sheep's stage
-Sheep::GrowthStage Sheep::GetGrowthStage(void)
+Sheep::GrowthStage Sheep::GetGrowthStage(void) const
 {
     u32 days_fed = GetDaysFed();
     u32 age = GetAge();
@@ -34,22 +31,19 @@ Sheep::GrowthStage Sheep::GetGrowthStage(void)
         return STAGE_1;
 }
 
-// Returns whether a sheep is sheared
-bool Sheep::IsSheared(void)
+bool Sheep::IsSheared(void) const
 {
     return days_until_product == 0 ? false : true;
 }
 
-// Returns whether a sheep can be sheared
-bool Sheep::CanBeSheared(void)
+bool Sheep::CanBeSheared(void) const
 {
     return !IsPregnant()
         && GetGrowthStage() == STAGE_1
         && !IsSheared();
 }
 
-// Returns whether a sheep can be impregnated
-bool Sheep::method_0809BF48(void)
+bool Sheep::CanBeMadePregnant(void) const
 {
     return !IsPregnant()
         && !IsSick()
@@ -57,8 +51,7 @@ bool Sheep::method_0809BF48(void)
         && !IsSheared();
 }
 
-// Returns a sheep's product rank
-u32 Sheep::method_0809BF84(void)
+Livestock::ProductRank Sheep::ConsumeProduct(void)
 {
     days_until_product = 7;
 
@@ -79,7 +72,6 @@ u32 Sheep::method_0809BF84(void)
     return rank;
 }
 
-// Checks if you fed a sheep
 void Sheep::DayUpdate(void)
 {
     BarnAnimal::DayUpdate(&gUnk_81036A0);

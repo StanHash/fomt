@@ -32,14 +32,14 @@ struct Livestock : public Animal
     Livestock::Livestock(char const * name, ActorLocation const & location, u32 age, u32 days_fed);
     Livestock::Livestock(ActorLocation const & location, u32 age, u32 days_fed);
 
-    u32 GetDaysFed(void);
-    bool HasBeenFed(void);
-    bool IsUnhappy(void);
-    bool IsSick(void);
-    u8 method_0809B514(void);
-    u32 GetCurrentOutdoorMinutes(void);
-    u32 GetOutdoorMinutes(void);
-    ProductRank GetProductRank(void);
+    u32 GetDaysFed(void) const;
+    bool HasBeenFed(void) const;
+    bool IsUnhappy(void) const;
+    bool IsSick(void) const;
+    u8 method_0809B514(void) const;
+    u32 GetCurrentOutdoorMinutes(void) const;
+    u32 GetOutdoorMinutes(void) const;
+    ProductRank GetProductRank(void) const;
     void AddOutdoorMinutes(u32 minutes);
     void ResetCurrentOutdoorMinutes(void);
     void SetSick(void);

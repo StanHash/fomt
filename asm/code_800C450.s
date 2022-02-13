@@ -692,7 +692,7 @@ sub_800C91C: @ 0x0800C91C
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0800C988
-	bl GetAge__6Animal
+	bl GetAge__C6Animal
 	adds r2, r0, #0
 	ldrb r1, [r5, #3]
 	ldrb r0, [r5, #4]
@@ -712,7 +712,7 @@ sub_800C91C: @ 0x0800C91C
 	orrs r1, r0
 	strb r1, [r5, #4]
 	adds r0, r4, #0
-	bl GetName__6Animal
+	bl GetName__C6Animal
 	adds r6, r0, #0
 	adds r7, r5, #0
 	adds r7, #8
@@ -870,12 +870,12 @@ _0800CA64:
 	beq _0800CAA0
 _0800CA8A:
 	adds r0, r4, #0
-	bl HasBeenFed__9Livestock
+	bl HasBeenFed__C9Livestock
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800CAE6
 	adds r0, r4, #0
-	bl GetGrowthStage__7Chicken
+	bl GetGrowthStage__C7Chicken
 	cmp r0, #0
 	bne _0800CAC0
 _0800CAA0:
@@ -911,7 +911,7 @@ _0800CAE6:
 	adds r0, r4, #0
 	bl DayUpdate__7Chicken
 	adds r0, r4, #0
-	bl method_0809BCC0__7Chicken
+	bl method_0809BCC0__C7Chicken
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _0800CB30
@@ -919,7 +919,7 @@ _0800CAE6:
 	adds r1, r4, #0
 	bl __5ActorRC5Actor
 	adds r0, r4, #0
-	bl method_0809BCFC__7Chicken
+	bl ConsumeProduct__7Chicken
 	adds r4, r0, #0
 	mov r0, sp
 	ldr r1, [sp, #0x14]

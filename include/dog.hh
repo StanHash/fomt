@@ -15,7 +15,7 @@ struct Dog : public Pet
     Dog(char const * name);
     Dog(void);
 
-    GrowthStage GetGrowthStage(void);
+    GrowthStage GetGrowthStage(void) const;
     void method_0809BB48(UnkBarnAnimal2C const * param);
     void method_0809BB54(UnkBarnAnimal2C_x2 const * param);
     void method_0809BB64(UnkBarnAnimal2C const * param);

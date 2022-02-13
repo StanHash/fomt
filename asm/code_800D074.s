@@ -101,7 +101,7 @@ _0800D106:
 	bl sub_800DA14
 	cmp r0, #0
 	beq _0800D134
-	bl IsPregnant__10BarnAnimal
+	bl IsPregnant__C10BarnAnimal
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800D13C
@@ -157,11 +157,11 @@ sub_800D158: @ 0x0800D158
 	cmp r4, #0
 	beq _0800D1AA
 	movs r5, #0
-	bl GetDaysPregnantHealthy__10BarnAnimal
+	bl GetDaysPregnantHealthy__C10BarnAnimal
 	cmp r0, #0x14
 	bhi _0800D1A4
 	adds r0, r4, #0
-	bl GetDaysPregnant__10BarnAnimal
+	bl GetDaysPregnant__C10BarnAnimal
 	cmp r0, #0x1d
 	bls _0800D1A6
 _0800D1A4:
@@ -608,7 +608,7 @@ sub_800D4D4: @ 0x0800D4D4
 	mov sl, r7
 	cmp r7, #0
 	beq _0800D598
-	bl GetAge__6Animal
+	bl GetAge__C6Animal
 	adds r4, r0, #0
 	adds r5, r4, #0
 	adds r0, r6, #0
@@ -631,7 +631,7 @@ sub_800D4D4: @ 0x0800D4D4
 	orrs r0, r1
 	strh r0, [r6, #4]
 	adds r0, r7, #0
-	bl GetName__6Animal
+	bl GetName__C6Animal
 	adds r5, r0, #0
 	adds r7, r6, #0
 	adds r7, #0xc
@@ -666,7 +666,7 @@ _0800D550:
 	orrs r0, r1
 	str r0, [r6, #4]
 	mov r0, sl
-	bl GetName__6Animal
+	bl GetName__C6Animal
 	adds r5, r0, #0
 	adds r7, r6, #0
 	adds r7, #0x1c
@@ -788,7 +788,7 @@ _0800D63A:
 	adds r7, r4, #0
 	cmp r4, #0
 	beq _0800D70C
-	bl IsPregnant__10BarnAnimal
+	bl IsPregnant__C10BarnAnimal
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _0800D70C
@@ -938,12 +938,12 @@ _0800D798: .4byte 0xFFFFFC00
 _0800D79C: .4byte 0x000003FF
 _0800D7A0:
 	adds r0, r4, #0
-	bl HasBeenFed__9Livestock
+	bl HasBeenFed__C9Livestock
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800D7DE
 	adds r0, r4, #0
-	bl IsPregnant__10BarnAnimal
+	bl IsPregnant__C10BarnAnimal
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800D7DE
@@ -1060,7 +1060,7 @@ sub_800D864: @ 0x0800D864
 	bl sub_800DA64
 	cmp r0, #0
 	beq _0800D8A0
-	bl IsPregnant__10BarnAnimal
+	bl IsPregnant__C10BarnAnimal
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _0800D8A0
@@ -1175,7 +1175,7 @@ _0800D8C4:
 	movs r3, #0
 	bl __3CowRC13ActorLocationUiUi
 	adds r0, r4, #0
-	bl GetAffection__6Animal
+	bl GetAffection__C6Animal
 	lsrs r4, r0, #1
 	cmp r4, #1
 	bls _0800D996
@@ -1205,7 +1205,7 @@ _0800D9A4:
 	movs r3, #0
 	bl __5SheepRC13ActorLocationUiUi
 	adds r0, r4, #0
-	bl GetAffection__6Animal
+	bl GetAffection__C6Animal
 	lsrs r4, r0, #1
 	cmp r4, #1
 	bls _0800D9DE
