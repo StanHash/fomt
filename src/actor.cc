@@ -2,15 +2,15 @@
 
 Actor::Actor(ActorLocation const & a_location)
 {
-    memcpy(&location, &a_location, sizeof(ActorLocation));
+    location = a_location;
 }
 
 Actor::Actor(Actor const & other)
 {
-    memcpy(&location, &other.location, sizeof(ActorLocation));
+    location = other.location;
 }
 
 void Actor::SetLocation(ActorLocation const & a_location)
 {
-    memcpy(&location, &a_location, sizeof(ActorLocation));
+    location = a_location;
 }

@@ -1159,7 +1159,7 @@ sub_809EEE8: @ 0x0809EEE8
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E458
+	bl __12BacheloretteRC13ActorLocation
 	movs r1, #0xb0
 	adds r1, r1, r7
 	mov r8, r1
@@ -1532,7 +1532,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E458
+	bl __12BacheloretteRC13ActorLocation
 	movs r1, #0xb6
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1822,7 +1822,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E458
+	bl __12BacheloretteRC13ActorLocation
 	movs r1, #0xfe
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1906,7 +1906,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E458
+	bl __12BacheloretteRC13ActorLocation
 	movs r1, #0x8a
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2074,7 +2074,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E458
+	bl __12BacheloretteRC13ActorLocation
 	movs r1, #0x9f
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2326,7 +2326,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E458
+	bl __12BacheloretteRC13ActorLocation
 	movs r1, #0xbf
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -3480,7 +3480,7 @@ sub_80A041C: @ 0x080A041C
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x98
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #4
 	bls _080A042E
 	movs r0, #3
@@ -3489,7 +3489,7 @@ _080A042E:
 	movs r1, #0xaa
 	lsls r1, r1, #1
 	adds r0, r4, r1
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #4
 	bls _080A0440
 	movs r0, #0xc
@@ -3498,7 +3498,7 @@ _080A0440:
 	movs r1, #0xf2
 	lsls r1, r1, #1
 	adds r0, r4, r1
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #4
 	bls _080A0452
 	movs r0, #0x13
@@ -3507,7 +3507,7 @@ _080A0452:
 	movs r1, #0x84
 	lsls r1, r1, #2
 	adds r0, r4, r1
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #4
 	bls _080A0464
 	movs r0, #0x15
@@ -3516,7 +3516,7 @@ _080A0464:
 	movs r1, #0x99
 	lsls r1, r1, #2
 	adds r0, r4, r1
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #4
 	bls _080A0476
 	movs r0, #0x19
@@ -3525,7 +3525,7 @@ _080A0476:
 	movs r1, #0xb9
 	lsls r1, r1, #2
 	adds r0, r4, r1
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #4
 	bhi _080A0488
 	movs r0, #0
@@ -3542,7 +3542,7 @@ sub_80A0490: @ 0x080A0490
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x98
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #5
 	bls _080A04A2
 	movs r0, #3
@@ -3551,7 +3551,7 @@ _080A04A2:
 	movs r1, #0xaa
 	lsls r1, r1, #1
 	adds r0, r4, r1
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #5
 	bls _080A04B4
 	movs r0, #0xc
@@ -3560,7 +3560,7 @@ _080A04B4:
 	movs r1, #0xf2
 	lsls r1, r1, #1
 	adds r0, r4, r1
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #5
 	bls _080A04C6
 	movs r0, #0x13
@@ -3569,7 +3569,7 @@ _080A04C6:
 	movs r1, #0x84
 	lsls r1, r1, #2
 	adds r0, r4, r1
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #5
 	bls _080A04D8
 	movs r0, #0x15
@@ -3578,7 +3578,7 @@ _080A04D8:
 	movs r1, #0x99
 	lsls r1, r1, #2
 	adds r0, r4, r1
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #5
 	bls _080A04EA
 	movs r0, #0x19
@@ -3587,7 +3587,7 @@ _080A04EA:
 	movs r1, #0xb9
 	lsls r1, r1, #2
 	adds r0, r4, r1
-	bl sub_809E49C
+	bl GetPlayerEventCount__C12Bachelorette
 	cmp r0, #5
 	bhi _080A04FC
 	movs r0, #0
@@ -4414,7 +4414,7 @@ sub_80A0B18: @ 0x080A0B18
 	bl sub_809E3E8
 	adds r4, #0x14
 	adds r0, r4, #0
-	bl sub_809E4AC
+	bl GetRivalEventCount__C12Bachelorette
 	cmp r0, #4
 	bls _080A0B88
 	ldrb r0, [r5, #9]
@@ -4429,7 +4429,7 @@ _080A0B88:
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
-	bl sub_809E574
+	bl DayUpdate__12BachelorettebUi
 _080A0B9C:
 	adds r4, r7, #0
 	adds r4, #0xb0
@@ -4501,7 +4501,7 @@ _080A0B9C:
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
-	bl sub_809E574
+	bl DayUpdate__12BachelorettebUi
 	movs r3, #0xb6
 	lsls r3, r3, #1
 	adds r4, r7, r3
@@ -4565,7 +4565,7 @@ _080A0B9C:
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
-	bl sub_809E574
+	bl DayUpdate__12BachelorettebUi
 	movs r2, #0xfe
 	lsls r2, r2, #1
 	adds r4, r7, r2
@@ -4584,7 +4584,7 @@ _080A0B9C:
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
-	bl sub_809E574
+	bl DayUpdate__12BachelorettebUi
 	movs r0, #0x8a
 	lsls r0, r0, #2
 	adds r4, r7, r0
@@ -4621,7 +4621,7 @@ _080A0B9C:
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
-	bl sub_809E574
+	bl DayUpdate__12BachelorettebUi
 	ldrb r0, [r5, #9]
 	lsls r0, r0, #0x1e
 	lsrs r0, r0, #0x1e
@@ -4690,7 +4690,7 @@ _080A0DDE:
 	adds r2, r0, #0
 	adds r0, r4, #0
 	mov r1, r8
-	bl sub_809E574
+	bl DayUpdate__12BachelorettebUi
 	movs r2, #0xbf
 	lsls r2, r2, #2
 	adds r4, r7, r2
@@ -4918,7 +4918,7 @@ _080A105A:
 	adds r4, r7, #0
 	adds r4, #0x98
 	adds r0, r4, #0
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	mov sl, r4
 	adds r1, r7, #0
 	adds r1, #0x30
@@ -5001,16 +5001,16 @@ _080A1100: .4byte 0x08104109
 _080A1104:
 	adds r0, r5, #0
 	ldr r1, _080A1154 @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 	adds r0, r5, #0
-	bl sub_809E550
+	bl method_0809E550__12Bachelorette
 _080A1112:
 	adds r0, r5, #0
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	cmp r0, #4
 	bhi _080A112A
 	mov r0, sl
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	adds r0, r0, r4
 	ldrb r0, [r0]
 	cmp r6, r0
@@ -5019,7 +5019,7 @@ _080A112A:
 	movs r1, #0xaa
 	lsls r1, r1, #1
 	adds r0, r7, r1
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	cmp r0, #4
 	bhi _080A1182
 	mov r2, r8
@@ -5043,16 +5043,16 @@ _080A1158: .4byte 0x0810410E
 _080A115C:
 	adds r0, r5, #0
 	ldr r1, _080A11AC @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 	adds r0, r5, #0
-	bl sub_809E550
+	bl method_0809E550__12Bachelorette
 _080A116A:
 	adds r0, r5, #0
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	cmp r0, #4
 	bhi _080A1182
 	adds r0, r5, #0
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	adds r0, r0, r4
 	ldrb r0, [r0]
 	cmp r6, r0
@@ -5061,7 +5061,7 @@ _080A1182:
 	movs r1, #0xf2
 	lsls r1, r1, #1
 	adds r0, r7, r1
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	cmp r0, #4
 	bhi _080A11DA
 	mov r2, r8
@@ -5085,16 +5085,16 @@ _080A11B0: .4byte 0x08104113
 _080A11B4:
 	adds r0, r5, #0
 	ldr r1, _080A1208 @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 	adds r0, r5, #0
-	bl sub_809E550
+	bl method_0809E550__12Bachelorette
 _080A11C2:
 	adds r0, r5, #0
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	cmp r0, #4
 	bhi _080A11DA
 	adds r0, r5, #0
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	adds r0, r0, r4
 	ldrb r0, [r0]
 	cmp r6, r0
@@ -5103,7 +5103,7 @@ _080A11DA:
 	movs r1, #0x84
 	lsls r1, r1, #2
 	adds r0, r7, r1
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	cmp r0, #4
 	bhi _080A1236
 	mov r2, r8
@@ -5127,16 +5127,16 @@ _080A120C: .4byte 0x08104118
 _080A1210:
 	adds r0, r5, #0
 	ldr r1, _080A1260 @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 	adds r0, r5, #0
-	bl sub_809E550
+	bl method_0809E550__12Bachelorette
 _080A121E:
 	adds r0, r5, #0
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	cmp r0, #4
 	bhi _080A1236
 	adds r0, r5, #0
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	adds r0, r0, r4
 	ldrb r0, [r0]
 	cmp r6, r0
@@ -5145,7 +5145,7 @@ _080A1236:
 	movs r1, #0x99
 	lsls r1, r1, #2
 	adds r0, r7, r1
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	cmp r0, #4
 	bhi _080A128E
 	mov r2, r8
@@ -5169,16 +5169,16 @@ _080A1264: .4byte 0x0810411D
 _080A1268:
 	adds r0, r5, #0
 	ldr r1, _080A12B4 @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 	adds r0, r5, #0
-	bl sub_809E550
+	bl method_0809E550__12Bachelorette
 _080A1276:
 	adds r0, r5, #0
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	cmp r0, #4
 	bhi _080A128E
 	adds r0, r5, #0
-	bl sub_809E4BC
+	bl method_0809E4BC__C12Bachelorette
 	adds r0, r0, r4
 	ldrb r0, [r0]
 	cmp r6, r0
@@ -5258,7 +5258,7 @@ _080A1328:
 _080A1334:
 	mov r0, sl
 	ldr r1, _080A146C @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 _080A133C:
 	mov r3, r8
 	cmp r3, #0
@@ -5271,7 +5271,7 @@ _080A1348:
 	lsls r1, r1, #1
 	adds r0, r7, r1
 	ldr r1, _080A146C @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 _080A1354:
 	mov r2, r8
 	cmp r2, #0
@@ -5284,7 +5284,7 @@ _080A1360:
 	lsls r1, r1, #1
 	adds r0, r7, r1
 	ldr r1, _080A146C @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 _080A136C:
 	mov r2, r8
 	cmp r2, #0
@@ -5297,7 +5297,7 @@ _080A1378:
 	lsls r1, r1, #2
 	adds r0, r7, r1
 	ldr r1, _080A146C @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 _080A1384:
 	mov r2, r8
 	cmp r2, #0
@@ -5310,7 +5310,7 @@ _080A1390:
 	lsls r1, r1, #2
 	adds r0, r7, r1
 	ldr r1, _080A146C @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 _080A139C:
 	mov r2, r8
 	cmp r2, #0
@@ -5323,7 +5323,7 @@ _080A13A8:
 	lsls r1, r1, #2
 	adds r0, r7, r1
 	ldr r1, _080A146C @ =0x000009C4
-	bl sub_809E4C4
+	bl AddLove__12Bachelorettei
 _080A13B4:
 	ldrh r2, [r7, #2]
 	lsls r0, r2, #0x17
@@ -5577,7 +5577,7 @@ _080A1620:
 	adds r1, r5, #0
 	bl sub_80A0878
 	movs r1, #0xc8
-	bl sub_809E4E8
+	bl SubtractLove__12Bachelorettei
 _080A162E:
 	adds r5, #1
 	cmp r5, #0x2a
@@ -5670,7 +5670,7 @@ _080A16D8:
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r4, #0
-	bl sub_809E4E8
+	bl SubtractLove__12Bachelorettei
 	b _080A1798
 _080A16EC:
 	movs r1, #0xcf
@@ -24393,12 +24393,12 @@ _080AA98C:
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080AA9AE
-	bl sub_809E498
+	bl GetLove__C12Bachelorette
 	ldr r1, _080AA9C4 @ =0x0000C34F
 	cmp r0, r1
 	bls _080AA9AE
 	adds r0, r4, #0
-	bl sub_809E4AC
+	bl GetRivalEventCount__C12Bachelorette
 	cmp r0, #3
 	bls _080AA978
 _080AA9AE:
