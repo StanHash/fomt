@@ -6,153 +6,151 @@
 HarvestSprite::HarvestSprite(ActorLocation const & location)
     : Npc(location)
 {
-    task = TASK_NONE;
-    workDaysRemaining = 0;
-    playedMinigame = false;
+    current_task = TASK_NONE;
+    work_days_left = 0;
+    played_minigame = false;
     unk_1C = 0;
 
-    taskExp[0] = 0;
-    taskExp[1] = 0;
-    taskExp[2] = 0;
+    task_exp[0] = 0;
+    task_exp[1] = 0;
+    task_exp[2] = 0;
 
-    minigameExp[0] = 0;
-    minigameExp[1] = 0;
-    minigameExp[2] = 0;
+    minigame_exp[0] = 0;
+    minigame_exp[1] = 0;
+    minigame_exp[2] = 0;
 }
 
-extern "C"
+HarvestSprite::Task HarvestSprite::GetCurrentTask(void) const
 {
-
-HarvestSprite * sub_809E628(HarvestSprite * self, ActorLocation const * location) ALIAS(__13HarvestSpriteRC13ActorLocation);
-
-//Returns a sprite's current task
-u8 sub_809E65C(struct HarvestSprite *hsprite){
-    return hsprite->task;
+    return static_cast<HarvestSprite::Task>(current_task);
 }
 
-//Returns a sprite's remaining work days
-u8 sub_809E664(struct HarvestSprite *hsprite){
-    return hsprite->workDaysRemaining;
+u32 HarvestSprite::GetWorkDaysLeft(void) const
+{
+    return work_days_left;
 }
 
-//Returns a sprite's exp for a task
-u8 sub_809E66C(struct HarvestSprite *hsprite, HarvestSprite::Task task){
-    if ((u32) task < HarvestSprite::NUM_TASKS)
-        return hsprite->taskExp[task];
+u32 HarvestSprite::GetTaskExp(HarvestSprite::Task task) const
+{
+    if (task >= 0 && task < NUM_TASKS)
+        return task_exp[task];
     else
         return 0;
 }
 
-//Returns whether a sprite has played a minigame that day
-u32 sub_809E680(struct HarvestSprite *hsprite){
-    return hsprite->playedMinigame;
+bool HarvestSprite::HasPlayedMinigameToday(void) const
+{
+    return played_minigame;
 }
 
-//Returns a sprite's minigame exp for a task
-u32 sub_809E688(struct HarvestSprite *hsprite, HarvestSprite::Task task){
-    if ((u32) task < HarvestSprite::NUM_TASKS)
-        return hsprite->minigameExp[task];
+u32 HarvestSprite::GetMinigameExp(HarvestSprite::Task task) const
+{
+    if (task >= 0 && task < NUM_TASKS)
+        return minigame_exp[task];
     else
         return 0;
 }
 
-//Increases a sprite's task exp
-void sub_809E69C(struct HarvestSprite *hsprite, HarvestSprite::Task task, u32 amount){
-    if ((u32) task < HarvestSprite::NUM_TASKS){
-        u32 total = hsprite->taskExp[task] + amount;
+void HarvestSprite::AddTaskExp(HarvestSprite::Task task, int amount)
+{
+    if (task >= 0 && task < NUM_TASKS)
+    {
+        u32 total = task_exp[task] + amount;
 
-        //Clamps the value between 0 and 255
-        if ((s32)total < 0)
+        // Clamps the value between 0 and 255
+        if ((int) total < 0)
             total = 0;
         else if (total > 255)
             total = 255;
-            
-        hsprite->taskExp[task] = total;
+
+        task_exp[task] = total;
     }
 }
 
-//Sets a sprite's task and work days
-void sub_809E6C4(struct HarvestSprite *hsprite, HarvestSprite::Task task, u32 days){
-    hsprite->task = task;
-    hsprite->workDaysRemaining = days;
+void HarvestSprite::StartTask(HarvestSprite::Task task, int days)
+{
+    current_task = task;
+    work_days_left = days;
 }
 
-//Assigns a sprite one work day
-void sub_809E6EC(struct HarvestSprite *hsprite){
-    hsprite->workDaysRemaining = 1;
+void HarvestSprite::method_0809E6EC(void)
+{
+    work_days_left = 1;
 }
 
-//Modifies a sprite's minigame exp, task exp and friendship
-void sub_809E6FC(struct HarvestSprite *hsprite, HarvestSprite::Task task, u8 param){
-    u32 temp;
+void HarvestSprite::SetPlayedMinigame(HarvestSprite::Task task, bool succeeded)
+{
+    played_minigame = true;
 
-    hsprite->playedMinigame = TRUE;
-    if(param && hsprite->minigameExp[task] != 31)
-        hsprite->minigameExp[task]++;
-    
-    if(6 > hsprite->minigameExp[task])
-        temp = 1;
-    else if(11 > hsprite->minigameExp[task])
-        temp = 2;
-    else if(17 > hsprite->minigameExp[task])
-        temp = 3;
+    if (succeeded && minigame_exp[task] != 31)
+        minigame_exp[task]++;
+
+    int task_exp;
+
+    if (minigame_exp[task] < 6)
+        task_exp = 1;
+    else if (minigame_exp[task] < 11)
+        task_exp = 2;
+    else if (minigame_exp[task] < 17)
+        task_exp = 3;
     else
-        temp = 4;
-    
-    if(!param)
-        temp = -temp;
-    
-    sub_809E69C(hsprite, task, temp);
-    hsprite->AddFriendship(1);
+        task_exp = 4;
+
+    if (!succeeded)
+        task_exp = -task_exp;
+
+    AddTaskExp(task, task_exp);
+    AddFriendship(1);
 }
 
-//Decrements a sprite's work days and resets the task if done
-void sub_809E75C(struct HarvestSprite *hsprite){
-    if(hsprite->workDaysRemaining){
-        hsprite->workDaysRemaining--;
-        if(hsprite->workDaysRemaining == 0)
-            hsprite->task = HarvestSprite::TASK_NONE;
-        hsprite->SubtractFriendship(2);
+void HarvestSprite::TaskDayUpdate(void)
+{
+    if (work_days_left)
+    {
+        work_days_left--;
+
+        if (work_days_left == 0)
+            current_task = TASK_NONE;
+
+        SubtractFriendship(2);
     }
 }
 
-//Checks if you talked to a sprite that day and resets the playedMinigame flag
-void sub_809E7A0(struct HarvestSprite *hsprite){
-    hsprite->DayUpdate(rand() % 100);
-    hsprite->playedMinigame = FALSE;
+void HarvestSprite::DayUpdate(void)
+{
+    Npc::DayUpdate(rand() % 100);
+    played_minigame = false;
 }
 
-//Resets a sprite's unknown value
-void sub_809E7C8(struct HarvestSprite *hsprite){
-    hsprite->unk_1C = 0;
+void HarvestSprite::method_0809E7C8(void)
+{
+    unk_1C = 0;
 }
 
-//Sets a sprite's unknown value to 1
-void sub_809E7D0(struct HarvestSprite *hsprite){
-    hsprite->unk_1C = 1;
+void HarvestSprite::method_0809E7D0(void)
+{
+    unk_1C = 1;
 }
 
-//Sets a sprite's unkown value to 2
-void sub_809E7D8(struct HarvestSprite *hsprite, u32 *param){
-    hsprite->unk_0x20 = *param;
-    hsprite->unk_1C = 2;
+void HarvestSprite::method_0809E7D8(UnkBarnAnimal2C const * param)
+{
+    unk_20 = *param;
+    unk_1C = 2;
 }
 
-//Sets a sprite's unkown value to 3
-void sub_809E7E4(struct HarvestSprite *hsprite, u32 *param){
-    hsprite->unk_0x20 = *param;
-    hsprite->unk_1C = 3;
+void HarvestSprite::method_0809E7E4(UnkBarnAnimal2C const * param)
+{
+    unk_20 = *param;
+    unk_1C = 3;
 }
 
-//Sets a sprite's unkown value to 4
-void sub_809E7F0(struct HarvestSprite *hsprite, u32 *param){
-    hsprite->unk_0x20 = *param;
-    hsprite->unk_1C = 4;
+void HarvestSprite::method_0809E7F0(UnkBarnAnimal2C const * param)
+{
+    unk_20 = *param;
+    unk_1C = 4;
 }
 
-//Sets a sprite's unkown value to 5
-void sub_809E7FC(struct HarvestSprite *hsprite){
-    hsprite->unk_1C = 5;
-}
-
+void HarvestSprite::method_0809E7FC(void)
+{
+    unk_1C = 5;
 }

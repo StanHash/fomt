@@ -274,7 +274,7 @@ sub_809E9B8: @ 0x0809E9B8
 	strb r1, [r4, #6]
 	adds r0, r7, #0
 	mov r1, sp
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	adds r5, r7, #0
 	adds r5, #0x14
 	ldr r6, _0809EA68 @ =0x08104108
@@ -325,7 +325,7 @@ sub_809EA6C: @ 0x0809EA6C
 	adds r5, r0, #0
 	mov r8, r1
 	adds r1, r2, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	adds r6, r5, #0
 	adds r6, #0x14
 	ldr r7, _0809EAC8 @ =0x08104108
@@ -412,7 +412,7 @@ sub_809EAF8: @ 0x0809EAF8
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	adds r4, #0x25
 	ldrb r0, [r4]
 	cmp r0, #0xfe
@@ -452,7 +452,7 @@ _0809EB36:
 sub_809EB4C: @ 0x0809EB4C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r0, #0
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x15]
@@ -556,7 +556,7 @@ sub_809EBEC: @ 0x0809EBEC
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	ldrb r2, [r4, #0x14]
 	lsrs r0, r2, #7
 	cmp r0, #0
@@ -602,7 +602,7 @@ sub_809EC48: @ 0x0809EC48
 	adds r4, r0, #0
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_809E32C
+	bl GetLocation__C3Npc
 	mov r0, sp
 	ldrh r0, [r0]
 	lsls r0, r0, #0x16
@@ -641,7 +641,7 @@ _0809EC86:
 sub_809EC90: @ 0x0809EC90
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	ldrb r1, [r4, #0x14]
 	movs r0, #0x40
 	rsbs r0, r0, #0
@@ -874,7 +874,7 @@ sub_809EE4C: @ 0x0809EE4C
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	ldrh r2, [r4, #0x14]
 	movs r0, #0xe0
 	lsls r0, r0, #1
@@ -902,7 +902,7 @@ _0809EE88: .4byte 0xFFFFFE3F
 sub_809EE8C: @ 0x0809EE8C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0
 	movs r0, #0
 	strh r0, [r4, #0x14]
@@ -1079,7 +1079,7 @@ sub_809EEE8: @ 0x0809EEE8
 	bl memcpy
 	mov r0, r8
 	mov r1, sp
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r2, #0x84
 	adds r2, r2, r7
 	mov r8, r2
@@ -1119,7 +1119,7 @@ sub_809EEE8: @ 0x0809EEE8
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0x98
 	adds r1, r1, r7
 	mov r8, r1
@@ -1199,7 +1199,7 @@ sub_809EEE8: @ 0x0809EEE8
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xc4
 	adds r1, r1, r7
 	mov r8, r1
@@ -1239,7 +1239,7 @@ sub_809EEE8: @ 0x0809EEE8
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xd8
 	adds r1, r1, r7
 	mov r8, r1
@@ -1319,7 +1319,7 @@ sub_809EEE8: @ 0x0809EEE8
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0x82
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1360,7 +1360,7 @@ sub_809EEE8: @ 0x0809EEE8
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0x8c
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1401,7 +1401,7 @@ sub_809EEE8: @ 0x0809EEE8
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0x96
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1450,7 +1450,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xa0
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1491,7 +1491,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xaa
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1573,7 +1573,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xc0
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1614,7 +1614,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xca
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1655,7 +1655,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xd4
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1696,7 +1696,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xde
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1738,7 +1738,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xe8
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1780,7 +1780,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xf2
 	lsls r1, r1, #1
 	adds r1, r1, r7
@@ -1864,7 +1864,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0x84
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -1948,7 +1948,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0x8f
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -1990,7 +1990,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0x94
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2032,7 +2032,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0x99
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2117,7 +2117,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sb
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r2, #0xa4
 	lsls r2, r2, #2
 	adds r6, r7, r2
@@ -2200,7 +2200,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xaf
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2242,7 +2242,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xb4
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2284,7 +2284,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xb9
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2368,7 +2368,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xc4
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2454,7 +2454,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E2D4
+	bl __3NpcRC13ActorLocation
 	movs r1, #0xcf
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2495,7 +2495,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E628
+	bl __13HarvestSpriteRC13ActorLocation
 	movs r1, #0xd8
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2536,7 +2536,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E628
+	bl __13HarvestSpriteRC13ActorLocation
 	movs r1, #0xe1
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2577,7 +2577,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E628
+	bl __13HarvestSpriteRC13ActorLocation
 	movs r1, #0xea
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2618,7 +2618,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E628
+	bl __13HarvestSpriteRC13ActorLocation
 	movs r1, #0xf3
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2659,7 +2659,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E628
+	bl __13HarvestSpriteRC13ActorLocation
 	movs r1, #0xfc
 	lsls r1, r1, #2
 	adds r1, r1, r7
@@ -2700,7 +2700,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E628
+	bl __13HarvestSpriteRC13ActorLocation
 	ldr r1, _0809FE34 @ =0x00000414
 	adds r1, r1, r7
 	mov sl, r1
@@ -2739,7 +2739,7 @@ _0809F2F0:
 	bl memcpy
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_809E628
+	bl __13HarvestSpriteRC13ActorLocation
 	movs r0, #0x87
 	lsls r0, r0, #3
 	adds r2, r7, r0
@@ -3435,7 +3435,7 @@ sub_80A03B8: @ 0x080A03B8
 	cmp r1, #0
 	beq _080A03D4
 	adds r0, r6, #0
-	bl sub_809E32C
+	bl GetLocation__C3Npc
 	b _080A040E
 _080A03D4:
 	mov r1, sp
@@ -3649,7 +3649,7 @@ _080A056C:
 	bl sub_80A0030
 	cmp r0, #0
 	beq _080A0582
-	bl sub_809E33C
+	bl GetFriendship__C3Npc
 	cmp r0, #0xf9
 	bhi _080A0582
 	movs r5, #0
@@ -4404,14 +4404,14 @@ sub_80A0B18: @ 0x080A0B18
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	adds r4, #0x14
 	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	adds r4, #0x14
 	adds r0, r4, #0
 	bl GetRivalEventCount__C12Bachelorette
@@ -4438,14 +4438,14 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	adds r4, #0x14
 	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	adds r0, r7, #0
 	adds r0, #0xd8
 	bl sub_809EE4C
@@ -4455,7 +4455,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r2, #0x82
 	lsls r2, r2, #1
 	adds r4, r7, r2
@@ -4464,7 +4464,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r3, #0x8c
 	lsls r3, r3, #1
 	adds r4, r7, r3
@@ -4473,7 +4473,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r0, #0x96
 	lsls r0, r0, #1
 	adds r4, r7, r0
@@ -4482,7 +4482,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r1, #0xa0
 	lsls r1, r1, #1
 	adds r4, r7, r1
@@ -4491,7 +4491,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r2, #0xaa
 	lsls r2, r2, #1
 	adds r4, r7, r2
@@ -4510,7 +4510,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r0, #0xc0
 	lsls r0, r0, #1
 	adds r4, r7, r0
@@ -4519,7 +4519,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r1, #0xca
 	lsls r1, r1, #1
 	adds r4, r7, r1
@@ -4528,7 +4528,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r2, #0xd4
 	lsls r2, r2, #1
 	adds r4, r7, r2
@@ -4537,7 +4537,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r3, #0xde
 	lsls r3, r3, #1
 	adds r4, r7, r3
@@ -4546,7 +4546,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r0, #0xe8
 	lsls r0, r0, #1
 	adds r4, r7, r0
@@ -4555,7 +4555,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r1, #0xf2
 	lsls r1, r1, #1
 	adds r4, r7, r1
@@ -4574,7 +4574,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r3, #0x84
 	lsls r3, r3, #2
 	adds r4, r7, r3
@@ -4593,7 +4593,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r1, #0x8f
 	lsls r1, r1, #2
 	adds r4, r7, r1
@@ -4602,7 +4602,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r2, #0x94
 	lsls r2, r2, #2
 	adds r4, r7, r2
@@ -4611,7 +4611,7 @@ _080A0B9C:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r3, #0x99
 	lsls r3, r3, #2
 	adds r4, r7, r3
@@ -4631,24 +4631,24 @@ _080A0B9C:
 	lsls r0, r0, #2
 	adds r4, r7, r0
 	adds r0, r4, #0
-	bl sub_809E33C
+	bl GetFriendship__C3Npc
 	adds r5, r0, #0
 	bl rand
 	movs r1, #0x64
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	adds r0, r4, #0
-	bl sub_809E33C
+	bl GetFriendship__C3Npc
 	cmp r0, r5
 	bls _080A0DDE
 	adds r0, r4, #0
-	bl sub_809E33C
+	bl GetFriendship__C3Npc
 	adds r1, r0, #0
 	subs r1, r1, r5
 	adds r0, r4, #0
-	bl sub_809E370
+	bl AddFriendship__3Npci
 _080A0DDE:
 	movs r1, #0xa4
 	lsls r1, r1, #2
@@ -4662,7 +4662,7 @@ _080A0DDE:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r3, #0xaf
 	lsls r3, r3, #2
 	adds r4, r7, r3
@@ -4671,7 +4671,7 @@ _080A0DDE:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r0, #0xb4
 	lsls r0, r0, #2
 	adds r4, r7, r0
@@ -4680,7 +4680,7 @@ _080A0DDE:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	movs r1, #0xb9
 	lsls r1, r1, #2
 	adds r4, r7, r1
@@ -4699,7 +4699,7 @@ _080A0DDE:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 	mov r0, sl
 	adds r0, #0x3a
 	ldrb r0, [r0]
@@ -4715,7 +4715,7 @@ _080A0DDE:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 _080A0E88:
 	mov r0, sl
 	adds r0, #0x3b
@@ -4732,7 +4732,7 @@ _080A0E88:
 	bl __modsi3
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_809E3E8
+	bl DayUpdate__3NpcUi
 _080A0EAE:
 	ldrb r0, [r7, #3]
 	lsls r0, r0, #0x1e
@@ -4745,18 +4745,18 @@ _080A0EBC:
 	lsls r1, r1, #2
 	adds r4, r7, r1
 	adds r0, r4, #0
-	bl sub_809E7A0
+	bl DayUpdate__13HarvestSprite
 	mov r0, sp
 	movs r1, #0
 	bl sub_809E804
 	adds r0, r4, #0
 	mov r1, sp
-	bl sub_809E368
+	bl SetLocation__3NpcRC13ActorLocation
 	movs r6, #0
 	str r6, [sp, #8]
 	add r1, sp, #8
 	adds r0, r4, #0
-	bl sub_809E7C8
+	bl method_0809E7C8__13HarvestSprite
 	movs r2, #0x87
 	lsls r2, r2, #3
 	adds r5, r7, r2
@@ -4767,17 +4767,17 @@ _080A0EBC:
 	lsls r3, r3, #2
 	adds r4, r7, r3
 	adds r0, r4, #0
-	bl sub_809E7A0
+	bl DayUpdate__13HarvestSprite
 	mov r0, sp
 	movs r1, #1
 	bl sub_809E804
 	adds r0, r4, #0
 	mov r1, sp
-	bl sub_809E368
+	bl SetLocation__3NpcRC13ActorLocation
 	str r6, [sp, #0xc]
 	add r1, sp, #0xc
 	adds r0, r4, #0
-	bl sub_809E7C8
+	bl method_0809E7C8__13HarvestSprite
 	adds r0, r5, #0
 	movs r1, #1
 	bl sub_809E994
@@ -4785,17 +4785,17 @@ _080A0EBC:
 	lsls r0, r0, #2
 	adds r4, r7, r0
 	adds r0, r4, #0
-	bl sub_809E7A0
+	bl DayUpdate__13HarvestSprite
 	mov r0, sp
 	movs r1, #2
 	bl sub_809E804
 	adds r0, r4, #0
 	mov r1, sp
-	bl sub_809E368
+	bl SetLocation__3NpcRC13ActorLocation
 	str r6, [sp, #0x10]
 	add r1, sp, #0x10
 	adds r0, r4, #0
-	bl sub_809E7C8
+	bl method_0809E7C8__13HarvestSprite
 	adds r0, r5, #0
 	movs r1, #2
 	bl sub_809E994
@@ -4803,17 +4803,17 @@ _080A0EBC:
 	lsls r1, r1, #2
 	adds r4, r7, r1
 	adds r0, r4, #0
-	bl sub_809E7A0
+	bl DayUpdate__13HarvestSprite
 	mov r0, sp
 	movs r1, #3
 	bl sub_809E804
 	adds r0, r4, #0
 	mov r1, sp
-	bl sub_809E368
+	bl SetLocation__3NpcRC13ActorLocation
 	str r6, [sp, #0x14]
 	add r1, sp, #0x14
 	adds r0, r4, #0
-	bl sub_809E7C8
+	bl method_0809E7C8__13HarvestSprite
 	adds r0, r5, #0
 	movs r1, #3
 	bl sub_809E994
@@ -4821,17 +4821,17 @@ _080A0EBC:
 	lsls r2, r2, #2
 	adds r4, r7, r2
 	adds r0, r4, #0
-	bl sub_809E7A0
+	bl DayUpdate__13HarvestSprite
 	mov r0, sp
 	movs r1, #4
 	bl sub_809E804
 	adds r0, r4, #0
 	mov r1, sp
-	bl sub_809E368
+	bl SetLocation__3NpcRC13ActorLocation
 	str r6, [sp, #0x18]
 	add r1, sp, #0x18
 	adds r0, r4, #0
-	bl sub_809E7C8
+	bl method_0809E7C8__13HarvestSprite
 	adds r0, r5, #0
 	movs r1, #4
 	bl sub_809E994
@@ -4839,34 +4839,34 @@ _080A0EBC:
 	lsls r3, r3, #2
 	adds r4, r7, r3
 	adds r0, r4, #0
-	bl sub_809E7A0
+	bl DayUpdate__13HarvestSprite
 	mov r0, sp
 	movs r1, #5
 	bl sub_809E804
 	adds r0, r4, #0
 	mov r1, sp
-	bl sub_809E368
+	bl SetLocation__3NpcRC13ActorLocation
 	str r6, [sp, #0x1c]
 	add r1, sp, #0x1c
 	adds r0, r4, #0
-	bl sub_809E7C8
+	bl method_0809E7C8__13HarvestSprite
 	adds r0, r5, #0
 	movs r1, #5
 	bl sub_809E994
 	ldr r0, _080A10FC @ =0x00000414
 	adds r4, r7, r0
 	adds r0, r4, #0
-	bl sub_809E7A0
+	bl DayUpdate__13HarvestSprite
 	mov r0, sp
 	movs r1, #6
 	bl sub_809E804
 	adds r0, r4, #0
 	mov r1, sp
-	bl sub_809E368
+	bl SetLocation__3NpcRC13ActorLocation
 	str r6, [sp, #0x20]
 	add r1, sp, #0x20
 	adds r0, r4, #0
-	bl sub_809E7C8
+	bl method_0809E7C8__13HarvestSprite
 	adds r0, r5, #0
 	movs r1, #6
 	bl sub_809E994
@@ -5227,7 +5227,7 @@ _080A12F0:
 	bl sub_80A06B0
 	cmp r0, #0
 	beq _080A1304
-	bl sub_809E33C
+	bl GetFriendship__C3Npc
 	adds r6, r6, r0
 	adds r4, #1
 _080A1304:
@@ -5530,7 +5530,7 @@ _080A1582:
 	cmp r0, #0
 	beq _080A1598
 	movs r1, #1
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 _080A1598:
 	subs r0, r5, #3
 	cmp r0, #0x1c
@@ -5587,11 +5587,11 @@ _080A1636:
 	adds r0, r4, #0
 	adds r0, #0x70
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	adds r0, r4, #0
 	adds r0, #0x84
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	adds r4, #0x98
 	b _080A16D8
 _080A164E:
@@ -5607,12 +5607,12 @@ _080A165A:
 	lsls r1, r1, #1
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0xd4
 	lsls r1, r1, #1
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r0, #0x84
 	lsls r0, r0, #2
 	b _080A16D6
@@ -5621,12 +5621,12 @@ _080A1678:
 	lsls r1, r1, #1
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0xe8
 	lsls r1, r1, #1
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r0, #0xf2
 	lsls r0, r0, #1
 	b _080A16D6
@@ -5635,7 +5635,7 @@ _080A1696:
 	lsls r1, r1, #1
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r0, #0x84
 	lsls r0, r0, #2
 	b _080A16D6
@@ -5644,7 +5644,7 @@ _080A16A8:
 	lsls r1, r1, #2
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r0, #0x99
 	lsls r0, r0, #2
 	b _080A16D6
@@ -5653,12 +5653,12 @@ _080A16BA:
 	lsls r1, r1, #1
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0xa0
 	lsls r1, r1, #1
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r0, #0xaa
 	lsls r0, r0, #1
 _080A16D6:
@@ -5666,7 +5666,7 @@ _080A16D6:
 _080A16D8:
 	adds r0, r4, #0
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r4, #0
@@ -5677,32 +5677,32 @@ _080A16EC:
 	lsls r1, r1, #2
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0xd8
 	lsls r1, r1, #2
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0xe1
 	lsls r1, r1, #2
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0xea
 	lsls r1, r1, #2
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0xf3
 	lsls r1, r1, #2
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0xfc
 	lsls r1, r1, #2
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	ldr r1, _080A1738 @ =0x00000414
 	b _080A177A
 	.align 2, 0
@@ -5712,7 +5712,7 @@ _080A173C:
 	lsls r1, r1, #1
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0xc0
 	lsls r1, r1, #1
 	b _080A177A
@@ -5721,7 +5721,7 @@ _080A174E:
 	lsls r1, r1, #1
 	adds r0, r4, r1
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	movs r1, #0x8c
 	lsls r1, r1, #1
 	b _080A177A
@@ -5733,7 +5733,7 @@ _080A1766:
 	adds r0, r4, #0
 	adds r0, #0xd8
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	adds r0, r4, #0
 	adds r0, #0xf0
 	b _080A177C
@@ -5744,17 +5744,17 @@ _080A177A:
 	adds r0, r4, r1
 _080A177C:
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	b _080A1798
 _080A1784:
 	adds r0, r4, #0
 	adds r0, #0xb0
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 	adds r0, r4, #0
 	adds r0, #0xc4
 	movs r1, #5
-	bl sub_809E38C
+	bl SubtractFriendship__3Npci
 _080A1798:
 	pop {r4, r5, r6}
 	pop {r0}
@@ -10104,7 +10104,7 @@ _080A3968:
 	bl sub_80A0930
 	adds r6, r0, #0
 	movs r1, #2
-	bl sub_809E688
+	bl GetMinigameExp__C13HarvestSpriteQ213HarvestSprite4Task
 	movs r1, #0
 	mov r8, r1
 	strb r0, [r4, #4]
@@ -10132,7 +10132,7 @@ _080A39A6:
 	adds r0, r6, #0
 	movs r1, #2
 	adds r2, r4, #0
-	bl sub_809E6FC
+	bl SetPlayedMinigame__13HarvestSpriteQ213HarvestSprite4Taskb
 	ldr r0, [r5, #4]
 	strb r4, [r0, #0xc]
 	ldr r4, [r5, #8]
@@ -10227,7 +10227,7 @@ _080A3A64:
 	bl sub_80A0930
 	adds r6, r0, #0
 	movs r1, #0
-	bl sub_809E688
+	bl GetMinigameExp__C13HarvestSpriteQ213HarvestSprite4Task
 	movs r1, #0
 	mov r8, r1
 	strb r0, [r4, #4]
@@ -10255,7 +10255,7 @@ _080A3AA2:
 	adds r0, r6, #0
 	movs r1, #0
 	adds r2, r4, #0
-	bl sub_809E6FC
+	bl SetPlayedMinigame__13HarvestSpriteQ213HarvestSprite4Taskb
 	ldr r0, [r5, #4]
 	strb r4, [r0, #0xc]
 	ldr r4, [r5, #8]
@@ -10350,7 +10350,7 @@ _080A3B60:
 	bl sub_80A0930
 	adds r6, r0, #0
 	movs r1, #1
-	bl sub_809E688
+	bl GetMinigameExp__C13HarvestSpriteQ213HarvestSprite4Task
 	movs r1, #0
 	mov r8, r1
 	strb r0, [r4, #4]
@@ -10378,7 +10378,7 @@ _080A3B9E:
 	adds r0, r6, #0
 	movs r1, #1
 	adds r2, r4, #0
-	bl sub_809E6FC
+	bl SetPlayedMinigame__13HarvestSpriteQ213HarvestSprite4Taskb
 	ldr r0, [r5, #4]
 	strb r4, [r0, #0xc]
 	ldr r4, [r5, #8]
