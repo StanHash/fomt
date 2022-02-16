@@ -75,11 +75,11 @@ FoodSlot * sub_800F0A4(FoodSlot *fSlot, RucksackSlot *rSlot) {
     Item item;
 
     if (rSlot->type == 0) {
-        __4Foodc(&item, rSlot->item);
+        __4FoodUi(&item, rSlot->item);
         AddBonuses__4FoodScSc(&item, rSlot->stamina, rSlot->fatigue);
         fSlot->item = item;
     } else {
-        __4Foodc(&fSlot->item, FOOD_NONE);
+        __4FoodUi(&fSlot->item, FOOD_NONE);
     }
 
     return fSlot;
@@ -92,10 +92,10 @@ u8 sub_800F0E8(RucksackSlot *slot) {
     if(slot->type == 1) {
         ptr = &sp._0;
         ptr++;
-        __7Articlec((ArticleSlot *)&sp._1, slot->item);
+        __7ArticleUi((ArticleSlot *)&sp._1, slot->item);
         return *ptr;
     } else {
-        __7Articlec((ArticleSlot *)&sp, ARTICLE_NONE);
+        __7ArticleUi((ArticleSlot *)&sp, ARTICLE_NONE);
         return sp._0;
     }
 
@@ -116,7 +116,7 @@ u8 sub_800F124(RucksackSlot *slot) {
             bool = TRUE;
             break;
         case 1:
-            __7Articlec(&sp, slot->item);
+            __7ArticleUi(&sp, slot->item);
             bool = CanBeDiscarded__C7Article(&sp);
             break;
     }

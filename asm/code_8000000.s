@@ -19921,7 +19921,7 @@ _0800A684:
 	cmp r3, #0xe
 	bgt _0800A6AC
 	mov r0, sp
-	bl __4Foodc
+	bl __4FoodUi
 	mov r0, sp
 	ldrb r1, [r0]
 	adds r0, #1
@@ -19940,7 +19940,7 @@ _0800A6AC:
 	add r4, sp, #4
 	adds r0, r4, #0
 	adds r1, r2, #0
-	bl __7Articlec
+	bl __7ArticleUi
 	ldrb r1, [r4]
 	adds r0, r5, #0
 	bl sub_800F040

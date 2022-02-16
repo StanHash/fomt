@@ -2,8 +2,9 @@
 
 #include "constants/food.h"
 #include "constants/article.h"
+#include "constants/product.h"
 
-const Product gProducts[] = {
+const Product gProductInfo[] = {
     [PRODUCT_TURNIP] = {
         .price = 60,
         .type  = TYPE_FOOD,

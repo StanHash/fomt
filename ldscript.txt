@@ -24,9 +24,7 @@ SECTIONS
         asm/code_800D074.o(.text);
         src/code_800D9FC.o(.text); /* BarnSlot      */
         src/item.o(.text);
-        src/code_800E0F0.o(.text); /* ProductSlot   */
-
-        asm/code_800E268.o(.text);
+        asm/code_800E2E4.o(.text);
         src/code_800EFEC.o(.text); /* RucksackSlot  */
         asm/code_800F170.o(.text);
 
@@ -52,7 +50,8 @@ SECTIONS
         data/data_80E59CC.o(.rodata);
         src/shipping_bin.o(.rodata);
         src/record_player.o(.rodata);
-        src/data/tools.o(.rodata);
+        . = ALIGN(4); src/item.o(.rodata);
+        . = ALIGN(4); src/data/tools.o(.rodata);
         src/data/foods.o(.rodata);
         src/data/articles.o(.rodata);
         src/data/products.o(.rodata);

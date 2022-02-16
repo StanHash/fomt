@@ -32,7 +32,7 @@ u32 sub_800B910(Shelf *shelf, u32 article) {
         if(IsEmpty__C12ArticleStack(ptr)){
             val += 99;
         }else{
-            r7->article = GetArticleId__C12ArticleStack(ptr);
+            r7->article = GetArticle__C12ArticleStack(ptr);
             bool = GetId__C7Article(&sp) == article;
             if(bool){
                 u32 temp = GetAmount__C12ArticleStack(ptr);
@@ -57,7 +57,7 @@ u32 sub_800B974(Shelf *shelf, u32 article) {
     while(ptr != ptr2){
         ArticleSlot * r7 = &sp;
         if(!IsEmpty__C12ArticleStack(ptr)){
-            r7->article = GetArticleId__C12ArticleStack(ptr);
+            r7->article = GetArticle__C12ArticleStack(ptr);
             bool = GetId__C7Article(&sp) == article;
 
             if(bool)
@@ -110,7 +110,7 @@ u32 sub_800BA44(Shelf *shelf, u32 article) {
     while(ptr != ptr2){
         ArticleSlot * r7 = &sp;
         if(!IsEmpty__C12ArticleStack(ptr)){
-            r7->article = GetArticleId__C12ArticleStack(ptr);
+            r7->article = GetArticle__C12ArticleStack(ptr);
             bool = GetId__C7Article(&sp) == article;
             if(bool)
                 return idx;
@@ -166,7 +166,7 @@ u32 sub_800BAA8(Shelf *shelf, u32 article, u32 amount) {
         ldr r4, [r4]\n\
         add r0, sp, #0xc\n\
         adds r1, r6, #0\n\
-        bl __7Articlec\n\
+        bl __7ArticleUi\n\
         add r0, sp, #0xc\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
@@ -179,7 +179,7 @@ u32 sub_800BAA8(Shelf *shelf, u32 article, u32 amount) {
         b _0800BB46\n\
     _0800BB06:\n\
         adds r0, r5, #0\n\
-        bl GetArticleId__C12ArticleStack\n\
+        bl GetArticle__C12ArticleStack\n\
         mov r1, sp\n\
         adds r1, #0xd\n\
         strb r0, [r1]\n\

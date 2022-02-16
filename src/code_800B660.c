@@ -171,7 +171,7 @@ u32 sub_800B814(Fridge *fridge, u32 food, u32 amount) {
         add r4, sp, #4\n\
         adds r0, r4, #0\n\
         adds r1, r7, #0\n\
-        bl __4Foodc\n\
+        bl __4FoodUi\n\
         ldrb r1, [r4]\n\
         mov r0, sp\n\
         adds r0, #5\n\

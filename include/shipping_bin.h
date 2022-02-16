@@ -1,5 +1,7 @@
 #include "inventory.h"
 
+#include "constants/product.h"
+
 typedef struct ProductShippingData{
     u32 amountShipped:31;
     u32 visibleInMenu:1;

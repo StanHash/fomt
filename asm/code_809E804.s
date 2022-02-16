@@ -6347,7 +6347,7 @@ _080A1BFE:
 	add r5, sp, #4
 	add r4, sp, #8
 	adds r0, r4, #0
-	bl __4Foodc
+	bl __4FoodUi
 	ldrb r1, [r4]
 	mov r0, sp
 	adds r0, #9
@@ -6398,7 +6398,7 @@ _080A1C62:
 	add r5, sp, #4
 	add r4, sp, #0xc
 	adds r0, r4, #0
-	bl __7Articlec
+	bl __7ArticleUi
 	ldrb r1, [r4]
 	adds r0, r5, #0
 	bl sub_800F040
@@ -11415,7 +11415,7 @@ _080A445A:
 	ldr r5, [r0]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl __7Articlec
+	bl __7ArticleUi
 	ldrb r1, [r4]
 	ldr r0, [sp, #0xa0]
 	bl sub_800F040
@@ -11425,7 +11425,7 @@ _080A445A:
 	adds r4, #0x8d
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl __7Articlec
+	bl __7ArticleUi
 	adds r0, r4, #0
 	bl GetName__C7Article
 	str r0, [sp]
@@ -11489,7 +11489,7 @@ _080A4504:
 _080A450A:
 	add r4, sp, #0x1c
 	adds r0, r4, #0
-	bl __4Foodc
+	bl __4FoodUi
 	ldrb r1, [r4]
 	mov r0, sp
 	adds r0, #0x1d
@@ -24338,7 +24338,7 @@ sub_80AA8F0: @ 0x080AA8F0
 	cmp r0, #0
 	bne _080AA93C
 	adds r0, r4, #0
-	bl GetId__C9ToolStack
+	bl GetTool__C9ToolStack
 	adds r1, r0, #0
 	add r0, sp, #0x18
 	strb r1, [r0]
@@ -122973,7 +122973,7 @@ _080DAE54:
 	ldr r0, _080DAFA4 @ =0x00001BD8
 	adds r4, r4, r0
 	adds r0, r5, #0
-	bl GetId__C9ToolStack
+	bl GetTool__C9ToolStack
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_800E550
@@ -132998,7 +132998,7 @@ _080DFF84:
 	ldr r5, [r4, #0x14]
 	add r0, sp, #0x10
 	adds r1, r6, #0
-	bl __4Foodc
+	bl __4FoodUi
 	add r0, sp, #0x10
 	bl GetIconId__C4Food
 	adds r1, r0, #0
@@ -133063,7 +133063,7 @@ _080E0008:
 	add r4, sp, #0x24
 	adds r0, r4, #0
 	adds r1, r7, #0
-	bl __7Articlec
+	bl __7ArticleUi
 	adds r0, r4, #0
 	bl GetIconId__C7Article
 	adds r1, r0, #0
@@ -135343,7 +135343,7 @@ sub_80E118C: @ 0x080E118C
 	add r4, sp, #0x20
 	ldrh r1, [r1, #4]
 	adds r0, r4, #0
-	bl __7Articlec
+	bl __7ArticleUi
 	adds r0, r4, #0
 	bl GetName__C7Article
 	adds r5, r0, #0
@@ -140844,7 +140844,7 @@ _080E3BC8:
 	adds r1, r0, #0
 	subs r1, #1
 	adds r0, r4, #0
-	bl __4Foodc
+	bl __4FoodUi
 	adds r0, r4, #0
 	bl GetName__C4Food
 	b _080E3BF4
@@ -140853,7 +140853,7 @@ _080E3BE2:
 	ldrh r1, [r1, #4]
 	subs r1, #0xac
 	adds r0, r4, #0
-	bl __7Articlec
+	bl __7ArticleUi
 	adds r0, r4, #0
 	bl GetName__C7Article
 _080E3BF4:

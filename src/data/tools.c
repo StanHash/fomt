@@ -1,13 +1,6 @@
 #include "inventory.h"
 #include "constants/tool.h"
 
-const u8 gText_BadAlloc[]       = "bad_alloc";       // 0x080E9614
-const u8 gText_BrokenTool[]     = "Broken Tool";     // 0x080E9620
-const u8 gText_NoExplanation[]  = "No Explanation";  // 0x080E962C
-const u8 gText_BrokenFood[]     = "Broken Food";     // 0x080E963C
-const u8 gText_BrokenArticle[]  = "Broken Article";  // 0x080E9648
-const u8 gText_BrokenShipment[] = "Broken Shipment"; // 0x080E9658
-
 const u8 gText_IronSickleName[]          = "Iron Sickle";
 const u8 gText_IronSickleDesc[]          = "Sickle\r\nGood for cutting grass or\r\nweeds. Also cuts crops!";
 const u8 gText_CopperSickleName[]        = "Copper Sickle";

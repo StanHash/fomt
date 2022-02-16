@@ -1,113 +1,5 @@
 #include "global.h"
 
-enum Products {
-    PRODUCT_TURNIP,
-    PRODUCT_POTATO,
-    PRODUCT_CUCUMBER,
-    PRODUCT_STRAWBERRY,
-    PRODUCT_CABBAGE,
-    PRODUCT_TOMATO,
-    PRODUCT_CORN,
-    PRODUCT_ONION,
-    PRODUCT_PUMPKIN,
-    PRODUCT_PINEAPPLE,
-    PRODUCT_EGGPLANT,
-    PRODUCT_CARROT,
-    PRODUCT_SWEET_POTATO,
-    PRODUCT_SPINACH,
-    PRODUCT_GREEN_PEPPER,
-    PRODUCT_EGG,
-    PRODUCT_EGG_GOOD,
-    PRODUCT_EGG_HIGH,
-    PRODUCT_EGG_GOLD,
-    PRODUCT_EGG_P,
-    PRODUCT_EGG_X,
-    PRODUCT_EGG_SPA_BOILED,
-    PRODUCT_MAYONNAISE_S,
-    PRODUCT_MAYONNAISE_M,
-    PRODUCT_MAYONNAISE_L,
-    PRODUCT_MAYONNAISE_G,
-    PRODUCT_MAYONNAISE_P,
-    PRODUCT_MAYONNAISE_X,
-    PRODUCT_MILK_S,
-    PRODUCT_MILK_M,
-    PRODUCT_MILK_L,
-    PRODUCT_MILK_G,
-    PRODUCT_MILK_P,
-    PRODUCT_MILK_X,
-    PRODUCT_CHEESE_S,
-    PRODUCT_CHEESE_M,
-    PRODUCT_CHEESE_L,
-    PRODUCT_CHEESE_G,
-    PRODUCT_CHEESE_P,
-    PRODUCT_CHEESE_X,
-    PRODUCT_APPLE,
-    PRODUCT_APPLE_SUGDW,
-    PRODUCT_APPLE_HMSGB,
-    PRODUCT_APPLE_AEPFE,
-    PRODUCT_HONEY,
-    PRODUCT_BAMBOO_SHOOT,
-    PRODUCT_WILD_GRAPES,
-    PRODUCT_MUSHROOM,
-    PRODUCT_MUSHROOM_POISONOUS,
-    PRODUCT_TRUFFLE,
-    PRODUCT_GRASS_BLUE,
-    PRODUCT_GRASS_GREEN,
-    PRODUCT_GRASS_RED,
-    PRODUCT_GRASS_YELLOW,
-    PRODUCT_GRASS_ORANGE,
-    PRODUCT_GRASS_PURPLE,
-    PRODUCT_GRASS_INDIGO,
-    PRODUCT_GRASS_BLACK,
-    PRODUCT_GRASS_WHITE,
-    PRODUCT_CHOCOLATE,
-    PRODUCT_LEAVES_RELAXATION,
-    PRODUCT_FISH_SMALL,
-    PRODUCT_FISH_MEDIUM,
-    PRODUCT_FISH_LARGE,
-    PRODUCT_PIRATE_TREASURE,
-    PRODUCT_FOSSIL,
-    PRODUCT_FLOWER_MAGIC_RED,
-    PRODUCT_WOOL_S,
-    PRODUCT_WOOL_M,
-    PRODUCT_WOOL_L,
-    PRODUCT_WOOL_G,
-    PRODUCT_WOOL_P,
-    PRODUCT_WOOL_X,
-    PRODUCT_YARN_S,
-    PRODUCT_YARN_M,
-    PRODUCT_YARN_L,
-    PRODUCT_YARN_G,
-    PRODUCT_YARN_P,
-    PRODUCT_YARN_X,
-    PRODUCT_BRACELET,
-    PRODUCT_NECKLACE,
-    PRODUCT_EARRINGS,
-    PRODUCT_BROACH,
-    PRODUCT_ORE_JUNK,
-    PRODUCT_ORE_COPPER,
-    PRODUCT_ORE_SILVER,
-    PRODUCT_ORE_GOLD,
-    PRODUCT_ORE_MYSTRILE,
-    PRODUCT_ORE_ORICHALC,
-    PRODUCT_ORE_ADAMANTITE,
-    PRODUCT_STONE_MOON,
-    PRODUCT_SAND_ROSE,
-    PRODUCT_DIAMOND_PINK,
-    PRODUCT_ALEXANDRITE,
-    PRODUCT_STONE_MYTHIC,
-    PRODUCT_DIAMOND,
-    PRODUCT_EMERALD,
-    PRODUCT_RUBY,
-    PRODUCT_TOPAZ,
-    PRODUCT_PERIDOT,
-    PRODUCT_FLUORITE,
-    PRODUCT_AGATE,
-    PRODUCT_AMETHYST,
-    PRODUCT_NONE,
-    NUM_PRODUCTS = PRODUCT_NONE
-};
-
 enum ProductType {
     TYPE_FOOD,
     TYPE_ARTICLE
@@ -200,7 +92,7 @@ extern const u8 gText_BrokenShipment[];
 extern const Tool gToolInfo[];
 extern const Food gFoodInfo[];
 extern const Article gArticleInfo[];
-extern const Product gProducts[];
+extern const Product gProductInfo[];
 
 
 
@@ -216,14 +108,14 @@ RecordPlayer * sub_800BB60(RecordPlayer *player);
 // Returns a slot's tool
 u32 GetId__C4Tool(ToolSlot *slot);
 // Returns a slot's tool
-u8 GetId__C9ToolStack(ToolSlot *slot);
+u8 GetTool__C9ToolStack(ToolSlot *slot);
 // Returns whether a slot is empty or not
 bool8 IsEmpty__C9ToolStack(ToolSlot *slot);
 // Returns a slot's quantity
 u32 GetAmount__C9ToolStack(ToolSlot *slot);
 
 // Initializes a food slot
-Item * __4Foodc(Item * slot, u8 food);
+Item * __4FoodUi(Item * slot, u8 food);
 // Returns a slot's food
 u32 GetId__C4Food(Item const * slot);
 // Returns a pointer to a slot's food name
@@ -246,7 +138,7 @@ u8 IsEmpty__C9FoodStack(FoodSlot *slot);
 u32 GetAmount__C9FoodStack(FoodSlot *slot);
 
 // Sets a slot's article
-void __7Articlec(ArticleSlot *slot, u8 article);
+void __7ArticleUi(ArticleSlot *slot, u8 article);
 // Returns a slot's article
 s32 GetId__C7Article(ArticleSlot *slot);
 // Returns a pointer to a slot's article name
@@ -260,13 +152,13 @@ ArticleSlot * __12ArticleStack(ArticleSlot *slot);
 // Initializes an article slot
 ArticleSlot * __12ArticleStackG7ArticleUi(ArticleSlot *slot, u8 article, u32 amount);
 // Returns a slot's article
-u32 GetArticleId__C12ArticleStack(ArticleSlot *slot);
+u32 GetArticle__C12ArticleStack(ArticleSlot *slot);
 // Returns whether a slot is empty or not
 bool8 IsEmpty__C12ArticleStack(ArticleSlot *slot);
 // Returns a slot's quantity
 u32 GetAmount__C12ArticleStack(ArticleSlot *slot);
 
 // Returns the slot's product
-u32 sub_800E194(ProductSlot *slot);
+u32 GetId__C7Product(ProductSlot *slot);
 // Returns the slot's product price
-u32 sub_800E198(ProductSlot *slot);
+u32 GetPrice__C7Product(ProductSlot *slot);

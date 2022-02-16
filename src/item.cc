@@ -5,38 +5,7 @@
 #include "constants/tool.h"
 #include "constants/food.h"
 #include "constants/article.h"
-
-struct ToolInfo
-{
-    /* +00 */ char const * name;
-    /* +04 */ u16 icon_id;
-    /* +08 */ char const * desc;
-};
-
-struct FoodInfo
-{
-    /* +00 */ char const * name;
-    /* +04 */ bool is_drink : 1;
-    /* +05 */ i8 stamina;
-    /* +06 */ i8 fatigue;
-    /* +08 */ u16 icon_id;
-    /* +0C */ char const * desc;
-};
-
-struct ArticleInfo
-{
-    /* +00 */ char const * name;
-    /* +04 */ u16 icon_id;
-    /* +08 */ char const * desc;
-};
-
-extern char const gText_BrokenTool[];
-extern char const gText_BrokenFood[];
-extern char const gText_BrokenArticle[];
-extern char const gText_NoExplanation[];
-extern ToolInfo const gToolInfo[];
-extern FoodInfo const gFoodInfo[];
-extern ArticleInfo const gArticleInfo[];
+#include "constants/product.h"
 
 static inline bool IsValidToolId(u8 id)
 {
@@ -53,12 +22,17 @@ static inline bool IsValidArticleId(u8 id)
     return id < NUM_ARTICLES;
 }
 
-Tool::Tool(u8 a_id)
+static inline bool IsValidProductId(u8 id)
+{
+    return id < NUM_PRODUCTS;
+}
+
+Tool::Tool(u32 a_id)
 {
     id = a_id;
 }
 
-u8 Tool::GetId(void) const
+u32 Tool::GetId(void) const
 {
     return id;
 }
@@ -68,7 +42,7 @@ char const * Tool::GetName(void) const
     if (IsValidToolId(id))
         return gToolInfo[id].name;
 
-    return gText_BrokenTool;
+    return "Broken Tool";
 }
 
 u16 Tool::GetIconId(void) const
@@ -80,18 +54,20 @@ u16 Tool::GetIconId(void) const
     return 457; // Turnip
 }
 
+static inline char const * GetToolDescById(u32 id)
+{
+    if (gToolInfo[id].desc != nullptr)
+        return gToolInfo[id].desc;
+
+    return "No Explanation";
+}
+
 char const * Tool::GetDesc(void) const
 {
     if (IsValidToolId(id))
-    {
-        if (gToolInfo[id].desc != nullptr)
-            return gToolInfo[id].desc;
+        return GetToolDescById(id);
 
-        return gText_NoExplanation;
-    }
-
-    // TODO: put strings inside source
-    return (char const *) 0x080E962C;
+    return "No Explanation";
 }
 
 ToolStack::ToolStack()
@@ -114,12 +90,12 @@ ToolStack::ToolStack(Tool kind, u32 a_amount)
     }
 }
 
-u8 ToolStack::GetId(void) const
+Tool ToolStack::GetTool(void) const
 {
     if (amount != 0)
-        return id;
+        return *this;
 
-    return Tool(TOOL_NONE).id;
+    return Tool(TOOL_NONE);
 }
 
 bool ToolStack::IsEmpty(void) const
@@ -154,14 +130,14 @@ void ToolStack::SubtractAmount(u32 a_amount)
     }
 }
 
-Food::Food(u8 a_id)
+Food::Food(u32 a_id)
 {
     id = a_id;
     stamina_bonus = 0;
     fatigue_bonus = 0;
 }
 
-u8 Food::GetId(void) const
+u32 Food::GetId(void) const
 {
     return id;
 }
@@ -171,7 +147,7 @@ char const * Food::GetName(void) const
     if (IsValidFoodId(id))
         return gFoodInfo[id].name;
 
-    return gText_BrokenFood;
+    return "Broken Food";
 }
 
 u16 Food::GetIconId(void) const
@@ -223,18 +199,20 @@ bool Food::IsDrink(void) const
     return false;
 }
 
+static inline char const * GetFoodDescById(u32 id)
+{
+    if (gFoodInfo[id].desc != nullptr)
+        return gFoodInfo[id].desc;
+
+    return "No Explanation";
+}
+
 char const * Food::GetDesc(void) const
 {
     if (IsValidFoodId(id))
-    {
-        if (gFoodInfo[id].desc != nullptr)
-            return gFoodInfo[id].desc;
+        return GetFoodDescById(id);
 
-        return gText_NoExplanation;
-    }
-
-    // TODO: put strings inside source
-    return (char const *) 0x080E962C;
+    return "No Explanation";
 }
 
 void Food::AddBonuses(i8 stamina_amount, i8 fatigue_amount)
@@ -323,12 +301,12 @@ void FoodStack::SubtractAmount(u32 a_amount)
     }
 }
 
-Article::Article(u8 a_id)
+Article::Article(u32 a_id)
 {
     id = a_id;
 }
 
-u8 Article::GetId(void) const
+u32 Article::GetId(void) const
 {
     return id;
 }
@@ -338,7 +316,7 @@ char const * Article::GetName(void) const
     if (IsValidArticleId(id))
         return gArticleInfo[id].name;
 
-    return gText_BrokenArticle;
+    return "Broken Article";
 }
 
 u16 Article::GetIconId(void) const
@@ -369,18 +347,20 @@ bool Article::CanBeDiscarded(void) const
     }
 }
 
+static inline char const * GetArticleDescById(u32 id)
+{
+    if (gArticleInfo[id].desc != nullptr)
+        return gArticleInfo[id].desc;
+
+    return "No Explanation";
+}
+
 char const * Article::GetDesc(void) const
 {
     if (IsValidArticleId(id))
-    {
-        if (gArticleInfo[id].desc != nullptr)
-            return gArticleInfo[id].desc;
+        return GetArticleDescById(id);
 
-        return gText_NoExplanation;
-    }
-
-    // TODO: put strings inside source
-    return (char const *) 0x080E962C;
+    return "No Explanation";
 }
 
 ArticleStack::ArticleStack()
@@ -403,12 +383,12 @@ ArticleStack::ArticleStack(Article article, u32 a_amount)
     }
 }
 
-u8 ArticleStack::GetArticleId(void) const
+Article ArticleStack::GetArticle(void) const
 {
     if (amount != 0)
-        return id;
+        return *this;
 
-    return Article(ARTICLE_NONE).id;
+    return Article(ARTICLE_NONE);
 }
 
 bool ArticleStack::IsEmpty(void) const
@@ -441,4 +421,122 @@ void ArticleStack::SubtractAmount(u32 a_amount)
         else
             amount -= a_amount;
     }
+}
+
+Product::Product()
+{
+    id = PRODUCT_NONE;
+}
+
+Product::Product(u32 a_id)
+{
+    id = a_id;
+}
+
+Product::Product(Food food)
+{
+    id = PRODUCT_NONE;
+
+    u32 food_id = food.GetId();
+
+    for (int i = 0; i < PRODUCT_NONE; i++)
+    {
+        ProductInfo const * info = gProductInfo + i;
+
+        if (info->kind == ProductInfo::KIND_FOOD && info->item == food_id)
+        {
+            id = i;
+            break;
+        }
+    }
+}
+
+Product::Product(Article article)
+{
+    id = PRODUCT_NONE;
+
+    u32 article_id = article.GetId();
+
+    for (int i = 0; i < PRODUCT_NONE; ++i)
+    {
+        ProductInfo const * info = gProductInfo + i;
+
+        if (info->kind == ProductInfo::KIND_ARTICLE && info->item == article_id)
+        {
+            id = i;
+            break;
+        }
+    }
+}
+
+u8 Product::GetId(void) const
+{
+    return id;
+}
+
+u32 Product::GetPrice(void) const
+{
+    if (IsValidProductId(id))
+        return gProductInfo[id].price;
+
+    return 0;
+}
+
+char const * Product::GetName(void) const
+{
+    if (IsValidProductId(id))
+    {
+        ProductInfo const * info = gProductInfo + id;
+
+        if (info->kind == ProductInfo::KIND_FOOD)
+        {
+            return Food(info->item).GetName();
+        }
+        else
+        {
+            return Article(info->item).GetName();
+        }
+    }
+
+    return "Broken Shipment";
+}
+
+u16 Product::GetIconId(void) const
+{
+    if (IsValidProductId(id))
+    {
+        ProductInfo const * info = gProductInfo + id;
+
+        if (info->kind == ProductInfo::KIND_FOOD)
+        {
+            return Food(info->item).GetIconId();
+        }
+        else
+        {
+            return Article(info->item).GetIconId();
+        }
+    }
+
+    return 0;
+}
+
+Tool ItemVariant::AsTool(void) const
+{
+    return (kind == KIND_TOOL)
+        ? Tool(id)
+        : Tool(TOOL_NONE);
+}
+
+Food ItemVariant::AsFood(void) const
+{
+    return (kind == KIND_FOOD)
+        ? Food(id)
+        : Food(FOOD_NONE);
+}
+
+Article ItemVariant::AsArticle(void) const
+{
+    return (kind == KIND_ARTICLE)
+        ? Article(id)
+        : Article(ARTICLE_NONE);
 }

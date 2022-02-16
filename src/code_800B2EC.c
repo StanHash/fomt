@@ -39,7 +39,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         bne _0800B320\n\
         mov r0, r8\n\
         movs r1, #0\n\
-        bl __4Toolc\n\
+        bl __4ToolUi\n\
         add r0, sp, #4\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
@@ -52,7 +52,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r4, r6, #2\n\
         mov r0, sb\n\
         movs r1, #0x10\n\
-        bl __4Toolc\n\
+        bl __4ToolUi\n\
         mov r0, sp\n\
         adds r0, #5\n\
         ldrb r1, [r0]\n\
@@ -66,7 +66,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r4, r6, #4\n\
         mov r0, sl\n\
         movs r1, #8\n\
-        bl __4Toolc\n\
+        bl __4ToolUi\n\
         mov r0, sp\n\
         adds r0, #6\n\
         ldrb r1, [r0]\n\
@@ -80,7 +80,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r4, r6, #6\n\
         ldr r0, [sp, #0xc]\n\
         movs r1, #0x18\n\
-        bl __4Toolc\n\
+        bl __4ToolUi\n\
         mov r0, sp\n\
         adds r0, #7\n\
         ldrb r1, [r0]\n\
@@ -94,7 +94,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r4, #2\n\
         ldr r0, [sp, #0x10]\n\
         movs r1, #0x20\n\
-        bl __4Toolc\n\
+        bl __4ToolUi\n\
         add r0, sp, #8\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
@@ -107,7 +107,7 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r4, #2\n\
         ldr r0, [sp, #0x14]\n\
         movs r1, #0x4c\n\
-        bl __4Toolc\n\
+        bl __4ToolUi\n\
         mov r0, sp\n\
         adds r0, #9\n\
         ldrb r1, [r0]\n\
@@ -170,7 +170,7 @@ u32 sub_800B410(ToolChest *chest, u32 tool) {
         if(IsEmpty__C9ToolStack(ptr)){
             val += 99;
         }else{
-            r7->tool = GetId__C9ToolStack(ptr);
+            r7->tool = GetTool__C9ToolStack(ptr);
             bool = GetId__C4Tool(&sp) == tool;
             if(bool){
                 u32 temp = GetAmount__C9ToolStack(ptr);
@@ -195,7 +195,7 @@ u32 sub_800B474(ToolChest *chest, u32 tool) {
     while(ptr != ptr2){
         ToolSlot * r7 = &sp;
         if(!IsEmpty__C9ToolStack(ptr)){
-            r7->tool = GetId__C9ToolStack(ptr);
+            r7->tool = GetTool__C9ToolStack(ptr);
             bool = GetId__C4Tool(&sp) == tool;
 
             if(bool)
@@ -248,7 +248,7 @@ u32 sub_800B544(ToolChest *chest, u32 tool) {
     while(ptr != ptr2){
         ToolSlot * r7 = &sp;
         if(!IsEmpty__C9ToolStack(ptr)){
-            r7->tool = GetId__C9ToolStack(ptr);
+            r7->tool = GetTool__C9ToolStack(ptr);
             bool = GetId__C4Tool(&sp) == tool;
             if(bool){
                 return idx;
@@ -306,7 +306,7 @@ u32 sub_800B5A8(ToolChest *chest, u32 tool, u32 amount) {
         ldr r4, [r4]\n\
         add r0, sp, #0xc\n\
         adds r1, r6, #0\n\
-        bl __4Toolc\n\
+        bl __4ToolUi\n\
         add r0, sp, #0xc\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
@@ -319,7 +319,7 @@ u32 sub_800B5A8(ToolChest *chest, u32 tool, u32 amount) {
         b _0800B646\n\
     _0800B606:\n\
         adds r0, r5, #0\n\
-        bl GetId__C9ToolStack\n\
+        bl GetTool__C9ToolStack\n\
         mov r1, sp\n\
         adds r1, #0xd\n\
         strb r0, [r1]\n\

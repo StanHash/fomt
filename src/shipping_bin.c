@@ -1,5 +1,7 @@
 #include "shipping_bin.h"
 
+#include "constants/product.h"
+
 // Starting products
 const u8 unk_80E95CC[] = {
     PRODUCT_TURNIP,
@@ -150,10 +152,10 @@ u8 sub_800B1CC(ShippingBin *sbin){
 
 //Adds to the shipping bin's value
 void sub_800B20C(ShippingBin *sbin, ProductSlot *slot) {
-    u32 price = sub_800E198(slot);
+    u32 price = GetPrice__C7Product(slot);
 
     if (price > 0) {
-        sub_800B29C(&sbin->shippingData[sub_800E194(slot)]);
+        sub_800B29C(&sbin->shippingData[GetId__C7Product(slot)]);
 #ifndef NONMATCHING
         asm(""::"r"(sbin->value));
 #endif

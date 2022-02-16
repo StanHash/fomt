@@ -41,7 +41,7 @@ ArticleSlot * sub_800BBA4(ArticleSlot * slot, RecordPlayer *player)
         __12ArticleStack(slot);
     }else{
         player->unk = FALSE;
-        __7Articlec(&sp, player->album + ARTICLE_ALBUM_1);
+        __7ArticleUi(&sp, player->album + ARTICLE_ALBUM_1);
         __12ArticleStackG7ArticleUi(slot, sp.article, 1);
     }
     return slot;
@@ -58,7 +58,7 @@ ArticleSlot * sub_800BBF0(ArticleSlot * slot1, RecordPlayer *player, ArticleSlot
             temp = player->album;
             player->album = GetId__C7Article(slot2) - ARTICLE_ALBUM_1;
 
-            __7Articlec(&sp, temp + ARTICLE_ALBUM_1);
+            __7ArticleUi(&sp, temp + ARTICLE_ALBUM_1);
             __12ArticleStackG7ArticleUi(slot1, sp.article, 1);
             return slot1;
 
