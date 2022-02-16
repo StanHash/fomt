@@ -19921,7 +19921,7 @@ _0800A684:
 	cmp r3, #0xe
 	bgt _0800A6AC
 	mov r0, sp
-	bl sub_800DCA8
+	bl __4Foodc
 	mov r0, sp
 	ldrb r1, [r0]
 	adds r0, #1
@@ -19940,7 +19940,7 @@ _0800A6AC:
 	add r4, sp, #4
 	adds r0, r4, #0
 	adds r1, r2, #0
-	bl sub_800DF50
+	bl __7Articlec
 	ldrb r1, [r4]
 	adds r0, r5, #0
 	bl sub_800F040
@@ -19960,7 +19960,7 @@ sub_800A6C8: @ 0x0800A6C8
 	cmp r0, #0
 	bne _0800A6EE
 	adds r0, r1, #0
-	bl sub_800DF54
+	bl GetId__C7Article
 	cmp r0, #0x31
 	blt _0800A6EE
 	cmp r0, #0x32
@@ -19988,7 +19988,7 @@ sub_800A6F4: @ 0x0800A6F4
 	cmp r0, #0
 	beq _0800A786
 	adds r0, r5, #0
-	bl sub_800DF54
+	bl GetId__C7Article
 	cmp r0, #0x32
 	beq _0800A740
 	cmp r0, #0x32

@@ -32,19 +32,19 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         rsbs r7, r7, #0\n\
     _0800B320:\n\
         adds r0, r4, #0\n\
-        bl sub_800DBC8\n\
+        bl __9ToolStack\n\
         adds r4, #2\n\
         subs r5, #1\n\
         cmp r5, r7\n\
         bne _0800B320\n\
         mov r0, r8\n\
         movs r1, #0\n\
-        bl sub_800DB2C\n\
+        bl __4Toolc\n\
         add r0, sp, #4\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
         movs r2, #1\n\
-        bl sub_800DBE0\n\
+        bl __9ToolStackG4ToolUi\n\
         adds r0, r6, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
@@ -52,13 +52,13 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r4, r6, #2\n\
         mov r0, sb\n\
         movs r1, #0x10\n\
-        bl sub_800DB2C\n\
+        bl __4Toolc\n\
         mov r0, sp\n\
         adds r0, #5\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
         movs r2, #1\n\
-        bl sub_800DBE0\n\
+        bl __9ToolStackG4ToolUi\n\
         adds r0, r4, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
@@ -66,13 +66,13 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r4, r6, #4\n\
         mov r0, sl\n\
         movs r1, #8\n\
-        bl sub_800DB2C\n\
+        bl __4Toolc\n\
         mov r0, sp\n\
         adds r0, #6\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
         movs r2, #1\n\
-        bl sub_800DBE0\n\
+        bl __9ToolStackG4ToolUi\n\
         adds r0, r4, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
@@ -80,13 +80,13 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r4, r6, #6\n\
         ldr r0, [sp, #0xc]\n\
         movs r1, #0x18\n\
-        bl sub_800DB2C\n\
+        bl __4Toolc\n\
         mov r0, sp\n\
         adds r0, #7\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
         movs r2, #1\n\
-        bl sub_800DBE0\n\
+        bl __9ToolStackG4ToolUi\n\
         adds r0, r4, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
@@ -94,12 +94,12 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r4, #2\n\
         ldr r0, [sp, #0x10]\n\
         movs r1, #0x20\n\
-        bl sub_800DB2C\n\
+        bl __4Toolc\n\
         add r0, sp, #8\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
         movs r2, #1\n\
-        bl sub_800DBE0\n\
+        bl __9ToolStackG4ToolUi\n\
         adds r0, r4, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
@@ -107,13 +107,13 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
         adds r4, #2\n\
         ldr r0, [sp, #0x14]\n\
         movs r1, #0x4c\n\
-        bl sub_800DB2C\n\
+        bl __4Toolc\n\
         mov r0, sp\n\
         adds r0, #9\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
         movs r2, #1\n\
-        bl sub_800DBE0\n\
+        bl __9ToolStackG4ToolUi\n\
         adds r0, r4, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
@@ -131,6 +131,27 @@ ToolChest * sub_800B2EC(ToolChest *chest) {
     ");
 }
 
+/*
+
+ToolBox::ToolBox(void)
+{
+    ToolStack * row;
+
+    row = tools + 0;
+    row[0] = ToolStack(Tool(TOOL_SICKLE_IRON), 1);
+    row[1] = ToolStack(Tool(TOOL_AXE_IRON), 1);
+
+    row = tools + 2;
+    row[0] = ToolStack(Tool(TOOL_HOE_IRON), 1);
+    row[1] = ToolStack(Tool(TOOL_HAMMER_IRON), 1);
+
+    row = tools + 4;
+    row[0] = ToolStack(Tool(TOOL_WATERING_CAN_IRON), 1);
+    row[1] = ToolStack(Tool(TOOL_PEDOMETER), 1);
+}
+
+*/
+
 // Returns the slot at index N
 ToolSlot * sub_800B408(ToolChest *chest, u32 idx) {
     return &chest->slots[idx];
@@ -146,13 +167,13 @@ u32 sub_800B410(ToolChest *chest, u32 tool) {
 
     while(ptr != ptr2){
         ToolSlot * r7 = &sp;
-        if(sub_800DC34(ptr)){
+        if(IsEmpty__C9ToolStack(ptr)){
             val += 99;
         }else{
-            r7->tool = sub_800DC10(ptr);
-            bool = sub_800DB30(&sp) == tool;
+            r7->tool = GetId__C9ToolStack(ptr);
+            bool = GetId__C4Tool(&sp) == tool;
             if(bool){
-                u32 temp = sub_800DC48(ptr);
+                u32 temp = GetAmount__C9ToolStack(ptr);
                 u32 temp2 = val + 99;
                 val = temp2 - temp;
             }
@@ -173,12 +194,12 @@ u32 sub_800B474(ToolChest *chest, u32 tool) {
 
     while(ptr != ptr2){
         ToolSlot * r7 = &sp;
-        if(!sub_800DC34(ptr)){
-            r7->tool = sub_800DC10(ptr);
-            bool = sub_800DB30(&sp) == tool;
+        if(!IsEmpty__C9ToolStack(ptr)){
+            r7->tool = GetId__C9ToolStack(ptr);
+            bool = GetId__C4Tool(&sp) == tool;
 
             if(bool)
-                val += sub_800DC48(ptr);
+                val += GetAmount__C9ToolStack(ptr);
         }
         ptr++;
     }
@@ -194,7 +215,7 @@ u32 sub_800B4D0(ToolChest *chest) {
     ToolSlot * ptr = &chest->slots[0];
 
     while(ptr != ptr2){
-        if(sub_800DC34(ptr))
+        if(IsEmpty__C9ToolStack(ptr))
             return idx;
         
         ptr++;
@@ -226,9 +247,9 @@ u32 sub_800B544(ToolChest *chest, u32 tool) {
 
     while(ptr != ptr2){
         ToolSlot * r7 = &sp;
-        if(!sub_800DC34(ptr)){
-            r7->tool = sub_800DC10(ptr);
-            bool = sub_800DB30(&sp) == tool;
+        if(!IsEmpty__C9ToolStack(ptr)){
+            r7->tool = GetId__C9ToolStack(ptr);
+            bool = GetId__C4Tool(&sp) == tool;
             if(bool){
                 return idx;
             }
@@ -269,7 +290,7 @@ u32 sub_800B5A8(ToolChest *chest, u32 tool, u32 amount) {
         beq _0800B658\n\
     _0800B5C8:\n\
         adds r0, r5, #0\n\
-        bl sub_800DC34\n\
+        bl IsEmpty__C9ToolStack\n\
         lsls r0, r0, #0x18\n\
         cmp r0, #0\n\
         beq _0800B606\n\
@@ -285,12 +306,12 @@ u32 sub_800B5A8(ToolChest *chest, u32 tool, u32 amount) {
         ldr r4, [r4]\n\
         add r0, sp, #0xc\n\
         adds r1, r6, #0\n\
-        bl sub_800DB2C\n\
+        bl __4Toolc\n\
         add r0, sp, #0xc\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
         adds r2, r4, #0\n\
-        bl sub_800DBE0\n\
+        bl __9ToolStackG4ToolUi\n\
         adds r0, r5, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
@@ -298,12 +319,12 @@ u32 sub_800B5A8(ToolChest *chest, u32 tool, u32 amount) {
         b _0800B646\n\
     _0800B606:\n\
         adds r0, r5, #0\n\
-        bl sub_800DC10\n\
+        bl GetId__C9ToolStack\n\
         mov r1, sp\n\
         adds r1, #0xd\n\
         strb r0, [r1]\n\
         adds r0, r1, #0\n\
-        bl sub_800DB30\n\
+        bl GetId__C4Tool\n\
         movs r1, #0\n\
         cmp r0, r6\n\
         bne _0800B620\n\
@@ -312,7 +333,7 @@ u32 sub_800B5A8(ToolChest *chest, u32 tool, u32 amount) {
         cmp r1, #0\n\
         beq _0800B64C\n\
         adds r0, r5, #0\n\
-        bl sub_800DC48\n\
+        bl GetAmount__C9ToolStack\n\
         movs r1, #0x63\n\
         subs r1, r1, r0\n\
         str r1, [sp, #0x10]\n\
@@ -326,7 +347,7 @@ u32 sub_800B5A8(ToolChest *chest, u32 tool, u32 amount) {
         ldr r4, [r4]\n\
         adds r0, r5, #0\n\
         adds r1, r4, #0\n\
-        bl sub_800DC5C\n\
+        bl AddAmount__9ToolStackUi\n\
     _0800B646:\n\
         ldr r0, [sp, #4]\n\
         subs r0, r0, r4\n\

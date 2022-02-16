@@ -256,7 +256,7 @@ _0800E40A:
 	ldr r0, [sp, #0x18]
 	bl sub_800F170
 	ldr r0, [sp, #0x1c]
-	bl sub_800DBC8
+	bl __9ToolStack
 	ldr r0, [sp, #0x20]
 	bl sub_800F574
 	adds r0, r6, #0
@@ -356,7 +356,7 @@ sub_800E550: @ 0x0800E550
 	adds r4, r0, #0
 	mov r0, sp
 	strb r1, [r0]
-	bl sub_800DB30
+	bl GetId__C4Tool
 	cmp r0, #0x28
 	bls _0800E564
 	b _0800E916
@@ -437,7 +437,7 @@ _0800E64C:
 	adds r4, #1
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E65C:
@@ -445,7 +445,7 @@ _0800E65C:
 	adds r4, #2
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E66C:
@@ -453,14 +453,14 @@ _0800E66C:
 	adds r4, #3
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E67C:
 	add r4, sp, #4
 	adds r0, r4, #0
 	movs r1, #4
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E68A:
@@ -468,7 +468,7 @@ _0800E68A:
 	adds r4, #5
 	adds r0, r4, #0
 	movs r1, #7
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E69A:
@@ -498,7 +498,7 @@ _0800E6CC:
 	adds r4, #6
 	adds r0, r4, #0
 	movs r1, #9
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E6DC:
@@ -506,14 +506,14 @@ _0800E6DC:
 	adds r4, #7
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E6EC:
 	add r4, sp, #8
 	adds r0, r4, #0
 	movs r1, #0xb
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E6FA:
@@ -521,7 +521,7 @@ _0800E6FA:
 	adds r4, #9
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E70A:
@@ -529,7 +529,7 @@ _0800E70A:
 	adds r4, #0xa
 	adds r0, r4, #0
 	movs r1, #0xf
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E71A:
@@ -559,14 +559,14 @@ _0800E74C:
 	adds r4, #0xb
 	adds r0, r4, #0
 	movs r1, #0x11
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E75C:
 	add r4, sp, #0xc
 	adds r0, r4, #0
 	movs r1, #0x12
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E76A:
@@ -574,7 +574,7 @@ _0800E76A:
 	adds r4, #0xd
 	adds r0, r4, #0
 	movs r1, #0x13
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E77A:
@@ -582,7 +582,7 @@ _0800E77A:
 	adds r4, #0xe
 	adds r0, r4, #0
 	movs r1, #0x14
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E78A:
@@ -590,7 +590,7 @@ _0800E78A:
 	adds r4, #0xf
 	adds r0, r4, #0
 	movs r1, #0x17
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E79A:
@@ -619,7 +619,7 @@ _0800E7CC:
 	add r4, sp, #0x10
 	adds r0, r4, #0
 	movs r1, #0x19
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E7DA:
@@ -627,7 +627,7 @@ _0800E7DA:
 	adds r4, #0x11
 	adds r0, r4, #0
 	movs r1, #0x1a
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E7EA:
@@ -635,7 +635,7 @@ _0800E7EA:
 	adds r4, #0x12
 	adds r0, r4, #0
 	movs r1, #0x1b
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E7FA:
@@ -643,14 +643,14 @@ _0800E7FA:
 	adds r4, #0x13
 	adds r0, r4, #0
 	movs r1, #0x1c
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E80A:
 	add r4, sp, #0x14
 	adds r0, r4, #0
 	movs r1, #0x1f
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E818:
@@ -678,7 +678,7 @@ _0800E848:
 	adds r4, #0x15
 	adds r0, r4, #0
 	movs r1, #0x21
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E858:
@@ -686,7 +686,7 @@ _0800E858:
 	adds r4, #0x16
 	adds r0, r4, #0
 	movs r1, #0x22
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E868:
@@ -694,14 +694,14 @@ _0800E868:
 	adds r4, #0x17
 	adds r0, r4, #0
 	movs r1, #0x23
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E878:
 	add r4, sp, #0x18
 	adds r0, r4, #0
 	movs r1, #0x24
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E886:
@@ -709,7 +709,7 @@ _0800E886:
 	adds r4, #0x19
 	adds r0, r4, #0
 	movs r1, #0x27
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E896:
@@ -737,7 +737,7 @@ _0800E8C8:
 	adds r4, #0x1a
 	adds r0, r4, #0
 	movs r1, #0x29
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E8D8:
@@ -745,14 +745,14 @@ _0800E8D8:
 	adds r4, #0x1b
 	adds r0, r4, #0
 	movs r1, #0x2a
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E8E8:
 	add r4, sp, #0x1c
 	adds r0, r4, #0
 	movs r1, #0x2b
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E8F6:
@@ -760,7 +760,7 @@ _0800E8F6:
 	adds r4, #0x1d
 	adds r0, r4, #0
 	movs r1, #0x2c
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E906:
@@ -768,7 +768,7 @@ _0800E906:
 	adds r4, #0x1e
 	adds r0, r4, #0
 	movs r1, #0x2f
-	bl sub_800DB2C
+	bl __4Toolc
 	ldrb r0, [r4]
 	b _0800E91A
 _0800E916:
@@ -1241,7 +1241,7 @@ _0800EC74:
 	bl memcpy
 	adds r7, #1
 	adds r0, r4, #0
-	bl sub_800DC34
+	bl IsEmpty__C9ToolStack
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800EC74
@@ -1292,7 +1292,7 @@ _0800ECD8:
 	bl memcpy
 	adds r7, #1
 	adds r0, r4, #0
-	bl sub_800DC34
+	bl IsEmpty__C9ToolStack
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800ECD8
@@ -1402,16 +1402,16 @@ sub_800ED8C: @ 0x0800ED8C
 	adds r4, r5, #0
 	adds r4, #0x5c
 	adds r0, r4, #0
-	bl sub_800DC34
+	bl IsEmpty__C9ToolStack
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800EDCE
 	adds r0, r4, #0
-	bl sub_800DC10
+	bl GetId__C9ToolStack
 	mov r1, sp
 	strb r0, [r1]
 	mov r0, sp
-	bl sub_800DB30
+	bl GetId__C4Tool
 	cmp r0, #0x4c
 	beq _0800EDE0
 _0800EDCE:

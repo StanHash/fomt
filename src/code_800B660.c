@@ -6,7 +6,7 @@ Fridge * sub_800B660(Fridge *fridge) {
     FoodSlot *ptr = fridge->slots;
 
     while(--ctr != -1){
-        sub_800DE68(ptr);
+        __9FoodStack(ptr);
         ptr++;
     }
 
@@ -28,13 +28,13 @@ u32 sub_800B68C(Fridge *fridge, u32 food) {
 
     while(ptr != ptr2){
         FoodSlot * r7 = &sp;
-        if(sub_800DEDC(ptr)){
+        if(IsEmpty__C9FoodStack(ptr)){
             val += 99;
         }else{
-            sub_800DEB8(&sp.item, ptr);
-            bool = sub_800DCB4(&sp.item) == food;
+            GetFood__C9FoodStack(&sp.item, ptr);
+            bool = GetId__C4Food(&sp.item) == food;
             if(bool){
-                u32 temp = sub_800DEF0(ptr);
+                u32 temp = GetAmount__C9FoodStack(ptr);
                 u32 temp2 = val + 99;
                 val = temp2 - temp;
             }
@@ -55,12 +55,12 @@ u32 sub_800B6E8(Fridge *fridge, u32 food) {
 
     while(ptr != ptr2){
         FoodSlot * r7 = &sp;
-        if(!sub_800DEDC(ptr)){
-            sub_800DEB8(&sp.item, ptr);
-            bool = sub_800DCB4(&sp.item) == food;
+        if(!IsEmpty__C9FoodStack(ptr)){
+            GetFood__C9FoodStack(&sp.item, ptr);
+            bool = GetId__C4Food(&sp.item) == food;
 
             if(bool)
-                val += sub_800DEF0(ptr);
+                val += GetAmount__C9FoodStack(ptr);
         }
         ptr++;
     }
@@ -76,7 +76,7 @@ u32 sub_800B73C(Fridge *fridge, u32 food) {
     FoodSlot * ptr = &fridge->slots[0];
 
     while(ptr != ptr2){
-        if(sub_800DEDC(ptr))
+        if(IsEmpty__C9FoodStack(ptr))
             return idx;
         
         ptr++;
@@ -108,9 +108,9 @@ u32 sub_800B7B8(Fridge *fridge, u32 food) {
 
     while(ptr != ptr2){
         FoodSlot * r7 = &sp;
-        if(!sub_800DEDC(ptr)){
-            sub_800DEB8(&sp.item, ptr);
-            bool = sub_800DCB4(&sp.item) == food;
+        if(!IsEmpty__C9FoodStack(ptr)){
+            GetFood__C9FoodStack(&sp.item, ptr);
+            bool = GetId__C4Food(&sp.item) == food;
             if(bool){
                 return idx;
             }
@@ -154,7 +154,7 @@ u32 sub_800B814(Fridge *fridge, u32 food, u32 amount) {
         beq _0800B8D8\n\
     _0800B83C:\n\
         adds r0, r6, #0\n\
-        bl sub_800DEDC\n\
+        bl IsEmpty__C9FoodStack\n\
         lsls r0, r0, #0x18\n\
         cmp r0, #0\n\
         beq _0800B88A\n\
@@ -171,7 +171,7 @@ u32 sub_800B814(Fridge *fridge, u32 food, u32 amount) {
         add r4, sp, #4\n\
         adds r0, r4, #0\n\
         adds r1, r7, #0\n\
-        bl sub_800DCA8\n\
+        bl __4Foodc\n\
         ldrb r1, [r4]\n\
         mov r0, sp\n\
         adds r0, #5\n\
@@ -184,7 +184,7 @@ u32 sub_800B814(Fridge *fridge, u32 food, u32 amount) {
         orrs r1, r2\n\
         mov r0, sp\n\
         adds r2, r5, #0\n\
-        bl sub_800DE80\n\
+        bl __9FoodStackG4FoodUi\n\
         ldr r0, [sp]\n\
         str r0, [r6]\n\
         ldr r0, [sp, #8]\n\
@@ -193,9 +193,9 @@ u32 sub_800B814(Fridge *fridge, u32 food, u32 amount) {
     _0800B88A:\n\
         mov r0, sp\n\
         adds r1, r6, #0\n\
-        bl sub_800DEB8\n\
+        bl GetFood__C9FoodStack\n\
         mov r0, sp\n\
-        bl sub_800DCB4\n\
+        bl GetId__C4Food\n\
         movs r1, #0\n\
         cmp r0, r7\n\
         bne _0800B8A0\n\
@@ -204,7 +204,7 @@ u32 sub_800B814(Fridge *fridge, u32 food, u32 amount) {
         cmp r1, #0\n\
         beq _0800B8CC\n\
         adds r0, r6, #0\n\
-        bl sub_800DEF0\n\
+        bl GetAmount__C9FoodStack\n\
         movs r1, #0x63\n\
         subs r1, r1, r0\n\
         str r1, [sp, #0x10]\n\
@@ -218,7 +218,7 @@ u32 sub_800B814(Fridge *fridge, u32 food, u32 amount) {
         ldr r4, [r4]\n\
         adds r0, r6, #0\n\
         adds r1, r4, #0\n\
-        bl sub_800DF04\n\
+        bl AddAmount__9FoodStackUi\n\
         ldr r0, [sp, #8]\n\
         subs r0, r0, r4\n\
     _0800B8CA:\n\

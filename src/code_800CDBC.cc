@@ -4,7 +4,7 @@
 
 struct BarnSlotData
 {
-    u8 data[MAX(sizeof(Cow), sizeof(Sheep))];
+    u8 data[CONST_MAX(sizeof(Cow), sizeof(Sheep))];
 };
 
 typedef struct BarnSlot {

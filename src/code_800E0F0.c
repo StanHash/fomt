@@ -18,7 +18,7 @@ ProductSlot * sub_800E0FC(ProductSlot *pSlot, FoodSlot fSlot) {
 
     pSlot->product = PRODUCT_NONE;
 
-    food = sub_800DCB4(&fSlot.item);
+    food = GetId__C4Food(&fSlot.item);
     product = 0;
     ptr = &gProducts[0];
 
@@ -43,7 +43,7 @@ ProductSlot * sub_800E148(ProductSlot *slot, u8 article) {
     sp.article = article;
     slot->product = PRODUCT_NONE;
 
-    _article = sub_800DF54(&sp);
+    _article = GetId__C7Article(&sp);
     product = 0;
     ptr = &gProducts[0];
 
@@ -101,11 +101,11 @@ const u8 * sub_800E1C0(ProductSlot *slot) {
     if(bool) {
         const Product *ptr = &gProducts[product];
         if(!ptr->type){
-            sub_800DCA8((Item *)&sp, ptr->item);
-            return sub_800DCB8((Item const *)&sp);
+            __4Foodc((Item *)&sp, ptr->item);
+            return GetName__C4Food((Item const *)&sp);
         } else {
-            sub_800DF50((ArticleSlot *)&sp._4, ptr->item);
-            return sub_800DF58((ArticleSlot *)&sp._4);
+            __7Articlec((ArticleSlot *)&sp._4, ptr->item);
+            return GetName__C7Article((ArticleSlot *)&sp._4);
         }
     }
     
@@ -127,11 +127,11 @@ u16 sub_800E214(ProductSlot *slot) {
     if(bool) {
         const Product *ptr = &gProducts[product];
         if(!ptr->type){
-            sub_800DCA8((Item *)&sp, ptr->item);
-            return sub_800DCE0((Item *)&sp);
+            __4Foodc((Item *)&sp, ptr->item);
+            return GetIconId__C4Food((Item *)&sp);
         } else {
-            sub_800DF50((ArticleSlot *)&sp._4, ptr->item);
-            return sub_800DF84((ArticleSlot *)&sp._4);
+            __7Articlec((ArticleSlot *)&sp._4, ptr->item);
+            return GetIconId__C7Article((ArticleSlot *)&sp._4);
         }
     }
     

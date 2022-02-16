@@ -6347,7 +6347,7 @@ _080A1BFE:
 	add r5, sp, #4
 	add r4, sp, #8
 	adds r0, r4, #0
-	bl sub_800DCA8
+	bl __4Foodc
 	ldrb r1, [r4]
 	mov r0, sp
 	adds r0, #9
@@ -6398,7 +6398,7 @@ _080A1C62:
 	add r5, sp, #4
 	add r4, sp, #0xc
 	adds r0, r4, #0
-	bl sub_800DF50
+	bl __7Articlec
 	ldrb r1, [r4]
 	adds r0, r5, #0
 	bl sub_800F040
@@ -11415,7 +11415,7 @@ _080A445A:
 	ldr r5, [r0]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_800DF50
+	bl __7Articlec
 	ldrb r1, [r4]
 	ldr r0, [sp, #0xa0]
 	bl sub_800F040
@@ -11425,9 +11425,9 @@ _080A445A:
 	adds r4, #0x8d
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_800DF50
+	bl __7Articlec
 	adds r0, r4, #0
-	bl sub_800DF58
+	bl GetName__C7Article
 	str r0, [sp]
 _080A449C:
 	mov r1, sp
@@ -11489,7 +11489,7 @@ _080A4504:
 _080A450A:
 	add r4, sp, #0x1c
 	adds r0, r4, #0
-	bl sub_800DCA8
+	bl __4Foodc
 	ldrb r1, [r4]
 	mov r0, sp
 	adds r0, #0x1d
@@ -24333,16 +24333,16 @@ sub_80AA8F0: @ 0x080AA8F0
 	adds r4, r0, r2
 	movs r6, #0
 	adds r0, r4, #0
-	bl sub_800DC34
+	bl IsEmpty__C9ToolStack
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080AA93C
 	adds r0, r4, #0
-	bl sub_800DC10
+	bl GetId__C9ToolStack
 	adds r1, r0, #0
 	add r0, sp, #0x18
 	strb r1, [r0]
-	bl sub_800DB30
+	bl GetId__C4Tool
 	cmp r0, #0x4b
 	beq _080AA964
 _080AA93C:
@@ -97490,7 +97490,7 @@ sub_80CE1C4: @ 0x080CE1C4
 	sub sp, #4
 	mov r0, sp
 	strb r1, [r0]
-	bl sub_800DB30
+	bl GetId__C4Tool
 	subs r0, #5
 	cmp r0, #0x28
 	bhi _080CE28C
@@ -99382,7 +99382,7 @@ sub_80CF05C: @ 0x080CF05C
 	lsls r3, r3, #0x18
 	lsrs r5, r3, #0x18
 	adds r0, r4, #0
-	bl sub_800DB30
+	bl GetId__C4Tool
 	adds r1, r0, #0
 	movs r0, #0
 	mov sl, r0
@@ -99738,7 +99738,7 @@ _080CF358:
 	adds r1, r0, #0
 	add r0, sp, #0x18
 	strb r1, [r0]
-	bl sub_800DB8C
+	bl GetDesc__C4Tool
 	adds r6, r0, #0
 	ldr r0, _080CF43C @ =0x081179F8
 	mov sb, r0
@@ -99858,7 +99858,7 @@ _080CF446:
 	mov r0, sp
 	adds r0, #0x19
 	strb r1, [r0]
-	bl sub_800DB8C
+	bl GetDesc__C4Tool
 	adds r6, r0, #0
 	adds r0, r7, #0
 	bl strlen
@@ -100028,7 +100028,7 @@ _080CF5A4:
 	movs r2, #3
 	bl sub_804EC84
 	adds r0, r4, #0
-	bl sub_800DB8C
+	bl GetDesc__C4Tool
 	mov r8, r0
 	mov r4, r8
 	adds r0, r7, #0
@@ -100110,7 +100110,7 @@ _080CF658: .4byte 0x00001BD8
 _080CF65C: .4byte 0x081179FC
 _080CF660:
 	adds r0, r4, #0
-	bl sub_800DB8C
+	bl GetDesc__C4Tool
 	mov sl, r0
 _080CF668:
 	mov r0, sl
@@ -100167,14 +100167,14 @@ _080CF6C4:
 	adds r1, r5, #0
 	bl sub_800F20C
 	mov r0, sp
-	bl sub_800DCB8
+	bl GetName__C4Food
 	b _080CF70E
 _080CF6E0:
 	mov r0, sp
 	adds r1, r5, #0
 	bl sub_800F20C
 	mov r0, sp
-	bl sub_800DDD4
+	bl GetDesc__C4Food
 	adds r4, r0, #0
 	b _080CFA14
 _080CF6F2:
@@ -100188,7 +100188,7 @@ _080CF6F2:
 	adds r1, r0, #0
 	add r0, sp, #0x10
 	strb r1, [r0]
-	bl sub_800DF58
+	bl GetName__C7Article
 _080CF70E:
 	adds r5, r0, #0
 	bl strlen
@@ -100242,7 +100242,7 @@ _080CF76C:
 	mov r0, sp
 	adds r0, #0x11
 	strb r1, [r0]
-	bl sub_800DFD4
+	bl GetDesc__C7Article
 	adds r4, r0, #0
 	b _080CFA14
 _080CF782:
@@ -100607,7 +100607,7 @@ _080CFA5E:
 	mov r1, sp
 	bl sub_800F0A4
 	adds r0, r4, #0
-	bl sub_800DCB8
+	bl GetName__C4Food
 	b _080CFAAA
 _080CFA7C:
 	add r4, sp, #4
@@ -100615,7 +100615,7 @@ _080CFA7C:
 	mov r1, sp
 	bl sub_800F0A4
 	adds r0, r4, #0
-	bl sub_800DDD4
+	bl GetDesc__C4Food
 	b _080CFB16
 _080CFA8E:
 	mov r0, sp
@@ -100628,7 +100628,7 @@ _080CFA8E:
 	adds r1, r0, #0
 	add r0, sp, #8
 	strb r1, [r0]
-	bl sub_800DF58
+	bl GetName__C7Article
 _080CFAAA:
 	adds r5, r0, #0
 	bl strlen
@@ -100680,7 +100680,7 @@ _080CFB04:
 	mov r0, sp
 	adds r0, #9
 	strb r1, [r0]
-	bl sub_800DFD4
+	bl GetDesc__C7Article
 _080CFB16:
 	mov sb, r0
 _080CFB18:
@@ -122949,7 +122949,7 @@ _080DAE02:
 	ldr r4, _080DAE50 @ =0x00001C34
 	adds r5, r0, r4
 	adds r0, r5, #0
-	bl sub_800DC34
+	bl IsEmpty__C9ToolStack
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080DAE54
@@ -122973,7 +122973,7 @@ _080DAE54:
 	ldr r0, _080DAFA4 @ =0x00001BD8
 	adds r4, r4, r0
 	adds r0, r5, #0
-	bl sub_800DC10
+	bl GetId__C9ToolStack
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_800E550
@@ -122984,7 +122984,7 @@ _080DAE54:
 	movs r0, #0x9a
 	lsls r0, r0, #3
 	add r0, sp
-	bl sub_800DB60
+	bl GetIconId__C4Tool
 	adds r1, r0, #0
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
@@ -132998,9 +132998,9 @@ _080DFF84:
 	ldr r5, [r4, #0x14]
 	add r0, sp, #0x10
 	adds r1, r6, #0
-	bl sub_800DCA8
+	bl __4Foodc
 	add r0, sp, #0x10
-	bl sub_800DCE0
+	bl GetIconId__C4Food
 	adds r1, r0, #0
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
@@ -133063,9 +133063,9 @@ _080E0008:
 	add r4, sp, #0x24
 	adds r0, r4, #0
 	adds r1, r7, #0
-	bl sub_800DF50
+	bl __7Articlec
 	adds r0, r4, #0
-	bl sub_800DF84
+	bl GetIconId__C7Article
 	adds r1, r0, #0
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
@@ -135343,9 +135343,9 @@ sub_80E118C: @ 0x080E118C
 	add r4, sp, #0x20
 	ldrh r1, [r1, #4]
 	adds r0, r4, #0
-	bl sub_800DF50
+	bl __7Articlec
 	adds r0, r4, #0
-	bl sub_800DF58
+	bl GetName__C7Article
 	adds r5, r0, #0
 	bl strlen
 	adds r4, r0, #0
@@ -140844,18 +140844,18 @@ _080E3BC8:
 	adds r1, r0, #0
 	subs r1, #1
 	adds r0, r4, #0
-	bl sub_800DCA8
+	bl __4Foodc
 	adds r0, r4, #0
-	bl sub_800DCB8
+	bl GetName__C4Food
 	b _080E3BF4
 _080E3BE2:
 	add r4, sp, #0x24
 	ldrh r1, [r1, #4]
 	subs r1, #0xac
 	adds r0, r4, #0
-	bl sub_800DF50
+	bl __7Articlec
 	adds r0, r4, #0
-	bl sub_800DF58
+	bl GetName__C7Article
 _080E3BF4:
 	adds r5, r0, #0
 _080E3BF6:

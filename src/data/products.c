@@ -1,5 +1,8 @@
 #include "inventory.h"
 
+#include "constants/food.h"
+#include "constants/article.h"
+
 const Product gProducts[] = {
     [PRODUCT_TURNIP] = {
         .price = 60,

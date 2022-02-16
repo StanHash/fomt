@@ -1,45 +1,56 @@
+#include "global.h"
+
 #include "barn_animal.hh"
 #include "cow.hh"
 #include "sheep.hh"
 
-struct BarnSlotData
+struct BarnEnt
 {
-    u8 data[MAX(sizeof(Cow), sizeof(Sheep))];
-};
+    struct Data
+    {
+        u8 _[CONST_MAX(sizeof(Cow), sizeof(Sheep))];
+    };
 
-typedef struct BarnSlot {
-    bool occupied:1;
-    u32 type:1;     // 0 = Sheep, 1 = Cow
-    BarnSlotData animal;
-} BarnSlot;
+    enum
+    {
+        KIND_SHEEP,
+        KIND_COW,
+    };
+
+    // Cow * AsCow(void);
+
+    /* +00 */ bool occupied : 1;
+    /* +00 */ u32 kind : 1;
+    /* +04 */ Data data;
+};
 
 extern "C"
 {
 
 // Copies one sheep's data to another
-extern void sub_80D7B50(BarnSlotData * slot_data, Sheep * sheep);
+extern void sub_80D7B50(BarnEnt::Data * slot_data, Sheep * sheep);
 // Copies one cow's data to another
-extern void sub_80D7BC4(BarnSlotData * slot_data, Cow * cow);
+extern void sub_80D7BC4(BarnEnt::Data * slot_data, Cow * cow);
 
 // Initializes a slot
-BarnSlot * sub_800D9FC(BarnSlot *slot) {
+BarnEnt * sub_800D9FC(BarnEnt *slot) {
     slot->occupied = 0;
     return slot;
 }
 
 // Returns whether the slot is occupied
-bool sub_800DA08(BarnSlot *slot) {
+bool sub_800DA08(BarnEnt *slot) {
     return !slot->occupied;
 }
 
 // Returns the slot's animal
-void * sub_800DA14(BarnSlot *slot) {
-    return slot->occupied ? &slot->animal : NULL;
+void * sub_800DA14(BarnEnt *slot) {
+    return slot->occupied ? &slot->data : NULL;
 }
 
 // Returns the slot's cow
 NAKED
-Cow * sub_800DA2C(BarnSlot *slot) {
+Cow * sub_800DA2C(BarnEnt *slot) {
 #ifndef NONMATCHING
     asm_unified("\n\
         push {lr}\n\
@@ -68,9 +79,20 @@ Cow * sub_800DA2C(BarnSlot *slot) {
 #endif
 }
 
+/*
+
+Cow * BarnEnt::AsCow(void)
+{
+    return (occupied && (kind & 1) == KIND_COW)
+        ? reinterpret_cast<Cow *>(&data)
+        : nullptr;
+}
+
+*/
+
 // Returns the slot's sheep
 NAKED
-Sheep * sub_800DA48(BarnSlot *slot) {
+Sheep * sub_800DA48(BarnEnt *slot) {
 #ifndef NONMATCHING
     asm_unified("\n\
         push {lr}\n\
@@ -101,14 +123,14 @@ Sheep * sub_800DA48(BarnSlot *slot) {
 
 // Duplicate?
 // Returns the slot's animal
-void * sub_800DA64(BarnSlot *slot) {
-    return slot->occupied ? &slot->animal : NULL;
+void * sub_800DA64(BarnEnt *slot) {
+    return slot->occupied ? &slot->data : NULL;
 }
 
 // Duplicate?
 // Returns the slot's cow
 NAKED
-Cow * sub_800DA7C(BarnSlot *slot) {
+Cow * sub_800DA7C(BarnEnt *slot) {
 #ifndef NONMATCHING
     asm_unified("\n\
         push {lr}\n\
@@ -140,7 +162,7 @@ Cow * sub_800DA7C(BarnSlot *slot) {
 // Duplicate?
 // Returns the slot's sheep
 NAKED
-Sheep * sub_800DA98(BarnSlot *slot) {
+Sheep * sub_800DA98(BarnEnt *slot) {
 #ifndef NONMATCHING
     asm_unified("\n\
         push {lr}\n\
@@ -170,12 +192,12 @@ Sheep * sub_800DA98(BarnSlot *slot) {
 }
 
 // Copies a cow's data into a slot
-u8 sub_800DAB4(BarnSlot *slot, Cow *cow) {
+u8 sub_800DAB4(BarnEnt *slot, Cow *cow) {
     if(!slot->occupied) {
-        if(&slot->animal != NULL)
-            sub_80D7BC4(&slot->animal, cow);
+        if(&slot->data != NULL)
+            sub_80D7BC4(&slot->data, cow);
 
-        slot->type = 1; // Cow
+        slot->kind = BarnEnt::KIND_COW;
         slot->occupied = TRUE;
         return TRUE;
     }
@@ -185,7 +207,7 @@ u8 sub_800DAB4(BarnSlot *slot, Cow *cow) {
 
 // Copies a sheep's data into a slot
 NAKED
-u8 sub_800DAE4(BarnSlot *slot, Sheep *sheep) {
+u8 sub_800DAE4(BarnEnt *slot, Sheep *sheep) {
 #ifndef NONMATCHING
     asm_unified("\n\
 	    push {r4, lr}\n\
@@ -229,7 +251,7 @@ u8 sub_800DAE4(BarnSlot *slot, Sheep *sheep) {
 }
 
 // Clears the occupied flag
-void sub_800DB14(BarnSlot *slot) {
+void sub_800DB14(BarnEnt *slot) {
     if(slot->occupied)
         slot->occupied = FALSE;
 }

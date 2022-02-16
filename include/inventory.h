@@ -1,260 +1,5 @@
 #include "global.h"
 
-enum Tools {
-    TOOL_SICKLE_IRON,
-    TOOL_SICKLE_COPPER,
-    TOOL_SICKLE_SILVER,
-    TOOL_SICKLE_GOLD,
-    TOOL_SICKLE_MYSTRILE,
-    TOOL_SICKLE_CURSED,
-    TOOL_SICKLE_BLESSED,
-    TOOL_SICKLE_MYTHIC,
-    TOOL_HOE_IRON,
-    TOOL_HOE_COPPER,
-    TOOL_HOE_SILVER,
-    TOOL_HOE_GOLD,
-    TOOL_HOE_MYSTRILE,
-    TOOL_HOE_CURSED,
-    TOOL_HOE_BLESSED,
-    TOOL_HOE_MYTHIC,
-    TOOL_AXE_IRON,
-    TOOL_AXE_COPPER,
-    TOOL_AXE_SILVER,
-    TOOL_AXE_GOLD,
-    TOOL_AXE_MYSTRILE,
-    TOOL_AXE_CURSED,
-    TOOL_AXE_BLESSED,
-    TOOL_AXE_MYTHIC,
-    TOOL_HAMMER_IRON,
-    TOOL_HAMMER_COPPER,
-    TOOL_HAMMER_SILVER,
-    TOOL_HAMMER_GOLD,
-    TOOL_HAMMER_MYSTRILE,
-    TOOL_HAMMER_CURSED,
-    TOOL_HAMMER_BLESSED,
-    TOOL_HAMMER_MYTHIC,
-    TOOL_WATERING_CAN_IRON,
-    TOOL_WATERING_CAN_COPPER,
-    TOOL_WATERING_CAN_SILVER,
-    TOOL_WATERING_CAN_GOLD,
-    TOOL_WATERING_CAN_MYSTRILE,
-    TOOL_WATERING_CAN_CURSED,
-    TOOL_WATERING_CAN_BLESSED,
-    TOOL_WATERING_CAN_MYTHIC,
-    TOOL_FISHING_ROD_IRON,
-    TOOL_FISHING_ROD_COPPER,
-    TOOL_FISHING_ROD_SILVER,
-    TOOL_FISHING_ROD_GOLD,
-    TOOL_FISHING_ROD_MYSTRILE,
-    TOOL_FISHING_ROD_CURSED,
-    TOOL_FISHING_ROD_BLESSED,
-    TOOL_FISHING_ROD_MYTHIC,
-    TOOL_MIRACLE_POTION_COW,
-    TOOL_MIRACLE_POTION_SHEEP,
-    TOOL_SEEDS_TURNIP,
-    TOOL_SEEDS_POTATO,
-    TOOL_SEEDS_CUCUMBER,
-    TOOL_SEEDS_STRAWBERRY,
-    TOOL_SEEDS_CABBAGE,
-    TOOL_SEEDS_TOMATO,
-    TOOL_SEEDS_CORN,
-    TOOL_SEEDS_ONION,
-    TOOL_SEEDS_PUMPKIN,
-    TOOL_SEEDS_PINEAPPLE,
-    TOOL_SEEDS_EGGPLANT,
-    TOOL_SEEDS_CARROT,
-    TOOL_SEEDS_SWEET_POTATO,
-    TOOL_SEEDS_SPINACH,
-    TOOL_SEEDS_GREEN_PEPPER,
-    TOOL_SEEDS_GRASS,
-    TOOL_SEEDS_MOON_DROP,
-    TOOL_SEEDS_PINK_CAT,
-    TOOL_SEEDS_MAGIC,
-    TOOL_SEEDS_TOY_FLOWER,
-    TOOL_BRUSH,
-    TOOL_MILKER,
-    TOOL_CLIPPERS,
-    TOOL_BELL,
-    TOOL_ANIMAL_MEDICINE,
-    TOOL_BLUE_FEATHER,
-    TOOL_PEDOMETER,
-    TOOL_TELEPORT_STONE,
-    TOOL_GEM_GODDESS,
-    TOOL_GEM_KAPPA,
-    TOOL_GEM_TRUTH,
-    TOOL_NONE,
-    NUM_TOOLS = TOOL_NONE
-};
-
-enum Foods {
-    FOOD_TURNIP,
-    FOOD_POTATO,
-    FOOD_CUCUMBER,
-    FOOD_STRAWBERRY,
-    FOOD_CABBAGE,
-    FOOD_TOMATO,
-    FOOD_CORN,
-    FOOD_ONION,
-    FOOD_PUMPKIN,
-    FOOD_PINEAPPLE,
-    FOOD_EGGPLANT,
-    FOOD_CARROT,
-    FOOD_SWEET_POTATO,
-    FOOD_SPINACH,
-    FOOD_GREEN_PEPPER,
-    FOOD_EGG,
-    FOOD_EGG_GOOD,
-    FOOD_EGG_HIGH,
-    FOOD_EGG_GOLD,
-    FOOD_EGG_P,
-    FOOD_EGG_X,
-    FOOD_EGG_SPA_BOILED,
-    FOOD_MAYONNAISE_S,
-    FOOD_MAYONNAISE_M,
-    FOOD_MAYONNAISE_L,
-    FOOD_MAYONNAISE_G,
-    FOOD_MAYONNAISE_P,
-    FOOD_MAYONNAISE_X,
-    FOOD_MILK_S,
-    FOOD_MILK_M,
-    FOOD_MILK_L,
-    FOOD_MILK_G,
-    FOOD_MILK_P,
-    FOOD_MILK_X,
-    FOOD_CHEESE_S,
-    FOOD_CHEESE_M,
-    FOOD_CHEESE_L,
-    FOOD_CHEESE_G,
-    FOOD_CHEESE_P,
-    FOOD_CHEESE_X,
-    FOOD_APPLE,
-    FOOD_HONEY,
-    FOOD_BAMBOO_SHOOT,
-    FOOD_WILD_GRAPES,
-    FOOD_MUSHROOM,
-    FOOD_MUSHROOM_POISONOUS,
-    FOOD_TRUFFLE,
-    FOOD_GRASS_BLUE,
-    FOOD_GRASS_GREEN,
-    FOOD_GRASS_RED,
-    FOOD_GRASS_YELLOW,
-    FOOD_GRASS_ORANGE,
-    FOOD_GRASS_PURPLE,
-    FOOD_GRASS_INDIGO,
-    FOOD_GRASS_BLACK,
-    FOOD_GRASS_WHITE,
-    FOOD_CHOCOLATE = 69,
-    FOOD_LEAVES_RELAXATION,
-    FOOD_APPLE_SUGDW,
-    FOOD_APPLE_HMSGB,
-    FOOD_APPLE_AEPFE,
-    FOOD_FISH_SMALL = 160,
-    FOOD_FISH_MEDIUM,
-    FOOD_FISH_LARGE,
-    FOOD_NONE = 171,
-    NUM_FOODS = FOOD_NONE
-};
-
-enum Articles {
-    ARTICLE_FLOWER_MOON_DROP,
-    ARTICLE_FLOWER_PINK_CAT,
-    ARTICLE_FLOWER_MAGIC_BLUE,
-    ARTICLE_FLOWER_MAGIC_RED,
-    ARTICLE_FLOWER_TOY,
-    ARTICLE_WOOL_S,
-    ARTICLE_WOOL_M,
-    ARTICLE_WOOL_L,
-    ARTICLE_WOOL_G,
-    ARTICLE_WOOL_P,
-    ARTICLE_WOOL_X,
-    ARTICLE_YARN_S,
-    ARTICLE_YARN_M,
-    ARTICLE_YARN_L,
-    ARTICLE_YARN_G,
-    ARTICLE_YARN_P,
-    ARTICLE_YARN_X,
-    ARTICLE_ORE_JUNK,
-    ARTICLE_ORE_COPPER,
-    ARTICLE_ORE_SILVER,
-    ARTICLE_ORE_GOLD,
-    ARTICLE_ORE_MYSTRILE,
-    ARTICLE_ORE_ORICHALC,
-    ARTICLE_ORE_ADAMANTITE,
-    ARTICLE_STONE_MOON,
-    ARTICLE_SAND_ROSE,
-    ARTICLE_DIAMOND_PINK,
-    ARTICLE_ALEXANDRITE,
-    ARTICLE_STONE_MYTHIC,
-    ARTICLE_DIAMOND,
-    ARTICLE_EMERALD,
-    ARTICLE_RUBY,
-    ARTICLE_TOPAZ,
-    ARTICLE_PERIDOT,
-    ARTICLE_FLUORITE,
-    ARTICLE_AGATE,
-    ARTICLE_AMETHYST,
-    ARTICLE_JEWEL_GODDESS,
-    ARTICLE_JEWEL_KAPPA,
-    ARTICLE_JEWEL_TRUTH,
-    ARTICLE_SUN_SPRING,
-    ARTICLE_SUN_SUMMER,
-    ARTICLE_SUN_AUTUMN,
-    ARTICLE_SUN_WINTER,
-    ARTICLE_BRACELET,
-    ARTICLE_NECKLACE,
-    ARTICLE_EARRINGS,
-    ARTICLE_BROACH,
-    ARTICLE_WEEDS,
-    ARTICLE_STONES,
-    ARTICLE_BRANCHES,
-    ARTICLE_RECIPE_FRENCH_FRIES,
-    ARTICLE_RECIPE_KETCHUP,
-    ARTICLE_BALL,
-    ARTICLE_PIRATE_TREASURE,
-    ARTICLE_FOSSIL,
-    ARTICLE_EMPTY_CAN,
-    ARTICLE_BOOTS,
-    ARTICLE_FISH_BONES,
-    ARTICLE_KAREN_WINE,
-    ARTICLE_POPURI_MUD_BALL,
-    ARTICLE_ANN_MUSIC_BOX,
-    ARTICLE_MARY_GREAT_BOOK,
-    ARTICLE_ELLI_PRESSED_FLOWER,
-    ARTICLE_ALBUM_1,
-    ARTICLE_ALBUM_2,
-    ARTICLE_ALBUM_3,
-    ARTICLE_ALBUM_4,
-    ARTICLE_ALBUM_5,
-    ARTICLE_ALBUM_6,
-    ARTICLE_ALBUM_7,
-    ARTICLE_ALBUM_8,
-    ARTICLE_ALBUM_9,
-    ARTICLE_ALBUM_10,
-    ARTICLE_ALBUM_11,
-    ARTICLE_ALBUM_12,
-    ARTICLE_ALBUM_13,
-    ARTICLE_ALBUM_14,
-    ARTICLE_ALBUM_15,
-    ARTICLE_BAND_AID,
-    ARTICLE_BOOK,
-    ARTICLE_PERFUME,
-    ARTICLE_PHOTO,
-    ARTICLE_PLANT_ENCYCLOPEDIA,
-    ARTICLE_INVITATION,
-    ARTICLE_DRESS,
-    ARTICLE_FACIAL_PACK,
-    ARTICLE_SKIN_LOTION,
-    ARTICLE_SUNBLOCK,
-    ARTICLE_LUMBER,
-    ARTICLE_LUMBER_GOLDEN,
-    ARTICLE_ANIMAL_FODDER,
-    ARTICLE_CHICKEN_FEED,
-    ARTICLE_CERTIFICATE,
-    ARTICLE_FRISBEE,
-    ARTICLE_NONE,
-    NUM_ARTICLES = ARTICLE_NONE
-};
-
 enum Products {
     PRODUCT_TURNIP,
     PRODUCT_POTATO,
@@ -452,9 +197,9 @@ extern const u8 gText_NoExplanation[];
 extern const u8 gText_BrokenFood[];
 extern const u8 gText_BrokenArticle[];
 extern const u8 gText_BrokenShipment[];
-extern const Tool gTools[];
-extern const Food gFoods[];
-extern const Article gArticles[];
+extern const Tool gToolInfo[];
+extern const Food gFoodInfo[];
+extern const Article gArticleInfo[];
 extern const Product gProducts[];
 
 
@@ -469,57 +214,57 @@ Shelf * sub_800B8E4(Shelf *shelf);
 RecordPlayer * sub_800BB60(RecordPlayer *player);
 
 // Returns a slot's tool
-u32 sub_800DB30(ToolSlot *slot);
+u32 GetId__C4Tool(ToolSlot *slot);
 // Returns a slot's tool
-u8 sub_800DC10(ToolSlot *slot);
+u8 GetId__C9ToolStack(ToolSlot *slot);
 // Returns whether a slot is empty or not
-bool8 sub_800DC34(ToolSlot *slot);
+bool8 IsEmpty__C9ToolStack(ToolSlot *slot);
 // Returns a slot's quantity
-u32 sub_800DC48(ToolSlot *slot);
+u32 GetAmount__C9ToolStack(ToolSlot *slot);
 
 // Initializes a food slot
-Item * sub_800DCA8(Item * slot, u8 food);
+Item * __4Foodc(Item * slot, u8 food);
 // Returns a slot's food
-u32 sub_800DCB4(Item const * slot);
+u32 GetId__C4Food(Item const * slot);
 // Returns a pointer to a slot's food name
-const u8 * sub_800DCB8(Item const * slot);
+const u8 * GetName__C4Food(Item const * slot);
 // Returns a slot's icon index
-u16 sub_800DCE0(Item const * slot);
+u16 GetIconId__C4Food(Item const * slot);
 // Returns a slot's stamina bonus
-s8 sub_800DD6C(FoodSlot *slot);
+s8 GetStaminaBonus__C4Food(FoodSlot *slot);
 // Returns a slot's fatigue bonus
-s8 sub_800DD8C(FoodSlot *slot);
+s8 GetFatigueBonus__C4Food(FoodSlot *slot);
 // Adds to the slot's stamina and fatigue bonus
-void sub_800DE0C(Item * slot, s8 stamina, s8 fatigue);
+void AddBonuses__4FoodScSc(Item * slot, s8 stamina, s8 fatigue);
 // Initializes a food slot
-FoodSlot * sub_800DE68(FoodSlot *slot);
+FoodSlot * __9FoodStack(FoodSlot *slot);
 // Initializes a food slot
-Item * sub_800DEB8(Item * result, FoodSlot const * slot2);
+Item * GetFood__C9FoodStack(Item * result, FoodSlot const * slot2);
 // Returns whether a slot is empty or not
-u8 sub_800DEDC(FoodSlot *slot);
+u8 IsEmpty__C9FoodStack(FoodSlot *slot);
 // Returns a slot's quantity
-u32 sub_800DEF0(FoodSlot *slot);
+u32 GetAmount__C9FoodStack(FoodSlot *slot);
 
 // Sets a slot's article
-void sub_800DF50(ArticleSlot *slot, u8 article);
+void __7Articlec(ArticleSlot *slot, u8 article);
 // Returns a slot's article
-s32 sub_800DF54(ArticleSlot *slot);
+s32 GetId__C7Article(ArticleSlot *slot);
 // Returns a pointer to a slot's article name
-const u8 * sub_800DF58(ArticleSlot *slot);
+const u8 * GetName__C7Article(ArticleSlot *slot);
 // Returns a slot's icon index
-u16 sub_800DF84(ArticleSlot *slot);
+u16 GetIconId__C7Article(ArticleSlot *slot);
 // Returns whether a slot's article can be gift wrapped
-u8 sub_800DFB0(ArticleSlot *slot);
+u8 CanBeDiscarded__C7Article(ArticleSlot *slot);
 // Initializes an article slot
-ArticleSlot * sub_800E010(ArticleSlot *slot);
+ArticleSlot * __12ArticleStack(ArticleSlot *slot);
 // Initializes an article slot
-ArticleSlot * sub_800E028(ArticleSlot *slot, u8 article, u32 amount);
+ArticleSlot * __12ArticleStackG7ArticleUi(ArticleSlot *slot, u8 article, u32 amount);
 // Returns a slot's article
-u32 sub_800E058(ArticleSlot *slot);
+u32 GetArticleId__C12ArticleStack(ArticleSlot *slot);
 // Returns whether a slot is empty or not
-bool8 sub_800E07C(ArticleSlot *slot);
+bool8 IsEmpty__C12ArticleStack(ArticleSlot *slot);
 // Returns a slot's quantity
-u32 sub_800E090(ArticleSlot *slot);
+u32 GetAmount__C12ArticleStack(ArticleSlot *slot);
 
 // Returns the slot's product
 u32 sub_800E194(ProductSlot *slot);

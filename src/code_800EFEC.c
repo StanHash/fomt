@@ -2,6 +2,9 @@
 
 #include <string.h>
 
+#include "constants/food.h"
+#include "constants/article.h"
+
 typedef struct RucksackSlot {
     u32 type:1;
     u8 wrapped:1;
@@ -30,9 +33,9 @@ RucksackSlot * sub_800F004(RucksackSlot *rSlot, FoodSlot fSlot) {
     rSlot->type = 0;
     rSlot->wrapped = 0;
 
-    rSlot->item = sub_800DCB4(&fSlot.item);
-    rSlot->stamina = sub_800DD6C(&fSlot);
-    rSlot->fatigue = sub_800DD8C(&fSlot);
+    rSlot->item = GetId__C4Food(&fSlot.item);
+    rSlot->stamina = GetStaminaBonus__C4Food(&fSlot);
+    rSlot->fatigue = GetFatigueBonus__C4Food(&fSlot);
 
     return rSlot;
 }
@@ -45,7 +48,7 @@ RucksackSlot * sub_800F040(RucksackSlot *rSlot, u8 article) {
     rSlot->type = 1;
     rSlot->wrapped = 0;
 
-    rSlot->item = sub_800DF54(&sp);
+    rSlot->item = GetId__C7Article(&sp);
 
     return rSlot;
 }
@@ -72,11 +75,11 @@ FoodSlot * sub_800F0A4(FoodSlot *fSlot, RucksackSlot *rSlot) {
     Item item;
 
     if (rSlot->type == 0) {
-        sub_800DCA8(&item, rSlot->item);
-        sub_800DE0C(&item, rSlot->stamina, rSlot->fatigue);
+        __4Foodc(&item, rSlot->item);
+        AddBonuses__4FoodScSc(&item, rSlot->stamina, rSlot->fatigue);
         fSlot->item = item;
     } else {
-        sub_800DCA8(&fSlot->item, FOOD_NONE);
+        __4Foodc(&fSlot->item, FOOD_NONE);
     }
 
     return fSlot;
@@ -89,10 +92,10 @@ u8 sub_800F0E8(RucksackSlot *slot) {
     if(slot->type == 1) {
         ptr = &sp._0;
         ptr++;
-        sub_800DF50((ArticleSlot *)&sp._1, slot->item);
+        __7Articlec((ArticleSlot *)&sp._1, slot->item);
         return *ptr;
     } else {
-        sub_800DF50((ArticleSlot *)&sp, ARTICLE_NONE);
+        __7Articlec((ArticleSlot *)&sp, ARTICLE_NONE);
         return sp._0;
     }
 
@@ -113,8 +116,8 @@ u8 sub_800F124(RucksackSlot *slot) {
             bool = TRUE;
             break;
         case 1:
-            sub_800DF50(&sp, slot->item);
-            bool = sub_800DFB0(&sp);
+            __7Articlec(&sp, slot->item);
+            bool = CanBeDiscarded__C7Article(&sp);
             break;
     }
     

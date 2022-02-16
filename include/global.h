@@ -5,7 +5,16 @@ extern "C"
 {
 #endif
 
-#include "types.h"
+typedef char           u8; // TODO: unsigned char
+typedef unsigned short u16;
+typedef unsigned int   u32;
+
+typedef signed char    i8;
+
+typedef signed char s8;
+typedef int         s32;
+
+typedef u8 bool8;
 
 #define NULL ((void *) 0)
 #define nullptr 0
@@ -20,9 +29,8 @@ extern "C"
 #define ALIGNED(a) __attribute__((aligned(a)))
 #define ALIAS(n) __attribute__((alias(# n)));
 
-// TODO: those were likely inline functions rather than macros
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-#define MAX(a, b) (((a) > (b)) ? (a) : (b))
+#define CONST_MIN(a, b) (((a) < (b)) ? (a) : (b))
+#define CONST_MAX(a, b) (((a) > (b)) ? (a) : (b))
 
 #ifdef __cplusplus
 }

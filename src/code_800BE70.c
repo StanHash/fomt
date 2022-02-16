@@ -3,6 +3,8 @@
 // TODO: cstdlib
 #include <stdlib.h>
 
+#include "constants/article.h"
+
 typedef struct FarmHouse {
     u8 unk_0_0:2; // Number of upgrades
     u8 unk_0_2:2; // Window style

@@ -157,7 +157,7 @@ void sub_800B20C(ShippingBin *sbin, ProductSlot *slot) {
 #ifndef NONMATCHING
         asm(""::"r"(sbin->value));
 #endif
-        sbin->value += min(price, 1000000000 - sbin->value);
+        sbin->value += CONST_MIN(price, 1000000000 - sbin->value);
     }
 }
 

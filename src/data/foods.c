@@ -336,7 +336,7 @@ const u8 gText_CandiedPotatoDesc[]     = "Candied Potato\r\nPotato with sweet gl
 const u8 gText_PotatoPancakesName[]    = "Potato Pancakes";
 const u8 gText_PotatoPancakesDesc[]    = "Potato Pancakes\r\nMade with Potatoes.\r\nTo eat or use as a gift.\0";
 
-const Food gFoods[] = {
+const Food gFoodInfo[] = {
     [0] = {
         .name = gText_TurnipName,
         .isDrink = FALSE,

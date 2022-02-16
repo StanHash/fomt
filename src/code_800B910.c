@@ -6,7 +6,7 @@ Shelf * sub_800B8E4(Shelf *shelf) {
     ArticleSlot *ptr = shelf->slots;
 
     while(--ctr != -1){
-        sub_800E010(ptr);
+        __12ArticleStack(ptr);
         ptr++;
     }
 
@@ -29,13 +29,13 @@ u32 sub_800B910(Shelf *shelf, u32 article) {
 
     while(ptr != ptr2){
         ArticleSlot * r7 = &sp;
-        if(sub_800E07C(ptr)){
+        if(IsEmpty__C12ArticleStack(ptr)){
             val += 99;
         }else{
-            r7->article = sub_800E058(ptr);
-            bool = sub_800DF54(&sp) == article;
+            r7->article = GetArticleId__C12ArticleStack(ptr);
+            bool = GetId__C7Article(&sp) == article;
             if(bool){
-                u32 temp = sub_800E090(ptr);
+                u32 temp = GetAmount__C12ArticleStack(ptr);
                 u32 temp2 = val + 99;
                 val = temp2 - temp;
             }
@@ -56,12 +56,12 @@ u32 sub_800B974(Shelf *shelf, u32 article) {
 
     while(ptr != ptr2){
         ArticleSlot * r7 = &sp;
-        if(!sub_800E07C(ptr)){
-            r7->article = sub_800E058(ptr);
-            bool = sub_800DF54(&sp) == article;
+        if(!IsEmpty__C12ArticleStack(ptr)){
+            r7->article = GetArticleId__C12ArticleStack(ptr);
+            bool = GetId__C7Article(&sp) == article;
 
             if(bool)
-                val += sub_800E090(ptr);
+                val += GetAmount__C12ArticleStack(ptr);
         }
         ptr++;
     }
@@ -77,7 +77,7 @@ u32 sub_800B9D0(Shelf *shelf, u32 article) {
     ArticleSlot * ptr = &shelf->slots[0];
 
     while(ptr != ptr2){
-        if(sub_800E07C(ptr))
+        if(IsEmpty__C12ArticleStack(ptr))
             return idx;
         
         ptr++;
@@ -109,9 +109,9 @@ u32 sub_800BA44(Shelf *shelf, u32 article) {
 
     while(ptr != ptr2){
         ArticleSlot * r7 = &sp;
-        if(!sub_800E07C(ptr)){
-            r7->article = sub_800E058(ptr);
-            bool = sub_800DF54(&sp) == article;
+        if(!IsEmpty__C12ArticleStack(ptr)){
+            r7->article = GetArticleId__C12ArticleStack(ptr);
+            bool = GetId__C7Article(&sp) == article;
             if(bool)
                 return idx;
         }
@@ -150,7 +150,7 @@ u32 sub_800BAA8(Shelf *shelf, u32 article, u32 amount) {
         beq _0800BB58\n\
     _0800BAC8:\n\
         adds r0, r5, #0\n\
-        bl sub_800E07C\n\
+        bl IsEmpty__C12ArticleStack\n\
         lsls r0, r0, #0x18\n\
         cmp r0, #0\n\
         beq _0800BB06\n\
@@ -166,12 +166,12 @@ u32 sub_800BAA8(Shelf *shelf, u32 article, u32 amount) {
         ldr r4, [r4]\n\
         add r0, sp, #0xc\n\
         adds r1, r6, #0\n\
-        bl sub_800DF50\n\
+        bl __7Articlec\n\
         add r0, sp, #0xc\n\
         ldrb r1, [r0]\n\
         mov r0, sp\n\
         adds r2, r4, #0\n\
-        bl sub_800E028\n\
+        bl __12ArticleStackG7ArticleUi\n\
         adds r0, r5, #0\n\
         mov r1, sp\n\
         movs r2, #2\n\
@@ -179,12 +179,12 @@ u32 sub_800BAA8(Shelf *shelf, u32 article, u32 amount) {
         b _0800BB46\n\
     _0800BB06:\n\
         adds r0, r5, #0\n\
-        bl sub_800E058\n\
+        bl GetArticleId__C12ArticleStack\n\
         mov r1, sp\n\
         adds r1, #0xd\n\
         strb r0, [r1]\n\
         adds r0, r1, #0\n\
-        bl sub_800DF54\n\
+        bl GetId__C7Article\n\
         movs r1, #0\n\
         cmp r0, r6\n\
         bne _0800BB20\n\
@@ -193,7 +193,7 @@ u32 sub_800BAA8(Shelf *shelf, u32 article, u32 amount) {
         cmp r1, #0\n\
         beq _0800BB4C\n\
         adds r0, r5, #0\n\
-        bl sub_800E090\n\
+        bl GetAmount__C12ArticleStack\n\
         movs r1, #0x63\n\
         subs r1, r1, r0\n\
         str r1, [sp, #0x10]\n\
@@ -207,7 +207,7 @@ u32 sub_800BAA8(Shelf *shelf, u32 article, u32 amount) {
         ldr r4, [r4]\n\
         adds r0, r5, #0\n\
         adds r1, r4, #0\n\
-        bl sub_800E0A4\n\
+        bl AddAmount__12ArticleStackUi\n\
     _0800BB46:\n\
         ldr r0, [sp, #4]\n\
         subs r0, r0, r4\n\

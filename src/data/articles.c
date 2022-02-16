@@ -1,5 +1,7 @@
 #include "inventory.h"
 
+#include "constants/article.h"
+
 const u8 gText_MoonDropGrassName[]       = "Moon Drop Grass";
 const u8 gText_MoonDropGrassDesc[]       = "Moon Drop Grass\r\nFlowers in Spring.\r\nCannot be shipped.";
 const u8 gText_PinkCatGrassName[]        = "Pink Cat Grass";
@@ -186,7 +188,7 @@ const u8 gText_LotteryDesc[]             = "Certificate of Rock-Papers-\r\nSciss
 const u8 gText_FrisbeeName[]             = "Frisbee";
 const u8 gText_FrisbeeDesc[]             = "Frisbee\r\nUse to play with your Dog\r\non Mineral Beach.\0\0";
 
-const Article gArticles[] = {
+const Article gArticleInfo[] = {
     [ARTICLE_FLOWER_MOON_DROP] = {
         .name = gText_MoonDropGrassName,
         .icon = 303,

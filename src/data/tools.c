@@ -1,4 +1,5 @@
 #include "inventory.h"
+#include "constants/tool.h"
 
 const u8 gText_BadAlloc[]       = "bad_alloc";       // 0x080E9614
 const u8 gText_BrokenTool[]     = "Broken Tool";     // 0x080E9620
@@ -170,7 +171,7 @@ const u8 gText_KappaGemDesc[]            = "Gem of the Kappa\r\nRecuperate Fatig
 const u8 gText_TruthGemName[]            = "Gem of Truth";
 const u8 gText_TruthGemDesc[]            = "Gem of Truth\r\nDisplays your Stamina\r\nand Fatigue.";
 
-const Tool gTools[] = {
+const Tool gToolInfo[] = {
     [TOOL_SICKLE_IRON] = {
         .name = gText_IronSickleName,
         .icon = 403,
