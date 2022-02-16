@@ -32,7 +32,7 @@ Tool::Tool(u32 a_id)
     id = a_id;
 }
 
-u32 Tool::GetId(void) const
+int Tool::GetId(void) const
 {
     return id;
 }
@@ -70,7 +70,7 @@ char const * Tool::GetDesc(void) const
     return "No Explanation";
 }
 
-ToolStack::ToolStack()
+ToolStack::ToolStack(void)
     : Tool(TOOL_NONE)
 {
     amount = 0;
@@ -137,7 +137,7 @@ Food::Food(u32 a_id)
     fatigue_bonus = 0;
 }
 
-u32 Food::GetId(void) const
+int Food::GetId(void) const
 {
     return id;
 }
@@ -241,7 +241,7 @@ void Food::AddBonuses(i8 stamina_amount, i8 fatigue_amount)
     }
 }
 
-FoodStack::FoodStack()
+FoodStack::FoodStack(void)
     : Food(FOOD_NONE)
 {
     amount = 0;
@@ -306,7 +306,7 @@ Article::Article(u32 a_id)
     id = a_id;
 }
 
-u32 Article::GetId(void) const
+int Article::GetId(void) const
 {
     return id;
 }
@@ -363,7 +363,7 @@ char const * Article::GetDesc(void) const
     return "No Explanation";
 }
 
-ArticleStack::ArticleStack()
+ArticleStack::ArticleStack(void)
     : Article(ARTICLE_NONE)
 {
     amount = 0;
@@ -423,7 +423,7 @@ void ArticleStack::SubtractAmount(u32 a_amount)
     }
 }
 
-Product::Product()
+Product::Product(void)
 {
     id = PRODUCT_NONE;
 }

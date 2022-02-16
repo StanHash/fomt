@@ -6,7 +6,7 @@ struct PACKED Tool
 {
     Tool(u32 id);
 
-    u32 GetId(void) const;
+    int GetId(void) const;
     char const * GetName(void) const;
     u16 GetIconId(void) const;
     char const * GetDesc(void) const;
@@ -16,7 +16,7 @@ struct PACKED Tool
 
 struct PACKED ToolStack : public Tool
 {
-    ToolStack();
+    ToolStack(void);
     ToolStack(Tool kind, u32 amount);
 
     Tool GetTool(void) const;
@@ -32,7 +32,7 @@ struct PACKED Food
 {
     Food(u32 id);
 
-    u32 GetId(void) const;
+    int GetId(void) const;
     char const * GetName(void) const;
     u16 GetIconId(void) const;
     int GetStaminaGain(void) const;
@@ -50,7 +50,7 @@ struct PACKED Food
 
 struct PACKED FoodStack : public Food
 {
-    FoodStack();
+    FoodStack(void);
     FoodStack(Food food, u32 a_amount);
 
     Food GetFood(void) const;
@@ -66,7 +66,7 @@ struct PACKED Article
 {
     Article(u32 id);
 
-    u32 GetId(void) const;
+    int GetId(void) const;
     char const * GetName(void) const;
     u16 GetIconId(void) const;
     bool CanBeDiscarded(void) const;
@@ -77,7 +77,7 @@ struct PACKED Article
 
 struct PACKED ArticleStack : public Article
 {
-    ArticleStack();
+    ArticleStack(void);
     ArticleStack(Article article, u32 a_amount);
 
     Article GetArticle(void) const;
@@ -91,7 +91,7 @@ struct PACKED ArticleStack : public Article
 
 struct PACKED Product
 {
-    Product();
+    Product(void);
     Product(u32 id);
     Product(Food food);
     Product(Article article);

@@ -573,91 +573,91 @@ const Article gArticleInfo[] = {
         .desc = gText_ElliPressedFlwrDesc
     },
 
-    [ARTICLE_ALBUM_1] = {
+    [ARTICLE_ALBUM_0] = {
         .name = gText_Album1Name,
         .icon = 361,
         .desc = gText_Album1Desc
     },
 
-    [ARTICLE_ALBUM_2] = {
+    [ARTICLE_ALBUM_1] = {
         .name = gText_Album2Name,
         .icon = 362,
         .desc = gText_Album2Desc
     },
 
-    [ARTICLE_ALBUM_3] = {
+    [ARTICLE_ALBUM_2] = {
         .name = gText_Album3Name,
         .icon = 363,
         .desc = gText_Album3Desc
     },
 
-    [ARTICLE_ALBUM_4] = {
+    [ARTICLE_ALBUM_3] = {
         .name = gText_Album4Name,
         .icon = 364,
         .desc = gText_Album4Desc
     },
 
-    [ARTICLE_ALBUM_5] = {
+    [ARTICLE_ALBUM_4] = {
         .name = gText_Album5Name,
         .icon = 365,
         .desc = gText_Album5Desc
     },
 
-    [ARTICLE_ALBUM_6] = {
+    [ARTICLE_ALBUM_5] = {
         .name = gText_Album6Name,
         .icon = 366,
         .desc = gText_Album6Desc
     },
 
-    [ARTICLE_ALBUM_7] = {
+    [ARTICLE_ALBUM_6] = {
         .name = gText_Album7Name,
         .icon = 367,
         .desc = gText_Album7Desc
     },
 
-    [ARTICLE_ALBUM_8] = {
+    [ARTICLE_ALBUM_7] = {
         .name = gText_Album8Name,
         .icon = 368,
         .desc = gText_Album8Desc
     },
 
-    [ARTICLE_ALBUM_9] = {
+    [ARTICLE_ALBUM_8] = {
         .name = gText_Album9Name,
         .icon = 369,
         .desc = gText_Album9Desc
     },
 
-    [ARTICLE_ALBUM_10] = {
+    [ARTICLE_ALBUM_9] = {
         .name = gText_Album10Name,
         .icon = 370,
         .desc = gText_Album10Desc
     },
 
-    [ARTICLE_ALBUM_11] = {
+    [ARTICLE_ALBUM_10] = {
         .name = gText_Album11Name,
         .icon = 371,
         .desc = gText_Album11Desc
     },
 
-    [ARTICLE_ALBUM_12] = {
+    [ARTICLE_ALBUM_11] = {
         .name = gText_Album12Name,
         .icon = 372,
         .desc = gText_Album12Desc
     },
 
-    [ARTICLE_ALBUM_13] = {
+    [ARTICLE_ALBUM_12] = {
         .name = gText_Album13Name,
         .icon = 373,
         .desc = gText_Album13Desc
     },
 
-    [ARTICLE_ALBUM_14] = {
+    [ARTICLE_ALBUM_13] = {
         .name = gText_Album14Name,
         .icon = 374,
         .desc = gText_Album14Desc
     },
 
-    [ARTICLE_ALBUM_15] = {
+    [ARTICLE_ALBUM_14] = {
         .name = gText_Album15Name,
         .icon = 375,
         .desc = gText_Album15Desc

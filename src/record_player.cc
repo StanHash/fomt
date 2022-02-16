@@ -1,71 +1,70 @@
-extern "C"
-{
-
-#include "inventory.h"
+#include "item.hh"
 
 #include "constants/article.h"
 
+// TODO: move to header
+struct RecordPlayer
+{
+    RecordPlayer(void);
+
+    bool HasAlbum(void) const;
+    u32 GetUnknown(void) const;
+    ArticleStack RemoveAlbum(void);
+    ArticleStack SetAlbum(Article const & album_article);
+
+    /* +00 */ bool has_album : 1;
+    /* +00 */ u32 album_id : 4;
+};
+
 // are those song ids?
-u8 const unk_80E9605[] =
+u8 const unk_080E9605[] =
 {
     18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32
 };
 
-// Initializes the record player
-RecordPlayer * sub_800BB60(RecordPlayer * player)
+RecordPlayer::RecordPlayer(void)
 {
-    player->unk = FALSE;
-    player->album = 0;
-    return player;
+    has_album = false;
+    album_id = 0;
 }
 
-// Returns an unkown flag
-bool8 sub_800BB74(RecordPlayer const * player)
+bool RecordPlayer::HasAlbum(void) const
 {
-    return player->unk;
+    return has_album;
 }
 
-// Returns an unkown value from a table
-u32 sub_800BB7C(RecordPlayer const * player)
+u32 RecordPlayer::GetUnknown(void) const
 {
-    if (!sub_800BB74(player))
+    if (!HasAlbum())
         return 199;
-    else
-        return unk_80E9605[player->album];
+
+    return unk_080E9605[album_id];
 }
 
-ArticleSlot * sub_800BBA4(ArticleSlot * slot, RecordPlayer *player)
+ArticleStack RecordPlayer::RemoveAlbum(void)
 {
-    ArticleSlot sp;
-    if(!sub_800BB74(player)){
-        __12ArticleStack(slot);
-    }else{
-        player->unk = FALSE;
-        __7ArticleUi(&sp, player->album + ARTICLE_ALBUM_1);
-        __12ArticleStackG7ArticleUi(slot, sp.article, 1);
-    }
-    return slot;
+    if (!HasAlbum())
+        return ArticleStack();
+
+    has_album = false;
+
+    return ArticleStack(Article(ARTICLE_ALBUM_0 + album_id), 1);
 }
 
-ArticleSlot * sub_800BBF0(ArticleSlot * slot1, RecordPlayer *player, ArticleSlot * slot2){
-    ArticleSlot sp;
-    u8 temp;
+ArticleStack RecordPlayer::SetAlbum(Article const & album_article)
+{
+    u8 old_album_id;
 
-    switch (GetId__C7Article(slot2))
+    switch (album_article.GetId())
     {
-        case ARTICLE_ALBUM_1 ... ARTICLE_ALBUM_15:
-            player->unk = TRUE;
-            temp = player->album;
-            player->album = GetId__C7Article(slot2) - ARTICLE_ALBUM_1;
+        case ARTICLE_ALBUM_0 ... ARTICLE_ALBUM_14:
+            has_album = true;
+            old_album_id = album_id;
+            album_id = album_article.GetId() - ARTICLE_ALBUM_0;
 
-            __7ArticleUi(&sp, temp + ARTICLE_ALBUM_1);
-            __12ArticleStackG7ArticleUi(slot1, sp.article, 1);
-            return slot1;
+            return ArticleStack(Article(old_album_id + ARTICLE_ALBUM_0), 1);
 
         default:
-            __12ArticleStack(slot1);
-            return slot1;
+            return ArticleStack();
     }
-}
-
 }

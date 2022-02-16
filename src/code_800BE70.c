@@ -83,7 +83,7 @@ FarmHouse * sub_800BE70(FarmHouse *house) {
 
     sub_800B660(&house->fridge);
     sub_800B8E4(&house->shelf);
-    sub_800BB60(&house->player);
+    __12RecordPlayer(&house->player);
     sub_800B2EC(&house->chest);
     sub_800BC58(house->unk);
 

@@ -4,7 +4,7 @@
 
 struct PACKED ALIGNED(2) Location
 {
-    Location() {}
+    Location(void) {}
     Location(u32 map, u32 x, u32 y) : map(map), x(x), y(y) {}
 
     /* +00 */ u32 map : 10;
@@ -14,7 +14,7 @@ struct PACKED ALIGNED(2) Location
 
 struct ActorLocation : public Location
 {
-    ActorLocation() {}
+    ActorLocation(void) {}
     ActorLocation(Location const & location, int facing) : Location(location), facing(facing) {}
 
     /* +06 */ u8 facing;

@@ -103,7 +103,7 @@ Fridge * sub_800B660(Fridge *fridge);
 // Initializes the shelf
 Shelf * sub_800B8E4(Shelf *shelf);
 // Initializes the record player
-RecordPlayer * sub_800BB60(RecordPlayer *player);
+RecordPlayer * __12RecordPlayer(RecordPlayer *player);
 
 // Returns a slot's tool
 u32 GetId__C4Tool(ToolSlot *slot);

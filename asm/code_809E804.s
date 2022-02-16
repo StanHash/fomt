@@ -16790,7 +16790,7 @@ _080A6EE4:
 	bl sub_800BF50
 	cmp r0, #0
 	beq _080A6F2C
-	bl sub_800BB74
+	bl HasAlbum__C12RecordPlayer
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A6F18
@@ -16913,7 +16913,7 @@ _080A7000:
 	bl sub_800BF50
 	cmp r0, #0
 	beq _080A7044
-	bl sub_800BB74
+	bl HasAlbum__C12RecordPlayer
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A7030
@@ -17056,7 +17056,7 @@ _080A713C:
 	bl sub_800BF50
 	cmp r0, #0
 	beq _080A7180
-	bl sub_800BB74
+	bl HasAlbum__C12RecordPlayer
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A716C
