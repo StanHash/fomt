@@ -16,6 +16,8 @@ struct PACKED Tool
 
 struct PACKED ToolStack : public Tool
 {
+    enum { MAX_AMOUNT = 99 };
+
     ToolStack(void);
     ToolStack(Tool kind, u32 amount);
 
@@ -50,6 +52,8 @@ struct PACKED Food
 
 struct PACKED FoodStack : public Food
 {
+    enum { MAX_AMOUNT = 99 };
+
     FoodStack(void);
     FoodStack(Food food, u32 a_amount);
 
@@ -77,6 +81,8 @@ struct PACKED Article
 
 struct PACKED ArticleStack : public Article
 {
+    enum { MAX_AMOUNT = 99 };
+
     ArticleStack(void);
     ArticleStack(Article article, u32 a_amount);
 

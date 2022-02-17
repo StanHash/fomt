@@ -101,7 +101,7 @@ ToolChest * sub_800B2EC(ToolChest *chest);
 // Initializes the fridge
 Fridge * sub_800B660(Fridge *fridge);
 // Initializes the shelf
-Shelf * sub_800B8E4(Shelf *shelf);
+Shelf * __5Shelf(Shelf *shelf);
 // Initializes the record player
 RecordPlayer * __12RecordPlayer(RecordPlayer *player);
 

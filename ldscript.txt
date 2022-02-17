@@ -11,7 +11,7 @@ SECTIONS
         src/shipping_bin.o(.text);
         src/code_800B2EC.o(.text); /* ToolBox       */
         src/code_800B660.o(.text); /* Fridge        */
-        src/code_800B910.o(.text); /* Shelf         */
+        src/shelf.o(.text);
         src/record_player.o(.text);
 
         asm/code_800BC58.o(.text);
