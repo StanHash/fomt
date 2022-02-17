@@ -1,9 +1,7 @@
 #include "livestock.hh"
 
-// TODO: cstdlib
-#include <stdlib.h>
-
-#include "unk-inl.hh"
+#include <cstdlib>
+#include <algorithm>
 
 Livestock::Livestock(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
     : Animal(name, location, age)
@@ -101,12 +99,12 @@ void Livestock::AddOutdoorMinutes(u32 minutes)
 
     if (current_outdoor_minutes < 511)
     {
-        current_outdoor_minutes = min_inl<u32 const &>(current_outdoor_minutes + minutes, 511);
+        current_outdoor_minutes = min<u32>(current_outdoor_minutes + minutes, 511);
     }
 
     if (total_outdoor_minutes < 0xFFFF)
     {
-        total_outdoor_minutes = min_inl<u32 const &>(total_outdoor_minutes + minutes, 0xFFFF);
+        total_outdoor_minutes = min<u32>(total_outdoor_minutes + minutes, 0xFFFF);
     }
 }
 

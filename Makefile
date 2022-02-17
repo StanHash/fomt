@@ -25,8 +25,9 @@ CC1      := tools/agbcc/bin/agbcc$(EXE)
 CC1_OLD  := tools/agbcc/bin/old_agbcc$(EXE)
 CC1PLUS  := tools/agbcc/bin/agbcp$(EXE)
 
-CPPFLAGS := -I tools/agbcc/include -I tools/agbcc -iquote include -Wno-trigraphs
+CPPFLAGS := -I tools/agbcc/include -I tools/agbcc -I tools/libagbc++ -iquote include -Wno-trigraphs
 CFLAGS   := -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
+CXXFLAGS := $(CFLAGS)
 ASFLAGS  := -mcpu=arm7tdmi
 
 C_SUBDIR = src
@@ -81,7 +82,7 @@ $(C_BUILDDIR)/%.o: $(C_SUBDIR)/%.c
 
 $(C_BUILDDIR)/%.o: $(C_SUBDIR)/%.cc
 	$(CPP) $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
-	$(CC1PLUS) $(CFLAGS) $(C_BUILDDIR)/$*.i -o $(C_BUILDDIR)/$*.s
+	$(CC1PLUS) $(CXXFLAGS) $(C_BUILDDIR)/$*.i -o $(C_BUILDDIR)/$*.s
 	echo ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
 	$(AS) $(ASFLAGS) $(C_BUILDDIR)/$*.s -o $@ 
 

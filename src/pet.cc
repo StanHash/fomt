@@ -1,7 +1,6 @@
 #include "pet.hh"
 
-// TODO: cstdlib
-#include <stdlib.h>
+#include <cstdlib>
 
 Pet::Pet(char const * name, ActorLocation const & location, u32 age)
     : Animal(name, location, age)

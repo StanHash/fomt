@@ -1,11 +1,11 @@
 #include "item.hh"
 
-#include "unk-inl.hh"
-
 #include "constants/tool.h"
 #include "constants/food.h"
 #include "constants/article.h"
 #include "constants/product.h"
+
+#include <algorithm>
 
 static inline bool IsValidToolId(u8 id)
 {
@@ -82,7 +82,7 @@ ToolStack::ToolStack(Tool kind, u32 a_amount)
     if (a_amount != 0)
     {
         // ugh
-        amount = *(u8 *) &min_inl<u32 const &>(MAX_AMOUNT, a_amount);
+        amount = *(u8 *) &std::min<u32>(MAX_AMOUNT, a_amount);
     }
     else
     {
@@ -115,7 +115,7 @@ void ToolStack::AddAmount(u32 a_amount)
 {
     if (amount != 0)
     {
-        amount = min_inl<u32 const &>(MAX_AMOUNT, amount + a_amount);
+        amount = std::min<u32>(MAX_AMOUNT, amount + a_amount);
     }
 }
 
@@ -253,7 +253,7 @@ FoodStack::FoodStack(Food food, u32 a_amount)
     if (a_amount != 0)
     {
         // ugh
-        amount = *(u8 *) &min_inl<u32 const &>(MAX_AMOUNT, a_amount);
+        amount = *(u8 *) &std::min<u32>(MAX_AMOUNT, a_amount);
     }
     else
     {
@@ -286,7 +286,7 @@ void FoodStack::AddAmount(u32 a_amount)
 {
     if (amount != 0)
     {
-        amount = min_inl<u32 const &>(MAX_AMOUNT, amount + a_amount);
+        amount = std::min<u32>(MAX_AMOUNT, amount + a_amount);
     }
 }
 
@@ -375,7 +375,7 @@ ArticleStack::ArticleStack(Article article, u32 a_amount)
     if (a_amount != 0)
     {
         // ugh
-        amount = *(u8 *) &min_inl<u32 const &>(MAX_AMOUNT, a_amount);
+        amount = *(u8 *) &std::min<u32>(MAX_AMOUNT, a_amount);
     }
     else
     {
@@ -408,7 +408,7 @@ void ArticleStack::AddAmount(u32 a_amount)
 {
     if (amount != 0)
     {
-        amount = min_inl<u32 const &>(MAX_AMOUNT, amount + a_amount);
+        amount = std::min<u32>(MAX_AMOUNT, amount + a_amount);
     }
 }
 

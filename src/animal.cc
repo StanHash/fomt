@@ -1,9 +1,8 @@
 #include "animal.hh"
 
-// TODO: cstring
-#include <string.h>
-
 #include "unk-inl.hh"
+
+#include <cstring>
 
 extern "C"
 {

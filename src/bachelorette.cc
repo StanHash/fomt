@@ -1,7 +1,6 @@
 #include "bachelorette.hh"
 
-// TODO: cstdlib
-#include <stdlib.h>
+#include <cstdlib>
 
 Bachelorette::Bachelorette(ActorLocation const & location)
     : Npc(location)

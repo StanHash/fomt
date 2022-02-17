@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stddef.h>
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -16,7 +18,6 @@ typedef int         s32;
 
 typedef u8 bool8;
 
-#define NULL ((void *) 0)
 #define nullptr 0
 
 #define TRUE  1

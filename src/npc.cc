@@ -1,7 +1,6 @@
 #include "npc.hh"
 
-// TODO: cstring
-#include <string.h>
+#include <cstring>
 
 Npc::Npc(ActorLocation const & a_location)
 {

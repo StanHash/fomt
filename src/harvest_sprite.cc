@@ -1,7 +1,6 @@
 #include "harvest_sprite.hh"
 
-// TODO: cstdlib
-#include <stdlib.h>
+#include <cstdlib>
 
 HarvestSprite::HarvestSprite(ActorLocation const & location)
     : Npc(location)

@@ -1,7 +1,6 @@
 #include "chicken.hh"
 
-// TODO: cstdlib
-#include <stdlib.h>
+#include <cstdlib>
 
 extern "C"
 {

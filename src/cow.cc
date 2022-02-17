@@ -1,7 +1,6 @@
 #include "cow.hh"
 
-// TODO: cstdlib
-#include <stdlib.h>
+#include <cstdlib>
 
 extern "C"
 {

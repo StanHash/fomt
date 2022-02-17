@@ -6,6 +6,4 @@
 *.gba
 *.map
 
-
 build/
-tools/
