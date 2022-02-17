@@ -9,15 +9,15 @@ SECTIONS
         asm/code_8000000.o(.text);
 
         src/shipping_bin.o(.text);
-        src/code_800B2EC.o(.text); /* ToolBox       */
-        src/code_800B660.o(.text); /* Fridge        */
+        src/tool_chest.o(.text);
+        src/fridge.o(.text);
         src/shelf.o(.text);
         src/record_player.o(.text);
 
         asm/code_800BC58.o(.text);
         src/code_800BE70.o(.text); /* Farm House    */
         asm/code_800C450.o(.text);
-        
+
         src/code_800CCAC.o(.text); /* CoopSlot & Incubator */
 
         src/code_800CDBC.o(.text); /* Barn          */

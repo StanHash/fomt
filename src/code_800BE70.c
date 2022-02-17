@@ -81,10 +81,10 @@ FarmHouse * sub_800BE70(FarmHouse *house) {
     house->unk_5_6 = FALSE;
     house->unk_5_7 = FALSE;
 
-    sub_800B660(&house->fridge);
+    __6Fridge(&house->fridge);
     __5Shelf(&house->shelf);
     __12RecordPlayer(&house->player);
-    sub_800B2EC(&house->chest);
+    __9ToolChest(&house->chest);
     sub_800BC58(house->unk);
 
     return house;

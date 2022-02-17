@@ -24361,7 +24361,7 @@ _080AA93C:
 	lsls r1, r1, #2
 	adds r0, r0, r1
 	movs r1, #0x4b
-	bl sub_800B544
+	bl GetFirstSlotWith__C9ToolChestUi
 	cmp r0, r4
 	beq _080AA966
 _080AA964:

@@ -1,27 +1,9 @@
-#include "item.hh"
+#include "furniture.hh"
 
 #include "constants/article.h"
 
 #include <iterator>
 #include <algorithm>
-
-struct Shelf
-{
-    enum { CAPACITY = 0x40 };
-
-    Shelf();
-
-    ArticleStack const * GetArticleStackAt(u32 idx) const;
-    u32 GetAvailableSpaceFor(u32 article_id) const;
-    u32 GetAmountOf(u32 article_id) const;
-    u32 GetFirstFreeSlot(void) const;
-    u32 method_0800BA00(void) const;
-    u32 GetFirstSlotWith(u32 article_id) const;
-    ArticleStack * GetArticleStackAt(u32 idx);
-    u32 AddAmountOf(u32 article_id, u32 amount);
-
-    /* +00 */ ArticleStack contents[CAPACITY];
-};
 
 Shelf::Shelf()
 {
@@ -95,7 +77,7 @@ u32 Shelf::GetFirstFreeSlot(void) const
     return static_cast<u32>(-1);
 }
 
-u32 Shelf::method_0800BA00(void) const
+u32 Shelf::GetLastFreeSlot(void) const
 {
     typedef std::reverse_iterator<ArticleStack const *> It;
 

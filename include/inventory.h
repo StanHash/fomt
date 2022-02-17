@@ -97,9 +97,9 @@ extern const Product gProductInfo[];
 
 
 // Initializes the tool chest
-ToolChest * sub_800B2EC(ToolChest *chest);
+ToolChest * __9ToolChest(ToolChest *chest);
 // Initializes the fridge
-Fridge * sub_800B660(Fridge *fridge);
+Fridge * __6Fridge(Fridge *fridge);
 // Initializes the shelf
 Shelf * __5Shelf(Shelf *shelf);
 // Initializes the record player

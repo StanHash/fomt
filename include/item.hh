@@ -50,7 +50,7 @@ struct PACKED Food
     /* +02 */ i8 fatigue_bonus;
 };
 
-struct PACKED FoodStack : public Food
+struct FoodStack : public Food
 {
     enum { MAX_AMOUNT = 99 };
 

@@ -4150,7 +4150,7 @@ _0809DF8E:
 	lsls r1, r1, #2
 	adds r0, r7, r1
 	adds r1, r4, #0
-	bl sub_800B544
+	bl GetFirstSlotWith__C9ToolChestUi
 	cmp r0, r5
 	beq _0809DFA0
 	movs r6, #1
