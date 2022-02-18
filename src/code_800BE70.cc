@@ -1,52 +1,57 @@
+extern "C" {
 #include "inventory.h"
+}
 
 // TODO: cstdlib
 #include <stdlib.h>
 
 #include "constants/article.h"
 
-typedef struct FarmHouse {
+struct FarmHouse
+{
     u8 unk_0_0:2; // Number of upgrades
     u8 unk_0_2:2; // Window style
     u8 unk_0_4:2; // Mailbox style
     u8 unk_0_6:2; // Doghouse style
 
-    u32 unk_1_0:1; // Bathroom
-    u32 unk_1_1:1; // Refrigerator
-    u32 unk_1_2:1; // Shelf
-    u32 unk_1_3:1; // Record Player
-    u32 unk_1_4:1; // Large bed
-    u32 unk_1_5:1; // Carpet
-    u32 unk_1_6:1; // Vase
+    bool unk_1_0:1; // Bathroom
+    bool unk_1_1:1; // Refrigerator
+    bool unk_1_2:1; // Shelf
+    bool unk_1_3:1; // Record Player
+    bool unk_1_4:1; // Large bed
+    bool unk_1_5:1; // Carpet
+    bool unk_1_6:1; // Vase
     u32 unk_1_7:8; // Item in vase
 
-    u16 unk_2_7:4; // Unknown
+    u32 unk_2_7:4; // Unknown
 
-    u32 unk_3_3:1; // Mirror
-    u32 unk_3_4:1; // Clock
-    u32 unk_3_5:1; // Stocking
+    bool unk_3_3:1; // Mirror
+    bool unk_3_4:1; // Clock
+    bool unk_3_5:1; // Stocking
     u32 unk_3_6:8; // Item in stocking
 
-    u32 unk_4_6:1; // Fireplace lighted
-    u32 unk_4_7:1; // Kitchen
-    
-    u8 unk_5_0:1;  // Knife
-    u8 unk_5_1:1;  // Frying Pan
-    u8 unk_5_2:1;  // Pot
-    u8 unk_5_3:1;  // Mixer
-    u8 unk_5_4:1;  // Whisk
-    u8 unk_5_5:1;  // Rolling Pin
-    u8 unk_5_6:1;  // Oven
-    u8 unk_5_7:1;  // Seasoning Set
+    bool unk_4_6:1; // Fireplace lighted
+    bool unk_4_7:1; // Kitchen
+
+    bool unk_5_0:1;  // Knife
+    bool unk_5_1:1;  // Frying Pan
+    bool unk_5_2:1;  // Pot
+    bool unk_5_3:1;  // Mixer
+    bool unk_5_4:1;  // Whisk
+    bool unk_5_5:1;  // Rolling Pin
+    bool unk_5_6:1;  // Oven
+    bool unk_5_7:1;  // Seasoning Set
 
     Fridge fridge;
     Shelf shelf;
     RecordPlayer player;
     ToolChest chest;
     u8 unk[1];
-} FarmHouse;
+};
 
-u8 * sub_800BC58();
+extern "C" {
+
+void * sub_800BC58(void * );
 
 // Initializes the farm
 FarmHouse * sub_800BE70(FarmHouse *house) {
@@ -97,17 +102,17 @@ u8 sub_800BF14(FarmHouse *house) {
 
 // Returns a pointer to the fridge if it has been obtained
 Fridge * sub_800BF1C(FarmHouse *house) {
-    return !house->unk_1_1 > 0 ? NULL : &house->fridge;
+    return !house->unk_1_1 ? nullptr : &house->fridge;
 }
 
 // Returns a pointer to the shelf if it has been obtained
 Shelf * sub_800BF34(FarmHouse *house) {
-    return !house->unk_1_2 ? NULL : &house->shelf;
+    return !house->unk_1_2 ? nullptr : &house->shelf;
 }
 
 // Returns a pointer to the record player if it has been obtained
 RecordPlayer * sub_800BF50(FarmHouse *house) {
-    return !house->unk_1_3 ? NULL : &house->player;
+    return !house->unk_1_3 ? nullptr : &house->player;
 }
 
 // Returns the window style
@@ -230,19 +235,19 @@ void sub_800C024(FarmHouse *house) {
 // Duplicate?
 // Returns a pointer to the fridge if it has been obtained
 Fridge * sub_800C048(FarmHouse *house) {
-    return !house->unk_1_1 > 0 ? NULL : &house->fridge;
+    return !house->unk_1_1 > 0 ? nullptr : &house->fridge;
 }
 
 // Duplicate?
 // Returns a pointer to the shelf if it has been obtained
 Shelf * sub_800C060(FarmHouse *house) {
-    return !house->unk_1_2 ? NULL : &house->shelf;
+    return !house->unk_1_2 ? nullptr : &house->shelf;
 }
 
 // Duplicate?
 // Returns a pointer to the record player if it has been obtained
 RecordPlayer * sub_800C07C(FarmHouse *house) {
-    return !house->unk_1_3 ? NULL : &house->player;
+    return !house->unk_1_3 ? nullptr : &house->player;
 }
 
 // Sets the window style if the house has been upgraded at least once
@@ -355,7 +360,7 @@ void sub_800C25C(FarmHouse *house) {
 
 // Sets the kitchen to obtained if the house has been upgraded and the refrigerator obtained
 void sub_800C27C(FarmHouse *house) {
-    if(house->unk_0_0 != 0 && sub_800C048(house) != NULL)
+    if(house->unk_0_0 != 0 && sub_800C048(house) != nullptr)
         house->unk_4_7 = TRUE;
 }
 
@@ -413,16 +418,17 @@ void sub_800C364(FarmHouse *house, u32 param) {
 }
 
 // Clears the fireplace and item in the vase
-void sub_800C390(FarmHouse *house, u32 param) {
+void sub_800C390(FarmHouse *house, u32 param)
+{
     house->unk_4_6 = FALSE;
 
-    if(!house->unk_1_6 || house->unk_1_7 == ARTICLE_NONE)
+    if (!house->unk_1_6 || (u8) house->unk_1_7 == ARTICLE_NONE)
         return;
 
-    if(house->unk_2_7 > 0)
+    if (house->unk_2_7)
         house->unk_2_7--;
 
-    switch(house->unk_1_7){
+    switch (house->unk_1_7){
         case ARTICLE_FLOWER_MOON_DROP:
         case ARTICLE_FLOWER_TOY:
             if(param != 0)
@@ -443,4 +449,6 @@ void sub_800C390(FarmHouse *house, u32 param) {
     
     if(house->unk_2_7 == 0 && ((rand() & 0xFF) <= 100) )
         house->unk_1_7 = ARTICLE_NONE;
+}
+
 }

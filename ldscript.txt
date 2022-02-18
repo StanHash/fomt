@@ -13,9 +13,9 @@ SECTIONS
         src/fridge.o(.text);
         src/shelf.o(.text);
         src/record_player.o(.text);
-
-        asm/code_800BC58.o(.text);
+        src/code_800BC58.o(.text);
         src/code_800BE70.o(.text); /* Farm House    */
+
         asm/code_800C450.o(.text);
 
         src/code_800CCAC.o(.text); /* CoopSlot & Incubator */

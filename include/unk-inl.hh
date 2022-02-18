@@ -14,9 +14,9 @@ inline T max_inl(T l, T r)
     return r > l ? r : l;
 }
 
-// used generate bad_alloc strings in rodata
-// TODO: port over the libstdc++ that introduces those
-static inline char const * dummy_bad_alloc(void)
+template<typename I, typename V>
+inline void fill_inl(I beg, I end, V const & val)
 {
-    return "bad_alloc";
+    for (; beg != end; ++beg)
+        *beg = val;
 }
