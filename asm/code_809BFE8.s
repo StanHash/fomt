@@ -3699,7 +3699,7 @@ _0809DC36:
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r6, r1
-	bl sub_800C060
+	bl GetShelf__9FarmHouse
 	cmp r0, #0
 	bne _0809DC48
 	movs r4, #1
@@ -3891,7 +3891,7 @@ _0809DDA6:
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r6, r1
-	bl sub_800C060
+	bl GetShelf__9FarmHouse
 	cmp r0, #0
 	bne _0809DDB8
 	movs r4, #1

@@ -1,20 +1,6 @@
-#include "item.hh"
+#include "furniture.hh"
 
 #include "constants/article.h"
-
-// TODO: move to header
-struct RecordPlayer
-{
-    RecordPlayer(void);
-
-    bool HasAlbum(void) const;
-    u32 GetUnknown(void) const;
-    ArticleStack RemoveAlbum(void);
-    ArticleStack SetAlbum(Article const & album_article);
-
-    /* +00 */ bool has_album : 1;
-    /* +00 */ u32 album_id : 4;
-};
 
 // are those song ids?
 u8 const unk_080E9605[] =

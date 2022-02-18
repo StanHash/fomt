@@ -5,7 +5,7 @@
 #include <iterator>
 #include <algorithm>
 
-Fridge::Fridge()
+Fridge::Fridge(void)
 {
 }
 

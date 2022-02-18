@@ -1,21 +1,4 @@
-#include "global.h"
-
-#include "bit_array.hh"
-
-struct Unk_0800BC58
-{
-    Unk_0800BC58(void);
-
-    void method_0800BCB0(u32 unk);
-    void method_0800BCD0(u32 unk);
-    bool method_0800BD14(u32 unk) const;
-    bool method_0800BD40(u32 unk) const;
-    u32 method_0800BD6C(void) const;
-    u32 method_0800BDEC(void) const;
-
-    /* +00 */ BitArray<60> bit_array_00;
-    /* +08 */ BitArray<60> bit_array_08;
-};
+#include "furniture.hh"
 
 Unk_0800BC58::Unk_0800BC58(void)
 {

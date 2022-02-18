@@ -15639,7 +15639,7 @@ sub_80A6524: @ 0x080A6524
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r0, r1
-	bl sub_800BFBC
+	bl HasStocking__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A658C
@@ -15647,7 +15647,7 @@ sub_80A6524: @ 0x080A6524
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r0, r1
-	bl sub_800C014
+	bl GetStockingArticleId__C9FarmHouse
 	cmp r0, #0x5f
 	bne _080A6580
 	ldr r1, _080A657C @ =0x0810710C
@@ -16503,7 +16503,7 @@ _080A6CA2:
 	movs r2, #0xfa
 	lsls r2, r2, #1
 	adds r0, r0, r2
-	bl sub_800BF14
+	bl GetUpgradeLevel__C9FarmHouse
 	cmp r0, #1
 	beq _080A6CF0
 	cmp r0, #1
@@ -16686,7 +16686,7 @@ _080A6E02:
 	movs r2, #0xfa
 	lsls r2, r2, #1
 	adds r0, r0, r2
-	bl sub_800BF14
+	bl GetUpgradeLevel__C9FarmHouse
 	cmp r0, #1
 	beq _080A6E50
 	cmp r0, #1
@@ -16787,7 +16787,7 @@ _080A6EE4:
 	movs r2, #0xfa
 	lsls r2, r2, #1
 	adds r0, r0, r2
-	bl sub_800BF50
+	bl GetRecordPlayer__C9FarmHouse
 	cmp r0, #0
 	beq _080A6F2C
 	bl HasAlbum__C12RecordPlayer
@@ -16821,7 +16821,7 @@ _080A6F38:
 	movs r4, #0xfa
 	lsls r4, r4, #1
 	adds r0, r0, r4
-	bl sub_800BF9C
+	bl HasVase__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A6F58
@@ -16834,7 +16834,7 @@ _080A6F58:
 	mov r1, sb
 	ldr r0, [r1]
 	adds r0, r0, r4
-	bl sub_800BFAC
+	bl HasMirror__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A6F74
@@ -16847,7 +16847,7 @@ _080A6F74:
 	mov r2, sb
 	ldr r0, [r2]
 	adds r0, r0, r4
-	bl sub_800BFB4
+	bl HasClock__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A6F86
@@ -16873,7 +16873,7 @@ _080A6FA0:
 	movs r4, #0xfa
 	lsls r4, r4, #1
 	adds r0, r0, r4
-	bl sub_800BFCC
+	bl HasKitchen__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A6FCC
@@ -16886,7 +16886,7 @@ _080A6FCC:
 	mov r1, sb
 	ldr r0, [r1]
 	adds r0, r0, r4
-	bl sub_800BF1C
+	bl GetFridge__C9FarmHouse
 	cmp r0, #0
 	beq _080A6FE6
 	ldr r1, _080A7024 @ =0x08106AC4
@@ -16898,7 +16898,7 @@ _080A6FE6:
 	mov r2, sb
 	ldr r0, [r2]
 	adds r0, r0, r4
-	bl sub_800BF34
+	bl GetShelf__C9FarmHouse
 	cmp r0, #0
 	beq _080A7000
 	ldr r1, _080A7028 @ =0x08106AF4
@@ -16910,7 +16910,7 @@ _080A7000:
 	mov r3, sb
 	ldr r0, [r3]
 	adds r0, r0, r4
-	bl sub_800BF50
+	bl GetRecordPlayer__C9FarmHouse
 	cmp r0, #0
 	beq _080A7044
 	bl HasAlbum__C12RecordPlayer
@@ -16947,7 +16947,7 @@ _080A7050:
 	movs r4, #0xfa
 	lsls r4, r4, #1
 	adds r0, r0, r4
-	bl sub_800BF94
+	bl HasCarpet__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A7070
@@ -16960,7 +16960,7 @@ _080A7070:
 	mov r2, sb
 	ldr r0, [r2]
 	adds r0, r0, r4
-	bl sub_800BF9C
+	bl HasVase__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A708C
@@ -16973,7 +16973,7 @@ _080A708C:
 	mov r3, sb
 	ldr r0, [r3]
 	adds r0, r0, r4
-	bl sub_800BFAC
+	bl HasMirror__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A70A8
@@ -16986,7 +16986,7 @@ _080A70A8:
 	mov r1, sb
 	ldr r0, [r1]
 	adds r0, r0, r4
-	bl sub_800BFB4
+	bl HasClock__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A70BA
@@ -17016,7 +17016,7 @@ _080A70DC:
 	movs r4, #0xfa
 	lsls r4, r4, #1
 	adds r0, r0, r4
-	bl sub_800BFCC
+	bl HasKitchen__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A7108
@@ -17029,7 +17029,7 @@ _080A7108:
 	mov r3, sb
 	ldr r0, [r3]
 	adds r0, r0, r4
-	bl sub_800BF1C
+	bl GetFridge__C9FarmHouse
 	cmp r0, #0
 	beq _080A7122
 	ldr r1, _080A7160 @ =0x08106AC4
@@ -17041,7 +17041,7 @@ _080A7122:
 	mov r1, sb
 	ldr r0, [r1]
 	adds r0, r0, r4
-	bl sub_800BF34
+	bl GetShelf__C9FarmHouse
 	cmp r0, #0
 	beq _080A713C
 	ldr r1, _080A7164 @ =0x08106AF4
@@ -17053,7 +17053,7 @@ _080A713C:
 	mov r2, sb
 	ldr r0, [r2]
 	adds r0, r0, r4
-	bl sub_800BF50
+	bl GetRecordPlayer__C9FarmHouse
 	cmp r0, #0
 	beq _080A7180
 	bl HasAlbum__C12RecordPlayer
@@ -17095,7 +17095,7 @@ _080A718C:
 	movs r4, #0xfa
 	lsls r4, r4, #1
 	adds r0, r0, r4
-	bl sub_800BF8C
+	bl HasLargeBed__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A71B8
@@ -17108,7 +17108,7 @@ _080A71B8:
 	mov r1, sb
 	ldr r0, [r1]
 	adds r0, r0, r4
-	bl sub_800BF94
+	bl HasCarpet__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A71D4
@@ -17121,7 +17121,7 @@ _080A71D4:
 	mov r2, sb
 	ldr r0, [r2]
 	adds r0, r0, r4
-	bl sub_800BF9C
+	bl HasVase__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A71F0
@@ -17134,7 +17134,7 @@ _080A71F0:
 	mov r3, sb
 	ldr r0, [r3]
 	adds r0, r0, r4
-	bl sub_800BFAC
+	bl HasMirror__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A720C
@@ -17147,7 +17147,7 @@ _080A720C:
 	mov r1, sb
 	ldr r0, [r1]
 	adds r0, r0, r4
-	bl sub_800BFB4
+	bl HasClock__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A7228
@@ -17160,7 +17160,7 @@ _080A7228:
 	mov r2, sb
 	ldr r0, [r2]
 	adds r0, r0, r4
-	bl sub_800BF84
+	bl HasBathroom__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A723A
@@ -17581,7 +17581,7 @@ _080A75D0:
 	adds r6, r0, r6
 	str r6, [sp, #0x198]
 	adds r0, r6, #0
-	bl sub_800BFF4
+	bl HasKitchenWhisk__C9FarmHouse
 	lsls r0, r0, #0x18
 	ldr r1, [sp, #0x190]
 	adds r1, #0x9c
@@ -17766,7 +17766,7 @@ _080A7746:
 	str r0, [r7, #0xc]
 _080A7752:
 	ldr r0, [sp, #0x198]
-	bl sub_800BFD4
+	bl HasKitchenKnife__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A7760
@@ -17950,7 +17950,7 @@ _080A78A0:
 	str r0, [r7, #0xc]
 _080A78AC:
 	ldr r0, [sp, #0x198]
-	bl sub_800BFE4
+	bl HasKitchenPot__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A78BA
@@ -18134,7 +18134,7 @@ _080A79F8:
 	str r0, [r7, #0xc]
 _080A7A04:
 	ldr r0, [sp, #0x198]
-	bl sub_800BFDC
+	bl HasKitchenFryingPan__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A7A12
@@ -18317,7 +18317,7 @@ _080A7B4C:
 	str r0, [r7, #0xc]
 _080A7B58:
 	ldr r0, [sp, #0x198]
-	bl sub_800C004
+	bl HasKitchenOven__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A7B66
@@ -18501,7 +18501,7 @@ _080A7CA4:
 	str r0, [r7, #0xc]
 _080A7CB0:
 	ldr r0, [sp, #0x198]
-	bl sub_800BFFC
+	bl HasKitchenRollingPin__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A7CBE
@@ -18685,7 +18685,7 @@ _080A7DFC:
 	str r0, [r7, #0xc]
 _080A7E08:
 	ldr r0, [sp, #0x198]
-	bl sub_800BFEC
+	bl HasKitchenMixer__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A7E16
@@ -18868,7 +18868,7 @@ _080A7F50:
 	str r0, [r7, #0xc]
 _080A7F5C:
 	ldr r0, [sp, #0x198]
-	bl sub_800C00C
+	bl HasKitchenSeasoningSet__C9FarmHouse
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A7F6C
@@ -19638,7 +19638,7 @@ _080A84C8:
 	movs r5, #0xfa
 	lsls r5, r5, #1
 	adds r0, r0, r5
-	bl sub_800BF74
+	bl GetMailboxStyle__C9FarmHouse
 	adds r2, r0, #0
 	ldr r0, [sp, #0x190]
 	adds r1, r4, #0
@@ -19676,7 +19676,7 @@ _080A8504:
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r0, r1
-	bl sub_800BF74
+	bl GetMailboxStyle__C9FarmHouse
 	adds r0, r6, r0
 	ldrb r1, [r0]
 	lsls r1, r1, #4
@@ -19693,7 +19693,7 @@ _080A8504:
 	movs r4, #0xfa
 	lsls r4, r4, #1
 	adds r0, r0, r4
-	bl sub_800BF74
+	bl GetMailboxStyle__C9FarmHouse
 	adds r0, r6, r0
 	ldrb r1, [r0]
 	lsls r1, r1, #4
@@ -19717,7 +19717,7 @@ _080A8504:
 	movs r5, #0xfa
 	lsls r5, r5, #1
 	adds r0, r0, r5
-	bl sub_800BF7C
+	bl GetDoghouseStyle__C9FarmHouse
 	adds r2, r0, #0
 	ldr r0, [sp, #0x190]
 	adds r1, r4, #0
@@ -19755,7 +19755,7 @@ _080A85AA:
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r0, r1
-	bl sub_800BF7C
+	bl GetDoghouseStyle__C9FarmHouse
 	adds r0, r6, r0
 	ldrb r1, [r0]
 	lsls r1, r1, #4
@@ -19772,7 +19772,7 @@ _080A85AA:
 	movs r4, #0xfa
 	lsls r4, r4, #1
 	adds r0, r0, r4
-	bl sub_800BF7C
+	bl GetDoghouseStyle__C9FarmHouse
 	adds r0, r6, r0
 	ldrb r1, [r0]
 	lsls r1, r1, #4
@@ -19970,7 +19970,7 @@ _080A8760:
 	movs r5, #0xfa
 	lsls r5, r5, #1
 	adds r0, r0, r5
-	bl sub_800BF74
+	bl GetMailboxStyle__C9FarmHouse
 	adds r2, r0, #0
 	ldr r0, [sp, #0x190]
 	adds r1, r4, #0
@@ -20008,7 +20008,7 @@ _080A879C:
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r0, r1
-	bl sub_800BF74
+	bl GetMailboxStyle__C9FarmHouse
 	adds r0, r6, r0
 	ldrb r1, [r0]
 	lsls r1, r1, #4
@@ -20025,7 +20025,7 @@ _080A879C:
 	movs r4, #0xfa
 	lsls r4, r4, #1
 	adds r0, r0, r4
-	bl sub_800BF74
+	bl GetMailboxStyle__C9FarmHouse
 	adds r0, r6, r0
 	ldrb r1, [r0]
 	lsls r1, r1, #4
@@ -20049,7 +20049,7 @@ _080A879C:
 	movs r5, #0xfa
 	lsls r5, r5, #1
 	adds r0, r0, r5
-	bl sub_800BF7C
+	bl GetDoghouseStyle__C9FarmHouse
 	adds r2, r0, #0
 	ldr r0, [sp, #0x190]
 	adds r1, r4, #0
@@ -20087,7 +20087,7 @@ _080A8842:
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r0, r1
-	bl sub_800BF7C
+	bl GetDoghouseStyle__C9FarmHouse
 	adds r0, r6, r0
 	ldrb r1, [r0]
 	lsls r1, r1, #4
@@ -20104,7 +20104,7 @@ _080A8842:
 	movs r4, #0xfa
 	lsls r4, r4, #1
 	adds r0, r0, r4
-	bl sub_800BF7C
+	bl GetDoghouseStyle__C9FarmHouse
 	adds r0, r6, r0
 	ldrb r1, [r0]
 	lsls r1, r1, #4
@@ -20129,7 +20129,7 @@ _080A88BA:
 	movs r3, #0xfa
 	lsls r3, r3, #1
 	adds r0, r0, r3
-	bl sub_800BF6C
+	bl GetWindowStyle__C9FarmHouse
 	adds r2, r0, #0
 	ldr r0, [sp, #0x190]
 	adds r1, r4, #0
@@ -25159,7 +25159,7 @@ sub_80AAF3C: @ 0x080AAF3C
 	movs r1, #0xfa
 	lsls r1, r1, #1
 	adds r0, r0, r1
-	bl sub_800BF14
+	bl GetUpgradeLevel__C9FarmHouse
 	mov r8, r0
 	ldr r0, [r4]
 	movs r1, #0x82

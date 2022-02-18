@@ -5,7 +5,7 @@
 #include <iterator>
 #include <algorithm>
 
-ToolChest::ToolChest()
+ToolChest::ToolChest(void)
 {
     ToolStack * row;
 

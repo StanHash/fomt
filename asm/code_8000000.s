@@ -18319,7 +18319,7 @@ _08009A5C:
 	movs r1, #0xf0
 	lsls r1, r1, #1
 	adds r0, r6, r1
-	bl sub_800BE70
+	bl __9FarmHouse
 	movs r1, #0xff
 	lsls r1, r1, #2
 	adds r0, r6, r1
@@ -18623,7 +18623,7 @@ _08009C94:
 	ldrb r1, [r6]
 	lsls r1, r1, #0x1e
 	lsrs r1, r1, #0x1e
-	bl sub_800C390
+	bl DayUpdate__9FarmHouse6Season
 	movs r2, #0xff
 	lsls r2, r2, #2
 	adds r0, r5, r2

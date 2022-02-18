@@ -14,7 +14,7 @@ SECTIONS
         src/shelf.o(.text);
         src/record_player.o(.text);
         src/code_800BC58.o(.text);
-        src/code_800BE70.o(.text); /* Farm House    */
+        src/farm_house.o(.text);
 
         asm/code_800C450.o(.text);
 

@@ -5,7 +5,7 @@
 #include <iterator>
 #include <algorithm>
 
-Shelf::Shelf()
+Shelf::Shelf(void)
 {
 }
 
