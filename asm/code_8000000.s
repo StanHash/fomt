@@ -18315,7 +18315,7 @@ _08009A5C:
 	strb r0, [r6, #0x11]
 	adds r0, r6, #0
 	adds r0, #0x40
-	bl sub_800B0DC
+	bl __11ShippingBin
 	movs r1, #0xf0
 	lsls r1, r1, #1
 	adds r0, r6, r1

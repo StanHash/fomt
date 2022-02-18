@@ -11297,35 +11297,35 @@ _080A436C:
 	adds r4, #0x54
 	adds r0, r4, #0
 	movs r1, #0x3d
-	bl sub_800B124
+	bl IsDisplayEnabled__C11ShippingBini
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A439A
 	adds r0, r4, #0
 	movs r1, #0x3d
-	bl sub_800B140
+	bl GetAmountShipped__C11ShippingBini
 	adds r5, r0, #0
 _080A439A:
 	adds r0, r4, #0
 	movs r1, #0x3e
-	bl sub_800B124
+	bl IsDisplayEnabled__C11ShippingBini
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A43B2
 	adds r0, r4, #0
 	movs r1, #0x3e
-	bl sub_800B140
+	bl GetAmountShipped__C11ShippingBini
 	adds r5, r5, r0
 _080A43B2:
 	adds r0, r4, #0
 	movs r1, #0x3f
-	bl sub_800B124
+	bl IsDisplayEnabled__C11ShippingBini
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A43CA
 	adds r0, r4, #0
 	movs r1, #0x3f
-	bl sub_800B140
+	bl GetAmountShipped__C11ShippingBini
 	adds r5, r5, r0
 _080A43CA:
 	cmp r5, #0xc7

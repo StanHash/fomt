@@ -469,7 +469,7 @@ Product::Product(Article article)
     }
 }
 
-u8 Product::GetId(void) const
+int Product::GetId(void) const
 {
     return id;
 }

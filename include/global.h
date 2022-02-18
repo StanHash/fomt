@@ -30,6 +30,8 @@ typedef u8 bool8;
 #define ALIGNED(a) __attribute__((aligned(a)))
 #define ALIAS(n) __attribute__((alias(# n)));
 
+#define ARRAY_COUNT(array) (size_t)(sizeof(array) / sizeof((array)[0]))
+
 #define CONST_MIN(a, b) (((a) < (b)) ? (a) : (b))
 #define CONST_MAX(a, b) (((a) > (b)) ? (a) : (b))
 

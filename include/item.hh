@@ -102,7 +102,7 @@ struct PACKED Product
     Product(Food food);
     Product(Article article);
 
-    u8 GetId(void) const;
+    int GetId(void) const;
     u32 GetPrice(void) const;
     char const * GetName(void) const;
     u16 GetIconId(void) const;
