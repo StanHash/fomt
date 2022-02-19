@@ -1,36 +1,15 @@
-#include "global.h"
+#include "barn.hh"
 
 #include "barn_animal.hh"
 #include "cow.hh"
 #include "sheep.hh"
 
-struct BarnEnt
-{
-    struct Data
-    {
-        u8 _[CONST_MAX(sizeof(Cow), sizeof(Sheep))];
-    };
-
-    enum
-    {
-        KIND_SHEEP,
-        KIND_COW,
-    };
-
-    // Cow * AsCow(void);
-
-    /* +00 */ bool occupied : 1;
-    /* +00 */ u32 kind : 1;
-    /* +04 */ Data data;
-};
-
-extern "C"
-{
+extern "C" {
 
 // Copies one sheep's data to another
-extern void sub_80D7B50(BarnEnt::Data * slot_data, Sheep * sheep);
+extern void sub_80D7B50(DataEither<Sheep, Cow> * slot_data, Sheep * sheep);
 // Copies one cow's data to another
-extern void sub_80D7BC4(BarnEnt::Data * slot_data, Cow * cow);
+extern void sub_80D7BC4(DataEither<Sheep, Cow> * slot_data, Cow * cow);
 
 // Initializes a slot
 BarnEnt * sub_800D9FC(BarnEnt *slot) {
@@ -44,8 +23,8 @@ bool sub_800DA08(BarnEnt *slot) {
 }
 
 // Returns the slot's animal
-void * sub_800DA14(BarnEnt *slot) {
-    return slot->occupied ? &slot->data : NULL;
+BarnAnimal * sub_800DA14(BarnEnt *slot) {
+    return slot->occupied ? reinterpret_cast<BarnAnimal *>(&slot->data) : nullptr;
 }
 
 // Returns the slot's cow

@@ -4,7 +4,7 @@
 
 #include <cstdlib>
 
-FarmHouse::FarmHouse()
+FarmHouse::FarmHouse(void)
     : upgrade_level(0),
       window_style(0),
       mailbox_style(0),

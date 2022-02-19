@@ -230,7 +230,7 @@ _0800C5DE:
 	lsls r0, r0, #4
 	adds r0, #0x18
 	adds r0, r5, r0
-	bl sub_800CCB8
+	bl GetChicken__C7CoopEnt
 _0800C5EC:
 	pop {r4, r5}
 	pop {r1}
@@ -253,7 +253,7 @@ sub_800C5F4: @ 0x0800C5F4
 	adds r5, r0, r5
 _0800C60E:
 	adds r0, r5, #0
-	bl sub_800CCAC
+	bl IsFree__C7CoopEnt
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _0800C61E
@@ -285,7 +285,7 @@ sub_800C630: @ 0x0800C630
 	adds r4, #0x18
 _0800C644:
 	adds r0, r4, #0
-	bl sub_800CCB8
+	bl GetChicken__C7CoopEnt
 	cmp r0, #0
 	beq _0800C650
 	adds r7, #1
@@ -332,7 +332,7 @@ _0800C68A:
 	lsls r1, r1, #1
 	adds r0, r0, r1
 	adds r0, r5, r0
-	bl sub_800CD38
+	bl IsOccupied__C13CoopIncubator
 _0800C698:
 	pop {r4, r5}
 	pop {r1}
@@ -399,7 +399,7 @@ sub_800C6F0: @ 0x0800C6F0
 	cmp r4, r1
 	blo _0800C70A
 	adds r0, r4, #0
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r4, r0, #0
 _0800C70A:
 	lsls r0, r4, #1
@@ -430,7 +430,7 @@ _0800C732:
 	lsls r1, r1, #1
 	adds r0, r0, r1
 	adds r0, r5, r0
-	bl sub_800CD58
+	bl ShouldHatch__13CoopIncubator
 _0800C740:
 	pop {r4, r5}
 	pop {r1}
@@ -619,7 +619,7 @@ _0800C8A6:
 	lsls r0, r0, #4
 	adds r0, #0x18
 	adds r0, r5, r0
-	bl sub_800CCD0
+	bl GetChicken__7CoopEnt
 _0800C8B4:
 	pop {r4, r5}
 	pop {r1}
@@ -640,7 +640,7 @@ _0800C8C6:
 	adds r0, #0x18
 	adds r0, r5, r0
 	adds r1, r6, #0
-	bl sub_800CCE8
+	bl Insert__7CoopEntRC7Chicken
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _0800C8E0
@@ -674,7 +674,7 @@ sub_800C8F8: @ 0x0800C8F8
 	lsls r0, r0, #4
 	adds r0, #0x18
 	adds r0, r5, r0
-	bl sub_800CD20
+	bl Remove__7CoopEnt
 _0800C914:
 	pop {r4, r5}
 	pop {r0}
@@ -754,7 +754,7 @@ sub_800C994: @ 0x0800C994
 	lsls r1, r1, #1
 	adds r0, r0, r1
 	adds r0, r5, r0
-	bl sub_800CD78
+	bl BeginIncubation__13CoopIncubator
 _0800C9B0:
 	pop {r4, r5}
 	pop {r0}
@@ -852,12 +852,12 @@ sub_800C9EC: @ 0x0800C9EC
 	adds r5, #0x18
 _0800CA64:
 	adds r0, r5, #0
-	bl sub_800CCAC
+	bl IsFree__C7CoopEnt
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800CB30
 	adds r0, r5, #0
-	bl sub_800CCD0
+	bl GetChicken__7CoopEnt
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0800CB30
@@ -960,12 +960,12 @@ _0800CB3E:
 	adds r4, r7, r2
 _0800CB52:
 	adds r0, r4, #0
-	bl sub_800CD38
+	bl IsOccupied__C13CoopIncubator
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _0800CB64
 	adds r0, r4, #0
-	bl sub_800CD88
+	bl DayUpdate__13CoopIncubator
 _0800CB64:
 	adds r4, #4
 	adds r5, #1
@@ -991,7 +991,7 @@ sub_800CB7C: @ 0x0800CB7C
 	cmp r4, r1
 	blo _0800CB94
 	adds r0, r4, #0
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r4, r0, #0
 _0800CB94:
 	lsls r0, r4, #1
@@ -999,7 +999,7 @@ _0800CB94:
 	lsls r0, r0, #4
 	adds r0, #0x18
 	adds r0, r5, r0
-	bl sub_800CCAC
+	bl IsFree__C7CoopEnt
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800CBB8
@@ -1048,7 +1048,7 @@ _0800CBEA:
 	lsls r1, r1, #1
 	adds r0, r0, r1
 	adds r0, r7, r0
-	bl sub_800CDB0
+	bl Remove__13CoopIncubator
 	add r0, sp, #0x3c
 	adds r1, r7, #0
 	adds r2, r4, #0

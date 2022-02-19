@@ -1,97 +1,108 @@
 #include "chicken.hh"
 
-typedef struct CoopSlot {
-    bool occupied:1;
-    Chicken chicken;
-} CoopSlot;
-
-extern "C"
+// TODO: move to own header
+template<typename InnerA, typename InnerB, typename AlignType = u32>
+struct DataEither
 {
+    /* +00 */ AlignType _[(CONST_MAX(sizeof(InnerA), sizeof(InnerB)) + sizeof(AlignType) - 1) / sizeof(AlignType)];
+};
 
-extern void sub_80D7C40(Chicken * a, Chicken * b);
+template<typename Inner, typename AlignType = u32>
+struct Data : DataEither<Inner, Inner, AlignType>
+{
+};
 
-// Returns whether the slot is free
-bool sub_800CCAC(CoopSlot *slot) {
-    return !slot->occupied;
+struct CoopEnt
+{
+    bool IsFree(void) const;
+    Chicken const * GetChicken(void) const;
+    Chicken * GetChicken(void);
+    bool Insert(Chicken const & to_copy);
+    void Remove(void);
+
+    /* +00 */ bool occupied : 1;
+    /* +04 */ Data<Chicken> data;
+};
+
+struct CoopIncubator
+{
+    bool IsOccupied(void) const;
+    u32 GetDaysLeft(void) const;
+    bool ShouldHatch(void) SHOULD_BE_CONST;
+    void BeginIncubation(void);
+    void DayUpdate(void);
+    void Remove(void);
+
+    /* +00 */ u32 days_left : 2;
+    /* +00 */ bool occupied : 1;
+};
+
+bool CoopEnt::IsFree(void) const
+{
+    return !occupied;
 }
 
-// Returns a pointer to the slot's chicken
-Chicken * sub_800CCB8(CoopSlot *slot){
-    return !slot->occupied ? 0 : &slot->chicken;
+Chicken const * CoopEnt::GetChicken(void) const
+{
+    return !occupied ? nullptr : reinterpret_cast<Chicken const *>(&data);
 }
 
-// Returns a pointer to the slot's chicken
-Chicken * sub_800CCD0(CoopSlot *slot) {
-    return !slot->occupied ? 0 : &slot->chicken;
+Chicken * CoopEnt::GetChicken(void)
+{
+    return !occupied ? nullptr : reinterpret_cast<Chicken *>(&data);
 }
 
-// Copies a newborn chick's data into a slot
-u8 sub_800CCE8(CoopSlot *slot, Chicken *chicken) {
-    Chicken *r5 = chicken;
+bool CoopEnt::Insert(Chicken const & to_copy)
+{
+    if (!occupied)
+    {
+        Chicken * chicken = reinterpret_cast<Chicken *>(&data);
 
-    if(!slot->occupied) {
-        Chicken *r4 = &slot->chicken;
-        if(r4 != NULL) {
-            sub_80D7C40(r4, chicken);
-            r4->unk_24 = r5->unk_24;
-            r4->unk_28 = chicken->unk_28;
-        }
-        slot->occupied = TRUE;
-        return TRUE;
-    }
-    
-    return FALSE;
-}
+        if (chicken != nullptr)
+            *chicken = to_copy;
 
-// Clears the occupied flag
-void sub_800CD20(CoopSlot *slot) {
-    if(slot->occupied)
-        slot->occupied = FALSE;
-}
+        occupied = true;
 
-
-typedef struct Incubator {
-    u8  daysLeft:2;
-    bool occupied:1;
-} Incubator;
-
-// Returns whether an incubator is occupied
-u8 sub_800CD38(Incubator *str) {
-    return str->occupied;
-}
-
-// Returns the days left for an egg to hatch
-u8 sub_800CD40(Incubator *str, u32 param) {
-    return str->occupied ? str->daysLeft : 0;
-}
-
-// Returns whether an egg should hatch
-u8 sub_800CD58(Incubator *str) {
-    u8 temp = FALSE;
-
-    if(str->occupied) {
-        if(str->daysLeft == 0)
-            temp = TRUE;
+        return true;
     }
 
-    return temp;
+    return false;
 }
 
-// Sets days left to 3 and the occupied flag
-void sub_800CD78(Incubator *str) {
-    str->occupied = TRUE;
-    str->daysLeft = 3;
+void CoopEnt::Remove(void)
+{
+    if (occupied)
+        occupied = false;
 }
 
-// Decrements the days left
-void sub_800CD88(Incubator *str) {
-    if(str->daysLeft > 0)
-        str->daysLeft--;
+bool CoopIncubator::IsOccupied(void) const
+{
+    return occupied;
 }
 
-// Clears the occupied flag
-void sub_800CDB0(Incubator *str) {
-    str->occupied = FALSE;
+u32 CoopIncubator::GetDaysLeft(void) const
+{
+    return occupied ? days_left : 0;
 }
 
+bool CoopIncubator::ShouldHatch(void) SHOULD_BE_CONST
+{
+    return occupied && days_left == 0;
+}
+
+void CoopIncubator::BeginIncubation(void)
+{
+    occupied = true;
+    days_left = 3;
+}
+
+void CoopIncubator::DayUpdate(void)
+{
+    if (days_left > 0)
+        days_left--;
+}
+
+void CoopIncubator::Remove(void)
+{
+    occupied = false;
 }

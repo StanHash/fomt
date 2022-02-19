@@ -6704,7 +6704,7 @@ _08003948:
 	bls _0800397A
 	adds r0, r2, #0
 	movs r1, #7
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r2, r0, #0
 _0800397A:
 	movs r0, #7
@@ -13046,7 +13046,7 @@ sub_8006C60: @ 0x08006C60
 	subs r0, #0xd
 	adds r1, r7, r0
 	adds r0, r4, #0
-	bl sub_80D3B28
+	bl strcpy
 	movs r1, #0
 _08006C78:
 	adds r0, r4, r1
@@ -13459,7 +13459,7 @@ _08006F90:
 	adds r0, r7, r1
 	subs r2, #0x10
 	adds r1, r7, r2
-	bl sub_80D3B28
+	bl strcpy
 _08006FB2:
 	ldr r1, _08006FD4 @ =0x000045F8
 	adds r0, r7, r1
@@ -16497,7 +16497,7 @@ sub_8008B24: @ 0x08008B24
 	cmp r2, r1
 	blo _08008B3A
 	adds r0, r2, #0
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r2, r0, #0
 _08008B3A:
 	ldr r0, _08008B50 @ =0x0813ABB4
@@ -18528,7 +18528,7 @@ sub_8009BE4: @ 0x08009BE4
 	cmp r4, #0
 	beq _08009C2E
 	adds r0, r4, #0
-	bl sub_80D684C
+	bl __as__6AnimalRC6Animal
 	ldrb r0, [r5, #0x1c]
 	strb r0, [r4, #0x1c]
 	ldrb r3, [r5, #0x1d]
@@ -18686,7 +18686,7 @@ _08009D12:
 	beq _08009D38
 	bl rand
 	movs r1, #0x2a
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r6, r0, #0
 	bl rand
 	movs r1, #0x18
@@ -18698,12 +18698,12 @@ _08009D34: .4byte 0x00001A94
 _08009D38:
 	bl rand
 	movs r1, #0x2b
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r6, r0, #0
 	bl rand
 	movs r1, #0x19
 _08009D4A:
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r5, r0, #0
 	movs r0, #0x2b
 	mov sb, r0
@@ -18840,7 +18840,7 @@ _08009E56:
 	beq _08009E70
 	bl rand
 	movs r1, #0x2a
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r6, r0, #0
 	bl rand
 	movs r1, #0x18
@@ -18848,12 +18848,12 @@ _08009E56:
 _08009E70:
 	bl rand
 	movs r1, #0x2b
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r6, r0, #0
 	bl rand
 	movs r1, #0x19
 _08009E82:
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r5, r0, #0
 	movs r2, #0x2b
 	mov sb, r2

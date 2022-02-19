@@ -12,7 +12,7 @@ struct ShippingBin
     {
         enum { MAX_AMOUNT_TRACKED = 1000000000 };
 
-        StatEnt();
+        StatEnt(void);
 
         bool IsDisplayEnabled(void) const;
         u32 GetAmountShipped(void) const;
@@ -23,7 +23,7 @@ struct ShippingBin
         /* +03 */ bool display_enabled : 1;
     };
 
-    ShippingBin();
+    ShippingBin(void);
 
     u32 GetValueShipped(void) const;
     bool IsDisplayEnabled(int product_id) const;

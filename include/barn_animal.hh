@@ -10,8 +10,8 @@ struct BarnAnimal : public Livestock
     BarnAnimal(ActorLocation const & location, u32 age, u32 days_fed);
 
     bool IsPregnant(void) const;
-    u8 GetDaysPregnant(void) const;
-    u8 GetDaysPregnantHealthy(void) const;
+    u32 GetDaysPregnant(void) const;
+    u32 GetDaysPregnantHealthy(void) const;
     void SetFed(void);
     void StartPregnancy(void);
     void ResetPregnancy(void);

@@ -71,7 +71,7 @@ static u8 const sMineralProductList[] =
     PRODUCT_AMETHYST,
 };
 
-ShippingBin::ShippingBin()
+ShippingBin::ShippingBin(void)
     : value_shipped(0)
 {
     for (u32 i = 0; i < ARRAY_COUNT(sStartingDisplayedProductList); ++i)

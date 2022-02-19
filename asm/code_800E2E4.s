@@ -886,7 +886,7 @@ _0800E9BE:
 	adds r0, r6, #0
 	adds r0, #0x10
 	mov r1, sp
-	bl sub_80D3B28
+	bl strcpy
 	add sp, #0x10
 	pop {r4, r5, r6}
 	pop {r0}

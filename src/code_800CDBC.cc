@@ -1,48 +1,10 @@
-#include "barn_animal.hh"
-#include "cow.hh"
-#include "sheep.hh"
+#include "barn.hh"
 
-struct BarnSlotData
-{
-    u8 data[CONST_MAX(sizeof(Cow), sizeof(Sheep))];
-};
+#include <algorithm>
 
-typedef struct BarnSlot {
-    u32 occupied:1;
-    u32 type:1;     // 0 = Sheep, 1 = Cow
-    BarnSlotData animal;
-} BarnSlot;
-
-extern "C"
-{
-
-extern bool sub_800DA08(BarnSlot * slot);
-extern Cow * sub_800DA2C(BarnSlot * slot);
-extern Sheep * sub_800DA48(BarnSlot * slot);
-extern void * sub_800DA14(BarnSlot * slot);
-
-typedef struct UnkStruct_8 {
-    u32 _0;
-    u32 _4;
-} UnkStruct_8;
-
-typedef struct Barn {
-    u32 unk_0_0:1;
-    u32 unk_0_1:10; // Bushels
-    u32 unk_1_3:1;
-    u32 unk_1_4:1;
-    u32 unk_1_5:16;
-    u32 unk_3_5:2;
-    bool unk_3_7:1;
-    u32 unk_4_0:4;
-    u32 padding[9];
-    BarnSlot slots[16];
-} Barn;
-
-// Initializes the barn
 NAKED
-Barn * sub_800CDBC(Barn *barn) {
-#ifndef NONMATCHING
+Barn::Barn(void)
+{
     asm_unified("\n\
         push {r4, r5, r6, r7, lr}\n\
         sub sp, #4\n\
@@ -123,15 +85,35 @@ Barn * sub_800CDBC(Barn *barn) {
     _0800CE50: .4byte 0xFFFFC00F\n\
     _0800CE54: .4byte 0xFF003FFF\n\
     ");
-#endif
 }
 
-void sub_800CE58(u16 *ptr) {
-    u32 temp2 = 184;
-    u32 temp = 272;
-    ptr[0] = temp2;
-    ptr[1] = temp;
+struct Unk_0800CE58
+{
+    Unk_0800CE58(u32 a_x, u32 a_y)
+        : x(a_x), y(a_y)
+    {
+    }
+
+    /* +00 */ u16 x;
+    /* +02 */ u16 y;
+};
+
+// TODO
+extern "C"
+Unk_0800CE58 sub_800CE58(void)
+{
+    return Unk_0800CE58(184, 272);
 }
+
+extern "C"
+{
+
+extern bool sub_800DA08(BarnEnt * slot);
+extern Cow * sub_800DA2C(BarnEnt * slot);
+extern Sheep * sub_800DA48(BarnEnt * slot);
+extern BarnAnimal * sub_800DA14(BarnEnt * slot);
+
+Barn * sub_800CDBC(Barn *barn) ALIAS(__4Barn);
 
 u8 sub_800CE64(Barn *barn) {
     return barn->unk_0_0;
@@ -144,18 +126,7 @@ u32 sub_800CE6C(Barn *barn) {
 
 // Returns the size of the barn 
 u32 sub_800CE74(Barn *barn) {
-    struct UnkStruct_8 _struct;
-    u32 *ptr, *ptr2;
-
-    _struct._0 = 16;
-    _struct._4 = barn->unk_0_0 * 8 + 8;
-    ptr2 = &_struct._4;
-    ptr = &_struct._0;
-    
-    if(_struct._0 > _struct._4)
-        ptr = ptr2;
-
-    return *ptr;
+    return min<u32>(16, barn->unk_0_0 * 8 + 8);
 }
 
 u32 sub_800CE9C(Barn *barn) {
@@ -276,6 +247,98 @@ int sub_800D058(Barn *barn) {
         return barn->unk_4_0;
     else
         return -1;
+}
+
+Unk_0800CE58 sub_800D074(Barn * barn, u32 slot)
+{
+    u32 barn_capacity = sub_800CE74(barn);
+
+    if (slot >= barn_capacity)
+        slot = slot % barn_capacity;
+
+    u32 x_off = (slot % 4) * 40;
+
+    return Unk_0800CE58(
+        (slot < 8) ? 216 + x_off : 456 + x_off,
+        (slot % 8 < 4) ? 104 : 144);
+}
+
+Unk_0800CE58 sub_800D0C0(Barn * barn, u32 arg_2)
+{
+    return Unk_0800CE58(0x20, 0x70 + 96 * arg_2);
+}
+
+int sub_800D0D0(Barn * barn)
+{
+    int free_count = sub_800CE74(barn) - sub_800D024(barn);
+
+    if (free_count <= 0)
+        return -1;
+
+    int result = -1;
+
+    u32 count = sub_800CE9C(barn);
+
+    for (u32 i = 0; i < count; ++i)
+    {
+        if (barn->unk_07[i] == -1)
+        {
+            if (result == -1)
+                result = i;
+
+            continue;
+        }
+
+        BarnAnimal const * barn_animal = sub_800DA14(&barn->slots[barn->unk_07[i]]);
+
+        if (barn_animal == nullptr || !barn_animal->IsPregnant())
+        {
+            if (result == -1)
+                result = i;
+
+            continue;
+        }
+
+        free_count--;
+
+        if (free_count <= 0)
+            return -1;
+    }
+
+    return result;
+}
+
+bool sub_800D158(Barn * barn, u32 idx)
+{
+    if (idx < sub_800CE9C(barn))
+    {
+        int slot = barn->unk_07[idx];
+
+        if (slot < 0 || slot >= sub_800CE74(barn))
+            return false;
+
+        BarnAnimal const * barn_animal = sub_800DA14(&barn->slots[slot]);
+
+        if (barn_animal != nullptr)
+            return barn_animal->GetDaysPregnantHealthy() > 20 || barn_animal->GetDaysPregnant() >= 30;
+    }
+
+    return false;
+}
+
+int sub_800D1B4(Barn * barn, u32 idx)
+{
+    if (idx < sub_800CE9C(barn))
+        return barn->unk_07[idx];
+
+    return -1;
+}
+
+Unk_0800CE58 sub_800D1D8(Barn * barn, u32 arg_2)
+{
+    Unk_0800CE58 unk = sub_800D0C0(barn, arg_2);
+    unk.x += 0x20;
+    return unk;
 }
 
 }

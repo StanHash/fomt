@@ -793,7 +793,7 @@ sub_809C644: @ 0x0809C644
 	beq _0809C684
 	subs r2, r0, r1
 	adds r0, r3, #0
-	bl sub_80D39F8
+	bl memmove
 _0809C684:
 	ldr r0, [r5]
 	subs r0, #1
@@ -2081,7 +2081,7 @@ _0809D016:
 _0809D02C:
 	mov r0, r8
 	movs r1, #5
-	bl sub_80D0F4E
+	bl __umodsi3
 	cmp r0, #0
 	bne _0809D042
 	movs r0, #1
@@ -2092,7 +2092,7 @@ _0809D02C:
 _0809D042:
 	mov r0, r8
 	movs r1, #3
-	bl sub_80D0F4E
+	bl __umodsi3
 	cmp r0, #0
 	bne _0809D058
 	movs r0, #2
@@ -2118,7 +2118,7 @@ _0809D060:
 	asrs r4, r4, #8
 	subs r1, #2
 	adds r0, r4, #0
-	bl sub_80D0F4E
+	bl __umodsi3
 	mov sb, r0
 	mov r5, sb
 	adds r5, #1
@@ -2130,7 +2130,7 @@ _0809D060:
 	asrs r4, r4, #8
 	subs r1, #2
 	adds r0, r4, #0
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r7, r0, #0
 	adds r4, r7, #1
 	lsls r2, r5, #1
@@ -2267,7 +2267,7 @@ sub_809D168: @ 0x0809D168
 	adds r4, r1, #0
 	muls r4, r2, r4
 	adds r1, r4, #0
-	bl sub_80D0F4E
+	bl __umodsi3
 	str r0, [sp, #0x18]
 	movs r5, #0
 	cmp r5, r4
@@ -2285,7 +2285,7 @@ _0809D1B4:
 _0809D1C0:
 	adds r0, r4, #0
 	ldr r1, [sp, #0xc]
-	bl sub_80D0F4E
+	bl __umodsi3
 	mov r8, r0
 	adds r0, r4, #0
 	ldr r1, [sp, #0xc]
@@ -2452,12 +2452,12 @@ _0809D2FA:
 	bl rand
 	asrs r0, r0, #8
 	ldr r1, [sp, #0xc]
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r4, r0, #0
 	bl rand
 	asrs r0, r0, #8
 	ldr r1, [sp, #0x10]
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r7, r0, #0
 	lsls r1, r4, #1
 	lsls r0, r7, #3
@@ -2763,7 +2763,7 @@ sub_809D500: @ 0x0809D500
 	adds r4, r1, #0
 	muls r4, r2, r4
 	adds r1, r4, #0
-	bl sub_80D0F4E
+	bl __umodsi3
 	str r0, [sp, #0x18]
 	movs r5, #0
 	cmp r5, r4
@@ -2781,7 +2781,7 @@ _0809D54C:
 _0809D558:
 	adds r0, r4, #0
 	ldr r1, [sp, #0xc]
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r7, r0, #0
 	adds r0, r4, #0
 	ldr r1, [sp, #0xc]
@@ -2944,12 +2944,12 @@ _0809D68A:
 	bl rand
 	asrs r0, r0, #8
 	ldr r1, [sp, #0xc]
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r4, r0, #0
 	bl rand
 	asrs r0, r0, #8
 	ldr r1, [sp, #0x10]
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r6, r0, #0
 	lsls r1, r4, #1
 	lsls r0, r6, #3
@@ -3213,19 +3213,19 @@ _0809D876:
 	cmp r0, #0x63
 	bhi _0809D884
 	movs r1, #0xa
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r0, #0x14
 	b _0809D89A
 _0809D884:
 	cmp r0, #0xc7
 	bhi _0809D892
 	movs r1, #0xa
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r0, #0x20
 	b _0809D89A
 _0809D892:
 	movs r1, #0xa
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r0, #0x2b
 _0809D89A:
 	pop {r1}

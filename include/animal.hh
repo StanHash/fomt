@@ -1,6 +1,7 @@
 #pragma once
 
 #include "actor.hh"
+#include "fixed_str.hh"
 
 struct Animal : public Actor
 {
@@ -21,7 +22,7 @@ struct Animal : public Actor
     void SubtractAffection(int amount);
     void DayUpdate(void);
 
-    /* +08 */ u8 name[16];
+    /* +08 */ FixedStr<12> name;
     /* +18 */ u32 age : 10;
     /* +19 */ bool festival_winner : 1;
     /* +19 */ bool brushed : 1;

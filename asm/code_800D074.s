@@ -1,224 +1,6 @@
     .INCLUDE "asm/macro.inc"
     .SYNTAX UNIFIED
 
-	thumb_func_start sub_800D074
-sub_800D074: @ 0x0800D074
-	push {r4, r5, lr}
-	adds r5, r0, #0
-	adds r0, r1, #0
-	adds r4, r2, #0
-	bl sub_800CE74
-	adds r1, r0, #0
-	cmp r4, r1
-	blo _0800D08E
-	adds r0, r4, #0
-	bl sub_80D0F4E
-	adds r4, r0, #0
-_0800D08E:
-	movs r1, #3
-	ands r1, r4
-	lsls r0, r1, #2
-	adds r0, r0, r1
-	lsls r0, r0, #3
-	cmp r4, #7
-	bhi _0800D0A2
-	adds r1, r0, #0
-	adds r1, #0xd8
-	b _0800D0A8
-_0800D0A2:
-	movs r2, #0xe4
-	lsls r2, r2, #1
-	adds r1, r0, r2
-_0800D0A8:
-	movs r0, #7
-	ands r0, r4
-	movs r2, #0x90
-	cmp r0, #3
-	bhi _0800D0B4
-	movs r2, #0x68
-_0800D0B4:
-	strh r1, [r5]
-	strh r2, [r5, #2]
-	adds r0, r5, #0
-	pop {r4, r5}
-	pop {r1}
-	bx r1
-
-	thumb_func_start sub_800D0C0
-sub_800D0C0: @ 0x0800D0C0
-	movs r3, #0x20
-	lsls r1, r2, #1
-	adds r1, r1, r2
-	lsls r1, r1, #5
-	adds r1, #0x70
-	strh r3, [r0]
-	strh r1, [r0, #2]
-	bx lr
-
-	thumb_func_start sub_800D0D0
-sub_800D0D0: @ 0x0800D0D0
-	push {r4, r5, r6, r7, lr}
-	mov r7, sb
-	mov r6, r8
-	push {r6, r7}
-	adds r6, r0, #0
-	bl sub_800CE74
-	adds r4, r0, #0
-	adds r0, r6, #0
-	bl sub_800D024
-	subs r5, r4, r0
-	cmp r5, #0
-	bgt _0800D0F2
-_0800D0EC:
-	movs r0, #1
-	rsbs r0, r0, #0
-	b _0800D14A
-_0800D0F2:
-	movs r7, #1
-	rsbs r7, r7, #0
-	adds r0, r6, #0
-	bl sub_800CE9C
-	mov sb, r0
-	movs r4, #0
-	cmp r4, sb
-	bhs _0800D148
-	mov r8, r7
-_0800D106:
-	adds r0, r6, #7
-	adds r1, r0, r4
-	movs r0, #0
-	ldrsb r0, [r1, r0]
-	cmp r0, r8
-	beq _0800D134
-	ldrb r1, [r1]
-	lsls r1, r1, #0x18
-	asrs r1, r1, #0x18
-	lsls r0, r1, #4
-	subs r0, r0, r1
-	lsls r0, r0, #2
-	adds r0, #0x2c
-	adds r0, r6, r0
-	bl sub_800DA14
-	cmp r0, #0
-	beq _0800D134
-	bl IsPregnant__C10BarnAnimal
-	lsls r0, r0, #0x18
-	cmp r0, #0
-	bne _0800D13C
-_0800D134:
-	cmp r7, r8
-	bne _0800D142
-	adds r7, r4, #0
-	b _0800D142
-_0800D13C:
-	subs r5, #1
-	cmp r5, #0
-	ble _0800D0EC
-_0800D142:
-	adds r4, #1
-	cmp r4, sb
-	blo _0800D106
-_0800D148:
-	adds r0, r7, #0
-_0800D14A:
-	pop {r3, r4}
-	mov r8, r3
-	mov sb, r4
-	pop {r4, r5, r6, r7}
-	pop {r1}
-	bx r1
-	.align 2, 0
-
-	thumb_func_start sub_800D158
-sub_800D158: @ 0x0800D158
-	push {r4, r5, lr}
-	adds r5, r0, #0
-	adds r4, r1, #0
-	bl sub_800CE9C
-	cmp r4, r0
-	bhs _0800D1AA
-	adds r0, r5, #7
-	adds r0, r0, r4
-	movs r4, #0
-	ldrsb r4, [r0, r4]
-	cmp r4, #0
-	blt _0800D1AA
-	adds r0, r5, #0
-	bl sub_800CE74
-	cmp r4, r0
-	bhs _0800D1AA
-	lsls r0, r4, #4
-	subs r0, r0, r4
-	lsls r0, r0, #2
-	adds r0, #0x2c
-	adds r0, r5, r0
-	bl sub_800DA14
-	adds r4, r0, #0
-	cmp r4, #0
-	beq _0800D1AA
-	movs r5, #0
-	bl GetDaysPregnantHealthy__C10BarnAnimal
-	cmp r0, #0x14
-	bhi _0800D1A4
-	adds r0, r4, #0
-	bl GetDaysPregnant__C10BarnAnimal
-	cmp r0, #0x1d
-	bls _0800D1A6
-_0800D1A4:
-	movs r5, #1
-_0800D1A6:
-	adds r0, r5, #0
-	b _0800D1AC
-_0800D1AA:
-	movs r0, #0
-_0800D1AC:
-	pop {r4, r5}
-	pop {r1}
-	bx r1
-	.align 2, 0
-
-	thumb_func_start sub_800D1B4
-sub_800D1B4: @ 0x0800D1B4
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	adds r5, r1, #0
-	bl sub_800CE9C
-	cmp r5, r0
-	blo _0800D1C8
-	movs r0, #1
-	rsbs r0, r0, #0
-	b _0800D1D2
-_0800D1C8:
-	adds r0, r4, #7
-	adds r0, r0, r5
-	ldrb r0, [r0]
-	lsls r0, r0, #0x18
-	asrs r0, r0, #0x18
-_0800D1D2:
-	pop {r4, r5}
-	pop {r1}
-	bx r1
-
-	thumb_func_start sub_800D1D8
-sub_800D1D8: @ 0x0800D1D8
-	push {r4, lr}
-	sub sp, #4
-	adds r4, r0, #0
-	mov r0, sp
-	bl sub_800D0C0
-	mov r0, sp
-	ldrh r0, [r0]
-	adds r0, #0x20
-	mov r1, sp
-	strh r0, [r1]
-	ldr r0, [sp]
-	str r0, [r4]
-	adds r0, r4, #0
-	add sp, #4
-	pop {r4}
-	pop {r1}
-	bx r1
-
 	thumb_func_start sub_800D1FC
 sub_800D1FC: @ 0x0800D1FC
 	ldrh r0, [r0, #4]
@@ -1000,7 +782,7 @@ sub_800D80C: @ 0x0800D80C
 	cmp r4, r1
 	blo _0800D824
 	adds r0, r4, #0
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r4, r0, #0
 _0800D824:
 	lsls r0, r4, #4
@@ -1181,7 +963,7 @@ _0800D8C4:
 	bls _0800D996
 	bl rand
 	adds r1, r4, #0
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r1, r0, #0
 	adds r0, r5, #0
 	bl AddAffection__6Animali
@@ -1211,7 +993,7 @@ _0800D9A4:
 	bls _0800D9DE
 	bl rand
 	adds r1, r4, #0
-	bl sub_80D0F4E
+	bl __umodsi3
 	adds r1, r0, #0
 	adds r0, r7, #0
 	bl AddAffection__6Animali

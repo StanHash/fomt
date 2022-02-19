@@ -27,7 +27,7 @@ bool BarnAnimal::IsPregnant(void) const
     return pregnant;
 }
 
-u8 BarnAnimal::GetDaysPregnant(void) const
+u32 BarnAnimal::GetDaysPregnant(void) const
 {
     if (!pregnant)
         return 0;
@@ -35,7 +35,7 @@ u8 BarnAnimal::GetDaysPregnant(void) const
         return days_pregnant;
 }
 
-u8 BarnAnimal::GetDaysPregnantHealthy(void) const
+u32 BarnAnimal::GetDaysPregnantHealthy(void) const
 {
     if (!pregnant)
         return 0;

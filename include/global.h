@@ -30,6 +30,13 @@ typedef u8 bool8;
 #define ALIGNED(a) __attribute__((aligned(a)))
 #define ALIAS(n) __attribute__((alias(# n)));
 
+// dummy macro for marking data and methods that should be const but need not to be for matching
+#if defined(MODERN) && MODERN != 0
+#  define SHOULD_BE_CONST const
+#else
+#  define SHOULD_BE_CONST
+#endif
+
 #define ARRAY_COUNT(array) (size_t)(sizeof(array) / sizeof((array)[0]))
 
 #define CONST_MIN(a, b) (((a) < (b)) ? (a) : (b))

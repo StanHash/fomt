@@ -27,7 +27,7 @@ CC1PLUS  := tools/agbcc/bin/agbcp$(EXE)
 
 CPPFLAGS := -I tools/agbcc/include -I tools/agbcc -I tools/libagbc++ -iquote include -Wno-trigraphs
 CFLAGS   := -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
-CXXFLAGS := $(CFLAGS)
+CXXFLAGS := -quiet -fno-exceptions $(CFLAGS)
 ASFLAGS  := -mcpu=arm7tdmi
 
 C_SUBDIR = src
