@@ -7,9 +7,9 @@ struct PACKED ALIGNED(2) Location
     Location(void) {}
     Location(u32 map, u32 x, u32 y) : map(map), x(x), y(y) {}
 
-    /* +00 */ u32 map : 10;
-    /* +01 */ u32 x : 16;
-    /* +03 */ u32 y : 16;
+    /* +00 */ u16 map : 10;
+    /* +01 */ u16 x : 16;
+    /* +03 */ u16 y : 16;
 };
 
 struct ActorLocation : public Location
