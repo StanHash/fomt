@@ -17,7 +17,7 @@ else
 EXE :=
 endif
 
-BUILD_NAME := hmfomt
+BUILD_NAME := fomt
 
 #### Build Files ####
 
@@ -46,7 +46,7 @@ DATA_ASM_BUILDDIR = $(BUILD_DIR)/$(DATA_ASM_SUBDIR)
 ROM          := $(BUILD_NAME).gba
 ELF          := $(ROM:.gba=.elf)
 MAP          := $(ROM:.gba=.map)
-LDSCRIPT     := ldscript.txt
+LDSCRIPT     := $(BUILD_NAME).lds
 
 C_SRCS := $(wildcard $(C_SUBDIR)/*.c $(C_SUBDIR)/*/*.c $(C_SUBDIR)/*/*/*.c)
 C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(C_BUILDDIR)/%.o,$(C_SRCS))

@@ -1,4 +1,17 @@
 # Installation
+
+## New instructions
+
+Better instructions will come eventually.
+
+- get devkitARM. Other `arm-none-eabi` toolchain may work.
+- get [notyourav/agbcc] (or another fork of agbcc that includes agbcp) and install it into this repository.
+- `make compare`
+
+[notyourav/agbcc]: https://github.com/notyourav/agbcc
+
+## Old instructions
+
 Install the devkitARM toolchain of devkitPro as per [the instructions on their wiki](https://devkitpro.org/wiki/devkitPro_pacman).
 
 Inside the included MSYS2 environment run:
