@@ -87,17 +87,6 @@ Barn::Barn(void)
     ");
 }
 
-struct Unk_0800CE58
-{
-    Unk_0800CE58(u32 a_x, u32 a_y)
-        : x(a_x), y(a_y)
-    {
-    }
-
-    /* +00 */ u16 x;
-    /* +02 */ u16 y;
-};
-
 // TODO
 extern "C"
 Unk_0800CE58 sub_800CE58(void)
@@ -339,6 +328,93 @@ Unk_0800CE58 sub_800D1D8(Barn * barn, u32 arg_2)
     Unk_0800CE58 unk = sub_800D0C0(barn, arg_2);
     unk.x += 0x20;
     return unk;
+}
+
+u32 sub_800D1FC(Barn * barn)
+{
+    return barn->unk_4_4;
+}
+
+void * sub_800D204(Barn * barn)
+{
+    return barn->unk_0C;
+}
+
+u32 sub_800D208(Barn * barn)
+{
+    return barn->unk_5_6;
+}
+
+void * sub_800D210(Barn * barn)
+{
+    return barn->unk_1C;
+}
+
+void sub_800D214(Barn * barn)
+{
+    if (barn->unk_0_0 == 0)
+        barn->unk_0_0 += 1;
+}
+
+void sub_800D23C(Barn * barn, u32 amount)
+{
+    barn->unk_0_1 = min<u32>(999, barn->unk_0_1 + amount);
+}
+
+void sub_800D280(Barn * barn, u32 amount)
+{
+    if (barn->unk_0_1 <= amount)
+        barn->unk_0_1 = 0;
+    else
+        barn->unk_0_1 -= amount;
+}
+
+void sub_800D2BC(Barn * barn, u32 idx)
+{
+    if (idx < sub_800CE74(barn))
+    {
+        if ((barn->unk_1_5 & (1 << idx)) == 0)
+            barn->unk_1_5 |= (1 << idx);
+    }
+}
+
+void sub_800D2FC(Barn * barn, u32 idx)
+{
+    if (idx < sub_800CE74(barn))
+    {
+        if ((barn->unk_1_5 & (1 << idx)) != 0)
+            barn->unk_1_5 &= ~(1 << idx);
+    }
+}
+
+void sub_800D334(Barn * barn, u32 idx)
+{
+    if (idx < sub_800CE9C(barn))
+    {
+        if ((barn->unk_3_5 & (1 << idx)) == 0)
+            barn->unk_3_5 |= (1 << idx);
+    }
+}
+
+void sub_800D36C(Barn * barn, u32 idx)
+{
+    if (idx < sub_800CE9C(barn))
+    {
+        if ((barn->unk_3_5 & (1 << idx)) != 0)
+            barn->unk_3_5 &= ~(1 << idx);
+    }
+}
+
+void sub_800D3A0(Barn * barn)
+{
+    if (!barn->unk_1_3)
+        barn->unk_1_3 = true;
+}
+
+void sub_800D3B8(Barn * barn)
+{
+    if (!barn->unk_1_4)
+        barn->unk_1_4 = true;
 }
 
 }
