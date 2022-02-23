@@ -18326,7 +18326,7 @@ _08009A5C:
 	bl sub_800C450
 	ldr r1, _08009AD0 @ =0x000005DC
 	adds r0, r6, r1
-	bl sub_800CDBC
+	bl __4Barn
 	ldr r0, _08009AD4 @ =0x000009C8
 	adds r4, r6, r0
 	ldr r5, _08009AD8 @ =0x00000432
@@ -18630,7 +18630,7 @@ _08009C94:
 	bl sub_800C9EC
 	ldr r1, _08009D2C @ =0x000005DC
 	adds r0, r5, r1
-	bl sub_800D5B0
+	bl DayUpdate__4Barn
 	ldr r2, _08009D30 @ =0x000009C8
 	adds r2, r2, r5
 	mov r8, r2

@@ -1,16 +1,6 @@
 #include "chicken.hh"
 
-// TODO: move to own header
-template<typename InnerA, typename InnerB, typename AlignType = u32>
-struct DataEither
-{
-    /* +00 */ AlignType _[(CONST_MAX(sizeof(InnerA), sizeof(InnerB)) + sizeof(AlignType) - 1) / sizeof(AlignType)];
-};
-
-template<typename Inner, typename AlignType = u32>
-struct Data : DataEither<Inner, Inner, AlignType>
-{
-};
+#include "placeholder.hh"
 
 struct CoopEnt
 {
@@ -21,7 +11,7 @@ struct CoopEnt
     void Remove(void);
 
     /* +00 */ bool occupied : 1;
-    /* +04 */ Data<Chicken> data;
+    /* +04 */ Placeholder<Chicken> placeholder;
 };
 
 struct CoopIncubator
@@ -44,19 +34,19 @@ bool CoopEnt::IsFree(void) const
 
 Chicken const * CoopEnt::GetChicken(void) const
 {
-    return !occupied ? nullptr : reinterpret_cast<Chicken const *>(&data);
+    return !occupied ? nullptr : reinterpret_cast<Chicken const *>(&placeholder);
 }
 
 Chicken * CoopEnt::GetChicken(void)
 {
-    return !occupied ? nullptr : reinterpret_cast<Chicken *>(&data);
+    return !occupied ? nullptr : reinterpret_cast<Chicken *>(&placeholder);
 }
 
 bool CoopEnt::Insert(Chicken const & to_copy)
 {
     if (!occupied)
     {
-        Chicken * chicken = reinterpret_cast<Chicken *>(&data);
+        Chicken * chicken = reinterpret_cast<Chicken *>(&placeholder);
 
         if (chicken != nullptr)
             *chicken = to_copy;

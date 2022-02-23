@@ -10599,7 +10599,7 @@ _080A3DBE:
 	lsls r1, r1, #3
 	adds r0, r0, r1
 	ldrb r1, [r5, #0x10]
-	bl sub_800D3D0
+	bl GetCow__4BarnUi
 	b _080A3DEC
 _080A3DCE:
 	ldr r0, [r5, #8]
@@ -10607,7 +10607,7 @@ _080A3DCE:
 	lsls r1, r1, #3
 	adds r0, r0, r1
 	ldrb r1, [r5, #0x10]
-	bl sub_800D3F8
+	bl GetSheep__4BarnUi
 	b _080A3DEC
 _080A3DDE:
 	ldr r0, [r5, #8]
@@ -16540,7 +16540,7 @@ _080A6D10:
 	movs r1, #0xbe
 	lsls r1, r1, #3
 	adds r0, r0, r1
-	bl sub_800CE64
+	bl GetUpgradeLevel__C4Barn
 	cmp r0, #0
 	beq _080A6D2C
 	cmp r0, #1
@@ -16723,7 +16723,7 @@ _080A6E70:
 	movs r1, #0xbe
 	lsls r1, r1, #3
 	adds r0, r0, r1
-	bl sub_800CE64
+	bl GetUpgradeLevel__C4Barn
 	cmp r0, #0
 	beq _080A6E8C
 	cmp r0, #1
@@ -17296,7 +17296,7 @@ _080A733C:
 _080A734A:
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_800CEA8
+	bl HasBushelForStall__C4BarnUi
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A7360
@@ -17307,7 +17307,7 @@ _080A7360:
 	adds r4, #1
 _080A7362:
 	adds r0, r5, #0
-	bl sub_800CE74
+	bl GetCapacity__C4Barn
 	cmp r4, r0
 	blo _080A734A
 	movs r4, #0
@@ -17315,7 +17315,7 @@ _080A7362:
 _080A7370:
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_800CED4
+	bl HasBushelForPregnancyStall__C4BarnUi
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A7388
@@ -17327,7 +17327,7 @@ _080A7388:
 	adds r4, #1
 _080A738A:
 	adds r0, r5, #0
-	bl sub_800CE9C
+	bl GetPregnancyStallCapacity__C4Barn
 	cmp r4, r0
 	blo _080A7370
 	b _080A746E
@@ -17342,7 +17342,7 @@ _080A7396:
 _080A73A4:
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_800CEA8
+	bl HasBushelForStall__C4BarnUi
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A73BA
@@ -17353,7 +17353,7 @@ _080A73BA:
 	adds r4, #1
 _080A73BC:
 	adds r0, r5, #0
-	bl sub_800CE74
+	bl GetCapacity__C4Barn
 	cmp r4, r0
 	blo _080A73A4
 	movs r4, #0
@@ -17361,7 +17361,7 @@ _080A73BC:
 _080A73CA:
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_800CED4
+	bl HasBushelForPregnancyStall__C4BarnUi
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A73E2
@@ -17373,11 +17373,11 @@ _080A73E2:
 	adds r4, #1
 _080A73E4:
 	adds r0, r5, #0
-	bl sub_800CE9C
+	bl GetPregnancyStallCapacity__C4Barn
 	cmp r4, r0
 	blo _080A73CA
 	adds r0, r5, #0
-	bl sub_800CF00
+	bl method_0800CF00__C4Barn
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A7406
@@ -17388,7 +17388,7 @@ _080A73E4:
 	bl sub_80A5BD8
 _080A7406:
 	adds r0, r5, #0
-	bl sub_800CF08
+	bl method_0800CF08__C4Barn
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A746E
@@ -25171,7 +25171,7 @@ sub_80AAF3C: @ 0x080AAF3C
 	movs r1, #0xbe
 	lsls r1, r1, #3
 	adds r0, r0, r1
-	bl sub_800CE64
+	bl GetUpgradeLevel__C4Barn
 	ldr r1, [r6]
 	str r0, [sp]
 	adds r0, r1, #0
