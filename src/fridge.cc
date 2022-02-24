@@ -131,13 +131,13 @@ u32 Fridge::AddAmountOf(u32 food_id, u32 amount)
     {
         if (it->IsEmpty())
         {
-            u32 amt = min<u32>(amount, FoodStack::MAX_AMOUNT);
+            u32 amt = std::min<u32>(amount, FoodStack::MAX_AMOUNT);
             *it = FoodStack(Food(food_id), amt);
             amount -= amt;
         }
         else if (it->GetFood().GetId() == food_id)
         {
-            u32 amt = min<u32>(amount, FoodStack::MAX_AMOUNT - it->GetAmount());
+            u32 amt = std::min<u32>(amount, FoodStack::MAX_AMOUNT - it->GetAmount());
             it->AddAmount(amt);
             amount -= amt;
         }

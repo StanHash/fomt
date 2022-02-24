@@ -19913,7 +19913,7 @@ _0800A662:
 	bne _0800A684
 _0800A678:
 	adds r0, r5, #0
-	bl sub_800EFEC
+	bl __12RucksackItem
 	b _0800A6BE
 	.align 2, 0
 _0800A680: .4byte 0x080E93F8
@@ -19934,7 +19934,7 @@ _0800A684:
 	lsls r1, r1, #0x10
 	orrs r1, r0
 	adds r0, r5, #0
-	bl sub_800F004
+	bl __12RucksackItemG4Food
 	b _0800A6BE
 _0800A6AC:
 	add r4, sp, #4
@@ -19943,7 +19943,7 @@ _0800A6AC:
 	bl __7ArticleUi
 	ldrb r1, [r4]
 	adds r0, r5, #0
-	bl sub_800F040
+	bl __12RucksackItemG7Article
 _0800A6BE:
 	adds r0, r5, #0
 	add sp, #8

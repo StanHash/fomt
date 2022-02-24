@@ -15,15 +15,13 @@ SECTIONS
         src/record_player.o(.text);
         src/code_800BC58.o(.text);
         src/farm_house.o(.text);
-
         asm/code_800C450.o(.text);
-
-        src/code_800CCAC.o(.text); /* CoopSlot & Incubator */
-
+        src/coop.o(.text);
         src/barn.o(.text);
         src/item.o(.text);
         asm/code_800E2E4.o(.text);
-        src/code_800EFEC.o(.text); /* RucksackSlot  */
+        src/rucksack_item.o(.text);
+
         asm/code_800F170.o(.text);
 
         src/actor.o(.text);

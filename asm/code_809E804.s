@@ -6253,7 +6253,7 @@ sub_80A1B38: @ 0x080A1B38
 	adds r4, r2, #0
 	adds r5, r3, #0
 	mov r0, sp
-	bl sub_800EFEC
+	bl __12RucksackItem
 	mov r0, r8
 	adds r1, r4, #0
 	adds r2, r5, #0
@@ -6360,7 +6360,7 @@ _080A1BFE:
 	lsls r1, r1, #0x10
 	orrs r1, r0
 	adds r0, r5, #0
-	bl sub_800F004
+	bl __12RucksackItemG4Food
 	b _080A1C74
 _080A1C26:
 	movs r1, #0
@@ -6401,7 +6401,7 @@ _080A1C62:
 	bl __7ArticleUi
 	ldrb r1, [r4]
 	adds r0, r5, #0
-	bl sub_800F040
+	bl __12RucksackItemG7Article
 _080A1C74:
 	ldr r0, [sp, #4]
 	str r0, [sp]
@@ -10800,7 +10800,7 @@ sub_80A3F4C: @ 0x080A3F4C
 	movs r4, #0
 	strh r7, [r5, #4]
 	add r0, sp, #8
-	bl sub_800EFEC
+	bl __12RucksackItem
 	strb r4, [r5, #0xc]
 	strb r4, [r5, #0xd]
 	movs r0, #0x3b
@@ -11418,7 +11418,7 @@ _080A445A:
 	bl __7ArticleUi
 	ldrb r1, [r4]
 	ldr r0, [sp, #0xa0]
-	bl sub_800F040
+	bl __12RucksackItemG7Article
 	ldr r0, [sp, #0x18]
 	str r0, [sp, #8]
 	mov r4, sp
@@ -11502,7 +11502,7 @@ _080A450A:
 	lsls r1, r1, #0x10
 	orrs r1, r0
 	ldr r0, [sp, #0xa0]
-	bl sub_800F004
+	bl __12RucksackItemG4Food
 	ldr r0, [sp, #0x18]
 	str r0, [sp, #8]
 	movs r0, #0xb2
@@ -100590,7 +100590,7 @@ sub_80CFA38: @ 0x080CFA38
 	mov r1, sb
 	strb r1, [r6]
 	mov r0, sp
-	bl sub_800F09C
+	bl GetKind__C12RucksackItem
 	cmp r0, #0
 	beq _080CFA5E
 	cmp r0, #1
@@ -100598,14 +100598,14 @@ sub_80CFA38: @ 0x080CFA38
 	b _080CFB18
 _080CFA5E:
 	mov r0, sp
-	bl sub_800F11C
+	bl IsWrapped__C12RucksackItem
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080CFA7C
 	add r4, sp, #4
 	adds r0, r4, #0
 	mov r1, sp
-	bl sub_800F0A4
+	bl GetFood__C12RucksackItem
 	adds r0, r4, #0
 	bl GetName__C4Food
 	b _080CFAAA
@@ -100613,18 +100613,18 @@ _080CFA7C:
 	add r4, sp, #4
 	adds r0, r4, #0
 	mov r1, sp
-	bl sub_800F0A4
+	bl GetFood__C12RucksackItem
 	adds r0, r4, #0
 	bl GetDesc__C4Food
 	b _080CFB16
 _080CFA8E:
 	mov r0, sp
-	bl sub_800F11C
+	bl IsWrapped__C12RucksackItem
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080CFB04
 	mov r0, sp
-	bl sub_800F0E8
+	bl GetArticle__C12RucksackItem
 	adds r1, r0, #0
 	add r0, sp, #8
 	strb r1, [r0]
@@ -100675,7 +100675,7 @@ _080CFAFC:
 _080CFB00: .4byte 0x08117AA4
 _080CFB04:
 	mov r0, sp
-	bl sub_800F0E8
+	bl GetArticle__C12RucksackItem
 	adds r1, r0, #0
 	mov r0, sp
 	adds r0, #9

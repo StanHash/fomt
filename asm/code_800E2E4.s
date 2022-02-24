@@ -1070,7 +1070,7 @@ sub_800EB3C: @ 0x0800EB3C
 	cmp r0, #0
 	bne _0800EB72
 	mov r0, sp
-	bl sub_800EFEC
+	bl __12RucksackItem
 	adds r4, r6, #0
 	adds r4, #0x54
 	adds r0, r4, #0
@@ -1110,7 +1110,7 @@ _0800EB90:
 	str r0, [sp]
 	adds r5, #1
 	mov r0, sp
-	bl sub_800F06C
+	bl IsEmpty__C12RucksackItem
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800EB90
@@ -1137,7 +1137,7 @@ sub_800EBC4: @ 0x0800EBC4
 	cmp r0, #0
 	bne _0800EBFA
 	mov r0, sp
-	bl sub_800EFEC
+	bl __12RucksackItem
 	adds r4, r6, #0
 	adds r4, #0x54
 	adds r0, r4, #0
@@ -1177,7 +1177,7 @@ _0800EC18:
 	str r0, [sp]
 	adds r5, #1
 	mov r0, sp
-	bl sub_800F06C
+	bl IsEmpty__C12RucksackItem
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0800EC18

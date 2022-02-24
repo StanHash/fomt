@@ -144,13 +144,13 @@ u32 ToolChest::AddAmountOf(u32 tool_id, u32 amount)
     {
         if (it->IsEmpty())
         {
-            u32 amt = min<u32>(amount, ToolStack::MAX_AMOUNT);
+            u32 amt = std::min<u32>(amount, ToolStack::MAX_AMOUNT);
             *it = ToolStack(Tool(tool_id), amt);
             amount -= amt;
         }
         else if (it->GetTool().GetId() == tool_id)
         {
-            u32 amt = min<u32>(amount, ToolStack::MAX_AMOUNT - it->GetAmount());
+            u32 amt = std::min<u32>(amount, ToolStack::MAX_AMOUNT - it->GetAmount());
             it->AddAmount(amt);
             amount -= amt;
         }

@@ -30,7 +30,7 @@ struct Barn
             KIND_COW,
         };
 
-        Ent();
+        Ent(void);
 
         bool IsEmpty(void) const;
         BarnAnimal const * AsBarnAnimal(void) const;

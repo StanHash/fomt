@@ -33,7 +33,7 @@ u32 Barn::GetStoredBushelCount(void) const
 
 u32 Barn::GetCapacity(void) const
 {
-    return min<u32>(16, 8 + upgrade_level * 8);
+    return std::min<u32>(16, 8 + upgrade_level * 8);
 }
 
 u32 Barn::GetPregnancyStallCapacity(void) const
@@ -276,7 +276,7 @@ void Barn::Upgrade(void)
 
 void Barn::AddStoredBushels(u32 amount)
 {
-    stored_bushel_count = min<u32>(999, stored_bushel_count + amount);
+    stored_bushel_count = std::min<u32>(999, stored_bushel_count + amount);
 }
 
 void Barn::SubtractStoredBushels(u32 amount)
@@ -571,7 +571,7 @@ int Barn::AttemptBirth(u32 pregnancy_stall_idx)
     return -1;
 }
 
-Barn::Ent::Ent()
+Barn::Ent::Ent(void)
     : occupied(false)
 {
 }

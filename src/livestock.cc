@@ -99,12 +99,12 @@ void Livestock::AddOutdoorMinutes(u32 minutes)
 
     if (current_outdoor_minutes < 511)
     {
-        current_outdoor_minutes = min<u32>(current_outdoor_minutes + minutes, 511);
+        current_outdoor_minutes = std::min<u32>(current_outdoor_minutes + minutes, 511);
     }
 
     if (total_outdoor_minutes < 0xFFFF)
     {
-        total_outdoor_minutes = min<u32>(total_outdoor_minutes + minutes, 0xFFFF);
+        total_outdoor_minutes = std::min<u32>(total_outdoor_minutes + minutes, 0xFFFF);
     }
 }
 
