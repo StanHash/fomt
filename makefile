@@ -72,7 +72,7 @@ $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --pad-to 0x4800000 $< $@
 
 $(ELF): $(ALL_OBJS) $(LDSCRIPT)
-	cd $(BUILD_DIR) && $(LD) -T ../$(LDSCRIPT) -Map ../$(MAP) -o ../$@
+	cd $(BUILD_DIR) && $(LD) -T ../$(LDSCRIPT) -Map ../$(MAP) -L../tools/agbcc/lib -lgcc -lc -o ../$@
 
 $(C_BUILDDIR)/%.o: $(C_SUBDIR)/%.c
 	$(CPP) $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i

@@ -42,6 +42,22 @@ SECTIONS
 
         asm/code_809E804.o(.text);
 
+        asm/m4a_1.o(.text);
+        src/m4a_2.o(.text);
+        asm/code_m4a.o(.text);
+        asm/code_lib_syscall.o(.text);
+        asm/code_lib_sram.o(.text);
+        *libgcc.a:_call_via_rX.o(.text);
+        /* these need to be recompiled using -mthumb-interwork */
+        /* *libc.a:memcmp.o(.text); */
+        /* *libc.a:memcpy.o(.text); */
+        /* *libc.a:memmove.o(.text); */
+        /* *libc.a:memset.o(.text); */
+        /* *libc.a:strcat.o(.text); */
+        /* *libc.a:strcpy.o(.text); */
+        /* *libc.a:strlen.o(.text); */
+        asm/code_libc_string.o(.text);
+
         asm/code_linkonce.o(.text.code_080D3BC0);
         *(.gnu.linkonce.t.__as__6AnimalRC6Animal);
         asm/code_linkonce.o(.text.code_080D68C0);

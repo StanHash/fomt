@@ -6,7 +6,6 @@ It builds the following ROM:
 
 * **[fomt.gba]** `sha1: a2fc3574f0a65a4fcf7682fb274b9d7eebdef963`
 
-[not-alons/hmfomt]: https://github.com/not-alons/hmfomt
 [fomt.gba]: https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1249
 
 ## Setting up
