@@ -18323,7 +18323,7 @@ _08009A5C:
 	movs r1, #0xff
 	lsls r1, r1, #2
 	adds r0, r6, r1
-	bl sub_800C450
+	bl __4Coop
 	ldr r1, _08009AD0 @ =0x000005DC
 	adds r0, r6, r1
 	bl __4Barn
@@ -18627,7 +18627,7 @@ _08009C94:
 	movs r2, #0xff
 	lsls r2, r2, #2
 	adds r0, r5, r2
-	bl sub_800C9EC
+	bl DayUpdate__4Coop
 	ldr r1, _08009D2C @ =0x000005DC
 	adds r0, r5, r1
 	bl DayUpdate__4Barn

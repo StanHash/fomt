@@ -2,26 +2,18 @@
 
 #include "global.h"
 
+#include "vec2.hh"
 #include "fixed_str.hh"
 #include "placeholder.hh"
 #include "sheep.hh"
 #include "cow.hh"
 
-// TODO: move out
-struct Vec2
-{
-    Vec2() {}
-    Vec2(u32 a_x, u32 a_y)
-        : x(a_x), y(a_y)
-    {
-    }
-
-    /* +00 */ i16 x;
-    /* +02 */ i16 y;
-};
-
 struct Barn
 {
+    enum { MAX_CAPACITY = 16 };
+    enum { MAX_PREGNANCY_STALL_CAPACITY = 2 };
+    enum { MAX_STORED_BUSHELS = 999 };
+
     struct Ent
     {
         enum Kind
@@ -104,14 +96,14 @@ struct Barn
     /* +00 */ u32 stored_bushel_count : 10;
     /* +01 */ bool unk_1_3 : 1;
     /* +01 */ bool unk_1_4 : 1;
-    /* +01 */ u32 stall_bushels : 16;
-    /* +03 */ u32 pregnancy_stall_bushels : 2;
+    /* +01 */ u32 stall_bushels : MAX_CAPACITY;
+    /* +03 */ u32 pregnancy_stall_bushels : MAX_PREGNANCY_STALL_CAPACITY;
     /* +03 */ bool unk_3_7 : 1;
     /* +04 */ u32 unk_4_0 : 4;
     /* +04 */ u32 unk_cow_age : 10;
     /* +05 */ u32 unk_sheep_age : 10;
-    /* +07 */ i8 pregnancy_stall_ent_idx[2];
+    /* +07 */ i8 pregnancy_stall_ent_idx[MAX_PREGNANCY_STALL_CAPACITY];
     /* +0C */ FixedStr<12> unk_cow_name;
     /* +1C */ FixedStr<12> unk_sheep_name;
-    /* +2C */ Ent ent[16];
+    /* +2C */ Ent ent[MAX_CAPACITY];
 };

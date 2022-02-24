@@ -4952,7 +4952,7 @@ _080A109C:
 	movs r2, #0xff
 	lsls r2, r2, #2
 	adds r0, r1, r2
-	bl sub_800C630
+	bl CountChickens__C4Coop
 	adds r3, r7, #0
 	adds r3, #0x30
 	str r3, [sp, #0x28]
@@ -4982,7 +4982,7 @@ _080A10D6:
 	lsls r3, r3, #2
 	adds r0, r2, r3
 	adds r1, r5, #0
-	bl sub_800C5CC
+	bl GetChicken__C4CoopUi
 	cmp r0, #0
 	beq _080A10EE
 	bl GetAffection__C6Animal
@@ -9886,7 +9886,7 @@ sub_80A37A8: @ 0x080A37A8
 	movs r1, #0x82
 	lsls r1, r1, #3
 	adds r0, r0, r1
-	bl sub_800C6D8
+	bl GetUnkEnt__C4Coop
 	adds r1, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -9908,7 +9908,7 @@ _080A37E4:
 	movs r2, #0x82
 	lsls r2, r2, #3
 	adds r0, r0, r2
-	bl sub_800C894
+	bl GetChicken__4CoopUi
 	mov r8, r0
 	cmp r0, #0
 	bne _080A381E
@@ -10615,7 +10615,7 @@ _080A3DDE:
 	lsls r1, r1, #3
 	adds r0, r0, r1
 	ldrb r1, [r5, #0x10]
-	bl sub_800C894
+	bl GetChicken__4CoopUi
 _080A3DEC:
 	adds r4, r0, #0
 	cmp r4, #0
@@ -16569,7 +16569,7 @@ _080A6D4C:
 	movs r3, #0x82
 	lsls r3, r3, #3
 	adds r0, r0, r3
-	bl sub_800C560
+	bl GetUpgradeLevel__C4Coop
 	cmp r0, #0
 	beq _080A6D68
 	cmp r0, #1
@@ -16752,7 +16752,7 @@ _080A6EAC:
 	movs r3, #0x82
 	lsls r3, r3, #3
 	adds r0, r0, r3
-	bl sub_800C560
+	bl GetUpgradeLevel__C4Coop
 	cmp r0, #0
 	beq _080A6EC8
 	cmp r0, #1
@@ -17189,7 +17189,7 @@ _080A7260:
 _080A726E:
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_800C598
+	bl HasBushelForEnt__C4CoopUi
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A7284
@@ -17200,7 +17200,7 @@ _080A7284:
 	adds r4, #1
 _080A7286:
 	adds r0, r5, #0
-	bl sub_800C570
+	bl GetCapacity__C4Coop
 	cmp r4, r0
 	blo _080A726E
 	mov r2, sb
@@ -17209,7 +17209,7 @@ _080A7286:
 	lsls r3, r3, #3
 	adds r0, r0, r3
 	movs r1, #0
-	bl sub_800C678
+	bl IsIncubatorOccupied__C4CoopUi
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A72A8
@@ -17230,7 +17230,7 @@ _080A72B2:
 _080A72C0:
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_800C598
+	bl HasBushelForEnt__C4CoopUi
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A72D6
@@ -17241,11 +17241,11 @@ _080A72D6:
 	adds r4, #1
 _080A72D8:
 	adds r0, r5, #0
-	bl sub_800C570
+	bl GetCapacity__C4Coop
 	cmp r4, r0
 	blo _080A72C0
 	adds r0, r5, #0
-	bl sub_800C5C4
+	bl method_0800C5C4__C4Coop
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A72FA
@@ -17261,7 +17261,7 @@ _080A72FA:
 	lsls r4, r4, #3
 	adds r0, r0, r4
 	movs r1, #0
-	bl sub_800C678
+	bl IsIncubatorOccupied__C4CoopUi
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A7318
@@ -17273,7 +17273,7 @@ _080A7318:
 	ldr r0, [r1]
 	adds r0, r0, r4
 	movs r1, #1
-	bl sub_800C678
+	bl IsIncubatorOccupied__C4CoopUi
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A732C
@@ -25165,7 +25165,7 @@ sub_80AAF3C: @ 0x080AAF3C
 	movs r1, #0x82
 	lsls r1, r1, #3
 	adds r0, r0, r1
-	bl sub_800C560
+	bl GetUpgradeLevel__C4Coop
 	adds r5, r0, #0
 	ldr r0, [r4]
 	movs r1, #0xbe
@@ -100303,7 +100303,7 @@ _080CF7E8:
 	bl sub_800F344
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_800C894
+	bl GetChicken__4CoopUi
 	mov sb, r0
 	bl GetGrowthStage__C7Chicken
 	cmp r0, #1

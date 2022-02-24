@@ -1,5 +1,6 @@
 #include "barn.hh"
 
+#include <cstdlib>
 #include <algorithm>
 
 Barn::Barn()
@@ -13,7 +14,7 @@ Barn::Barn()
       unk_cow_age(0),
       unk_sheep_age(0)
 {
-    fill_n_inl(pregnancy_stall_ent_idx, 2, -1);
+    fill_n_inl(pregnancy_stall_ent_idx, static_cast<int>(MAX_PREGNANCY_STALL_CAPACITY), -1);
 }
 
 Vec2 Barn::method_0800CE58(void)
@@ -33,7 +34,7 @@ u32 Barn::GetStoredBushelCount(void) const
 
 u32 Barn::GetCapacity(void) const
 {
-    return std::min<u32>(16, 8 + upgrade_level * 8);
+    return std::min<u32>(MAX_CAPACITY, 8 + upgrade_level * 8);
 }
 
 u32 Barn::GetPregnancyStallCapacity(void) const
@@ -161,7 +162,7 @@ Vec2 Barn::method_0800D074(u32 ent_idx) const
     u32 capacity = GetCapacity();
 
     if (ent_idx >= capacity)
-        ent_idx = ent_idx % capacity;
+        ent_idx %= capacity;
 
     u32 x_off = (ent_idx % 4) * 40;
 
@@ -276,7 +277,7 @@ void Barn::Upgrade(void)
 
 void Barn::AddStoredBushels(u32 amount)
 {
-    stored_bushel_count = std::min<u32>(999, stored_bushel_count + amount);
+    stored_bushel_count = std::min<u32>(MAX_STORED_BUSHELS, stored_bushel_count + amount);
 }
 
 void Barn::SubtractStoredBushels(u32 amount)
@@ -500,7 +501,7 @@ void Barn::method_0800D80C(u32 ent_idx)
     u32 capacity = GetCapacity();
 
     if (ent_idx >= capacity)
-        ent_idx = ent_idx % capacity;
+        ent_idx %= capacity;
 
     if (!ent[ent_idx].IsEmpty())
     {

@@ -15,7 +15,6 @@ SECTIONS
         src/record_player.o(.text);
         src/code_800BC58.o(.text);
         src/farm_house.o(.text);
-        asm/code_800C450.o(.text);
         src/coop.o(.text);
         src/barn.o(.text);
         src/item.o(.text);

@@ -2,7 +2,6 @@
 
 #include "global.h"
 
-// TODO: move to own header
 template<typename InnerA, typename InnerB, typename AlignType = u32>
 struct PlaceholderEither
 {
