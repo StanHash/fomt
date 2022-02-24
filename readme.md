@@ -9,8 +9,6 @@ It builds the following ROM:
 [not-alons/hmfomt]: https://github.com/not-alons/hmfomt
 [fomt.gba]: https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1249
 
-***Note***: Currently, this is Work in Progress clean up and "port" to C++ of [not-alons/hmfomt]. Indeed, the original decompilation attempt made the assumption that the game was originally written in C, which I believe to be untrue.
-
 ## Setting up
 
 See [install.md](./install.md).
