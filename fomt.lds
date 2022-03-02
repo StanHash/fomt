@@ -1,5 +1,9 @@
 OUTPUT_ARCH(arm)
 
+SoundMainRam = 0x03000000;
+gMPlayJumpTableTemplate = 0x08139A88;
+gClockTable = 0x08139CFC;
+
 SECTIONS
 {
     . = 0x08000000;
@@ -42,6 +46,7 @@ SECTIONS
 
         asm/code_809E804.o(.text);
 
+        asm/m4a_1.o(.text.*);
         asm/m4a_1.o(.text);
         src/m4a_2.o(.text);
         asm/code_m4a.o(.text);

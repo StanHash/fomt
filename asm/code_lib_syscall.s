@@ -11,8 +11,8 @@ sub_80D374C: @ 0x080D374C
 	svc #0xc
 	bx lr
 
-	thumb_func_start sub_80D3750
-sub_80D3750: @ 0x080D3750
+	thumb_func_start CpuSet
+CpuSet: @ 0x080D3750
 	svc #0xb
 	bx lr
 

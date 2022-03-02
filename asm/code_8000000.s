@@ -16474,7 +16474,7 @@ sub_8008AFC: @ 0x08008AFC
 	thumb_func_start sub_8008B0C
 sub_8008B0C: @ 0x08008B0C
 	push {lr}
-	bl sub_80D1BF8
+	bl m4aSoundVSync
 	movs r0, #1
 	pop {r1}
 	bx r1
@@ -17125,7 +17125,7 @@ _080090FC:
 	subs r2, r6, r5
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl sub_80D3750
+	bl CpuSet
 	b _08009116
 	.align 2, 0
 _08009108: .4byte 0x0000FFFF
@@ -17133,7 +17133,7 @@ _0800910C:
 	adds r0, r4, #0
 	adds r1, r3, #0
 	adds r2, r6, #0
-	bl sub_80D3750
+	bl CpuSet
 _08009116:
 	adds r7, #0x10
 	cmp r7, sb
@@ -17871,7 +17871,7 @@ sub_80096B0: @ 0x080096B0
 	ldr r2, _080096EC @ =0x0100002B
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_80D3750
+	bl CpuSet
 	movs r0, #0x80
 	str r0, [r4]
 	movs r0, #0

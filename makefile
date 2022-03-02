@@ -1,15 +1,22 @@
-TOOLCHAIN := $(DEVKITARM)
-ifneq (,$(wildcard $(TOOLCHAIN)/base_tools))
-include $(TOOLCHAIN)/base_tools
-else
+.SUFFIXES:
+
+# ====================
+# = TOOL DEFINITIONS =
+# ====================
+
+TOOLCHAIN ?= $(DEVKITARM)
+
+ifneq (,$(TOOLCHAIN))
 export PATH := $(TOOLCHAIN)/bin:$(PATH)
-PREFIX := arm-none-eabi-
-OBJCOPY := $(PREFIX)objcopy
-export AS := $(PREFIX)as
 endif
 
+PREFIX := arm-none-eabi-
+
+export OBJCOPY := $(PREFIX)objcopy
+export AS := $(PREFIX)as
 export CPP := $(PREFIX)cpp
 export LD := $(PREFIX)ld
+export STRIP := $(PREFIX)strip
 
 ifeq ($(OS),Windows_NT)
 EXE := .exe
@@ -25,16 +32,18 @@ CC1      := tools/agbcc/bin/agbcc$(EXE)
 CC1_OLD  := tools/agbcc/bin/old_agbcc$(EXE)
 CC1PLUS  := tools/agbcc/bin/agbcp$(EXE)
 
-CPPFLAGS := -I tools/agbcc/include -I tools/agbcc -I tools/libagbc++ -iquote include -Wno-trigraphs
+INCLUDE_DIRS := tools/agbcc/include tools/agbcc tools/libagbc++ tools/libsix/include
+INCFLAGS     := $(foreach dir, $(INCLUDE_DIRS), -I "$(dir)")
+
+CPPFLAGS := $(INCFLAGS) -iquote include -Wno-trigraphs
 CFLAGS   := -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
 CXXFLAGS := -quiet -fno-exceptions $(CFLAGS)
-ASFLAGS  := -mcpu=arm7tdmi
+ASFLAGS  := $(INCFLAGS) -I include -mcpu=arm7tdmi
 
 C_SUBDIR = src
 ASM_SUBDIR = asm
 DATA_ASM_SUBDIR = data
 BUILD_DIR = build
-
 
 C_BUILDDIR = $(BUILD_DIR)/$(C_SUBDIR)
 ASM_BUILDDIR = $(BUILD_DIR)/$(ASM_SUBDIR)
@@ -72,25 +81,29 @@ $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --pad-to 0x4800000 $< $@
 
 $(ELF): $(ALL_OBJS) $(LDSCRIPT)
-	cd $(BUILD_DIR) && $(LD) -T ../$(LDSCRIPT) -Map ../$(MAP) -L../tools/agbcc/lib -lgcc -lc -o ../$@
+	@echo "LD $(LDSCRIPT)"
+	@cd $(BUILD_DIR) && $(LD) -T ../$(LDSCRIPT) -Map ../$(MAP) -L../tools/agbcc/lib -lgcc -lc -o ../$@
+	@$(STRIP) -N .gcc2_compiled. $(ELF)
 
 $(C_BUILDDIR)/%.o: $(C_SUBDIR)/%.c
-	$(CPP) $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
-	$(CC1) $(CFLAGS) $(C_BUILDDIR)/$*.i -o $(C_BUILDDIR)/$*.s
-	echo ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
-	$(AS) $(ASFLAGS) $(C_BUILDDIR)/$*.s -o $@ 
+	@echo "CC $<"
+	@$(CPP) $(CPPFLAGS) $< | $(CC1) $(CFLAGS) -o $(C_BUILDDIR)/$*.s
+	@echo ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
+	@$(AS) $(ASFLAGS) $(C_BUILDDIR)/$*.s -o $@ 
 
 $(C_BUILDDIR)/%.o: $(C_SUBDIR)/%.cc
-	$(CPP) $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
-	$(CC1PLUS) $(CXXFLAGS) $(C_BUILDDIR)/$*.i -o $(C_BUILDDIR)/$*.s
-	echo ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
-	$(AS) $(ASFLAGS) $(C_BUILDDIR)/$*.s -o $@ 
+	@echo "CP $<"
+	@$(CPP) $(CPPFLAGS) $< | $(CC1PLUS) $(CXXFLAGS) -o $(C_BUILDDIR)/$*.s
+	@echo ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
+	@$(AS) $(ASFLAGS) $(C_BUILDDIR)/$*.s -o $@ 
 
 $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s
-	$(AS) $(ASFLAGS) $< -o $@
+	@echo "AS $<"
+	@$(AS) $(ASFLAGS) $< -o $@
 
 $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s
-	$(AS) $(ASFLAGS) $< -o $@
+	@echo "AS $<"
+	@$(AS) $(ASFLAGS) $< -o $@
 
 clean:
 	rm -f $(ROM) $(ELF) $(MAP) 
