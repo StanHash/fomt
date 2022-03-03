@@ -1,6 +1,9 @@
+    .ifndef  _M4A_S
+    .equiv   _M4A_S, 1
+
     .equiv SOUND_INFO_PTR, 0x03007FF0
 
-    .equiv ID_NUMBER, 0x68736d53
+    .equiv ID_NUMBER, 0x68736D53 @ lsB->msB: 'Smsh'
 
     .equiv PCM_DMA_BUF_SIZE, 1584
     .equiv MAX_DIRECTSOUND_CHANNELS, 12
@@ -252,3 +255,8 @@
     struct_field O_CgbChannel_nextChannelPointer, 4
     struct_field O_CgbChannel_dummy4, 8
     struct_field CgbChannel_size, 0
+
+    .purgem struct_field
+    .purgem struct_begin
+
+    .endif @ !_M4A_S

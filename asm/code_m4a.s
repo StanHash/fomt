@@ -501,7 +501,7 @@ sub_80D2510: @ 0x080D2510
 	ldr r1, _080D25EC @ =0x02001C30
 	ldr r0, _080D25F0 @ =sub_80D34CC
 	str r0, [r1, #0x20]
-	ldr r0, _080D25F4 @ =sub_80D2188
+	ldr r0, _080D25F4 @ =ply_lfos
 	str r0, [r1, #0x44]
 	ldr r0, _080D25F8 @ =ply_mod
 	str r0, [r1, #0x4c]
@@ -571,7 +571,7 @@ _080D25E4: .4byte 0x03007FF0
 _080D25E8: .4byte 0x68736D53
 _080D25EC: .4byte 0x02001C30
 _080D25F0: .4byte sub_80D34CC
-_080D25F4: .4byte sub_80D2188
+_080D25F4: .4byte ply_lfos
 _080D25F8: .4byte ply_mod
 _080D25FC: .4byte ply_xcmd
 _080D2600: .4byte ply_endtie
