@@ -51,10 +51,10 @@ OLD_CC1  := tools/agbcc/bin/old_agbcc$(EXE)
 
 INCFLAGS     := $(foreach dir, $(INCLUDE_DIRS), -I "$(dir)")
 
-CPPFLAGS := $(INCFLAGS) -iquote include -Wno-trigraphs
+CPPFLAGS := $(INCFLAGS) -iquote . -iquote include -Wno-trigraphs
 CFLAGS   := -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
 CXXFLAGS := -quiet -fno-exceptions $(CFLAGS)
-ASFLAGS  := $(INCFLAGS) -I include -mcpu=arm7tdmi
+ASFLAGS  := $(INCFLAGS) -I . -I include -mcpu=arm7tdmi
 
 ROM := $(BUILD_NAME).gba
 ELF := $(ROM:.gba=.elf)
@@ -100,7 +100,7 @@ $(ELF): $(ALL_OBJS) $(LDS)
 
 # C dependency file
 $(BUILD_DIR)/%.d: %.c
-	@$(CPP) $(CPPFLAGS) $< -o $@ -MM -MP -MG -MT $@ -MT $(BUILD_DIR)/$*.o
+	@$(CPP) $(CPPFLAGS) $< -o $@ -MM -MG -MT $@ -MT $(BUILD_DIR)/$*.o
 
 # C object
 $(BUILD_DIR)/%.o: %.c $(BUILD_DIR)/%.d
@@ -111,7 +111,7 @@ $(BUILD_DIR)/%.o: %.c $(BUILD_DIR)/%.d
 
 # C++ dependency file
 $(BUILD_DIR)/%.d: %.cc
-	@$(CPP) $(CPPFLAGS) $< -o $@ -MM -MP -MG -MT $@ -MT $(BUILD_DIR)/$*.o
+	@$(CPP) $(CPPFLAGS) $< -o $@ -MM -MG -MT $@ -MT $(BUILD_DIR)/$*.o
 
 # C++ object
 $(BUILD_DIR)/%.o: %.cc $(BUILD_DIR)/%.d
@@ -136,5 +136,7 @@ clean:
 
 .PHONY: clean
 
+ifneq (clean,$(MAKECMDGOALS))
 -include $(ALL_DEPS)
 .PRECIOUS: $(BUILD_DIR)/%.d
+endif

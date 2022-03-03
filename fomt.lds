@@ -74,10 +74,6 @@ SECTIONS
         src/shipping_bin.o(.rodata);
         src/record_player.o(.rodata);
         . = ALIGN(4); src/item.o(.rodata);
-        . = ALIGN(4); src/data/tools.o(.rodata);
-        src/data/foods.o(.rodata);
-        src/data/articles.o(.rodata);
-        src/data/products.o(.rodata);
         data/data_80F0348.o(.rodata);
     } = 0
 

@@ -2,6 +2,42 @@
 
 #include "global.h"
 
+enum
+{
+#   define o(tag, icon, name, desc) TOOL_ ## tag ,
+#   include "data/item/tool.def"
+#   undef o
+    TOOL_NONE,
+    NUM_TOOLS = TOOL_NONE,
+};
+
+enum
+{
+#   define o(tag, is_drink, stamina, fatigue, icon, name, desc) FOOD_ ## tag ,
+#   include "data/item/food.def"
+#   undef o
+    FOOD_NONE,
+    NUM_FOODS = FOOD_NONE,
+};
+
+enum
+{
+#   define o(tag, icon, name, desc) ARTICLE_ ## tag ,
+#   include "data/item/article.def"
+#   undef o
+    ARTICLE_NONE,
+    NUM_ARTICLES = ARTICLE_NONE,
+};
+
+enum
+{
+#   define o(tag, kind, price) PRODUCT_ ## tag ,
+#   include "data/item/product.def"
+#   undef o
+    PRODUCT_NONE,
+    NUM_PRODUCTS = PRODUCT_NONE,
+};
+
 struct PACKED Tool
 {
     Tool(u32 id);
@@ -126,45 +162,3 @@ struct PACKED ALIGNED(2) ItemVariant
     /* +00 */ u32 kind : 2;
     /* +00 */ u32 id : 14;
 };
-
-struct ToolInfo
-{
-    /* +00 */ char const * name;
-    /* +04 */ u16 icon_id;
-    /* +08 */ char const * desc;
-};
-
-struct FoodInfo
-{
-    /* +00 */ char const * name;
-    /* +04 */ bool is_drink : 1;
-    /* +05 */ i8 stamina;
-    /* +06 */ i8 fatigue;
-    /* +08 */ u16 icon_id;
-    /* +0C */ char const * desc;
-};
-
-struct ArticleInfo
-{
-    /* +00 */ char const * name;
-    /* +04 */ u16 icon_id;
-    /* +08 */ char const * desc;
-};
-
-struct ProductInfo
-{
-    enum Kind
-    {
-        KIND_FOOD,
-        KIND_ARTICLE,
-    };
-
-    /* +00 */ u32 price : 15;
-    /* +01 */ u32 kind : 1;
-    /* +02 */ u32 item : 8;
-};
-
-extern ToolInfo const gToolInfo[];
-extern FoodInfo const gFoodInfo[];
-extern ArticleInfo const gArticleInfo[];
-extern ProductInfo const gProductInfo[];

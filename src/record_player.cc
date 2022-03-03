@@ -1,7 +1,5 @@
 #include "furniture.hh"
 
-#include "constants/article.h"
-
 // are those song ids?
 u8 const unk_080E9605[] =
 {
@@ -34,7 +32,7 @@ ArticleStack RecordPlayer::RemoveAlbum(void)
 
     has_album = false;
 
-    return ArticleStack(Article(ARTICLE_ALBUM_0 + album_id), 1);
+    return ArticleStack(Article(ARTICLE_ALBUM_1 + album_id), 1);
 }
 
 ArticleStack RecordPlayer::SetAlbum(Article const & album_article)
@@ -43,12 +41,12 @@ ArticleStack RecordPlayer::SetAlbum(Article const & album_article)
 
     switch (album_article.GetId())
     {
-        case ARTICLE_ALBUM_0 ... ARTICLE_ALBUM_14:
+        case ARTICLE_ALBUM_1 ... ARTICLE_ALBUM_15:
             has_album = true;
             old_album_id = album_id;
-            album_id = album_article.GetId() - ARTICLE_ALBUM_0;
+            album_id = album_article.GetId() - ARTICLE_ALBUM_1;
 
-            return ArticleStack(Article(old_album_id + ARTICLE_ALBUM_0), 1);
+            return ArticleStack(Article(old_album_id + ARTICLE_ALBUM_1), 1);
 
         default:
             return ArticleStack();

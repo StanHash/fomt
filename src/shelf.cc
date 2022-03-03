@@ -1,7 +1,5 @@
 #include "furniture.hh"
 
-#include "constants/article.h"
-
 #include <iterator>
 #include <algorithm>
 

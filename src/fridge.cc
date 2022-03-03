@@ -1,7 +1,5 @@
 #include "furniture.hh"
 
-#include "constants/food.h"
-
 #include <iterator>
 #include <algorithm>
 

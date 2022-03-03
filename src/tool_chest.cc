@@ -1,7 +1,5 @@
 #include "furniture.hh"
 
-#include "constants/tool.h"
-
 #include <iterator>
 #include <algorithm>
 
@@ -10,15 +8,15 @@ ToolChest::ToolChest(void)
     ToolStack * row;
 
     row = contents + 0;
-    row[0] = ToolStack(Tool(TOOL_SICKLE_IRON), 1);
-    row[1] = ToolStack(Tool(TOOL_AXE_IRON), 1);
+    row[0] = ToolStack(Tool(TOOL_IRON_SICKLE), 1);
+    row[1] = ToolStack(Tool(TOOL_IRON_AXE), 1);
 
     row = contents + 2;
-    row[0] = ToolStack(Tool(TOOL_HOE_IRON), 1);
-    row[1] = ToolStack(Tool(TOOL_HAMMER_IRON), 1);
+    row[0] = ToolStack(Tool(TOOL_IRON_HOE), 1);
+    row[1] = ToolStack(Tool(TOOL_IRON_HAMMER), 1);
 
     row = contents + 4;
-    row[0] = ToolStack(Tool(TOOL_WATERING_CAN_IRON), 1);
+    row[0] = ToolStack(Tool(TOOL_WATERING_CAN), 1);
     row[1] = ToolStack(Tool(TOOL_PEDOMETER), 1);
 }
 

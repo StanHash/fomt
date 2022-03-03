@@ -1,11 +1,48 @@
 #include "item.hh"
 
-#include "constants/tool.h"
-#include "constants/food.h"
-#include "constants/article.h"
-#include "constants/product.h"
-
 #include <algorithm>
+
+struct ToolInfo
+{
+    /* +00 */ char const * name;
+    /* +04 */ u16 icon_id;
+    /* +08 */ char const * desc;
+};
+
+struct FoodInfo
+{
+    /* +00 */ char const * name;
+    /* +04 */ bool is_drink : 1;
+    /* +05 */ i8 stamina;
+    /* +06 */ i8 fatigue;
+    /* +08 */ u16 icon_id;
+    /* +0C */ char const * desc;
+};
+
+struct ArticleInfo
+{
+    /* +00 */ char const * name;
+    /* +04 */ u16 icon_id;
+    /* +08 */ char const * desc;
+};
+
+struct ProductInfo
+{
+    enum Kind
+    {
+        KIND_FOOD,
+        KIND_ARTICLE,
+    };
+
+    /* +00 */ u32 price : 15;
+    /* +01 */ u32 kind : 1;
+    /* +02 */ u32 item : 8;
+};
+
+extern ToolInfo const gToolInfo[];
+extern FoodInfo const gFoodInfo[];
+extern ArticleInfo const gArticleInfo[];
+extern ProductInfo const gProductInfo[];
 
 static inline bool IsValidToolId(u8 id)
 {
@@ -334,14 +371,14 @@ bool Article::CanBeDiscarded(void) const
         default:
             return true;
 
-        case ARTICLE_JEWEL_GODDESS:
-        case ARTICLE_JEWEL_KAPPA:
-        case ARTICLE_JEWEL_TRUTH:
-        case ARTICLE_KAREN_WINE:
-        case ARTICLE_POPURI_MUD_BALL:
-        case ARTICLE_ANN_MUSIC_BOX:
-        case ARTICLE_MARY_GREAT_BOOK:
-        case ARTICLE_ELLI_PRESSED_FLOWER:
+        case ARTICLE_HARVEST_GODDESS_JEWEL:
+        case ARTICLE_KAPPA_JEWEL:
+        case ARTICLE_JEWEL_OF_TRUTH:
+        case ARTICLE_KARENS_WINE:
+        case ARTICLE_POPURIS_MUD_BALL:
+        case ARTICLE_ANNS_MUSIC_BOX:
+        case ARTICLE_MARYS_GREAT_BOOK:
+        case ARTICLE_ELLIS_PRESSED_FLOWER:
         case ARTICLE_FRISBEE:
             return false;
     }
@@ -540,3 +577,33 @@ Article ItemVariant::AsArticle(void) const
         ? Article(id)
         : Article(ARTICLE_NONE);
 }
+
+// Item Info tables
+
+ToolInfo const gToolInfo[] =
+{
+#   define o(tag, icon, name, desc) { (name), (icon), (desc) },
+#   include "data/item/tool.def"
+#   undef o
+};
+
+FoodInfo const gFoodInfo[] =
+{
+#   define o(tag, is_drink, stamina, fatigue, icon, name, desc) { (name), (is_drink), (stamina), (fatigue), (icon), (desc) },
+#   include "data/item/food.def"
+#   undef o
+};
+
+ArticleInfo const gArticleInfo[] =
+{
+#   define o(tag, icon, name, desc) { (name), (icon), (desc) },
+#   include "data/item/article.def"
+#   undef o
+};
+
+ProductInfo const gProductInfo[] =
+{
+#   define o(tag, kind, price) { (price), (ProductInfo::KIND_ ## kind), (kind ## _ ## tag) },
+#   include "data/item/product.def"
+#   undef o
+};

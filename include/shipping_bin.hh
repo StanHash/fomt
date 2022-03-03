@@ -2,8 +2,6 @@
 
 #include "item.hh"
 
-#include "constants/product.h"
-
 struct ShippingBin
 {
     enum { MAX_VALUE_TRACKED = 1000000000 };

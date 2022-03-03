@@ -1,7 +1,5 @@
 #include "farm_house.hh"
 
-#include "constants/article.h"
-
 #include <cstdlib>
 
 FarmHouse::FarmHouse(void)
@@ -251,17 +249,17 @@ void FarmHouse::SetVaseArticleId(u32 article_id)
             vase_article_lifespan = 0;
             break;
 
-        case ARTICLE_FLOWER_MOON_DROP:
+        case ARTICLE_MOON_DROP_GRASS:
             vase_article_lifespan = 7;
             break;
 
-        case ARTICLE_FLOWER_MAGIC_BLUE:
+        case ARTICLE_BLUE_MAGIC_GRASS:
             vase_article_lifespan = 10;
             break;
 
-        case ARTICLE_FLOWER_PINK_CAT:
-        case ARTICLE_FLOWER_MAGIC_RED:
-        case ARTICLE_FLOWER_TOY:
+        case ARTICLE_PINK_CAT_GRASS:
+        case ARTICLE_RED_MAGIC_GRASS:
+        case ARTICLE_TOY_FLOWER:
             vase_article_lifespan = 5;
             break;
     }
@@ -364,21 +362,21 @@ void FarmHouse::DayUpdate(Season season)
 
     switch (vase_article_id)
     {
-        case ARTICLE_FLOWER_MOON_DROP:
-        case ARTICLE_FLOWER_TOY:
+        case ARTICLE_MOON_DROP_GRASS:
+        case ARTICLE_TOY_FLOWER:
             if (season != SEASON_SPRING)
                 vase_article_id = ARTICLE_NONE;
 
             break;
 
-        case ARTICLE_FLOWER_PINK_CAT:
+        case ARTICLE_PINK_CAT_GRASS:
             if (season != SEASON_SUMMER)
                 vase_article_id = ARTICLE_NONE;
 
             break;
 
-        case ARTICLE_FLOWER_MAGIC_BLUE:
-        case ARTICLE_FLOWER_MAGIC_RED:
+        case ARTICLE_BLUE_MAGIC_GRASS:
+        case ARTICLE_RED_MAGIC_GRASS:
             if (season != SEASON_AUTUMN)
                 vase_article_id = ARTICLE_NONE;
 

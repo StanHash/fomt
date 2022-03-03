@@ -1,8 +1,5 @@
 #include "rucksack_item.hh"
 
-#include "constants/food.h"
-#include "constants/article.h"
-
 RucksackItem::RucksackItem(void)
 {
     kind = KIND_FOOD;
