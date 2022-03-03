@@ -46,8 +46,7 @@ SECTIONS
 
         asm/code_809E804.o(.text);
 
-        asm/m4a_1.o(.text.*);
-        asm/m4a_1.o(.text);
+        src/m4a_1.o(.text);
         src/m4a_2.o(.text);
         asm/code_m4a.o(.text);
         asm/code_lib_syscall.o(.text);
