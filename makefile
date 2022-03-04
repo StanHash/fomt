@@ -13,7 +13,7 @@ INCLUDE_DIRS := \
 
 SRC_DIR = src
 ASM_DIR = asm
-DATA_ASM_DIR = data
+DATA_ASM_DIR = asm/data
 BUILD_DIR = build
 
 # ====================

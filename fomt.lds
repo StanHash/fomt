@@ -99,13 +99,13 @@ SECTIONS
         *(.gnu.linkonce.t.__as__9LivestockRC9Livestock);
         asm/code_linkonce.o(.text.code_080D7CFC);
 
-        . = ALIGN(4); data/data_080E59CC.o(.rodata);
+        . = ALIGN(4); asm/data/data_080E59CC.o(.rodata);
         src/shipping_bin.o(.rodata);
         src/record_player.o(.rodata);
         . = ALIGN(4); src/item.o(.rodata);
-        . = ALIGN(4); data/data_080F0348.o(.rodata);
+        . = ALIGN(4); asm/data/data_080F0348.o(.rodata);
         . = ALIGN(4); src/sound_data.o(.rodata.*);
-        . = ALIGN(4); data/data_0813B288.o(.rodata);
+        . = ALIGN(4); asm/data/data_0813B288.o(.rodata);
     } = 0
 
     /* Discard everything not specifically mentioned above. */

@@ -1,9 +1,5 @@
-#pragma once
-
 #include "global.h"
 #include "m4a.h"
-
-EXTERN_C
 
 SECTION(".gMusicPlayerA")
 struct MusicPlayer gMusicPlayerA = { 0 };
@@ -31,5 +27,3 @@ extern char _M4aMaxLines[];
     (10 << SOUND_MODE_MAXCHN_SHIFT) | \
     (11 << SOUND_MODE_MASVOL_SHIFT) | \
     SOUND_MODE_FREQ_13379 | SOUND_MODE_DA_BIT_8
-
-EXTERN_C_END

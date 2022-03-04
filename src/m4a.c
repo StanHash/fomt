@@ -1,10 +1,11 @@
 #include "m4a.h"
-#include "m4a_config.h"
 
 #include "six/hw/sound.h"
 #include "six/hw/dma.h"
 #include "six/hw/timer.h"
 #include "svc_macros.h"
+
+#include "data/m4a_config.h"
 
 #define SOUND_INFO_PTR (*(struct SoundInfo **) 0x3007FF0)
 
