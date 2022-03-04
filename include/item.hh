@@ -146,7 +146,7 @@ struct PACKED Product
     /* +00 */ u8 id;
 };
 
-struct PACKED ALIGNED(2) ItemVariant
+struct PACKED ALIGN(2) ItemVariant
 {
     enum Kind
     {

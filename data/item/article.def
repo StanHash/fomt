@@ -9,7 +9,7 @@
 /* 07 */ o( WOOL_L, 485, "Wool (L)", "Wool (L)\r\nShorn from Sheep.\r\n" )
 /* 08 */ o( WOOL_G, 484, "Wool (G)", "Wool (G)\r\nShorn from Sheep.\r\n" )
 /* 09 */ o( WOOL_P, 487, "Wool (P)", "Wool (P)\r\nShorn from Sheep.\r\n" )
-/* 0A */ o( WOOL_P_2, 489, "Wool (P)", "Wool (P)\r\nShorn from Sheep.\r\n" )
+/* 0A */ o( WOOL_X, 489, "Wool (P)", "Wool (P)\r\nShorn from Sheep.\r\n" )
 /* 0B */ o( YARN_S, 482, "Yarn (S)", "Yarn (S)\r\nMade by putting Wool \r\nin a Yarn Maker." )
 /* 0C */ o( YARN_M, 480, "Yarn (M)", "Yarn (M)\r\nMade by putting Wool \r\nin a Yarn Maker." )
 /* 0D */ o( YARN_L, 479, "Yarn (L)", "Yarn (L)\r\nMade by putting Wool \r\nin a Yarn Maker." )

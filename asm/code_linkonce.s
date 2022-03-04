@@ -19548,13 +19548,13 @@ _080DDAE2:
 _080DDAE6:
 	ldr r0, [r5, #0x7c]
 	adds r1, r7, #0
-	bl sub_80D0EC8
+	bl __divsi3
 	str r0, [r5, #0x7c]
 	adds r4, r5, #0
 	adds r4, #0x80
 	ldr r0, [r4]
 	adds r1, r7, #0
-	bl sub_80D0EC8
+	bl __divsi3
 	str r0, [r4]
 	adds r0, r5, #0
 	adds r0, #0x60
@@ -19571,13 +19571,13 @@ _080DDB10:
 	str r0, [r5, #0x50]
 	ldr r0, [r5, #0x7c]
 	adds r1, r6, #0
-	bl sub_80D0EC8
+	bl __divsi3
 	str r0, [r5, #0x7c]
 	adds r4, r5, #0
 	adds r4, #0x80
 	ldr r0, [r4]
 	adds r1, r6, #0
-	bl sub_80D0EC8
+	bl __divsi3
 	str r0, [r4]
 	adds r0, r5, #0
 	adds r0, #0x60

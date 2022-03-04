@@ -9627,7 +9627,7 @@ _080A35C0:
 _080A35C8:
 	adds r0, r6, #0
 	adds r1, r4, #0
-	bl sub_80D0EC8
+	bl __divsi3
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _080A35DC
@@ -9651,7 +9651,7 @@ _080A35F0:
 	subs r6, r6, r0
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl sub_80D0EC8
+	bl __divsi3
 	adds r4, r0, #0
 _080A3602:
 	cmp r4, #0
@@ -14165,7 +14165,7 @@ _080A5A52:
 	ldr r1, [r6, #8]
 	subs r0, r0, r1
 	adds r1, r4, #0
-	bl sub_80D0EC8
+	bl __divsi3
 	mov r2, r8
 	str r0, [r2]
 	movs r1, #2
@@ -14174,7 +14174,7 @@ _080A5A52:
 	ldr r1, [r6, #0xc]
 	subs r0, r0, r1
 	adds r1, r4, #0
-	bl sub_80D0EC8
+	bl __divsi3
 	mov r2, sb
 	str r0, [r2]
 	mov r0, sl
@@ -44165,7 +44165,7 @@ _080B42E2:
 	lsls r0, r0, #0x10
 	movs r1, #0xb4
 	lsls r1, r1, #1
-	bl sub_80D0EC8
+	bl __divsi3
 	strh r0, [r4]
 	ldr r3, _080B44D0 @ =0x0000071C
 	adds r4, r6, r3
@@ -103197,8 +103197,8 @@ sub_80D0EC0:
 	pop {r1}
 	bx r1
 
-    .global sub_80D0EC8
-sub_80D0EC8:
+    .global __divsi3
+__divsi3:
 	cmp r1, #0
 	beq sub_80D0EC0
 	svc #6
@@ -103216,7 +103216,7 @@ __modsi3:
 sub_80D0EDA: @ 0x080D0EDA
 	adds r3, r0, #0
 	orrs r3, r1
-	bpl sub_80D0EC8
+	bpl __divsi3
 	cmp r1, #0
 	beq sub_80D0EC0
 	movs r3, #1

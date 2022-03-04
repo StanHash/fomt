@@ -129,6 +129,9 @@ $(BUILD_DIR)/%.o: %.s
 	@echo "AS $<"
 	@$(AS) $(ASFLAGS) $< -o $@ --MD $(BUILD_DIR)/$*.d
 
+# overrides for matching
+$(BUILD_DIR)/src/m4a.o: CC1 := $(OLD_CC1)
+
 clean:
 	@echo "RM $(ROM) $(ELF) $(MAP) $(BUILD_DIR)"
 	@rm -f $(ROM) $(ELF) $(MAP) 

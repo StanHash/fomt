@@ -1,14 +1,44 @@
 OUTPUT_ARCH(arm)
 
-SoundMainRam = 0x03000000;
+_M4aNumMusicPlayers = 5;
+_M4aMaxLines = 0x50;
+
 gMPlayJumpTableTemplate = 0x08139A88;
+gScaleTable = 0x08139B18;
+gFreqTable = 0x08139BCC;
+gPcmSamplesPerVBlankTable = 0x08139BFC;
+gCgbScaleTable = 0x08139C14;
+gCgbFreqTable = 0x08139C98;
+gNoiseTable = 0x08139CB0;
+gCgb3Vol = 0x08139CEC;
 gClockTable = 0x08139CFC;
+gXcmdTable = 0x08139D30;
 
 SECTIONS
 {
+    . = 0x02000000;
+    .ewram (NOLOAD) : ALIGN(4)
+    {
+        . = ALIGN(4); src/sound_data.o(.sbss);
+        . = ALIGN(4); src/m4a.o(.gSoundInfo);
+        . = ALIGN(4); src/m4a.o(.gMPlayJumpTable);
+        . = ALIGN(4); src/m4a.o(.gCgbChans);
+        . = ALIGN(4); src/m4a.o(.gMusicPlayerA);
+        . = ALIGN(4); src/m4a.o(.gMusicPlayerB);
+        . = ALIGN(4); src/m4a.o(.gMusicPlayerC);
+        . = ALIGN(4); src/m4a.o(.gMusicPlayerE);
+        . = ALIGN(4); src/m4a.o(.gMPlayMemAccArea);
+        . = ALIGN(4); src/m4a.o(.gMusicPlayerD);
+    } = 0
+
+    . = 0x03000000;
+    .iwram (NOLOAD) : ALIGN(4)
+    {
+        . = ALIGN(4); src/m4a.o(.bss);
+    } = 0
+
     . = 0x08000000;
-    .text :
-    ALIGN(4)
+    .text : ALIGN(4)
     {
         asm/code_8000000.o(.text);
 
@@ -47,8 +77,7 @@ SECTIONS
         asm/code_809E804.o(.text);
 
         src/m4a_1.o(.text);
-        src/m4a_2.o(.text);
-        asm/code_m4a.o(.text);
+        src/m4a.o(.text);
         asm/code_lib_syscall.o(.text);
         asm/code_lib_sram.o(.text);
         *libgcc.a:_call_via_rX.o(.text);
@@ -70,11 +99,13 @@ SECTIONS
         *(.gnu.linkonce.t.__as__9LivestockRC9Livestock);
         asm/code_linkonce.o(.text.code_080D7CFC);
 
-        data/data_80E59CC.o(.rodata);
+        . = ALIGN(4); data/data_080E59CC.o(.rodata);
         src/shipping_bin.o(.rodata);
         src/record_player.o(.rodata);
         . = ALIGN(4); src/item.o(.rodata);
-        data/data_80F0348.o(.rodata);
+        . = ALIGN(4); data/data_080F0348.o(.rodata);
+        . = ALIGN(4); src/sound_data.o(.rodata.*);
+        . = ALIGN(4); data/data_0813B288.o(.rodata);
     } = 0
 
     /* Discard everything not specifically mentioned above. */

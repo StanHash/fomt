@@ -53,7 +53,7 @@
     .endm
 
     struct_begin
-    struct_field O_WaveData_type, 2
+    struct_field O_WaveData_kind, 2
     struct_field O_WaveData_status, 1
     struct_field O_WaveData_flags, 1
     struct_field O_WaveData_freq, 4
@@ -79,7 +79,7 @@
     struct_field O_SoundInfo_pcm_dma_counter, 1
     struct_field O_SoundInfo_reverb, 1
     struct_field O_SoundInfo_max_chans, 1
-    struct_field O_SoundInfo_masterVolume, 1
+    struct_field O_SoundInfo_master_volume, 1
     struct_field O_SoundInfo_freq, 1
     struct_field O_SoundInfo_mode, 1
     struct_field O_SoundInfo_c15, 1
@@ -144,34 +144,34 @@
     struct_field O_MusicPlayerTrack_wait, 1
     struct_field O_MusicPlayerTrack_patternLevel, 1
     struct_field O_MusicPlayerTrack_repN, 1
-    struct_field O_MusicPlayerTrack_gateTime, 1
+    struct_field O_MusicPlayerTrack_gate_time, 1
     struct_field O_MusicPlayerTrack_key, 1
     struct_field O_MusicPlayerTrack_velocity, 1
-    struct_field O_MusicPlayerTrack_runningStatus, 1
-    struct_field O_MusicPlayerTrack_keyM, 1
-    struct_field O_MusicPlayerTrack_pitM, 1
-    struct_field O_MusicPlayerTrack_keyShift, 1
-    struct_field O_MusicPlayerTrack_keyShiftX, 1
+    struct_field O_MusicPlayerTrack_running_status, 1
+    struct_field O_MusicPlayerTrack_key_m, 1
+    struct_field O_MusicPlayerTrack_pit_m, 1
+    struct_field O_MusicPlayerTrack_key_shift, 1
+    struct_field O_MusicPlayerTrack_key_shift_x, 1
     struct_field O_MusicPlayerTrack_tune, 1
-    struct_field O_MusicPlayerTrack_pitX, 1
+    struct_field O_MusicPlayerTrack_pit_x, 1
     struct_field O_MusicPlayerTrack_bend, 1
-    struct_field O_MusicPlayerTrack_bendRange, 1
-    struct_field O_MusicPlayerTrack_volMR, 1
-    struct_field O_MusicPlayerTrack_volML, 1
+    struct_field O_MusicPlayerTrack_bend_range, 1
+    struct_field O_MusicPlayerTrack_vol_mr, 1
+    struct_field O_MusicPlayerTrack_vol_ml, 1
     struct_field O_MusicPlayerTrack_vol, 1
-    struct_field O_MusicPlayerTrack_volX, 1
+    struct_field O_MusicPlayerTrack_vol_x, 1
     struct_field O_MusicPlayerTrack_pan, 1
     struct_field O_MusicPlayerTrack_panX, 1
-    struct_field O_MusicPlayerTrack_modM, 1
+    struct_field O_MusicPlayerTrack_mod_m, 1
     struct_field O_MusicPlayerTrack_mod, 1
-    struct_field O_MusicPlayerTrack_modT, 1
-    struct_field O_MusicPlayerTrack_lfoSpeed, 1
-    struct_field O_MusicPlayerTrack_lfoSpeedC, 1
-    struct_field O_MusicPlayerTrack_lfoDelay, 1
-    struct_field O_MusicPlayerTrack_lfoDelayC, 1
+    struct_field O_MusicPlayerTrack_mod_t, 1
+    struct_field O_MusicPlayerTrack_lfo_speed, 1
+    struct_field O_MusicPlayerTrack_lfo_speed_c, 1
+    struct_field O_MusicPlayerTrack_lfo_delay, 1
+    struct_field O_MusicPlayerTrack_lfo_delay_c, 1
     struct_field O_MusicPlayerTrack_priority, 1
-    struct_field O_MusicPlayerTrack_pseudoEchoVolume, 1
-    struct_field O_MusicPlayerTrack_pseudoEchoLength, 1
+    struct_field O_MusicPlayerTrack_pseudo_echo_volume, 1
+    struct_field O_MusicPlayerTrack_pseudo_echo_length, 1
     struct_field O_MusicPlayerTrack_chan, 4
     struct_field O_MusicPlayerTrack_ToneData_type, 1
     struct_field O_MusicPlayerTrack_ToneData_key, 1
@@ -185,78 +185,92 @@
     struct_field O_MusicPlayerTrack_gap, 10
     struct_field O_MusicPlayerTrack_unk_3A, 2
     struct_field O_MusicPlayerTrack_unk_3C, 4
-    struct_field O_MusicPlayerTrack_cmdPtr, 4
-    struct_field O_MusicPlayerTrack_patternStack, 12
+    struct_field O_MusicPlayerTrack_cmd_ptr, 4
+    struct_field O_MusicPlayerTrack_pattern_stack, 12
     struct_field MusicPlayerTrack_size, 0
 
     .equiv O_MusicPlayerTrack_ToneData_keySplitTable, O_MusicPlayerTrack_ToneData_attack
 
     struct_begin
-    struct_field O_MusicPlayerInfo_songHeader, 4
-    struct_field O_MusicPlayerInfo_status, 4
-    struct_field O_MusicPlayerInfo_trackCount, 1
-    struct_field O_MusicPlayerInfo_priority, 1
-    struct_field O_MusicPlayerInfo_cmd, 1
-    struct_field O_MusicPlayerInfo_unk_B, 1
-    struct_field O_MusicPlayerInfo_clock, 4
-    struct_field O_MusicPlayerInfo_gap, 8
-    struct_field O_MusicPlayerInfo_memAccArea, 4
-    struct_field O_MusicPlayerInfo_tempoD, 2
-    struct_field O_MusicPlayerInfo_tempoU, 2
-    struct_field O_MusicPlayerInfo_tempoI, 2
-    struct_field O_MusicPlayerInfo_tempoC, 2
-    struct_field O_MusicPlayerInfo_fadeOI, 2
-    struct_field O_MusicPlayerInfo_fadeOC, 2
-    struct_field O_MusicPlayerInfo_fadeOV, 2
-    struct_field O_MusicPlayerInfo_padding, 2
-    struct_field O_MusicPlayerInfo_tracks, 4
-    struct_field O_MusicPlayerInfo_tone, 4
-    struct_field O_MusicPlayerInfo_ident, 4
-    struct_field O_MusicPlayerInfo_func, 4
-    struct_field O_MusicPlayerInfo_intp, 4
-    struct_field MusicPlayerInfo_size, 0
+    struct_field O_MusicPlayer_song, 4
+    struct_field O_MusicPlayer_status, 4
+    struct_field O_MusicPlayer_track_count, 1
+    struct_field O_MusicPlayer_priority, 1
+    struct_field O_MusicPlayer_cmd, 1
+    struct_field O_MusicPlayer_unk_B, 1
+    struct_field O_MusicPlayer_clock, 4
+    struct_field O_MusicPlayer_gap, 8
+    struct_field O_MusicPlayer_mem_acc_area, 4
+    struct_field O_MusicPlayer_tempo_d, 2
+    struct_field O_MusicPlayer_tempo_u, 2
+    struct_field O_MusicPlayer_tempo_i, 2
+    struct_field O_MusicPlayer_tempo_c, 2
+    struct_field O_MusicPlayer_fadeOI, 2
+    struct_field O_MusicPlayer_fade_oc, 2
+    struct_field O_MusicPlayer_fadeOV, 2
+    struct_field O_MusicPlayer_padding, 2
+    struct_field O_MusicPlayer_tracks, 4
+    struct_field O_MusicPlayer_tone, 4
+    struct_field O_MusicPlayer_ident, 4
+    struct_field O_MusicPlayer_next_func, 4
+    struct_field O_MusicPlayer_next, 4
+    struct_field MusicPlayer_size, 0
 
     struct_begin
-    struct_field O_CgbChannel_statusFlags, 1
+    struct_field O_CgbChannel_flags, 1
     struct_field O_CgbChannel_type, 1
-    struct_field O_CgbChannel_rightVolume, 1
-    struct_field O_CgbChannel_leftVolume, 1
+    struct_field O_CgbChannel_volume_right, 1
+    struct_field O_CgbChannel_volume_left, 1
     struct_field O_CgbChannel_attack, 1
     struct_field O_CgbChannel_decay, 1
     struct_field O_CgbChannel_sustain, 1
     struct_field O_CgbChannel_release, 1
     struct_field O_CgbChannel_key, 1
-    struct_field O_CgbChannel_envelopeVolume, 1
-    struct_field O_CgbChannel_envelopeGoal, 1
-    struct_field O_CgbChannel_envelopeCounter, 1
-    struct_field O_CgbChannel_pseudoEchoVolume, 1
-    struct_field O_CgbChannel_pseudoEchoLength, 1
+    struct_field O_CgbChannel_envelope_volume, 1
+    struct_field O_CgbChannel_envelope_goal, 1
+    struct_field O_CgbChannel_envelope_counter, 1
+    struct_field O_CgbChannel_pseudo_echo_volume, 1
+    struct_field O_CgbChannel_pseudo_echo_length, 1
     struct_field O_CgbChannel_dummy1, 1
     struct_field O_CgbChannel_dummy2, 1
-    struct_field O_CgbChannel_gateTime, 1
-    struct_field O_CgbChannel_midiKey, 1
+    struct_field O_CgbChannel_gate_time, 1
+    struct_field O_CgbChannel_midi_key, 1
     struct_field O_CgbChannel_velocity, 1
     struct_field O_CgbChannel_priority, 1
-    struct_field O_CgbChannel_rhythmPan, 1
+    struct_field O_CgbChannel_rhythm_pan, 1
     struct_field O_CgbChannel_dummy3, 3
     struct_field O_CgbChannel_dummy5, 1
-    struct_field O_CgbChannel_sustainGoal, 1
+    struct_field O_CgbChannel_sustain_goal, 1
     struct_field O_CgbChannel_n4, 1
     struct_field O_CgbChannel_pan, 1
-    struct_field O_CgbChannel_panMask, 1
+    struct_field O_CgbChannel_pan_mask, 1
     struct_field O_CgbChannel_modify, 1
     struct_field O_CgbChannel_length, 1
     struct_field O_CgbChannel_sweep, 1
     struct_field O_CgbChannel_frequency, 4
-    struct_field O_CgbChannel_wavePointer, 4
-    struct_field O_CgbChannel_currentPointer, 4
+    struct_field O_CgbChannel_wav, 4
+    struct_field O_CgbChannel_current_ptr, 4
     struct_field O_CgbChannel_track, 4
-    struct_field O_CgbChannel_prevChannelPointer, 4
-    struct_field O_CgbChannel_nextChannelPointer, 4
+    struct_field O_CgbChannel_prev_channel_ptr, 4
+    struct_field O_CgbChannel_next_channel_ptr, 4
     struct_field O_CgbChannel_dummy4, 8
     struct_field CgbChannel_size, 0
 
     .purgem struct_field
     .purgem struct_begin
+
+    .macro song label:req, music_player:req, unknown:req
+    .4byte \label
+    .2byte \music_player
+    .2byte \unknown
+    .endm
+
+    .macro music_player info_struct:req, track_struct:req, num_tracks:req, unknown:req
+    .4byte \info_struct
+    .4byte \track_struct
+    .byte \num_tracks
+    .space 1  @ Padding
+    .2byte \unknown
+    .endm
 
     .endif @ !_M4A_S

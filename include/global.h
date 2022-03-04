@@ -1,23 +1,16 @@
 #pragma once
 
-#include <stddef.h>
+#include <six/prelude.h>
 
 #ifdef __cplusplus
-extern "C"
-{
+#  define EXTERN_C extern "C" {
+#  define EXTERN_C_END }
+#else
+#  define EXTERN_C
+#  define EXTERN_C_END
 #endif
 
-typedef char           u8; // TODO: unsigned char
-typedef unsigned short u16;
-typedef unsigned int   u32;
-
-typedef signed char    i8;
-typedef signed short   i16;
-
-typedef signed char s8;
-typedef int         s32;
-
-typedef u8 bool8;
+EXTERN_C
 
 #define nullptr 0
 
@@ -29,10 +22,7 @@ typedef u8 bool8;
 #define NAKED __attribute__((naked))
 #define ALIAS(n) __attribute__((alias(# n)))
 
-#define PACKED __attribute__((packed))
-#define ALIGNED(a) __attribute__((aligned(a)))
-
-// dummy macro for marking data and methods that should be const but can't be for matching
+// macro for marking data and methods that should be const but can't be for matching
 #if defined(MODERN) && MODERN != 0
 #  define SHOULD_BE_CONST const
 #else
@@ -44,6 +34,4 @@ typedef u8 bool8;
 #define CONST_MIN(a, b) (((a) < (b)) ? (a) : (b))
 #define CONST_MAX(a, b) (((a) > (b)) ? (a) : (b))
 
-#ifdef __cplusplus
-}
-#endif
+EXTERN_C_END

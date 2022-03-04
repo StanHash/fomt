@@ -4,6 +4,9 @@
 @ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 @
 
+.ifndef  _LIBSIX_ASM_MACROS_S
+.equiv   _LIBSIX_ASM_MACROS_S, 1
+
 .macro fn .name:req .code .linkage=global .section
     @ Setup
     .ifndef .L__FN__
@@ -187,5 +190,7 @@
     .type               \.name STT_OBJECT
     \.name :
 .endm
+
+.endif @ !_LIBSIX_ASM_MACROS_S
 
 @ vim: ft=armv4 et sta sw=4 sts=8

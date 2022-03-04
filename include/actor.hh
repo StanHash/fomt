@@ -2,7 +2,7 @@
 
 #include "global.h"
 
-struct PACKED ALIGNED(2) Location
+struct PACKED ALIGN(2) Location
 {
     Location(void) {}
     Location(u32 map, u32 x, u32 y) : map(map), x(x), y(y) {}

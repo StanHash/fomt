@@ -16466,7 +16466,7 @@ sub_8008AF0: @ 0x08008AF0
 sub_8008AFC: @ 0x08008AFC
 	push {lr}
 	bl m4aSoundInit
-	bl sub_80D28DC
+	bl m4aSoundVSyncOff
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16482,7 +16482,7 @@ sub_8008B0C: @ 0x08008B0C
 	thumb_func_start sub_8008B18
 sub_8008B18: @ 0x08008B18
 	push {lr}
-	bl sub_80D22CC
+	bl m4aSoundMain
 	movs r0, #1
 	pop {r1}
 	bx r1
@@ -16535,7 +16535,7 @@ sub_8008B6C: @ 0x08008B6C
 	lsrs r1, r1, #0xd
 	adds r1, r1, r2
 	ldr r1, [r1]
-	bl sub_80D2A0C
+	bl m4aMPlayStart
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16558,7 +16558,7 @@ sub_8008B88: @ 0x08008B88
 	bge _08008BA8
 _08008BA2:
 	adds r0, r2, #0
-	bl sub_80D2A0C
+	bl m4aMPlayStart
 _08008BA8:
 	pop {r0}
 	bx r0
@@ -16578,7 +16578,7 @@ sub_8008BB0: @ 0x08008BB0
 	cmp r0, r1
 	beq _08008BD0
 	adds r0, r2, #0
-	bl sub_80D2A0C
+	bl m4aMPlayStart
 	b _08008BDC
 	.align 2, 0
 _08008BCC: .4byte 0x0813ABF0
@@ -16587,7 +16587,7 @@ _08008BD0:
 	cmp r0, #0
 	bge _08008BDC
 	adds r0, r2, #0
-	bl sub_80D2438
+	bl m4aMPlayContinue
 _08008BDC:
 	pop {r0}
 	bx r0
@@ -16596,7 +16596,7 @@ _08008BDC:
 sub_8008BE0: @ 0x08008BE0
 	push {lr}
 	ldr r0, [r0]
-	bl sub_80D2AF0
+	bl m4aMPlayStop
 	pop {r0}
 	bx r0
 _08008BEC:
@@ -16609,7 +16609,7 @@ sub_8008BF8: @ 0x08008BF8
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
 	ldr r0, [r0]
-	bl sub_80D2470
+	bl m4aMPlayFadeOut
 	pop {r0}
 	bx r0
 _08008C08:
@@ -16623,7 +16623,7 @@ sub_8008C28: @ 0x08008C28
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
 	ldr r0, [r0]
-	bl sub_80D3258
+	bl m4aMPlayTempoControl
 	pop {r0}
 	bx r0
 
@@ -16638,7 +16638,7 @@ sub_8008C38: @ 0x08008C38
 	lsrs r1, r1, #0x10
 	ldr r0, [r0]
 	adds r2, r3, #0
-	bl sub_80D3280
+	bl m4aMPlayVolumeControl
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16654,7 +16654,7 @@ sub_8008C54: @ 0x08008C54
 	lsls r3, r3, #0x10
 	asrs r3, r3, #0x10
 	adds r2, r3, #0
-	bl sub_80D32E8
+	bl m4aMPlayPitchControl
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16670,7 +16670,7 @@ sub_8008C70: @ 0x08008C70
 	lsls r3, r3, #0x18
 	asrs r3, r3, #0x18
 	adds r2, r3, #0
-	bl sub_80D335C
+	bl m4aMPlayPanpotControl
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16686,7 +16686,7 @@ sub_8008C8C: @ 0x08008C8C
 	lsrs r1, r1, #0x10
 	ldr r0, [r0]
 	adds r2, r3, #0
-	bl sub_80D33E4
+	bl m4aMPlayModDepthSet
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16702,7 +16702,7 @@ sub_8008CA8: @ 0x08008CA8
 	lsrs r1, r1, #0x10
 	ldr r0, [r0]
 	adds r2, r3, #0
-	bl sub_80D3458
+	bl m4aMPlayLFOSpeedSet
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16711,7 +16711,7 @@ sub_8008CA8: @ 0x08008CA8
 sub_8008CC4: @ 0x08008CC4
 	push {lr}
 	ldr r0, [r0]
-	bl sub_80D24C8
+	bl m4aMPlayImmInit
 	pop {r0}
 	bx r0
 
@@ -16758,7 +16758,7 @@ _08008D5C:
 	thumb_func_start sub_8008D84
 sub_8008D84: @ 0x08008D84
 	push {lr}
-	bl sub_80D2958
+	bl m4aSoundVSyncOn
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16766,7 +16766,7 @@ sub_8008D84: @ 0x08008D84
 	thumb_func_start sub_8008D90
 sub_8008D90: @ 0x08008D90
 	push {lr}
-	bl sub_80D28DC
+	bl m4aSoundVSyncOff
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16785,7 +16785,7 @@ sub_8008DA8: @ 0x08008DA8
 	push {lr}
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_80D22D8
+	bl m4aSongNumStart
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16795,7 +16795,7 @@ sub_8008DB8: @ 0x08008DB8
 	push {lr}
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_80D2304
+	bl m4aSongNumStartOrChange
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16807,7 +16807,7 @@ _08008DC8:
 	thumb_func_start sub_8008DE8
 sub_8008DE8: @ 0x08008DE8
 	push {lr}
-	bl sub_80D240C
+	bl m4aMPlayAllStop
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -17125,7 +17125,7 @@ _080090FC:
 	subs r2, r6, r5
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl CpuSet
+	bl SvcCpuSet
 	b _08009116
 	.align 2, 0
 _08009108: .4byte 0x0000FFFF
@@ -17133,7 +17133,7 @@ _0800910C:
 	adds r0, r4, #0
 	adds r1, r3, #0
 	adds r2, r6, #0
-	bl CpuSet
+	bl SvcCpuSet
 _08009116:
 	adds r7, #0x10
 	cmp r7, sb
@@ -17871,7 +17871,7 @@ sub_80096B0: @ 0x080096B0
 	ldr r2, _080096EC @ =0x0100002B
 	mov r0, sp
 	adds r1, r4, #0
-	bl CpuSet
+	bl SvcCpuSet
 	movs r0, #0x80
 	str r0, [r4]
 	movs r0, #0

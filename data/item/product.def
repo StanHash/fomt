@@ -71,7 +71,7 @@
 /* 45 */ o( WOOL_L, ARTICLE, 500 )
 /* 46 */ o( WOOL_G, ARTICLE, 600 )
 /* 47 */ o( WOOL_P, ARTICLE, 1000 )
-/* 48 */ o( WOOL_P_2, ARTICLE, 2000 )
+/* 48 */ o( WOOL_X, ARTICLE, 2000 )
 /* 49 */ o( YARN_S, ARTICLE, 300 )
 /* 4A */ o( YARN_M, ARTICLE, 700 )
 /* 4B */ o( YARN_L, ARTICLE, 800 )

@@ -59,7 +59,7 @@ EXTFN SvcVBlankIntrWait
 EXTFN SvcSqrt
 EXTFN SvcArcTan
 EXTFN SvcArcTan2
-EXTFN SvcCpuSet
+EXTFN SvcSvcCpuSet
 EXTFN SvcCpuFastSet
 EXTFN SvcBiosChecksum
 EXTFN SvcBgAffineSet
@@ -92,7 +92,7 @@ EXTFN SvcSoundDriverVSyncOn
 
 EXTFN SvcSoftResetEx
 EXTFN SvcIntrWaitEx
-EXTFN SvcCpuSetFixed
+EXTFN SvcSvcCpuSetFixed
 EXTFN SvcCpuFastSetFixed
 EXTFN SvcIsSystemDS
 
