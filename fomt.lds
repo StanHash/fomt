@@ -40,7 +40,10 @@ SECTIONS
     . = 0x08000000;
     .text : ALIGN(4)
     {
-        asm/code_8000000.o(.text);
+        src/crt0.o(.rom_header);
+        asm/main.o(.text);
+        asm/sram_proxy.o(.text);
+        asm/code_80004C4.o(.text);
 
         src/shipping_bin.o(.text);
         src/tool_chest.o(.text);
