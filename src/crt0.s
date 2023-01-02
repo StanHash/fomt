@@ -62,10 +62,10 @@ entrypoint:
     svc    SVC_REGISTERRAMRESET << 16
 
     @ init .iwram
-    ldr    r3, l_iwram_vma @ =0x03000490
+    ldr    r3, l_iwram_vma @ =__iwram_vma
     mov    r1, REG_BASE
     str    r3, [r1, REG_DMA3DST - REG_BASE]
-    ldr    r2, l_iwram_vma_end @ =0x03000CD8
+    ldr    r2, l_iwram_vma_end @ =__iwram_vma_end
     sub    r3, r2, r3
     add    r3, #3
     lsrs   r3, #2
@@ -100,8 +100,8 @@ entrypoint:
 
 l_sp_irq:        .4byte MEM_IWRAM + MEM_IWRAM_SIZE - 0x0060
 l_sp_usr:        .4byte MEM_IWRAM + MEM_IWRAM_SIZE - 0x0100
-l_iwram_vma:     .4byte 0x03000490 @ __iwram_vma
-l_iwram_vma_end: .4byte 0x03000CD8 @ __iwram_vma_end
+l_iwram_vma:     .4byte __iwram_vma
+l_iwram_vma_end: .4byte __iwram_vma_end
 l_iwram_lma:     .4byte 0x0875B9F8 @ __iwram_lma
 l_ewram_bss_end: .4byte 0x02001F10 @ __ewram_bss_end
 l_ewram_end:     .4byte MEM_EWRAM + MEM_EWRAM_SIZE

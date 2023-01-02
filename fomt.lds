@@ -14,9 +14,15 @@ gCgb3Vol = 0x08139CEC;
 gClockTable = 0x08139CFC;
 gXcmdTable = 0x08139D30;
 
+MEMORY
+{
+    EWRAM (w!x) : ORIGIN = 0x02000000, LENGTH = 256K
+    IWRAM (w!x) : ORIGIN = 0x03000000, LENGTH = 32K
+    ROM   (rx)  : ORIGIN = 0x08000000, LENGTH = 32M
+}
+
 SECTIONS
 {
-    . = 0x02000000;
     .ewram (NOLOAD) : ALIGN(4)
     {
         . = ALIGN(4); src/sound_data.o(.sbss);
@@ -29,15 +35,44 @@ SECTIONS
         . = ALIGN(4); src/m4a.o(.gMusicPlayerE);
         . = ALIGN(4); src/m4a.o(.gMPlayMemAccArea);
         . = ALIGN(4); src/m4a.o(.gMusicPlayerD);
-    } = 0
 
-    . = 0x03000000;
+        . = 0x040000; /* end */
+    } > EWRAM
+
     .iwram (NOLOAD) : ALIGN(4)
     {
         . = ALIGN(4); src/m4a.o(.bss);
-    } = 0
+        . = ALIGN(4);
+        . = 0x000400; gUnk_03000400 = .;
+        . = 0x000402; gUnk_03000402 = .;
+        . = 0x000404; gUnk_03000404 = .;
+        . = 0x000408; gUnk_03000408 = .;
+        . = 0x00040C; gUnk_0300040C = .;
+        . = 0x000410; gUnk_03000410 = .;
+        . = 0x000414; gUnk_03000414 = .;
+        . = 0x000418; gUnk_03000418 = .;
+        . = 0x00041C; gUnk_0300041C = .;
+        . = 0x000420; gUnk_03000420 = .;
+        . = 0x000430; gUnk_03000430 = .;
+        . = 0x000450; gUnk_03000450 = .;
 
-    . = 0x08000000;
+        /* code loaded from __iwram_lma at 0x0875B9F8 */
+        . = 0x000490; __iwram_vma = .;
+        . = 0x000491; gUnk_03000491 = .;
+        . = 0x0004C0; gUnk_030004C0 = .;
+        . = 0x0004DC; gUnk_030004DC = .;
+        . = 0x000714; gUnk_03000714 = .;
+        . = 0x00085C; gUnk_0300085C = .;
+        . = 0x000958; gUnk_03000958 = .;
+        . = 0x000A1C; gUnk_03000A1C = .;
+        . = 0x000C08; gUnk_03000C08 = .;
+        . = 0x000C2C; gUnk_03000C2C = .;
+        . = 0x000CD4; gUnk_03000CD4 = .; /* new handler */
+        . = 0x000CD8; __iwram_vma_end = .;
+
+        . = 0x008000; /* end */
+    } > IWRAM
+
     .text : ALIGN(4)
     {
         src/crt0.o(.rom_header);
@@ -109,7 +144,20 @@ SECTIONS
         . = ALIGN(4); asm/data/data_080F0348.o(.rodata);
         . = ALIGN(4); src/sound_data.o(.rodata.*);
         . = ALIGN(4); asm/data/data_0813B288.o(.rodata);
-    } = 0
+
+        . = 0x00800000; /* end */
+    } > ROM = 0xFF
+
+    /* DWARF 2 sections */
+    .debug_aranges  0 : { *(.debug_aranges) }
+    .debug_pubnames 0 : { *(.debug_pubnames) }
+    .debug_info     0 : { *(.debug_info) }
+    .debug_abbrev   0 : { *(.debug_abbrev) }
+    .debug_line     0 : { *(.debug_line) }
+    .debug_frame    0 : { *(.debug_frame) }
+    .debug_str      0 : { *(.debug_str) }
+    .debug_loc      0 : { *(.debug_loc) }
+    .debug_macinfo  0 : { *(.debug_macinfo) }
 
     /* Discard everything not specifically mentioned above. */
     /DISCARD/ :

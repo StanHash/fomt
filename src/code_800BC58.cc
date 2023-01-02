@@ -23,14 +23,14 @@ bool Unk_0800BC58::method_0800BD14(u32 unk) const
 {
     u32 unk_2 = unk - 0x4D;
 
-    return bit_array_00.Check(unk_2);
+    return bit_array_00.Test(unk_2);
 }
 
 bool Unk_0800BC58::method_0800BD40(u32 unk) const
 {
     u32 unk_2 = unk - 0x4D;
 
-    return bit_array_08.Check(unk_2);
+    return bit_array_08.Test(unk_2);
 }
 
 u32 Unk_0800BC58::method_0800BD6C(void) const

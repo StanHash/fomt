@@ -21,7 +21,7 @@ struct BitArray
     u32 const * begin() const { return m_data; }
     u32 const * end() const { return m_data + ((BitCount + 31) / 32); }
 
-    bool Check(u32 const & bit) const
+    bool Test(u32 const & bit) const
     {
         return (bit < BitCount) && (m_data[bit / 32] & (1 << (bit % 32))) != 0;
     }

@@ -52,7 +52,7 @@ OLD_CC1  := tools/agbcc/bin/old_agbcc$(EXE)
 INCFLAGS     := $(foreach dir, $(INCLUDE_DIRS), -I "$(dir)")
 
 CPPFLAGS := $(INCFLAGS) -iquote . -iquote include -Wno-trigraphs
-CFLAGS   := -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
+CFLAGS   := -g -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
 CXXFLAGS := -quiet -fno-exceptions $(CFLAGS)
 ASFLAGS  := $(INCFLAGS) -I . -I include -mcpu=arm7tdmi
 
@@ -90,7 +90,7 @@ compare: $(ROM)
 
 # ROM from ELF
 %.gba: %.elf
-	$(OBJCOPY) -O binary --pad-to 0x4800000 $< $@
+	$(OBJCOPY) -O binary $< $@
 
 # ELF
 $(ELF): $(ALL_OBJS) $(LDS)
