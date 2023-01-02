@@ -23,7 +23,7 @@ MEMORY
 
 SECTIONS
 {
-    .ewram (NOLOAD) : ALIGN(4)
+    .ewram_bss (NOLOAD) : ALIGN(4)
     {
         . = ALIGN(4); src/sound_data.o(.sbss);
         . = ALIGN(4); src/m4a.o(.gSoundInfo);
@@ -35,11 +35,12 @@ SECTIONS
         . = ALIGN(4); src/m4a.o(.gMusicPlayerE);
         . = ALIGN(4); src/m4a.o(.gMPlayMemAccArea);
         . = ALIGN(4); src/m4a.o(.gMusicPlayerD);
+        __ewram_bss_end = .;
 
         . = 0x040000; /* end */
     } > EWRAM
 
-    .iwram (NOLOAD) : ALIGN(4)
+    .bss (NOLOAD) : ALIGN(4)
     {
         . = ALIGN(4); src/m4a.o(.bss);
         . = ALIGN(4);
@@ -55,25 +56,10 @@ SECTIONS
         . = 0x000420; gUnk_03000420 = .;
         . = 0x000430; gUnk_03000430 = .;
         . = 0x000450; gUnk_03000450 = .;
-
-        /* code loaded from __iwram_lma at 0x0875B9F8 */
-        . = 0x000490; __iwram_vma = .;
-        . = 0x000491; gUnk_03000491 = .;
-        . = 0x0004C0; gUnk_030004C0 = .;
-        . = 0x0004DC; gUnk_030004DC = .;
-        . = 0x000714; gUnk_03000714 = .;
-        . = 0x00085C; gUnk_0300085C = .;
-        . = 0x000958; gUnk_03000958 = .;
-        . = 0x000A1C; gUnk_03000A1C = .;
-        . = 0x000C08; gUnk_03000C08 = .;
-        . = 0x000C2C; gUnk_03000C2C = .;
-        . = 0x000CD4; gUnk_03000CD4 = .; /* new handler */
-        . = 0x000CD8; __iwram_vma_end = .;
-
-        . = 0x008000; /* end */
+        . = 0x000490; /* end */
     } > IWRAM
 
-    .text : ALIGN(4)
+    .rom : ALIGN(4)
     {
         src/crt0.o(.rom_header);
         asm/main.o(.text);
@@ -144,8 +130,21 @@ SECTIONS
         . = ALIGN(4); asm/data/data_080F0348.o(.rodata);
         . = ALIGN(4); src/sound_data.o(.rodata.*);
         . = ALIGN(4); asm/data/data_0813B288.o(.rodata);
+    } > ROM = 0xFF
 
-        . = 0x00800000; /* end */
+    .iwram : ALIGN(4)
+    {
+        asm/code_iwram.o(.iwram);
+    } > IWRAM AT> ROM = 0xFF
+
+    __iwram_vma     = ADDR(.iwram);
+    __iwram_vma_end = ADDR(.iwram) + SIZEOF(.iwram);
+    __iwram_lma     = LOADADDR(.iwram);
+
+    .pad : ALIGN(4)
+    {
+        LONG(0);
+        . = 0x08800000 - 0x0875C240;
     } > ROM = 0xFF
 
     /* DWARF 2 sections */

@@ -70,7 +70,7 @@ entrypoint:
     add    r3, #3
     lsrs   r3, #2
     orrne  r2, r3, (DMA_ENABLE | DMA_32BIT) << 16
-    ldrne  r3, l_iwram_lma @ =0x0875B9F8
+    ldrne  r3, l_iwram_lma @ =__iwram_lma
     strne  r3, [r1, REG_DMA3SRC - REG_BASE]
     strne  r2, [r1, REG_DMA3LEN - REG_BASE]
 
@@ -102,8 +102,8 @@ l_sp_irq:        .4byte MEM_IWRAM + MEM_IWRAM_SIZE - 0x0060
 l_sp_usr:        .4byte MEM_IWRAM + MEM_IWRAM_SIZE - 0x0100
 l_iwram_vma:     .4byte __iwram_vma
 l_iwram_vma_end: .4byte __iwram_vma_end
-l_iwram_lma:     .4byte 0x0875B9F8 @ __iwram_lma
-l_ewram_bss_end: .4byte 0x02001F10 @ __ewram_bss_end
+l_iwram_lma:     .4byte __iwram_lma
+l_ewram_bss_end: .4byte __ewram_bss_end
 l_ewram_end:     .4byte MEM_EWRAM + MEM_EWRAM_SIZE
 l_set_heap:      .4byte sub_80D01E0
 l_init_array:    .4byte 0x080E8610 @ init_array

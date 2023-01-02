@@ -7,7 +7,7 @@ sub_80004C4: @ 0x080004C4
 	ldr r0, _080004E8 @ =0x0000FFFF
 	bl sub_8000528
 	ldr r1, _080004EC @ =0x03007FFC
-	ldr r0, _080004F0 @ =gUnk_03000958
+	ldr r0, _080004F0 @ =func_03000958
 	str r0, [r1]
 	movs r4, #0
 _080004D4:
@@ -23,20 +23,20 @@ _080004D4:
 	.align 2, 0
 _080004E8: .4byte 0x0000FFFF
 _080004EC: .4byte 0x03007FFC
-_080004F0: .4byte gUnk_03000958
+_080004F0: .4byte func_03000958
 
 	thumb_func_start sub_80004F4
 sub_80004F4: @ 0x080004F4
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r1, _08000508 @ =gUnk_03000A1C
+	ldr r1, _08000508 @ =func_03000A1C
 	bl _call_via_r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	pop {r1}
 	bx r1
 	.align 2, 0
-_08000508: .4byte gUnk_03000A1C
+_08000508: .4byte func_03000A1C
 
 	thumb_func_start sub_800050C
 sub_800050C: @ 0x0800050C
@@ -58,14 +58,14 @@ sub_8000528: @ 0x08000528
 	push {lr}
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	ldr r1, _0800053C @ =gUnk_03000A1C
+	ldr r1, _0800053C @ =func_03000A1C
 	bl _call_via_r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	pop {r1}
 	bx r1
 	.align 2, 0
-_0800053C: .4byte gUnk_03000A1C
+_0800053C: .4byte func_03000A1C
 
 	thumb_func_start sub_8000540
 sub_8000540: @ 0x08000540
