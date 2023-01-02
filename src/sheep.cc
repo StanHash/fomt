@@ -4,7 +4,7 @@
 
 extern "C"
 {
-extern LivestockDayUpdateInfo const gUnk_81036A0;
+extern LivestockDayUpdateInfo const gUnk_081036A0;
 }
 
 Sheep::Sheep(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
@@ -73,7 +73,7 @@ Livestock::ProductRank Sheep::ConsumeProduct(void)
 
 void Sheep::DayUpdate(void)
 {
-    BarnAnimal::DayUpdate(&gUnk_81036A0);
+    BarnAnimal::DayUpdate(&gUnk_081036A0);
 
     if (days_until_product != 0)
         days_until_product--;

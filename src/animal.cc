@@ -7,7 +7,7 @@
 extern "C"
 {
 // TODO: sjis string
-extern char const gUnk_8103658[];
+extern char const gUnk_08103658[];
 }
 
 Animal::Animal(char const * a_name, ActorLocation const & location, u32 a_age)
@@ -35,7 +35,7 @@ char const * Animal::GetName(void) const
     if (!name.IsEmpty())
         return name;
 
-    return gUnk_8103658;
+    return gUnk_08103658;
 }
 
 bool Animal::IsFestivalWinner(void) const

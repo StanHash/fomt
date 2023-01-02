@@ -4,7 +4,7 @@
 
 extern "C"
 {
-extern LivestockDayUpdateInfo const gUnk_8103660;
+extern LivestockDayUpdateInfo const gUnk_08103660;
 }
 
 Chicken::Chicken(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
@@ -76,5 +76,5 @@ void Chicken::method_0809BD2C(UnkBarnAnimal2C const * param)
 
 void Chicken::DayUpdate(void)
 {
-    Livestock::DayUpdate(&gUnk_8103660);
+    Livestock::DayUpdate(&gUnk_08103660);
 }

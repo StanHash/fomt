@@ -10,9 +10,9 @@
 func_03000490:
     inc 0x03000490, 0x030004C0
 
-    .global gUnk_030004C0
-    .type gUnk_030004C0, object
-gUnk_030004C0:
+    .global __new_handler
+    .type __new_handler, object
+__new_handler:
     inc 0x030004C0, 0x030004DC
 
     .global func_030004DC

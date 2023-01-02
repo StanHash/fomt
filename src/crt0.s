@@ -78,7 +78,7 @@ entrypoint:
     ldr    r0, l_ewram_bss_end @ =0x02001F10
     ldr    r1, l_ewram_end @ =0x02040000
     sub    r1, r1, r0
-    ldr    r2, l_set_heap @ =sub_80D01E0
+    ldr    r2, l_set_heap @ =func_080D01E0
     mov    lr, pc
     bx     r2
 
@@ -105,7 +105,7 @@ l_iwram_vma_end: .4byte __iwram_vma_end
 l_iwram_lma:     .4byte __iwram_lma
 l_ewram_bss_end: .4byte __ewram_bss_end
 l_ewram_end:     .4byte MEM_EWRAM + MEM_EWRAM_SIZE
-l_set_heap:      .4byte sub_80D01E0
+l_set_heap:      .4byte func_080D01E0
 l_init_array:    .4byte 0x080E8610 @ init_array
 l_main:          .4byte AgbMain
 l_exit:          .4byte exit

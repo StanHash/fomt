@@ -1,8 +1,8 @@
 	.INCLUDE "asm/macro.inc"
 	.SYNTAX UNIFIED
 
-	thumb_func_start sub_80D3778
-sub_80D3778: @ 0x080D3778
+	thumb_func_start func_080D3778
+func_080D3778: @ 0x080D3778
 	push {r4, lr}
 	adds r4, r0, #0
 	subs r3, r2, #1
@@ -24,8 +24,8 @@ _080D3794:
 	bx r0
 	.align 2, 0
 
-	thumb_func_start sub_80D379C
-sub_80D379C: @ 0x080D379C
+	thumb_func_start func_080D379C
+func_080D379C: @ 0x080D379C
 	push {r4, r5, r6, lr}
 	sub sp, #0x80
 	adds r4, r0, #0
@@ -38,20 +38,20 @@ sub_80D379C: @ 0x080D379C
 	movs r1, #3
 	orrs r0, r1
 	strh r0, [r2]
-	ldr r3, _080D37D0 @ =sub_80D3778
+	ldr r3, _080D37D0 @ =func_080D3778
 	movs r0, #1
 	bics r3, r0
 	mov r2, sp
-	ldr r0, _080D37D4 @ =sub_80D379C
-	ldr r1, _080D37D0 @ =sub_80D3778
+	ldr r0, _080D37D4 @ =func_080D379C
+	ldr r1, _080D37D0 @ =func_080D3778
 	subs r0, r0, r1
 	lsls r0, r0, #0xf
 	b _080D37E4
 	.align 2, 0
 _080D37C8: .4byte 0x04000204
 _080D37CC: .4byte 0x0000FFFC
-_080D37D0: .4byte sub_80D3778
-_080D37D4: .4byte sub_80D379C
+_080D37D0: .4byte func_080D3778
+_080D37D4: .4byte func_080D379C
 _080D37D8:
 	ldrh r0, [r3]
 	strh r0, [r2]
@@ -74,8 +74,8 @@ _080D37E4:
 	pop {r0}
 	bx r0
 
-	thumb_func_start sub_80D3800
-sub_80D3800: @ 0x080D3800
+	thumb_func_start func_080D3800
+func_080D3800: @ 0x080D3800
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r4, r1, #0
@@ -109,8 +109,8 @@ _080D3830:
 _080D3838: .4byte 0x04000204
 _080D383C: .4byte 0x0000FFFC
 
-	thumb_func_start sub_80D3840
-sub_80D3840: @ 0x080D3840
+	thumb_func_start func_080D3840
+func_080D3840: @ 0x080D3840
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r3, r1, #0
@@ -140,8 +140,8 @@ _080D3868:
 	bx r1
 	.align 2, 0
 
-	thumb_func_start sub_80D3870
-sub_80D3870: @ 0x080D3870
+	thumb_func_start func_080D3870
+func_080D3870: @ 0x080D3870
 	push {r4, r5, r6, lr}
 	sub sp, #0xc0
 	adds r4, r0, #0
@@ -154,20 +154,20 @@ sub_80D3870: @ 0x080D3870
 	movs r1, #3
 	orrs r0, r1
 	strh r0, [r2]
-	ldr r3, _080D38A4 @ =sub_80D3840
+	ldr r3, _080D38A4 @ =func_080D3840
 	movs r0, #1
 	bics r3, r0
 	mov r2, sp
-	ldr r0, _080D38A8 @ =sub_80D3870
-	ldr r1, _080D38A4 @ =sub_80D3840
+	ldr r0, _080D38A8 @ =func_080D3870
+	ldr r1, _080D38A4 @ =func_080D3840
 	subs r0, r0, r1
 	lsls r0, r0, #0xf
 	b _080D38B8
 	.align 2, 0
 _080D389C: .4byte 0x04000204
 _080D38A0: .4byte 0x0000FFFC
-_080D38A4: .4byte sub_80D3840
-_080D38A8: .4byte sub_80D3870
+_080D38A4: .4byte func_080D3840
+_080D38A8: .4byte func_080D3870
 _080D38AC:
 	ldrh r0, [r3]
 	strh r0, [r2]
@@ -190,8 +190,8 @@ _080D38B8:
 	pop {r1}
 	bx r1
 
-	thumb_func_start sub_80D38D4
-sub_80D38D4: @ 0x080D38D4
+	thumb_func_start func_080D38D4
+func_080D38D4: @ 0x080D38D4
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
 	adds r5, r1, #0
@@ -208,11 +208,11 @@ _080D38E6:
 	adds r0, r6, #0
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_80D3800
+	bl func_080D3800
 	adds r0, r6, #0
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_80D3870
+	bl func_080D3870
 	adds r3, r0, #0
 	cmp r3, #0
 	bne _080D38E0

@@ -36,8 +36,6 @@ SECTIONS
         . = ALIGN(4); src/m4a.o(.gMPlayMemAccArea);
         . = ALIGN(4); src/m4a.o(.gMusicPlayerD);
         __ewram_bss_end = .;
-
-        . = 0x040000; /* end */
     } > EWRAM
 
     .bss (NOLOAD) : ALIGN(4)
@@ -63,20 +61,27 @@ SECTIONS
     {
         src/crt0.o(.rom_header);
         asm/main.o(.text);
-        asm/sram_proxy.o(.text);
-        asm/code_80004C4.o(.text);
-
+        asm/sram_proxy_1.o(.text);
+        asm/interrupt.o(.text);
+        asm/new.o(.text);
+        asm/pure_virtual.o(.text);
+        asm/sram_proxy_2.o(.text);
+        asm/scene.o(.text);
+        asm/intro.o(.text);
+        asm/new_game.o(.text);
+        asm/hardware.o(.text);
+        asm/code_08009A48.o(.text);
         src/shipping_bin.o(.text);
         src/tool_chest.o(.text);
         src/fridge.o(.text);
         src/shelf.o(.text);
         src/record_player.o(.text);
-        src/code_800BC58.o(.text);
+        src/code_0800BC58.o(.text);
         src/farm_house.o(.text);
         src/coop.o(.text);
         src/barn.o(.text);
         src/item.o(.text);
-        asm/code_800E2E4.o(.text);
+        asm/code_0800E2E4.o(.text);
         src/rucksack_item.o(.text);
 
         asm/code_800F170.o(.text);
@@ -91,9 +96,7 @@ SECTIONS
         src/chicken.o(.text);
         src/cow.o(.text);
         src/sheep.o(.text);
-
-        asm/code_809BFE8.o(.text);
-
+        asm/code_actor_0809BFE8.o(.text);
         src/npc.o(.text);
         src/bachelorette.o(.text);
         src/harvest_sprite.o(.text);

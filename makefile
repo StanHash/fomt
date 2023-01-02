@@ -53,7 +53,7 @@ INCFLAGS     := $(foreach dir, $(INCLUDE_DIRS), -I "$(dir)")
 
 CPPFLAGS := $(INCFLAGS) -iquote . -iquote include -Wno-trigraphs
 CFLAGS   := -g -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
-CXXFLAGS := -quiet -fno-exceptions $(CFLAGS)
+CXXFLAGS := -quiet -fno-exceptions -fno-rtti -fvtable-thunks $(CFLAGS)
 ASFLAGS  := $(INCFLAGS) -I . -I include -mcpu=arm7tdmi
 
 ROM := $(BUILD_NAME).gba
@@ -61,10 +61,10 @@ ELF := $(ROM:.gba=.elf)
 MAP := $(ROM:.gba=.map)
 LDS := $(BUILD_NAME).lds
 
-C_SRCS := $(wildcard $(SRC_DIR)/*.c $(SRC_DIR)/*/*.c)
+C_SRCS := $(wildcard $(SRC_DIR)/*.c $(SRC_DIR)/rt/*.c)
 C_OBJS := $(C_SRCS:%.c=$(BUILD_DIR)/%.o)
 
-CXX_SRCS := $(wildcard $(SRC_DIR)/*.cc)
+CXX_SRCS := $(wildcard $(SRC_DIR)/*.cc $(SRC_DIR)/rt/*.cc)
 CXX_OBJS := $(CXX_SRCS:%.cc=$(BUILD_DIR)/%.o)
 
 ASM_SRCS := $(wildcard $(SRC_DIR)/*.s $(ASM_DIR)/*.s)

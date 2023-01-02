@@ -4,7 +4,7 @@
 
 extern "C"
 {
-extern LivestockDayUpdateInfo const gUnk_8103680;
+extern LivestockDayUpdateInfo const gUnk_08103680;
 }
 
 Cow::Cow(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
@@ -76,6 +76,6 @@ Livestock::ProductRank Cow::ConsumeProduct(void)
 
 void Cow::DayUpdate(void)
 {
-    BarnAnimal::DayUpdate(&gUnk_8103680);
+    BarnAnimal::DayUpdate(&gUnk_08103680);
     milked = false;
 }
