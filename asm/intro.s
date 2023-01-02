@@ -3824,7 +3824,7 @@ _08002AA8:
     beq _08002AC6
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov sl, r4
     cmp r0, #0
     bne _08002ACA
@@ -3927,7 +3927,7 @@ _08002B68:
 _08002B6E:
     cmp r0, #0
     beq _08002B76
-    bl func_080D0260
+    bl free
 _08002B76:
     ldr r0, [sp, #0xa0]
     add r0, sl
@@ -4088,7 +4088,7 @@ _08002CB6:
     beq _08002CD4
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov sl, r4
     cmp r0, #0
     bne _08002CD8
@@ -4174,7 +4174,7 @@ _08002D4E:
 _08002D54:
     cmp r0, #0
     beq _08002D5C
-    bl func_080D0260
+    bl free
 _08002D5C:
     ldr r0, [sp, #0xa0]
     add r0, sl
@@ -4347,7 +4347,7 @@ _08002EB6:
     beq _08002ED4
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov sl, r4
     cmp r0, #0
     bne _08002ED8
@@ -4433,7 +4433,7 @@ _08002F4E:
 _08002F54:
     cmp r0, #0
     beq _08002F5C
-    bl func_080D0260
+    bl free
 _08002F5C:
     ldr r0, [sp, #0xa0]
     add r0, sl
@@ -4637,7 +4637,7 @@ _080030F8:
     beq _08003116
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov sl, r4
     cmp r0, #0
     bne _0800311A
@@ -4723,7 +4723,7 @@ _08003190:
 _08003196:
     cmp r0, #0
     beq _0800319E
-    bl func_080D0260
+    bl free
 _0800319E:
     ldr r0, [sp, #0xa0]
     add r0, sl
@@ -4886,7 +4886,7 @@ _080032E2:
     beq _08003300
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov sl, r4
     cmp r0, #0
     bne _08003304
@@ -4972,7 +4972,7 @@ _0800337A:
 _08003380:
     cmp r0, #0
     beq _08003388
-    bl func_080D0260
+    bl free
 _08003388:
     ldr r0, [sp, #0xa0]
     add r0, sl
@@ -5133,7 +5133,7 @@ _080034CA:
     beq _080034E8
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov sb, r4
     cmp r0, #0
     bne _080034EC
@@ -5219,7 +5219,7 @@ _08003562:
 _08003568:
     cmp r0, #0
     beq _08003570
-    bl func_080D0260
+    bl free
 _08003570:
     ldr r0, [sp, #0xa0]
     add r0, sb

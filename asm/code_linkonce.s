@@ -20,7 +20,7 @@ _080D3BD0: .4byte gUnk_03000CD4
 _080D3BD4:
 	bl _call_via_r0
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	cmp r0, #0
 	beq _080D3BC6
 	pop {r4, r5}
@@ -6293,7 +6293,7 @@ func_080D6DB8: @ 0x080D6DB8
 	beq _080D6DFA
 	lsls r4, r1, #3
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov r8, r4
 	cmp r0, #0
 	bne _080D6DFE
@@ -6345,14 +6345,14 @@ _080D6E48:
 	ldr r0, [r7]
 	cmp r0, #0
 	beq _080D6E7A
-	bl func_080D0260
+	bl free
 	b _080D6E7A
 _080D6E54:
 	cmp r1, #0
 	beq _080D6E6E
 	lsls r4, r1, #3
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov r8, r4
 	cmp r0, #0
 	bne _080D6E72
@@ -7644,7 +7644,7 @@ func_080D772C: @ 0x080D772C
 	beq _080D776E
 	lsls r4, r1, #3
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov r8, r4
 	cmp r0, #0
 	bne _080D7772
@@ -7696,14 +7696,14 @@ _080D77BC:
 	ldr r0, [r7]
 	cmp r0, #0
 	beq _080D77EE
-	bl func_080D0260
+	bl free
 	b _080D77EE
 _080D77C8:
 	cmp r1, #0
 	beq _080D77E2
 	lsls r4, r1, #3
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov r8, r4
 	cmp r0, #0
 	bne _080D77E6
@@ -8867,7 +8867,7 @@ _080D8332:
 	beq _080D8354
 	lsls r4, r0, #2
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov sb, r4
 	cmp r0, #0
 	bne _080D8358
@@ -8989,7 +8989,7 @@ _080D8426:
 	cmp r2, #0
 	beq _080D8430
 	adds r0, r2, #0
-	bl func_080D0260
+	bl free
 _080D8430:
 	mov r1, sb
 	adds r0, r1, r7
@@ -9062,7 +9062,7 @@ _080D84BE:
 	beq _080D84E0
 	lsls r4, r0, #2
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov r8, r4
 	cmp r0, #0
 	bne _080D84E4
@@ -9109,7 +9109,7 @@ _080D851C:
 	cmp r2, #0
 	beq _080D8526
 	adds r0, r2, #0
-	bl func_080D0260
+	bl free
 _080D8526:
 	mov r7, r8
 	adds r0, r7, r5
@@ -9178,7 +9178,7 @@ _080D859E:
 	beq _080D85C0
 	lsls r4, r0, #2
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov r8, r4
 	cmp r0, #0
 	bne _080D85C4
@@ -9226,7 +9226,7 @@ _080D85FE:
 	cmp r2, #0
 	beq _080D8608
 	adds r0, r2, #0
-	bl func_080D0260
+	bl free
 _080D8608:
 	mov r1, r8
 	adds r0, r1, r5
@@ -9292,7 +9292,7 @@ _080D8676:
 	beq _080D8698
 	lsls r4, r0, #2
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov r8, r4
 	cmp r0, #0
 	bne _080D869C
@@ -9335,7 +9335,7 @@ _080D86CC:
 	cmp r2, #0
 	beq _080D86D6
 	adds r0, r2, #0
-	bl func_080D0260
+	bl free
 _080D86D6:
 	mov r1, r8
 	adds r0, r1, r6
@@ -13400,7 +13400,7 @@ _080DA8FE:
 	beq _080DA92C
 	lsls r4, r0, #4
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	movs r5, #0xb1
 	lsls r5, r5, #3
 	add r5, sp
@@ -13517,7 +13517,7 @@ _080DA9DE:
 _080DA9E4:
 	cmp r0, #0
 	beq _080DA9EC
-	bl func_080D0260
+	bl free
 _080DA9EC:
 	movs r7, #0xb1
 	lsls r7, r7, #3
@@ -13764,7 +13764,7 @@ _080DABC4:
 	beq _080DABE8
 	lsls r4, r0, #4
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov sb, r4
 	cmp r0, #0
 	bne _080DABEC
@@ -13878,7 +13878,7 @@ _080DAC98:
 _080DAC9E:
 	cmp r0, #0
 	beq _080DACA6
-	bl func_080D0260
+	bl free
 _080DACA6:
 	ldr r1, _080DACBC @ =0x0000058C
 	add r1, sp
@@ -14444,7 +14444,7 @@ func_080DB0EC: @ 0x080DB0EC
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _080DB112
-	bl func_080D0260
+	bl free
 _080DB112:
 	adds r0, r4, #0
 	adds r0, #0xb8
@@ -14537,7 +14537,7 @@ _080DB1C2:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _080DB1CC
-	bl func_080D0260
+	bl free
 _080DB1CC:
 	movs r0, #1
 	ands r0, r5
@@ -16952,7 +16952,7 @@ _080DC586:
 	cmp r4, #0
 	beq _080DC59A
 	adds r0, r4, #0
-	bl func_080D0260
+	bl free
 _080DC59A:
 	adds r4, r5, #0
 	cmp r4, #0
@@ -24328,7 +24328,7 @@ _080E0134:
 	beq _080E0152
 	lsls r4, r0, #2
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov sb, r4
 	cmp r0, #0
 	bne _080E0156
@@ -24386,7 +24386,7 @@ _080E01A8:
 	cmp r2, #0
 	beq _080E01B2
 	adds r0, r2, #0
-	bl func_080D0260
+	bl free
 _080E01B2:
 	mov r1, sb
 	adds r0, r1, r6
@@ -24435,7 +24435,7 @@ _080E01FC:
 	beq _080E021A
 	lsls r4, r0, #2
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov sb, r4
 	cmp r0, #0
 	bne _080E021E
@@ -24476,7 +24476,7 @@ _080E024E:
 	cmp r2, #0
 	beq _080E0258
 	adds r0, r2, #0
-	bl func_080D0260
+	bl free
 _080E0258:
 	mov r1, sb
 	adds r0, r1, r6
@@ -24525,7 +24525,7 @@ _080E02A2:
 	beq _080E02C0
 	lsls r4, r0, #2
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov sb, r4
 	cmp r0, #0
 	bne _080E02C4
@@ -24566,7 +24566,7 @@ _080E02F4:
 	cmp r2, #0
 	beq _080E02FE
 	adds r0, r2, #0
-	bl func_080D0260
+	bl free
 _080E02FE:
 	mov r1, sb
 	adds r0, r1, r6
@@ -24615,7 +24615,7 @@ _080E0348:
 	beq _080E0366
 	lsls r4, r0, #2
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov sb, r4
 	cmp r0, #0
 	bne _080E036A
@@ -24656,7 +24656,7 @@ _080E039A:
 	cmp r2, #0
 	beq _080E03A4
 	adds r0, r2, #0
-	bl func_080D0260
+	bl free
 _080E03A4:
 	mov r1, sb
 	adds r0, r1, r6
@@ -25193,7 +25193,7 @@ _080E07F4:
 	beq _080E0812
 	lsls r4, r0, #4
 	adds r0, r4, #0
-	bl func_080D01F8
+	bl malloc
 	mov sb, r4
 	cmp r0, #0
 	bne _080E0816
@@ -25279,7 +25279,7 @@ _080E088C:
 _080E0892:
 	cmp r0, #0
 	beq _080E089A
-	bl func_080D0260
+	bl free
 _080E089A:
 	ldr r0, [sp, #0xa8]
 	add r0, sb
@@ -25353,7 +25353,7 @@ func_080E0908: @ 0x080E0908
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _080E0930
-	bl func_080D0260
+	bl free
 _080E0930:
 	movs r1, #0xdc
 	lsls r1, r1, #2
@@ -28159,7 +28159,7 @@ _080E1F4A:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _080E1F54
-	bl func_080D0260
+	bl free
 _080E1F54:
 	adds r0, r4, #0
 	bl __builtin_delete
@@ -28283,7 +28283,7 @@ _080E2058:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _080E2062
-	bl func_080D0260
+	bl free
 _080E2062:
 	ldr r0, _080E2090 @ =0x080E5A28
 	str r0, [r4]
@@ -28342,17 +28342,17 @@ func_080E20C0: @ 0x080E20C0
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	beq _080E20D0
-	bl func_080D0260
+	bl free
 _080E20D0:
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
 	beq _080E20DA
-	bl func_080D0260
+	bl free
 _080E20DA:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _080E20E4
-	bl func_080D0260
+	bl free
 _080E20E4:
 	movs r0, #1
 	ands r0, r5
@@ -28628,7 +28628,7 @@ _080E22BA:
 	beq _080E22FE
 _080E22BE:
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080E22D2
@@ -28662,7 +28662,7 @@ _080E22F4:
 	b _080E2330
 _080E22FE:
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080E2312
@@ -29412,7 +29412,7 @@ _080E2822:
 	beq _080E2866
 _080E2826:
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080E283A
@@ -29446,7 +29446,7 @@ _080E285C:
 	b _080E2898
 _080E2866:
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080E287A
@@ -29880,7 +29880,7 @@ _080E2B66:
 	cmp r4, #0
 	beq _080E2B7A
 	adds r0, r4, #0
-	bl func_080D0260
+	bl free
 _080E2B7A:
 	adds r4, r5, #0
 	cmp r4, #0
@@ -29906,7 +29906,7 @@ _080E2B92:
 	cmp r4, #0
 	beq _080E2BA6
 	adds r0, r4, #0
-	bl func_080D0260
+	bl free
 _080E2BA6:
 	adds r4, r5, #0
 	cmp r4, #0
@@ -30216,7 +30216,7 @@ func_080E2DC8: @ 0x080E2DC8
 	movs r5, #0
 	str r5, [r4, #4]
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	cmp r0, #0
 	bne _080E2DE8
 	movs r0, #0x18
@@ -30238,7 +30238,7 @@ _080E2DE8:
 	adds r4, #0x18
 	str r5, [r4, #4]
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	cmp r0, #0
 	bne _080E2E18
 	movs r0, #0x18
@@ -30280,7 +30280,7 @@ _080E2E82:
 	cmp r4, #0
 	beq _080E2E96
 	adds r0, r4, #0
-	bl func_080D0260
+	bl free
 _080E2E96:
 	adds r4, r5, #0
 	cmp r4, #0
@@ -30326,7 +30326,7 @@ _080E2EDA:
 	beq _080E2F1E
 _080E2EDE:
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _080E2EF2
@@ -30360,7 +30360,7 @@ _080E2F14:
 	b _080E2F50
 _080E2F1E:
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _080E2F32
@@ -32815,7 +32815,7 @@ _080E426A:
 	beq _080E42AE
 _080E426E:
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080E4282
@@ -32849,7 +32849,7 @@ _080E42A4:
 	b _080E42E0
 _080E42AE:
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080E42C2
@@ -33020,7 +33020,7 @@ _080E43E2:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _080E43EC
-	bl func_080D0260
+	bl free
 _080E43EC:
 	adds r0, r5, #0
 	adds r1, r6, #0
@@ -33040,7 +33040,7 @@ func_080E43FC: @ 0x080E43FC
 	movs r5, #0
 	str r5, [r4, #4]
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	cmp r0, #0
 	bne _080E441A
 	movs r0, #0x18
@@ -35009,7 +35009,7 @@ _080E54CE:
 	cmp r4, #0
 	beq _080E54E2
 	adds r0, r4, #0
-	bl func_080D0260
+	bl free
 _080E54E2:
 	adds r4, r5, #0
 	cmp r4, #0
@@ -35046,7 +35046,7 @@ _080E5516:
 	beq _080E555A
 _080E551A:
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080E552E
@@ -35080,7 +35080,7 @@ _080E5550:
 	b _080E558C
 _080E555A:
 	movs r0, #0x18
-	bl func_080D01F8
+	bl malloc
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080E556E
@@ -35523,7 +35523,7 @@ _080E5878:
 	ldr r4, [r4]
 	cmp r0, #0
 	beq _080E5884
-	bl func_080D0260
+	bl free
 _080E5884:
 	ldr r0, [r5, #4]
 	cmp r4, r0

@@ -3589,7 +3589,7 @@ _080054E2:
     beq _08005500
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov sb, r4
     cmp r0, #0
     bne _08005504
@@ -3676,7 +3676,7 @@ _0800557C:
 _08005582:
     cmp r0, #0
     beq _0800558A
-    bl func_080D0260
+    bl free
 _0800558A:
     ldr r0, [sp, #0x90]
     add r0, sb
@@ -3765,7 +3765,7 @@ _08005626:
     beq _08005644
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov sb, r4
     cmp r0, #0
     bne _08005648
@@ -3846,7 +3846,7 @@ _080056B4:
 _080056BA:
     cmp r0, #0
     beq _080056C2
-    bl func_080D0260
+    bl free
 _080056C2:
     ldr r0, [sp, #0x90]
     add r0, sb
@@ -4857,7 +4857,7 @@ _08005F34:
     beq _08005F52
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov sb, r4
     cmp r0, #0
     bne _08005F56
@@ -4940,7 +4940,7 @@ _08005FC6:
 _08005FCC:
     cmp r0, #0
     beq _08005FD4
-    bl func_080D0260
+    bl free
 _08005FD4:
     ldr r0, [sp, #0x50]
     add r0, sb
@@ -5045,7 +5045,7 @@ _0800609A:
     beq _080060B8
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov r8, r4
     cmp r0, #0
     bne _080060BC
@@ -5126,7 +5126,7 @@ _08006128:
 _0800612E:
     cmp r0, #0
     beq _08006136
-    bl func_080D0260
+    bl free
 _08006136:
     ldr r0, [sp, #0x50]
     add r0, r8
@@ -5492,7 +5492,7 @@ _08006430:
     beq _0800644E
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov r8, r4
     cmp r0, #0
     bne _08006452
@@ -5573,7 +5573,7 @@ _080064BE:
 _080064C4:
     cmp r0, #0
     beq _080064CC
-    bl func_080D0260
+    bl free
 _080064CC:
     ldr r0, [sp, #0x2c]
     add r0, r8
@@ -5733,7 +5733,7 @@ _080065F6:
     beq _08006614
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov sb, r4
     cmp r0, #0
     bne _08006618
@@ -5822,7 +5822,7 @@ _08006694:
 _0800669A:
     cmp r0, #0
     beq _080066A2
-    bl func_080D0260
+    bl free
 _080066A2:
     ldr r0, [sp, #0x58]
     add r0, sb
@@ -5953,7 +5953,7 @@ _0800678E:
     beq _080067AC
     lsls r4, r0, #4
     adds r0, r4, #0
-    bl func_080D01F8
+    bl malloc
     mov r8, r4
     cmp r0, #0
     bne _080067B0
@@ -6036,7 +6036,7 @@ _08006820:
 _08006826:
     cmp r0, #0
     beq _0800682E
-    bl func_080D0260
+    bl free
 _0800682E:
     ldr r0, [sp, #0x58]
     add r0, r8

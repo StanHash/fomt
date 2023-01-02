@@ -661,7 +661,7 @@ _08007744:
     ldr r0, [r6]
     cmp r0, #0
     beq _0800774E
-    bl func_080D0260
+    bl free
 _0800774E:
     adds r0, r6, #0
     bl __builtin_delete
@@ -2045,7 +2045,7 @@ _080083A0:
     ldr r0, [r5]
     cmp r0, #0
     beq _0800837C
-    bl func_080D0260
+    bl free
     b _0800837C
 _080083AC:
     adds r0, r7, #0
@@ -2386,7 +2386,7 @@ _080086F6:
     ldr r0, [r0]
     cmp r0, #0
     beq _08008700
-    bl func_080D0260
+    bl free
 _08008700:
     adds r0, r4, #0
     bl __builtin_delete
