@@ -5236,7 +5236,7 @@ _080A1304:
 	bls _080A12A0
 	adds r0, r6, #0
 	adds r1, r4, #0
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r5, r0, #0
 	ldrh r0, [r7, #2]
 	lsls r0, r0, #0x17
@@ -14153,7 +14153,7 @@ _080A5A34:
 	lsrs r0, r0, #0x10
 	asrs r0, r4
 	adds r1, r7, #0
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _080A5A52
@@ -90017,7 +90017,7 @@ _080CA8D6:
 	adds r0, r0, r1
 	ldr r0, [r0]
 	ldr r1, [r6]
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r1, r0, #0
 	ldr r0, [r6, #4]
 	cmp r1, r0
@@ -103212,8 +103212,8 @@ __modsi3:
 	adds r0, r1, #0
 	bx lr
 
-	non_word_aligned_thumb_func_start func_080D0EDA
-func_080D0EDA: @ 0x080D0EDA
+	non_word_aligned_thumb_func_start __udivsi3
+__udivsi3: @ 0x080D0EDA
 	adds r3, r0, #0
 	orrs r3, r1
 	bpl __divsi3

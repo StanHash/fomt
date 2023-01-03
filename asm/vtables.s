@@ -320,8 +320,8 @@ vtable_unk_080E6038:
 vtable_unk_080E61A0:
 	.incbin "baserom.gba", 0xE61A0, 0xB0
 
-	.global vtable_unk_080E6250
-vtable_unk_080E6250:
+	.global __vt_7AEntity
+__vt_7AEntity:
 	.incbin "baserom.gba", 0xE6250, 0x34
 
 	.global vtable_unk_080E6284

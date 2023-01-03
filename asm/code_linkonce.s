@@ -13953,7 +13953,7 @@ _080DAD02:
 	bne _080DADEE
 	lsrs r0, r4, #0x1a
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	lsls r1, r0, #2
@@ -17906,7 +17906,7 @@ func_080DCE60: @ 0x080DCE60
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080DCE90 @ =vtable_unk_080E6250
+	ldr r0, _080DCE90 @ =__vt_7AEntity
 	str r0, [r4, #0x14]
 	ldr r1, [r4, #0x10]
 	cmp r1, #0
@@ -17928,7 +17928,7 @@ _080DCE8A:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080DCE90: .4byte vtable_unk_080E6250
+_080DCE90: .4byte __vt_7AEntity
 
 	thumb_func_start func_080DCE94
 func_080DCE94: @ 0x080DCE94
@@ -17981,7 +17981,7 @@ func_080DCEEC: @ 0x080DCEEC
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080DCF1C @ =vtable_unk_080E6250
+	ldr r0, _080DCF1C @ =__vt_7AEntity
 	str r0, [r4, #0x14]
 	ldr r1, [r4, #0x10]
 	cmp r1, #0
@@ -18003,7 +18003,7 @@ _080DCF16:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080DCF1C: .4byte vtable_unk_080E6250
+_080DCF1C: .4byte __vt_7AEntity
 
 	thumb_func_start func_080DCF20
 func_080DCF20: @ 0x080DCF20
@@ -18066,7 +18066,7 @@ _080DCF86:
 	cmp r6, r7
 	blo _080DCF74
 _080DCF90:
-	ldr r0, _080DCFC8 @ =vtable_unk_080E6250
+	ldr r0, _080DCFC8 @ =__vt_7AEntity
 	mov r2, r8
 	str r0, [r2, #0x14]
 	ldr r1, [r2, #0x10]
@@ -18094,7 +18094,7 @@ _080DCFB8:
 	bx r0
 	.align 2, 0
 _080DCFC4: .4byte vtable_unk_080E7568
-_080DCFC8: .4byte vtable_unk_080E6250
+_080DCFC8: .4byte __vt_7AEntity
 
 	thumb_func_start func_080DCFCC
 func_080DCFCC: @ 0x080DCFCC
@@ -26121,7 +26121,7 @@ _080E0F20:
 	subs r4, #1
 	adds r0, r5, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	lsls r1, r0, #2
 	adds r1, r1, r0
 	lsls r1, r1, #1
@@ -33181,7 +33181,7 @@ func_080E4510: @ 0x080E4510
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080E4540 @ =vtable_unk_080E6250
+	ldr r0, _080E4540 @ =__vt_7AEntity
 	str r0, [r4, #0x14]
 	ldr r1, [r4, #0x10]
 	cmp r1, #0
@@ -33203,7 +33203,7 @@ _080E453A:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080E4540: .4byte vtable_unk_080E6250
+_080E4540: .4byte __vt_7AEntity
 
 	thumb_func_start func_080E4544
 func_080E4544: @ 0x080E4544

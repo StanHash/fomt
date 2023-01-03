@@ -2289,7 +2289,7 @@ _0809D1C0:
     mov r8, r0
     adds r0, r4, #0
     ldr r1, [sp, #0xc]
-    bl func_080D0EDA
+    bl __udivsi3
     adds r7, r0, #0
     mov r1, r8
     lsls r0, r1, #1
@@ -2785,7 +2785,7 @@ _0809D558:
     adds r7, r0, #0
     adds r0, r4, #0
     ldr r1, [sp, #0xc]
-    bl func_080D0EDA
+    bl __udivsi3
     adds r6, r0, #0
     lsls r0, r7, #1
     lsls r1, r6, #3

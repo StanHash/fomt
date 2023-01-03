@@ -2335,7 +2335,7 @@ _0803BBDC:
 	adds r0, r4, #0
 	muls r0, r6, r0
 	movs r1, #9
-	bl func_080D0EDA
+	bl __udivsi3
 	mov r8, r0
 	movs r2, #2
 	ldrsh r5, [r7, r2]
@@ -2353,7 +2353,7 @@ _0803BBDC:
 	adds r0, r4, #0
 	muls r0, r6, r0
 	movs r1, #9
-	bl func_080D0EDA
+	bl __udivsi3
 	movs r1, #0
 	ldrsh r2, [r7, r1]
 	adds r4, r2, r4
@@ -4630,7 +4630,7 @@ _0803CDFA:
 	ands r6, r1
 	adds r0, r5, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	adds r0, r5, #0
 	movs r1, #0xa
@@ -4805,7 +4805,7 @@ _0803CF48:
 _0803CF6A:
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0xa
@@ -4856,7 +4856,7 @@ _0803CFA6:
 	lsls r0, r0, #5
 	lsrs r0, r0, #0x1a
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	lsls r4, r0, #2
@@ -4864,7 +4864,7 @@ _0803CFA6:
 	lsls r4, r4, #1
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0xa
@@ -5004,7 +5004,7 @@ func_0803D0F0: @ 0x0803D0F0
 	ldr r7, [r0]
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0xa
@@ -5194,7 +5194,7 @@ _0803D250:
 _0803D27C:
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0xa
@@ -5297,7 +5297,7 @@ func_0803D340: @ 0x0803D340
 	ldr r7, [r0]
 	adds r0, r5, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	adds r0, r5, #0
 	movs r1, #0xa
@@ -39053,7 +39053,7 @@ func_0804ED28: @ 0x0804ED28
 _0804ED36:
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	lsls r2, r0, #2
 	adds r2, r2, r0
 	lsls r2, r2, #1
@@ -39113,7 +39113,7 @@ func_0804EDB4: @ 0x0804EDB4
 _0804EDC2:
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	lsls r1, r0, #2
 	adds r1, r1, r0
 	lsls r1, r1, #1
@@ -39165,7 +39165,7 @@ func_0804EE30: @ 0x0804EE30
 _0804EE3E:
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	lsls r1, r0, #2
 	adds r1, r1, r0
 	lsls r1, r1, #1
@@ -41749,7 +41749,7 @@ _08050270:
 	subs r0, r0, r6
 	lsls r0, r0, #3
 	movs r1, #9
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r5, r0, #0
 	lsrs r0, r5, #0x1f
 	adds r0, r5, r0
@@ -41760,7 +41760,7 @@ _08050270:
 	subs r0, r0, r6
 	lsls r0, r0, #4
 	movs r1, #9
-	bl func_080D0EDA
+	bl __udivsi3
 	lsrs r2, r0, #0x1f
 	adds r2, r0, r2
 	asrs r2, r2, #1
@@ -45357,7 +45357,7 @@ func_08052230: @ 0x08052230
 	beq _0805224C
 	subs r0, r1, #1
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	b _0805224E
 _0805224C:
 	movs r0, #0
@@ -59780,7 +59780,7 @@ _080597AA:
 	ldr r0, [r2]
 	subs r0, r0, r1
 	movs r1, #0x32
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r2, r0, #0
 	cmp r2, #0x63
 	ble _080597D6
@@ -76209,7 +76209,7 @@ _08061A2E:
 	ldr r0, [sp, #0x1d8]
 	bl GetLove__C12Bachelorette
 	ldr r1, _08061B28 @ =0x00001999
-	bl func_080D0EDA
+	bl __udivsi3
 	add r1, sp, #0x128
 	str r0, [r1]
 	ldr r1, [r4]
@@ -76656,7 +76656,7 @@ _08061D86:
 	ldr r0, [sp, #0x1dc]
 	bl GetFriendship__C3Npc
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	add r1, sp, #0x148
 	str r0, [r1]
 	ldr r1, [r4]
@@ -77089,7 +77089,7 @@ _080620B2:
 	adds r0, r0, r1
 	bl GetAffection__C6Animal
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	add r1, sp, #0x168
 	str r0, [r1]
 	ldr r1, [r4]
@@ -77549,7 +77549,7 @@ _0806242E:
 	ldr r0, [sp, #0x1e0]
 	bl GetAffection__C6Animal
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	add r1, sp, #0x188
 	str r0, [r1]
 	ldr r1, [r4]
@@ -81107,7 +81107,7 @@ func_08063E64: @ 0x08063E64
 	str r1, [sp]
 	bl GetAffection__C6Animal
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	str r0, [sp, #4]
 	add r2, sp, #4
 	ldr r1, [sp]
@@ -81588,7 +81588,7 @@ _080641C6:
 	ldr r0, [sp, #0x44]
 	bl GetAge__C6Animal
 	movs r1, #0x78
-	bl func_080D0EDA
+	bl __udivsi3
 	ldr r4, [sp, #0x4c]
 	ldr r1, [r4, #0x18]
 	ldr r7, [sp, #0x5c]
@@ -81642,7 +81642,7 @@ _0806425C:
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x1e
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r3, r0, #0
 _08064270:
 	ldrb r0, [r6]
@@ -85597,7 +85597,7 @@ _08065F9E:
 	ldr r0, [sp, #0xfc]
 	bl GetFriendship__C3Npc
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	ldr r2, [sp, #0x128]
 	str r0, [r2]
 	add r1, sp, #0xe8
@@ -85665,7 +85665,7 @@ _08065FF6:
 	adds r0, r0, r1
 	lsls r0, r0, #4
 	movs r1, #0xff
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	movs r0, #0x9c
 	adds r0, #8
@@ -85801,7 +85801,7 @@ _08066114:
 	adds r0, r0, r1
 	lsls r0, r0, #4
 	movs r1, #0xff
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	movs r0, #0xa5
 	adds r0, #8
@@ -85936,7 +85936,7 @@ _08066220:
 	adds r0, r0, r1
 	lsls r0, r0, #4
 	movs r1, #0xff
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	movs r0, #0xae
 	adds r0, #8
@@ -89847,7 +89847,7 @@ _08067F38:
 	ldr r7, [r0]
 	adds r0, r7, #0
 	ldr r1, [sp, #0xf8]
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08067FD6
@@ -89916,7 +89916,7 @@ _08067FD6:
 	adds r0, r0, r1
 	lsls r0, r0, #4
 	ldr r1, [sp, #0xf8]
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	movs r6, #0
 	ldr r5, [sp, #0xf0]
@@ -90011,7 +90011,7 @@ _08068088:
 	ldr r0, [r0, #4]
 	adds r7, r0, #0
 	ldr r1, [sp, #0xf8]
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _080680E2
@@ -90049,7 +90049,7 @@ _080680E2:
 	adds r0, r0, r1
 	lsls r0, r0, #4
 	ldr r1, [sp, #0xf8]
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	movs r5, #0x24
 	b _0806812A
@@ -92955,7 +92955,7 @@ _0806965A:
 	subs r0, r0, r1
 	lsls r0, r0, #3
 	ldr r1, _08069744 @ =0x0000735F
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	movs r7, #0
 	lsrs r1, r4, #3
@@ -93109,7 +93109,7 @@ _08069786:
 	movs r0, #0x64
 	muls r0, r1, r0
 	ldr r1, _080697BC @ =0x0000735F
-	bl func_080D0EDA
+	bl __udivsi3
 	movs r2, #0x90
 	lsls r2, r2, #1
 	movs r5, #0x20
@@ -93133,7 +93133,7 @@ _080697CA:
 	ldr r7, _080698A4 @ =0xFFFFB9B0
 	adds r0, r5, r7
 	movs r1, #0x96
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	movs r7, #0
 	lsrs r0, r4, #3
@@ -93295,7 +93295,7 @@ _0806990A:
 	ldr r5, _080699E4 @ =0xFFFFE890
 	adds r0, r4, r5
 	movs r1, #0x64
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	movs r7, #0
 	lsrs r0, r4, #3
@@ -93445,7 +93445,7 @@ _08069A26:
 	adds r0, r1, r2
 	movs r1, #0x78
 _08069A3A:
-	bl func_080D0EDA
+	bl __udivsi3
 	movs r2, #0x90
 	lsls r2, r2, #1
 	movs r5, #0x20
@@ -93471,7 +93471,7 @@ _08069A68: .4byte 0xFFFFE890
 _08069A6C:
 	ldr r0, [sp, #0xd4]
 	movs r1, #0x32
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 	movs r7, #0
 	lsrs r0, r4, #3
@@ -93570,7 +93570,7 @@ _08069B14:
 	adds r4, #0x32
 	ldr r0, [sp, #0xd4]
 	movs r1, #0x3c
-	bl func_080D0EDA
+	bl __udivsi3
 	movs r2, #0x90
 	lsls r2, r2, #1
 	movs r5, #0x20
@@ -97189,7 +97189,7 @@ _0806B738:
 	mov r0, sb
 	bl GetAffection__C6Animal
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	cmp r4, r0
 	blo _0806B710
 	mov r0, r8
@@ -97326,7 +97326,7 @@ _0806B83C:
 	mov r0, sb
 	bl GetAge__C6Animal
 	movs r1, #0x78
-	bl func_080D0EDA
+	bl __udivsi3
 	ldr r1, [r7, #0x1c]
 	ldr r1, [r1, #0x18]
 	add r1, sl
@@ -97367,7 +97367,7 @@ _0806B8A8:
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x1e
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r3, r0, #0
 _0806B8BC:
 	mov r4, r8
@@ -97679,7 +97679,7 @@ _0806BB20:
 	mov r0, sb
 	bl GetAffection__C6Animal
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	cmp r5, r0
 	blo _0806BAF8
 	mov r5, r8
@@ -97815,7 +97815,7 @@ _0806BC24:
 	mov r0, sb
 	bl GetAge__C6Animal
 	movs r1, #0x78
-	bl func_080D0EDA
+	bl __udivsi3
 	ldr r1, [r7, #0x1c]
 	ldr r1, [r1, #0x18]
 	add r1, sl
@@ -97856,7 +97856,7 @@ _0806BC90:
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x1e
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r3, r0, #0
 _0806BCA4:
 	mov r4, r8
@@ -98169,7 +98169,7 @@ _0806BF10:
 	mov r0, sb
 	bl GetAffection__C6Animal
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	cmp r5, r0
 	blo _0806BEE8
 	mov r5, r8
@@ -98305,7 +98305,7 @@ _0806C014:
 	mov r0, sb
 	bl GetAge__C6Animal
 	movs r1, #0x78
-	bl func_080D0EDA
+	bl __udivsi3
 	ldr r1, [r7, #0x1c]
 	ldr r1, [r1, #0x18]
 	add r1, sl
@@ -98346,7 +98346,7 @@ _0806C080:
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x1e
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r3, r0, #0
 _0806C094:
 	mov r4, r8
@@ -103210,7 +103210,7 @@ _0806E686:
 	bls _0806E6A8
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r3, r0, #0
 	lsls r3, r3, #0x18
 	lsrs r3, r3, #0x18
@@ -110883,7 +110883,7 @@ _0807216E:
 _080721DE:
 	adds r0, r4, #0
 	movs r1, #0x64
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08072220
@@ -113125,7 +113125,7 @@ _080730EC:
 _0807333A:
 	adds r0, r5, #0
 	movs r1, #0x64
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0807337E
@@ -117242,7 +117242,7 @@ func_08075220: @ 0x08075220
 _0807527E:
 	mov r0, sb
 	movs r1, #0x1e
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r7, r0, #0
 	movs r0, #3
 	ands r7, r0
@@ -117280,7 +117280,7 @@ _0807527E:
 _080752CE:
 	mov r0, sb
 	movs r1, #0x78
-	bl func_080D0EDA
+	bl __udivsi3
 	cmp r0, #0
 	beq _08075316
 	subs r6, #6
@@ -126919,7 +126919,7 @@ func_0807A2AC: @ 0x0807A2AC
 	movs r6, #0
 	adds r0, r5, #0
 	movs r1, #0xa
-	bl func_080D0EDA
+	bl __udivsi3
 	cmp r0, #0x24
 	bls _0807A2C2
 	b _0807A53C
@@ -129743,7 +129743,7 @@ func_0807B8F4: @ 0x0807B8F4
 	str r1, [sp]
 	bl GetAffection__C6Animal
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	str r0, [sp, #4]
 	add r2, sp, #4
 	ldr r1, [sp]
@@ -129953,7 +129953,7 @@ _0807BABC:
 	mov r0, sl
 	bl GetAge__C6Animal
 	movs r1, #0x78
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r6, r0, #0
 	cmp r6, #9
 	bgt _0807BB04
@@ -130062,7 +130062,7 @@ _0807BBA4:
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x1e
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 _0807BBB8:
 	ldrb r0, [r6]
@@ -149109,7 +149109,7 @@ func_08085EC4: @ 0x08085EC4
 	movs r4, #0xa
 	str r4, [sp]
 	movs r1, #0x19
-	bl func_080D0EDA
+	bl __udivsi3
 	str r0, [sp, #4]
 	add r1, sp, #4
 	mov r2, sp
@@ -149358,7 +149358,7 @@ _080860D6:
 	ldr r0, [sp, #0x30]
 	bl GetAge__C6Animal
 	movs r1, #0x78
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r6, r0, #0
 	mov r4, sl
 	lsls r4, r4, #5
@@ -149476,7 +149476,7 @@ _080861D0:
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x1e
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 _080861E4:
 	ldrb r0, [r6]
@@ -149867,7 +149867,7 @@ _08086500:
 	ldr r0, [sp, #0x3c]
 	bl GetAge__C6Animal
 	movs r1, #0x78
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r6, r0, #0
 	mov r3, sl
 	lsls r3, r3, #5
@@ -149986,7 +149986,7 @@ _080865FC:
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x1e
-	bl func_080D0EDA
+	bl __udivsi3
 	adds r4, r0, #0
 _08086610:
 	ldrb r0, [r6]

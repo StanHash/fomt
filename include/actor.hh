@@ -10,8 +10,8 @@ struct PACKED ALIGN(2) Location
     u32 GetMap(void) const { return map; }
 
     /* +00 */ u16 map : 10;
-    /* +01 */ u16 x : 16;
-    /* +03 */ u16 y : 16;
+    /* +01 */ i16 x : 16;
+    /* +03 */ i16 y : 16;
 };
 
 struct ActorLocation : public Location
