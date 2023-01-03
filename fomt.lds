@@ -68,7 +68,7 @@ SECTIONS
         asm/sram_proxy_2.o(.text);
         src/scene.o(.text);
         asm/scene.o(.text);
-        asm/intro.o(.text);
+        asm/intro_scene.o(.text);
         asm/new_game.o(.text);
         asm/hardware.o(.text);
         asm/code_08009A48.o(.text);
@@ -84,8 +84,12 @@ SECTIONS
         src/item.o(.text);
         asm/code_0800E2E4.o(.text);
         src/rucksack_item.o(.text);
+        asm/more_items.o(.text);
+        asm/game_scene.o(.text);
+        asm/game_state.o(.text);
+        asm/code_entities.o(.text);
 
-        asm/code_800F170.o(.text);
+        asm/code_0803A8A4.o(.text);
 
         src/actor.o(.text);
         src/animal.o(.text);
