@@ -7208,7 +7208,7 @@ func_080A220C: @ 0x080A220C
 	strh r2, [r1, #2]
 	adds r0, r7, #0
 	bl func_080084DC
-	ldr r0, _080A245C @ =0x080E825C
+	ldr r0, _080A245C @ =vtable_unk_080E825C
 	str r0, [r7, #4]
 	str r4, [r7, #8]
 	str r5, [r7, #0xc]
@@ -7408,7 +7408,7 @@ func_080A220C: @ 0x080A220C
 	movs r1, #0x87
 	lsls r1, r1, #2
 	adds r0, r7, r1
-	ldr r1, _080A246C @ =0x080E8268
+	ldr r1, _080A246C @ =vtable_unk_080E8268
 	str r1, [r0]
 	mov r2, r8
 	strb r2, [r0, #4]
@@ -7454,11 +7454,11 @@ func_080A220C: @ 0x080A220C
 	movs r2, #0x1d
 	b _080A2472
 	.align 2, 0
-_080A245C: .4byte 0x080E825C
+_080A245C: .4byte vtable_unk_080E825C
 _080A2460: .4byte 0x0874F34C
 _080A2464: .4byte 0x087506E0
 _080A2468: .4byte 0x08728208
-_080A246C: .4byte 0x080E8268
+_080A246C: .4byte vtable_unk_080E8268
 _080A2470:
 	subs r2, #1
 _080A2472:
@@ -7666,7 +7666,7 @@ func_080A25B0: @ 0x080A25B0
 	movs r6, #0
 	str r6, [r4]
 	str r6, [r4, #4]
-	ldr r0, _080A2668 @ =0x080E5B80
+	ldr r0, _080A2668 @ =vtable_unk_080E5B80
 	str r0, [r4, #8]
 	adds r5, r4, #0
 	adds r5, #0xc
@@ -7718,7 +7718,7 @@ _080A265C:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_080A2668: .4byte 0x080E5B80
+_080A2668: .4byte vtable_unk_080E5B80
 _080A266C: .4byte 0x00000889
 _080A2670: .4byte 0x00000216
 _080A2674: .4byte _080A2678
@@ -9825,7 +9825,7 @@ func_080A3744: @ 0x080A3744
 	adds r4, r0, #0
 	adds r6, r1, #0
 	adds r5, r2, #0
-	ldr r0, _080A3770 @ =0x080E8278
+	ldr r0, _080A3770 @ =vtable_unk_080E8278
 	str r0, [r4]
 	movs r0, #0x8a
 	lsls r0, r0, #2
@@ -9842,7 +9842,7 @@ func_080A3744: @ 0x080A3744
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080A3770: .4byte 0x080E8278
+_080A3770: .4byte vtable_unk_080E8278
 
 	thumb_func_start func_080A3774
 func_080A3774: @ 0x080A3774
@@ -10414,7 +10414,7 @@ func_080A3BF4: @ 0x080A3BF4
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080A3C20 @ =0x080E8288
+	ldr r0, _080A3C20 @ =vtable_unk_080E8288
 	str r0, [r4]
 	ldr r1, [r4, #4]
 	cmp r1, #0
@@ -10432,7 +10432,7 @@ _080A3C10:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080A3C20: .4byte 0x080E8288
+_080A3C20: .4byte vtable_unk_080E8288
 _080A3C24:
 	.byte 0x30, 0xB5, 0x05, 0x4C, 0x04, 0x60, 0x0D, 0x68, 0x00, 0x24, 0x0C, 0x60
 	.byte 0x45, 0x60, 0x82, 0x60, 0xC3, 0x60, 0x30, 0xBC, 0x02, 0xBC, 0x08, 0x47, 0x88, 0x82, 0x0E, 0x08
@@ -10442,7 +10442,7 @@ func_080A3C40: @ 0x080A3C40
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080A3C6C @ =0x080E8298
+	ldr r0, _080A3C6C @ =vtable_unk_080E8298
 	str r0, [r4]
 	ldr r1, [r4, #4]
 	cmp r1, #0
@@ -10460,7 +10460,7 @@ _080A3C5C:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080A3C6C: .4byte 0x080E8298
+_080A3C6C: .4byte vtable_unk_080E8298
 _080A3C70:
 	.byte 0x30, 0xB5, 0x05, 0x4C, 0x04, 0x60, 0x0D, 0x68, 0x00, 0x24, 0x0C, 0x60, 0x45, 0x60, 0x82, 0x60
 	.byte 0xC3, 0x60, 0x30, 0xBC, 0x02, 0xBC, 0x08, 0x47, 0x98, 0x82, 0x0E, 0x08
@@ -10470,7 +10470,7 @@ func_080A3C8C: @ 0x080A3C8C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080A3CB8 @ =0x080E82A8
+	ldr r0, _080A3CB8 @ =vtable_unk_080E82A8
 	str r0, [r4]
 	ldr r1, [r4, #4]
 	cmp r1, #0
@@ -10488,7 +10488,7 @@ _080A3CA8:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080A3CB8: .4byte 0x080E82A8
+_080A3CB8: .4byte vtable_unk_080E82A8
 _080A3CBC:
 	.byte 0x30, 0xB5, 0x05, 0x4C
 	.byte 0x04, 0x60, 0x0D, 0x68, 0x00, 0x24, 0x0C, 0x60, 0x45, 0x60, 0x82, 0x60, 0xC3, 0x60, 0x30, 0xBC
@@ -11721,7 +11721,7 @@ func_080A46AC: @ 0x080A46AC
 	mov r8, r3
 	ldr r0, [sp, #0x20]
 	mov sb, r0
-	ldr r0, _080A473C @ =0x080E82D8
+	ldr r0, _080A473C @ =vtable_unk_080E82D8
 	str r0, [r6, #0x24]
 	adds r4, r6, #0
 	stm r4!, {r7}
@@ -11781,7 +11781,7 @@ _080A472C:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080A473C: .4byte 0x080E82D8
+_080A473C: .4byte vtable_unk_080E82D8
 
 	thumb_func_start func_080A4740
 func_080A4740: @ 0x080A4740
@@ -11794,7 +11794,7 @@ func_080A4740: @ 0x080A4740
 	adds r6, r1, #0
 	mov r8, r2
 	mov sb, r3
-	ldr r0, _080A47B0 @ =0x080E82D8
+	ldr r0, _080A47B0 @ =vtable_unk_080E82D8
 	str r0, [r5, #0x24]
 	adds r4, r5, #0
 	stm r4!, {r6}
@@ -11836,14 +11836,14 @@ func_080A4740: @ 0x080A4740
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080A47B0: .4byte 0x080E82D8
+_080A47B0: .4byte vtable_unk_080E82D8
 
 	thumb_func_start func_080A47B4
 func_080A47B4: @ 0x080A47B4
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	adds r7, r1, #0
-	ldr r0, _080A4808 @ =0x080E82D8
+	ldr r0, _080A4808 @ =vtable_unk_080E82D8
 	str r0, [r5, #0x24]
 	movs r6, #0
 	ldr r0, [r5, #0x10]
@@ -11881,7 +11881,7 @@ _080A4800:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080A4808: .4byte 0x080E82D8
+_080A4808: .4byte vtable_unk_080E82D8
 
 	thumb_func_start func_080A480C
 func_080A480C: @ 0x080A480C
@@ -12127,7 +12127,7 @@ func_080A49A0: @ 0x080A49A0
 	str r4, [sp]
 	adds r0, r7, #0
 	bl func_080A46AC
-	ldr r0, _080A49FC @ =0x080E681C
+	ldr r0, _080A49FC @ =vtable_unk_080E681C
 	str r0, [r7, #0x24]
 	adds r0, r7, #0
 	adds r0, #0x28
@@ -12155,7 +12155,7 @@ func_080A49A0: @ 0x080A49A0
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080A49FC: .4byte 0x080E681C
+_080A49FC: .4byte vtable_unk_080E681C
 
 	thumb_func_start func_080A4A00
 func_080A4A00: @ 0x080A4A00
@@ -12170,7 +12170,7 @@ func_080A4A00: @ 0x080A4A00
 	ldrb r6, [r0]
 	adds r0, r7, #0
 	bl func_080A4740
-	ldr r0, _080A4A48 @ =0x080E681C
+	ldr r0, _080A4A48 @ =vtable_unk_080E681C
 	str r0, [r7, #0x24]
 	adds r0, r7, #0
 	adds r0, #0x28
@@ -12194,7 +12194,7 @@ func_080A4A00: @ 0x080A4A00
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080A4A48: .4byte 0x080E681C
+_080A4A48: .4byte vtable_unk_080E681C
 _080A4A4C:
 	.byte 0x70, 0xB5, 0x85, 0xB0
 	.byte 0x04, 0x1C, 0x0D, 0x1C, 0x16, 0x1C, 0xA1, 0x68, 0x48, 0x42, 0x08, 0x43, 0x00, 0x28, 0x01, 0xDB
@@ -12209,7 +12209,7 @@ func_080A4A94: @ 0x080A4A94
 	adds r4, r0, #0
 	adds r1, r4, #0
 	adds r1, #0x90
-	ldr r0, _080A4B64 @ =0x080E82E4
+	ldr r0, _080A4B64 @ =vtable_unk_080E82E4
 	str r0, [r1]
 	movs r0, #0x8d
 	lsls r0, r0, #2
@@ -12272,7 +12272,7 @@ func_080A4A94: @ 0x080A4A94
 	adds r2, #0x5c
 	str r0, [r4, #0x5c]
 	str r0, [r2, #4]
-	ldr r1, _080A4B68 @ =0x080E830C
+	ldr r1, _080A4B68 @ =vtable_unk_080E830C
 	str r1, [r2, #8]
 	adds r1, r4, #0
 	adds r1, #0x8c
@@ -12308,8 +12308,8 @@ _080A4B40:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080A4B64: .4byte 0x080E82E4
-_080A4B68: .4byte 0x080E830C
+_080A4B64: .4byte vtable_unk_080E82E4
+_080A4B68: .4byte vtable_unk_080E830C
 
 	thumb_func_start func_080A4B6C
 func_080A4B6C: @ 0x080A4B6C
@@ -12321,7 +12321,7 @@ func_080A4B6C: @ 0x080A4B6C
 	mov sb, r1
 	adds r1, r6, #0
 	adds r1, #0x90
-	ldr r0, _080A4BE8 @ =0x080E82E4
+	ldr r0, _080A4BE8 @ =vtable_unk_080E82E4
 	str r0, [r1]
 	ldr r0, [r6, #0x2c]
 	cmp r0, #0
@@ -12376,7 +12376,7 @@ _080A4BDA:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080A4BE8: .4byte 0x080E82E4
+_080A4BE8: .4byte vtable_unk_080E82E4
 
 	thumb_func_start func_080A4BEC
 func_080A4BEC: @ 0x080A4BEC
@@ -15531,7 +15531,7 @@ func_080A6474: @ 0x080A6474
 	bl func_080A4A94
 	adds r1, r5, #0
 	adds r1, #0x90
-	ldr r0, _080A64B4 @ =0x080E831C
+	ldr r0, _080A64B4 @ =vtable_unk_080E831C
 	str r0, [r1]
 	adds r0, r5, #0
 	adds r0, #0x94
@@ -15555,7 +15555,7 @@ func_080A6474: @ 0x080A6474
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080A64B4: .4byte 0x080E831C
+_080A64B4: .4byte vtable_unk_080E831C
 
 	thumb_func_start func_080A64B8
 func_080A64B8: @ 0x080A64B8
@@ -21867,7 +21867,7 @@ _080A9574:
 	bge _080A958C
 	b _080A9416
 _080A958C:
-	ldr r0, _080A95A0 @ =0x080E5A28
+	ldr r0, _080A95A0 @ =vtable_unk_080E5A28
 	str r0, [sp]
 	add sp, #0x1c4
 	pop {r3, r4, r5}
@@ -21878,7 +21878,7 @@ _080A958C:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080A95A0: .4byte 0x080E5A28
+_080A95A0: .4byte vtable_unk_080E5A28
 
 	thumb_func_start func_080A95A4
 func_080A95A4: @ 0x080A95A4
@@ -23449,7 +23449,7 @@ _080AA23C:
 	ldr r1, [sp, #0xd8]
 	mov r2, sb
 	bl func_080AA270
-	ldr r0, _080AA26C @ =0x080E5A28
+	ldr r0, _080AA26C @ =vtable_unk_080E5A28
 	str r0, [sp]
 	add sp, #0xe8
 	pop {r3, r4, r5}
@@ -23464,7 +23464,7 @@ _080AA25C: .4byte 0x081072B4
 _080AA260: .4byte 0x08107204
 _080AA264: .4byte 0x081072E0
 _080AA268: .4byte 0x08107230
-_080AA26C: .4byte 0x080E5A28
+_080AA26C: .4byte vtable_unk_080E5A28
 
 	thumb_func_start func_080AA270
 func_080AA270: @ 0x080AA270
@@ -28623,7 +28623,7 @@ _080AC8B8:
 	movs r2, #0xff
 	lsls r2, r2, #4
 	adds r0, r5, r2
-	ldr r1, _080AC964 @ =0x080E5A28
+	ldr r1, _080AC964 @ =vtable_unk_080E5A28
 	str r1, [r0]
 	subs r2, #0x30
 	adds r0, r5, r2
@@ -28705,7 +28705,7 @@ _080AC956:
 	.align 2, 0
 _080AC95C: .4byte 0x00001028
 _080AC960: .4byte 0x00001024
-_080AC964: .4byte 0x080E5A28
+_080AC964: .4byte vtable_unk_080E5A28
 _080AC968: .4byte 0x00000DAC
 
 	thumb_func_start func_080AC96C
@@ -28784,9 +28784,9 @@ func_080AC9EC: @ 0x080AC9EC
 	sub sp, #0x10
 	adds r6, r0, #0
 	adds r7, r1, #0
-	ldr r0, _080ACADC @ =0x080E8440
+	ldr r0, _080ACADC @ =vtable_unk_080E8440
 	str r0, [r6]
-	ldr r1, _080ACAE0 @ =0x080E8344
+	ldr r1, _080ACAE0 @ =vtable_unk_080E8344
 	adds r0, r6, #0
 	stm r0!, {r1}
 	ldr r2, [r7]
@@ -28895,8 +28895,8 @@ _080ACAD2:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080ACADC: .4byte 0x080E8440
-_080ACAE0: .4byte 0x080E8344
+_080ACADC: .4byte vtable_unk_080E8440
+_080ACAE0: .4byte vtable_unk_080E8344
 _080ACAE4: .4byte 0xFFFFFC00
 _080ACAE8: .4byte 0x00001024
 _080ACAEC: .4byte 0x00001028
@@ -30228,12 +30228,12 @@ _080AD504:
 	add r2, sp, #4
 	movs r3, #2
 	bl func_080320DC
-	ldr r0, _080AD568 @ =0x080E8404
+	ldr r0, _080AD568 @ =vtable_unk_080E8404
 	str r0, [r5, #0x14]
 	b _080AD5AA
 	.align 2, 0
 _080AD564: .4byte 0xFFFFFC00
-_080AD568: .4byte 0x080E8404
+_080AD568: .4byte vtable_unk_080E8404
 _080AD56C:
 	movs r0, #0x18
 	bl __builtin_new
@@ -31080,7 +31080,7 @@ func_080ADCA4: @ 0x080ADCA4
 	ldr r3, [r5, #0x10]
 	adds r1, r6, #0
 	bl _call_via_r3
-	ldr r0, _080ADD04 @ =0x080E5A28
+	ldr r0, _080ADD04 @ =vtable_unk_080E5A28
 	str r0, [sp, #0x20]
 	mov r0, sp
 	mov r1, sp
@@ -31101,7 +31101,7 @@ func_080ADCA4: @ 0x080ADCA4
 	bx r0
 	.align 2, 0
 _080ADD00: .4byte 0x0852D984
-_080ADD04: .4byte 0x080E5A28
+_080ADD04: .4byte vtable_unk_080E5A28
 
 	thumb_func_start func_080ADD08
 func_080ADD08: @ 0x080ADD08
@@ -31127,14 +31127,14 @@ func_080ADD20: @ 0x080ADD20
 	bl func_0805E6CC
 	mov r0, sp
 	ldrh r0, [r0, #0x20]
-	ldr r1, _080ADD40 @ =0x080E5A28
+	ldr r1, _080ADD40 @ =vtable_unk_080E5A28
 	str r1, [sp]
 	add sp, #0x30
 	pop {r1}
 	bx r1
 	.align 2, 0
 _080ADD3C: .4byte 0x0852D984
-_080ADD40: .4byte 0x080E5A28
+_080ADD40: .4byte vtable_unk_080E5A28
 
 	thumb_func_start func_080ADD44
 func_080ADD44: @ 0x080ADD44
@@ -31441,7 +31441,7 @@ func_080ADF6C: @ 0x080ADF6C
 	adds r6, r0, #0
 	str r1, [sp, #0x14]
 	bl func_08008444
-	ldr r0, _080AE340 @ =0x080E8500
+	ldr r0, _080AE340 @ =vtable_unk_080E8500
 	str r0, [r6, #4]
 	movs r0, #2
 	add r7, sp, #0x10
@@ -31546,7 +31546,7 @@ _080ADF8C:
 	adds r1, r0, #0
 	str r4, [r5]
 	str r4, [r5, #4]
-	ldr r0, _080AE374 @ =0x080E5B80
+	ldr r0, _080AE374 @ =vtable_unk_080E5B80
 	str r0, [r5, #8]
 	adds r0, r5, #0
 	adds r0, #0xc
@@ -31907,7 +31907,7 @@ _080AE2EC:
 	adds r0, r6, r1
 	b _080AE3B4
 	.align 2, 0
-_080AE340: .4byte 0x080E8500
+_080AE340: .4byte vtable_unk_080E8500
 _080AE344: .4byte 0x0873E5B0
 _080AE348: .4byte 0x0000041C
 _080AE34C: .4byte 0x0873DE44
@@ -31920,7 +31920,7 @@ _080AE364: .4byte 0x0871D51C
 _080AE368: .4byte 0x0872BE64
 _080AE36C: .4byte 0x00000434
 _080AE370: .4byte 0x0873D6D8
-_080AE374: .4byte 0x080E5B80
+_080AE374: .4byte vtable_unk_080E5B80
 _080AE378: .4byte 0x0000043C
 _080AE37C: .4byte 0x000007CC
 _080AE380: .4byte 0x000007D4
@@ -31974,13 +31974,13 @@ _080AE3B4:
 	adds r0, r6, r1
 	str r4, [r0]
 	str r4, [r0, #4]
-	ldr r1, _080AE4C8 @ =0x080E5B70
+	ldr r1, _080AE4C8 @ =vtable_unk_080E5B70
 	str r1, [r0, #8]
 	ldr r2, _080AE4CC @ =0x0000082C
 	adds r0, r6, r2
 	str r4, [r0]
 	str r4, [r0, #4]
-	ldr r1, _080AE4D0 @ =0x080E5B60
+	ldr r1, _080AE4D0 @ =vtable_unk_080E5B60
 	str r1, [r0, #8]
 	ldr r0, _080AE4D4 @ =0x00000888
 	adds r5, r6, r0
@@ -32055,9 +32055,9 @@ _080AE4B8: .4byte 0x0000080C
 _080AE4BC: .4byte 0x00000814
 _080AE4C0: .4byte 0x00000818
 _080AE4C4: .4byte 0x0000081C
-_080AE4C8: .4byte 0x080E5B70
+_080AE4C8: .4byte vtable_unk_080E5B70
 _080AE4CC: .4byte 0x0000082C
-_080AE4D0: .4byte 0x080E5B60
+_080AE4D0: .4byte vtable_unk_080E5B60
 _080AE4D4: .4byte 0x00000888
 
 	thumb_func_start func_080AE4D8
@@ -43221,7 +43221,7 @@ func_080B3BE4: @ 0x080B3BE4
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080B3C04 @ =0x080E850C
+	ldr r0, _080B3C04 @ =vtable_unk_080E850C
 	str r0, [r4]
 	ldr r0, _080B3C08 @ =0x0000093C
 	bl __builtin_new
@@ -43233,7 +43233,7 @@ func_080B3BE4: @ 0x080B3BE4
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080B3C04: .4byte 0x080E850C
+_080B3C04: .4byte vtable_unk_080E850C
 _080B3C08: .4byte 0x0000093C
 
 	thumb_func_start func_080B3C0C
@@ -43241,7 +43241,7 @@ func_080B3C0C: @ 0x080B3C0C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080B3C38 @ =0x080E850C
+	ldr r0, _080B3C38 @ =vtable_unk_080E850C
 	str r0, [r4]
 	ldr r1, [r4, #4]
 	cmp r1, #0
@@ -43259,7 +43259,7 @@ _080B3C28:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080B3C38: .4byte 0x080E850C
+_080B3C38: .4byte vtable_unk_080E850C
 
 	thumb_func_start func_080B3C3C
 func_080B3C3C: @ 0x080B3C3C
@@ -43350,7 +43350,7 @@ func_080B3CC8: @ 0x080B3CC8
 	adds r6, r0, #0
 	mov sb, r1
 	bl func_08008444
-	ldr r0, _080B4090 @ =0x080E851C
+	ldr r0, _080B4090 @ =vtable_unk_080E851C
 	str r0, [r6, #4]
 	movs r0, #0
 	strb r0, [r6, #8]
@@ -43602,7 +43602,7 @@ _080B3E44:
 	movs r0, #0
 	str r0, [r4]
 	str r0, [r4, #4]
-	ldr r0, _080B413C @ =0x080E5B80
+	ldr r0, _080B413C @ =vtable_unk_080E5B80
 	str r0, [r4, #8]
 	adds r0, r4, #0
 	adds r0, #0xc
@@ -43802,7 +43802,7 @@ _080B406E:
 	movs r0, #0
 	b _080B4178
 	.align 2, 0
-_080B4090: .4byte 0x080E851C
+_080B4090: .4byte vtable_unk_080E851C
 _080B4094: .4byte 0x00000704
 _080B4098: .4byte 0x0000070C
 _080B409C: .4byte 0x00000714
@@ -43845,7 +43845,7 @@ _080B412C: .4byte 0x0873CEAC
 _080B4130: .4byte 0x08729460
 _080B4134: .4byte 0x087409E4
 _080B4138: .4byte 0x0000079C
-_080B413C: .4byte 0x080E5B80
+_080B413C: .4byte vtable_unk_080E5B80
 _080B4140: .4byte 0x000007A4
 _080B4144: .4byte 0x000007AC
 _080B4148: .4byte 0x000007B4
@@ -61346,7 +61346,7 @@ func_080BC898: @ 0x080BC898
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080BC8B8 @ =0x080E8528
+	ldr r0, _080BC8B8 @ =vtable_unk_080E8528
 	str r0, [r4]
 	ldr r0, _080BC8BC @ =0x00000B78
 	bl __builtin_new
@@ -61358,7 +61358,7 @@ func_080BC898: @ 0x080BC898
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080BC8B8: .4byte 0x080E8528
+_080BC8B8: .4byte vtable_unk_080E8528
 _080BC8BC: .4byte 0x00000B78
 
 	thumb_func_start func_080BC8C0
@@ -61366,7 +61366,7 @@ func_080BC8C0: @ 0x080BC8C0
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080BC8EC @ =0x080E8528
+	ldr r0, _080BC8EC @ =vtable_unk_080E8528
 	str r0, [r4]
 	ldr r1, [r4, #4]
 	cmp r1, #0
@@ -61384,7 +61384,7 @@ _080BC8DC:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080BC8EC: .4byte 0x080E8528
+_080BC8EC: .4byte vtable_unk_080E8528
 
 	thumb_func_start func_080BC8F0
 func_080BC8F0: @ 0x080BC8F0
@@ -61435,7 +61435,7 @@ func_080BC938: @ 0x080BC938
 	adds r6, r0, #0
 	mov r8, r1
 	bl func_08008444
-	ldr r0, _080BCC78 @ =0x080E8538
+	ldr r0, _080BCC78 @ =vtable_unk_080E8538
 	str r0, [r6, #4]
 	movs r0, #2
 	add r7, sp, #0x10
@@ -61540,7 +61540,7 @@ _080BC954:
 	adds r1, r0, #0
 	str r4, [r5]
 	str r4, [r5, #4]
-	ldr r0, _080BCCAC @ =0x080E5B80
+	ldr r0, _080BCCAC @ =vtable_unk_080E5B80
 	str r0, [r5, #8]
 	adds r0, r5, #0
 	adds r0, #0xc
@@ -61725,13 +61725,13 @@ _080BC954:
 	adds r0, r6, r2
 	str r4, [r0]
 	str r4, [r0, #4]
-	ldr r1, _080BCCBC @ =0x080E5B70
+	ldr r1, _080BCCBC @ =vtable_unk_080E5B70
 	str r1, [r0, #8]
 	ldr r1, _080BCCC0 @ =0x00000594
 	adds r0, r6, r1
 	str r4, [r0]
 	str r4, [r0, #4]
-	ldr r1, _080BCCC4 @ =0x080E5B60
+	ldr r1, _080BCCC4 @ =vtable_unk_080E5B60
 	str r1, [r0, #8]
 	adds r2, #0x28
 	adds r5, r6, r2
@@ -61806,7 +61806,7 @@ _080BC954:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080BCC78: .4byte 0x080E8538
+_080BCC78: .4byte vtable_unk_080E8538
 _080BCC7C: .4byte 0x0873E5B0
 _080BCC80: .4byte 0x0000041C
 _080BCC84: .4byte 0x0873DE44
@@ -61819,13 +61819,13 @@ _080BCC9C: .4byte 0x0871D51C
 _080BCCA0: .4byte 0x0872BE64
 _080BCCA4: .4byte 0x00000434
 _080BCCA8: .4byte 0x0873D6D8
-_080BCCAC: .4byte 0x080E5B80
+_080BCCAC: .4byte vtable_unk_080E5B80
 _080BCCB0: .4byte 0x0000043C
 _080BCCB4: .4byte 0x0000057C
 _080BCCB8: .4byte 0x00000584
-_080BCCBC: .4byte 0x080E5B70
+_080BCCBC: .4byte vtable_unk_080E5B70
 _080BCCC0: .4byte 0x00000594
-_080BCCC4: .4byte 0x080E5B60
+_080BCCC4: .4byte vtable_unk_080E5B60
 _080BCCC8: .4byte 0x00000604
 _080BCCCC: .4byte 0x00000614
 _080BCCD0: .4byte 0x0000061C
@@ -70114,7 +70114,7 @@ func_080C0D1C: @ 0x080C0D1C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080C0D40 @ =0x080E8544
+	ldr r0, _080C0D40 @ =vtable_unk_080E8544
 	str r0, [r4]
 	movs r0, #0xc4
 	lsls r0, r0, #3
@@ -70127,14 +70127,14 @@ func_080C0D1C: @ 0x080C0D1C
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080C0D40: .4byte 0x080E8544
+_080C0D40: .4byte vtable_unk_080E8544
 
 	thumb_func_start func_080C0D44
 func_080C0D44: @ 0x080C0D44
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080C0D70 @ =0x080E8544
+	ldr r0, _080C0D70 @ =vtable_unk_080E8544
 	str r0, [r4]
 	ldr r1, [r4, #4]
 	cmp r1, #0
@@ -70152,7 +70152,7 @@ _080C0D60:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080C0D70: .4byte 0x080E8544
+_080C0D70: .4byte vtable_unk_080E8544
 
 	thumb_func_start func_080C0D74
 func_080C0D74: @ 0x080C0D74
@@ -70215,7 +70215,7 @@ func_080C0DCC: @ 0x080C0DCC
 	adds r6, r0, #0
 	str r1, [sp, #0x14]
 	bl func_08008444
-	ldr r0, _080C11C0 @ =0x080E8554
+	ldr r0, _080C11C0 @ =vtable_unk_080E8554
 	str r0, [r6, #4]
 	movs r0, #3
 	add r7, sp, #0x10
@@ -70327,7 +70327,7 @@ _080C0DEC:
 	adds r1, r0, #0
 	str r4, [r5]
 	str r4, [r5, #4]
-	ldr r0, _080C11FC @ =0x080E5B80
+	ldr r0, _080C11FC @ =vtable_unk_080E5B80
 	str r0, [r5, #8]
 	adds r0, r5, #0
 	adds r0, #0xc
@@ -70686,7 +70686,7 @@ _080C10BE:
 	adds r0, r6, r2
 	b _080C1228
 	.align 2, 0
-_080C11C0: .4byte 0x080E8554
+_080C11C0: .4byte vtable_unk_080E8554
 _080C11C4: .4byte 0x0000051C
 _080C11C8: .4byte 0x0873E5B0
 _080C11CC: .4byte 0x0873DE44
@@ -70701,7 +70701,7 @@ _080C11EC: .4byte 0x0871D51C
 _080C11F0: .4byte 0x0872BE64
 _080C11F4: .4byte 0x0000053C
 _080C11F8: .4byte 0x0873D6D8
-_080C11FC: .4byte 0x080E5B80
+_080C11FC: .4byte vtable_unk_080E5B80
 _080C1200: .4byte 0x00000544
 _080C1204: .4byte 0x0000061C
 _080C1208: .4byte 0x00000808
@@ -70732,14 +70732,14 @@ _080C1228:
 	adds r0, r6, r2
 	str r4, [r0]
 	str r4, [r0, #4]
-	ldr r1, _080C12A8 @ =0x080E5B70
+	ldr r1, _080C12A8 @ =vtable_unk_080E5B70
 	str r1, [r0, #8]
 	movs r1, #0x83
 	lsls r1, r1, #4
 	adds r0, r6, r1
 	str r4, [r0]
 	str r4, [r0, #4]
-	ldr r1, _080C12AC @ =0x080E5B60
+	ldr r1, _080C12AC @ =vtable_unk_080E5B60
 	str r1, [r0, #8]
 	adds r2, #0x18
 	adds r0, r6, r2
@@ -70770,8 +70770,8 @@ _080C1228:
 _080C129C: .4byte 0x00000818
 _080C12A0: .4byte 0x0000081C
 _080C12A4: .4byte 0x00000824
-_080C12A8: .4byte 0x080E5B70
-_080C12AC: .4byte 0x080E5B60
+_080C12A8: .4byte vtable_unk_080E5B70
+_080C12AC: .4byte vtable_unk_080E5B60
 _080C12B0: .4byte 0x00000974
 _080C12B4: .4byte 0x00000988
 
@@ -84506,7 +84506,7 @@ func_080C7EA8: @ 0x080C7EA8
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080C7EC8 @ =0x080E8560
+	ldr r0, _080C7EC8 @ =vtable_unk_080E8560
 	str r0, [r4]
 	ldr r0, _080C7ECC @ =0x0000098C
 	bl __builtin_new
@@ -84518,7 +84518,7 @@ func_080C7EA8: @ 0x080C7EA8
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080C7EC8: .4byte 0x080E8560
+_080C7EC8: .4byte vtable_unk_080E8560
 _080C7ECC: .4byte 0x0000098C
 
 	thumb_func_start func_080C7ED0
@@ -84526,7 +84526,7 @@ func_080C7ED0: @ 0x080C7ED0
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r0, _080C7EFC @ =0x080E8560
+	ldr r0, _080C7EFC @ =vtable_unk_080E8560
 	str r0, [r4]
 	ldr r1, [r4, #4]
 	cmp r1, #0
@@ -84544,7 +84544,7 @@ _080C7EEC:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080C7EFC: .4byte 0x080E8560
+_080C7EFC: .4byte vtable_unk_080E8560
 
 	thumb_func_start func_080C7F00
 func_080C7F00: @ 0x080C7F00
@@ -84607,7 +84607,7 @@ func_080C7F58: @ 0x080C7F58
 	adds r7, r0, #0
 	adds r4, r1, #0
 	bl func_08008444
-	ldr r0, _080C8310 @ =0x080E8570
+	ldr r0, _080C8310 @ =vtable_unk_080E8570
 	str r0, [r7, #4]
 	str r4, [r7, #8]
 	movs r4, #0
@@ -85035,7 +85035,7 @@ _080C82BC:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080C8310: .4byte 0x080E8570
+_080C8310: .4byte vtable_unk_080E8570
 _080C8314: .4byte 0x0000057C
 _080C8318: .4byte 0x000005B4
 _080C831C: .4byte 0x000005EC
@@ -85064,7 +85064,7 @@ func_080C8360: @ 0x080C8360
 	push {r6, r7}
 	adds r5, r0, #0
 	mov sb, r1
-	ldr r0, _080C853C @ =0x080E8570
+	ldr r0, _080C853C @ =vtable_unk_080E8570
 	str r0, [r5, #4]
 	ldr r0, _080C8540 @ =0x00000434
 	adds r4, r5, r0
@@ -85073,7 +85073,7 @@ func_080C8360: @ 0x080C8360
 	bl func_08000540
 	ldr r1, _080C8544 @ =0x00000534
 	adds r0, r5, r1
-	ldr r1, _080C8548 @ =0x080E5A28
+	ldr r1, _080C8548 @ =vtable_unk_080E5A28
 	str r1, [r0]
 	ldr r2, _080C854C @ =0x00000504
 	adds r0, r5, r2
@@ -85276,10 +85276,10 @@ _080C8528:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080C853C: .4byte 0x080E8570
+_080C853C: .4byte vtable_unk_080E8570
 _080C8540: .4byte 0x00000434
 _080C8544: .4byte 0x00000534
-_080C8548: .4byte 0x080E5A28
+_080C8548: .4byte vtable_unk_080E5A28
 _080C854C: .4byte 0x00000504
 
 	thumb_func_start func_080C8550
@@ -90508,7 +90508,7 @@ func_080CAC7C: @ 0x080CAC7C
 	str r0, [r1, #8]
 	mov r0, sb
 	str r0, [r1]
-	ldr r0, _080CAD04 @ =0x080E5A28
+	ldr r0, _080CAD04 @ =vtable_unk_080E5A28
 	str r0, [sp]
 	mov r0, r8
 	add sp, #0x88
@@ -90519,7 +90519,7 @@ func_080CAC7C: @ 0x080CAC7C
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080CAD04: .4byte 0x080E5A28
+_080CAD04: .4byte vtable_unk_080E5A28
 _080CAD08:
 	.byte 0x41, 0x60, 0x82, 0x60, 0x03, 0x60, 0x70, 0x47
 
@@ -90589,7 +90589,7 @@ func_080CAD18: @ 0x080CAD18
 	str r0, [r1, #8]
 	mov r0, sb
 	str r0, [r1]
-	ldr r0, _080CAD9C @ =0x080E5A28
+	ldr r0, _080CAD9C @ =vtable_unk_080E5A28
 	str r0, [sp]
 	add sp, #0x88
 	pop {r3, r4}
@@ -90599,7 +90599,7 @@ func_080CAD18: @ 0x080CAD18
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080CAD9C: .4byte 0x080E5A28
+_080CAD9C: .4byte vtable_unk_080E5A28
 
 	thumb_func_start func_080CADA0
 func_080CADA0: @ 0x080CADA0
@@ -90625,7 +90625,7 @@ func_080CADB4: @ 0x080CADB4
 	movs r0, #0x84
 	lsls r0, r0, #2
 	adds r2, r5, r0
-	ldr r0, _080CADEC @ =0x080E85CC
+	ldr r0, _080CADEC @ =vtable_unk_080E85CC
 	str r0, [r2]
 	adds r4, r5, #0
 	stm r4!, {r1}
@@ -90647,7 +90647,7 @@ _080CADDC:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080CADEC: .4byte 0x080E85CC
+_080CADEC: .4byte vtable_unk_080E85CC
 
 	thumb_func_start func_080CADF0
 func_080CADF0: @ 0x080CADF0
@@ -90658,7 +90658,7 @@ func_080CADF0: @ 0x080CADF0
 	movs r0, #0x84
 	lsls r0, r0, #2
 	adds r1, r5, r0
-	ldr r0, _080CAE0C @ =0x080E85CC
+	ldr r0, _080CAE0C @ =vtable_unk_080E85CC
 	str r0, [r1]
 	ldr r0, [r5, #8]
 	ldr r1, [r0]
@@ -90666,7 +90666,7 @@ func_080CADF0: @ 0x080CADF0
 	str r0, [sp, #4]
 	b _080CAE2C
 	.align 2, 0
-_080CAE0C: .4byte 0x080E85CC
+_080CAE0C: .4byte vtable_unk_080E85CC
 _080CAE10:
 	ldr r0, [sp]
 	ldr r1, [r0, #8]
@@ -90912,7 +90912,7 @@ func_080CAFC4: @ 0x080CAFC4
 	movs r0, #0x84
 	lsls r0, r0, #2
 	adds r1, r5, r0
-	ldr r0, _080CB08C @ =0x080E85BC
+	ldr r0, _080CB08C @ =vtable_unk_080E85BC
 	str r0, [r1]
 	mov r0, sp
 	bl func_080CAC70
@@ -90995,7 +90995,7 @@ _080CB060:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080CB08C: .4byte 0x080E85BC
+_080CB08C: .4byte vtable_unk_080E85BC
 
 	thumb_func_start func_080CB090
 func_080CB090: @ 0x080CB090
@@ -93280,7 +93280,7 @@ func_080CC15C: @ 0x080CC15C
 	movs r0, #0x84
 	lsls r0, r0, #2
 	adds r1, r7, r0
-	ldr r0, _080CC30C @ =0x080E85AC
+	ldr r0, _080CC30C @ =vtable_unk_080E85AC
 	str r0, [r1]
 	mov r0, sp
 	bl func_080CAC70
@@ -93470,7 +93470,7 @@ _080CC2F8:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080CC30C: .4byte 0x080E85AC
+_080CC30C: .4byte vtable_unk_080E85AC
 
 	thumb_func_start func_080CC310
 func_080CC310: @ 0x080CC310
@@ -95877,7 +95877,7 @@ func_080CD578: @ 0x080CD578
 	adds r7, r0, #0
 	adds r4, r1, #0
 	bl func_08008444
-	ldr r0, _080CD618 @ =0x080E85A0
+	ldr r0, _080CD618 @ =vtable_unk_080E85A0
 	str r0, [r7, #4]
 	str r4, [r7, #8]
 	adds r0, r7, #0
@@ -95944,7 +95944,7 @@ func_080CD578: @ 0x080CD578
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080CD618: .4byte 0x080E85A0
+_080CD618: .4byte vtable_unk_080E85A0
 _080CD61C: .4byte 0x08754C0C
 
 	thumb_func_start func_080CD620
@@ -96341,7 +96341,7 @@ func_080CD950: @ 0x080CD950
 	movs r0, #0x84
 	lsls r0, r0, #2
 	adds r1, r3, r0
-	ldr r0, _080CD990 @ =0x080E85BC
+	ldr r0, _080CD990 @ =vtable_unk_080E85BC
 	str r0, [r1]
 	movs r1, #0x85
 	lsls r1, r1, #2
@@ -96369,7 +96369,7 @@ _080CD982:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080CD990: .4byte 0x080E85BC
+_080CD990: .4byte vtable_unk_080E85BC
 _080CD994:
 	.byte 0x01, 0x49, 0x09, 0x68, 0x01, 0x60, 0x70, 0x47, 0x5C, 0x78, 0x11, 0x08
 	.byte 0x92, 0x00, 0x02, 0x49, 0x52, 0x18, 0x11, 0x68, 0x01, 0x60, 0x70, 0x47, 0x60, 0x78, 0x11, 0x08
@@ -97467,7 +97467,7 @@ func_080CE19C: @ 0x080CE19C
 	push {r4, lr}
 	adds r4, r0, #0
 	bl func_080CD578
-	ldr r0, _080CE1C0 @ =0x080E85DC
+	ldr r0, _080CE1C0 @ =vtable_unk_080E85DC
 	str r0, [r4, #4]
 	adds r0, r4, #0
 	adds r0, #0x8c
@@ -97482,7 +97482,7 @@ func_080CE19C: @ 0x080CE19C
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080CE1C0: .4byte 0x080E85DC
+_080CE1C0: .4byte vtable_unk_080E85DC
 
 	thumb_func_start func_080CE1C4
 func_080CE1C4: @ 0x080CE1C4
@@ -97751,7 +97751,7 @@ _080CE40C:
 	beq _080CE42A
 	bl free
 _080CE42A:
-	ldr r0, _080CE47C @ =0x080E5A28
+	ldr r0, _080CE47C @ =vtable_unk_080E5A28
 	str r0, [r5, #0x1c]
 	adds r4, r5, #0
 	adds r4, #0x14
@@ -97787,7 +97787,7 @@ _080CE474:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080CE47C: .4byte 0x080E5A28
+_080CE47C: .4byte vtable_unk_080E5A28
 
 	thumb_func_start func_080CE480
 func_080CE480: @ 0x080CE480
@@ -100700,7 +100700,7 @@ func_080CFB28: @ 0x080CFB28
 	bl func_080A4A94
 	adds r1, r6, #0
 	adds r1, #0x90
-	ldr r0, _080CFB58 @ =0x080E85E8
+	ldr r0, _080CFB58 @ =vtable_unk_080E85E8
 	str r0, [r1]
 	adds r4, r6, #0
 	adds r4, #0x94
@@ -100719,7 +100719,7 @@ _080CFB42:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080CFB58: .4byte 0x080E85E8
+_080CFB58: .4byte vtable_unk_080E85E8
 
 	thumb_func_start func_080CFB5C
 func_080CFB5C: @ 0x080CFB5C
