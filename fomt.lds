@@ -66,6 +66,7 @@ SECTIONS
         src/new.o(.text);
         src/pure_virtual.o(.text);
         asm/sram_proxy_2.o(.text);
+        src/scene.o(.text);
         asm/scene.o(.text);
         asm/intro.o(.text);
         asm/new_game.o(.text);
@@ -126,7 +127,11 @@ SECTIONS
         *(.gnu.linkonce.t.__as__9LivestockRC9Livestock);
         asm/code_linkonce.o(.text.code_080D7CFC);
 
-        . = ALIGN(4); asm/data/data_080E59CC.o(.rodata);
+        *(.gnu.linkonce.d.__vt_6AScene);
+        *(.gnu.linkonce.d.__vt_13AUnk_0800080C);
+        . = ALIGN(4); asm/vtables.o(.rodata);
+
+        . = ALIGN(4); asm/data/data_080E8610.o(.rodata);
         src/shipping_bin.o(.rodata);
         src/record_player.o(.rodata);
         . = ALIGN(4); src/item.o(.rodata);

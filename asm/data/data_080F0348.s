@@ -1,7 +1,5 @@
     .section .rodata
 
-    .global data
-
 	.global gUnk_080F04E4
 gUnk_080F04E4:
 	.incbin "baserom.gba", 0xF04E4, 0xA

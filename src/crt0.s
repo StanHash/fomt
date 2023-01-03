@@ -83,7 +83,7 @@ entrypoint:
     bx     r2
 
     @ init static constructors (BUGGED)
-    ldr    r4, l_init_array @ =0x080E8610
+    ldr    r4, l_init_array @ =init_array
     ldr    r5, [r4], 4
     cmp    r5, 0
 1:  ldrne  r6, [r4], 4
@@ -106,7 +106,7 @@ l_iwram_lma:     .4byte __iwram_lma
 l_ewram_bss_end: .4byte __ewram_bss_end
 l_ewram_end:     .4byte MEM_EWRAM + MEM_EWRAM_SIZE
 l_set_heap:      .4byte func_080D01E0
-l_init_array:    .4byte 0x080E8610 @ init_array
+l_init_array:    .4byte init_array
 l_main:          .4byte AgbMain
 l_exit:          .4byte exit
     .align 2, 0
