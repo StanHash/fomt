@@ -89,7 +89,7 @@ func_08000568: @ 0x08000568
     lsls r1, r1, #0x10
     lsrs r1, r1, #0x10
     movs r0, #1
-    bl func_080D3754
+    bl IntrWait
     pop {r0}
     bx r0
     .align 2, 0

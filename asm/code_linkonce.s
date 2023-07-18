@@ -25523,7 +25523,7 @@ _080E0A68:
 	lsls r2, r2, #3
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl func_080D374C
+	bl CpuFastSet
 	movs r0, #0
 _080E0A76:
 	pop {r4, r5}
@@ -26219,7 +26219,7 @@ _080E0FAC:
 	adds r1, r1, r0
 	adds r0, r4, #0
 	movs r2, #0x40
-	bl func_080D374C
+	bl CpuFastSet
 _080E0FDE:
 	movs r0, #0
 	strb r0, [r5, #0xc]

@@ -1894,7 +1894,7 @@ func_0803B840: @ 0x0803B840
 	str r2, [sp, #0xc]
 	add r0, sp, #0xc
 	ldr r2, _0803B8C4 @ =0x010000A0
-	bl func_080D374C
+	bl CpuFastSet
 	ldrb r0, [r4, #0x1c]
 	lsls r0, r0, #0x1b
 	lsrs r0, r0, #0x10
@@ -1923,7 +1923,7 @@ func_0803B840: @ 0x0803B840
 	lsls r2, r2, #0x13
 	adds r1, r1, r2
 	movs r2, #8
-	bl func_080D374C
+	bl CpuFastSet
 	movs r0, #0
 	add sp, #0x10
 	pop {r4, r5}
@@ -38092,7 +38092,7 @@ _0804E522:
 	add r0, sp, #4
 	adds r1, r6, #0
 	movs r2, #8
-	bl func_080D374C
+	bl CpuFastSet
 	cmp r7, #0
 	beq _0804E54E
 	mov r1, r8
@@ -38102,7 +38102,7 @@ _0804E522:
 	add r1, sb
 	add r0, sp, #0x44
 	movs r2, #8
-	bl func_080D374C
+	bl CpuFastSet
 _0804E54E:
 	ldr r0, [sp, #0x88]
 	cmp r0, #0
@@ -38114,7 +38114,7 @@ _0804E54E:
 	adds r1, #0x20
 	add r0, sp, #0x24
 	movs r2, #8
-	bl func_080D374C
+	bl CpuFastSet
 	cmp r7, #0
 	beq _0804E594
 	mov r0, r8
@@ -38127,7 +38127,7 @@ _0804E54E:
 	adds r1, #0x20
 	add r0, sp, #0x64
 	movs r2, #8
-	bl func_080D374C
+	bl CpuFastSet
 	b _0804E594
 _0804E584:
 	add r0, sp, #4
@@ -38448,7 +38448,7 @@ func_0804E7A0: @ 0x0804E7A0
 	lsls r0, r0, #0x11
 	orrs r2, r0
 	mov r0, sp
-	bl func_080D374C
+	bl CpuFastSet
 	add sp, #4
 	pop {r0}
 	bx r0
@@ -38502,7 +38502,7 @@ func_0804E7DC: @ 0x0804E7DC
 	orrs r2, r0
 	mov r0, sp
 	mov r1, r8
-	bl func_080D374C
+	bl CpuFastSet
 	b _0804E8D8
 	.align 2, 0
 _0804E83C: .4byte 0x001FFFFF
@@ -38584,7 +38584,7 @@ _0804E8C0:
 	adds r1, r5, #0
 	mov r2, r8
 	orrs r2, r4
-	bl func_080D374C
+	bl CpuFastSet
 	adds r5, r5, r7
 	subs r6, #1
 	cmp r6, #0
@@ -39354,7 +39354,7 @@ _0804EF94:
 	lsrs r2, r2, #0xf
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl func_080D374C
+	bl CpuFastSet
 	movs r0, #0
 _0804EFA4:
 	pop {r4, r5, r6, r7}
@@ -39672,7 +39672,7 @@ func_0804F19C: @ 0x0804F19C
 	str r2, [sp, #0xc]
 	add r0, sp, #0xc
 	ldr r2, _0804F274 @ =0x010000A0
-	bl func_080D374C
+	bl CpuFastSet
 	ldrb r0, [r5, #0xc]
 	lsls r0, r0, #0x1b
 	lsrs r0, r0, #0x10
@@ -39719,7 +39719,7 @@ func_0804F19C: @ 0x0804F19C
 	lsls r2, r2, #0x13
 	adds r1, r1, r2
 	movs r2, #8
-	bl func_080D374C
+	bl CpuFastSet
 	add r4, sp, #0x30
 	ldr r1, _0804F27C @ =0x08728208
 	adds r0, r4, #0
@@ -39736,7 +39736,7 @@ func_0804F19C: @ 0x0804F19C
 	ldr r2, _0804F280 @ =0x05000200
 	adds r1, r1, r2
 	movs r2, #8
-	bl func_080D374C
+	bl CpuFastSet
 	ldr r0, _0804F284 @ =vtable_unk_080E5A28
 	str r0, [sp, #0x30]
 	movs r0, #0
@@ -48410,7 +48410,7 @@ _08053BEA:
 	ldr r0, [r4]
 	asrs r0, r0, #8
 	lsls r0, r0, #2
-	bl func_080D3774
+	bl Sqrt
 	ldr r3, _08053C6C @ =0x000022A4
 	adds r1, r6, r3
 	lsls r0, r0, #0x10

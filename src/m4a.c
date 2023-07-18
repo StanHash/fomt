@@ -1,9 +1,7 @@
 #include "m4a.h"
 
-#include "six/hw/sound.h"
-#include "six/hw/dma.h"
-#include "six/hw/timer.h"
-#include "svc_macros.h"
+#include "gbaio.h"
+#include "gbasvc.h"
 
 #include "data/m4a_config.h"
 
@@ -403,19 +401,16 @@ void Clear64byte(void * x)
 
 void SoundInit(struct SoundInfo * sound_info)
 {
-    #define REG_DMA1CNT_X (*(volatile u32 *) &REG_DMA1LEN)
-    #define REG_DMA2CNT_X (*(volatile u32 *) &REG_DMA2LEN)
-
     sound_info->ident = 0;
 
-    if (REG_DMA1CNT_X & (DMA_REPEAT << 16))
-        REG_DMA1CNT_X = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INCREMENT | DMA_DST_FIXED) << 16) | 4;
+    if (REG_DMA1CNT & (DMA_REPEAT << 16))
+        REG_DMA1CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DST_FIXED) << 16) | 4;
 
-    if (REG_DMA2CNT_X & (DMA_REPEAT << 16))
-        REG_DMA2CNT_X = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INCREMENT | DMA_DST_FIXED) << 16) | 4;
+    if (REG_DMA2CNT & (DMA_REPEAT << 16))
+        REG_DMA2CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DST_FIXED) << 16) | 4;
 
-    REG_DMA1CNT = DMA_32BIT;
-    REG_DMA2CNT = DMA_32BIT;
+    REG_DMA1CNT_H = DMA_32BIT;
+    REG_DMA2CNT_H = DMA_32BIT;
     REG_SOUNDCNT_X = SOUND_MASTER_ENABLE
         | SOUND_4_ON
         | SOUND_3_ON
@@ -426,10 +421,10 @@ void SoundInit(struct SoundInfo * sound_info)
         | SOUND_ALL_MIX_FULL;
     REG_SOUNDBIAS_H = (REG_SOUNDBIAS_H & 0x3F) | 0x40;
 
-    REG_DMA1SRC = sound_info->pcm_buffer;
-    REG_DMA1DST = (void *) &REG_FIFO_A;
-    REG_DMA2SRC = sound_info->pcm_buffer + PCM_DMA_BUF_SIZE;
-    REG_DMA2DST = (void *) &REG_FIFO_B;
+    REG_DMA1SAD = (uptr) sound_info->pcm_buffer;
+    REG_DMA1DAD = (uptr) &REG_FIFO_A;
+    REG_DMA2SAD = (uptr) sound_info->pcm_buffer + PCM_DMA_BUF_SIZE;
+    REG_DMA2DAD = (uptr) &REG_FIFO_B;
 
     SOUND_INFO_PTR = sound_info;
     CpuFill32(0, sound_info, sizeof(struct SoundInfo));
@@ -449,9 +444,6 @@ void SoundInit(struct SoundInfo * sound_info)
     SampleFreqSet(SOUND_MODE_FREQ_13379);
 
     sound_info->ident = ID_NUMBER;
-
-    #undef REG_DMA2CNT_X
-    #undef REG_DMA1CNT_X
 }
 
 void SampleFreqSet(u32 freq)
@@ -470,10 +462,10 @@ void SampleFreqSet(u32 freq)
     sound_info->div_freq = (16777216 / sound_info->pcm_freq + 1) >> 1;
 
     // Turn off timer 0.
-    REG_TM0CNT = 0;
+    REG_TM0CNT_H = 0;
 
     // cycles per LCD fresh 280896
-    REG_TM0VAL = -(280896 / sound_info->pcm_samples_per_vblank);
+    REG_TM0CNT_L = -(280896 / sound_info->pcm_samples_per_vblank);
 
     m4aSoundVSyncOn();
 
@@ -483,7 +475,7 @@ void SampleFreqSet(u32 freq)
     while (*(volatile u8 *) &REG_VCOUNT != 159)
         ;
 
-    REG_TM0CNT = TIMER_ENABLE | TIMER_FREQ_16MHZ;
+    REG_TM0CNT_H = TIMER_ENABLE | TIMER_1CLK;
 }
 
 void m4aSoundMode(u32 mode)
@@ -585,29 +577,23 @@ void SoundClear(void)
 
 void m4aSoundVSyncOff(void)
 {
-    #define REG_DMA1CNT_X (*(volatile u32 *) &REG_DMA1LEN)
-    #define REG_DMA2CNT_X (*(volatile u32 *) &REG_DMA2LEN)
-
     struct SoundInfo * sound_info = SOUND_INFO_PTR;
 
     if (sound_info->ident >= ID_NUMBER && sound_info->ident <= ID_NUMBER + 1)
     {
         sound_info->ident += 10;
 
-        if (REG_DMA1CNT_X & (DMA_REPEAT << 16))
-            REG_DMA1CNT_X = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INCREMENT | DMA_DST_FIXED) << 16) | 4;
+        if (REG_DMA1CNT & (DMA_REPEAT << 16))
+            REG_DMA1CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DST_FIXED) << 16) | 4;
 
-        if (REG_DMA2CNT_X & (DMA_REPEAT << 16))
-            REG_DMA2CNT_X = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INCREMENT | DMA_DST_FIXED) << 16) | 4;
+        if (REG_DMA2CNT & (DMA_REPEAT << 16))
+            REG_DMA2CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DST_FIXED) << 16) | 4;
 
-        REG_DMA1CNT = DMA_32BIT;
-        REG_DMA2CNT = DMA_32BIT;
+        REG_DMA1CNT_H = DMA_32BIT;
+        REG_DMA2CNT_H = DMA_32BIT;
 
         CpuFill32(0, sound_info->pcm_buffer, sizeof(sound_info->pcm_buffer));
     }
-
-    #undef REG_DMA2CNT_X
-    #undef REG_DMA1CNT_X
 }
 
 void m4aSoundVSyncOn(void)
@@ -618,8 +604,8 @@ void m4aSoundVSyncOn(void)
     if (ident == ID_NUMBER)
         return;
 
-    REG_DMA1CNT = DMA_ENABLE | DMA_START_SPECIAL | DMA_32BIT | DMA_REPEAT;
-    REG_DMA2CNT = DMA_ENABLE | DMA_START_SPECIAL | DMA_32BIT | DMA_REPEAT;
+    REG_DMA1CNT_H = DMA_ENABLE | DMA_START_SPECIAL | DMA_32BIT | DMA_REPEAT;
+    REG_DMA2CNT_H = DMA_ENABLE | DMA_START_SPECIAL | DMA_32BIT | DMA_REPEAT;
 
     sound_info->pcm_dma_counter = 0;
     sound_info->ident = ident - 10;
@@ -1015,32 +1001,32 @@ void CgbSound(void)
         switch (ch)
         {
         case 1:
-            nrx0ptr = (volatile u8 *) (REG_ADDR_NR10);
-            nrx1ptr = (volatile u8 *) (REG_ADDR_NR11);
-            nrx2ptr = (volatile u8 *) (REG_ADDR_NR12);
-            nrx3ptr = (volatile u8 *) (REG_ADDR_NR13);
-            nrx4ptr = (volatile u8 *) (REG_ADDR_NR14);
+            nrx0ptr = (volatile u8 *) &REG_NR10;
+            nrx1ptr = (volatile u8 *) &REG_NR11;
+            nrx2ptr = (volatile u8 *) &REG_NR12;
+            nrx3ptr = (volatile u8 *) &REG_NR13;
+            nrx4ptr = (volatile u8 *) &REG_NR14;
             break;
         case 2:
-            nrx0ptr = (volatile u8 *) (REG_ADDR_NR10+1);
-            nrx1ptr = (volatile u8 *) (REG_ADDR_NR21);
-            nrx2ptr = (volatile u8 *) (REG_ADDR_NR22);
-            nrx3ptr = (volatile u8 *) (REG_ADDR_NR23);
-            nrx4ptr = (volatile u8 *) (REG_ADDR_NR24);
+            nrx0ptr = (volatile u8 *) &REG_NR10 + 1;
+            nrx1ptr = (volatile u8 *) &REG_NR21;
+            nrx2ptr = (volatile u8 *) &REG_NR22;
+            nrx3ptr = (volatile u8 *) &REG_NR23;
+            nrx4ptr = (volatile u8 *) &REG_NR24;
             break;
         case 3:
-            nrx0ptr = (volatile u8 *) (REG_ADDR_NR30);
-            nrx1ptr = (volatile u8 *) (REG_ADDR_NR31);
-            nrx2ptr = (volatile u8 *) (REG_ADDR_NR32);
-            nrx3ptr = (volatile u8 *) (REG_ADDR_NR33);
-            nrx4ptr = (volatile u8 *) (REG_ADDR_NR34);
+            nrx0ptr = (volatile u8 *) &REG_NR30;
+            nrx1ptr = (volatile u8 *) &REG_NR31;
+            nrx2ptr = (volatile u8 *) &REG_NR32;
+            nrx3ptr = (volatile u8 *) &REG_NR33;
+            nrx4ptr = (volatile u8 *) &REG_NR34;
             break;
         default:
-            nrx0ptr = (volatile u8 *) (REG_ADDR_NR30+1);
-            nrx1ptr = (volatile u8 *) (REG_ADDR_NR41);
-            nrx2ptr = (volatile u8 *) (REG_ADDR_NR42);
-            nrx3ptr = (volatile u8 *) (REG_ADDR_NR43);
-            nrx4ptr = (volatile u8 *) (REG_ADDR_NR44);
+            nrx0ptr = (volatile u8 *) &REG_NR30 + 1;
+            nrx1ptr = (volatile u8 *) &REG_NR41;
+            nrx2ptr = (volatile u8 *) &REG_NR42;
+            nrx3ptr = (volatile u8 *) &REG_NR43;
+            nrx4ptr = (volatile u8 *) &REG_NR44;
             break;
         }
 

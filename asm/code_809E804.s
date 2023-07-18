@@ -14148,7 +14148,7 @@ _080A5A34:
 	lsls r0, r4, #1
 	lsls r2, r0
 	adds r0, r2, #0
-	bl func_080D3774
+	bl Sqrt
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	asrs r0, r4
@@ -54724,7 +54724,7 @@ func_080B96AC: @ 0x080B96AC
 	bgt _080B9726
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl func_080D3748
+	bl ArcTan2
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	mov r0, r8

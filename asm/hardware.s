@@ -3464,7 +3464,7 @@ _080090D6:
     adds r0, r4, #0
     adds r1, r3, #0
     str r3, [sp, #4]
-    bl func_080D374C
+    bl CpuFastSet
     lsls r1, r5, #2
     ldr r3, [sp, #4]
     adds r3, r3, r1
@@ -3482,7 +3482,7 @@ _080090FC:
     subs r2, r6, r5
     adds r0, r4, #0
     adds r1, r3, #0
-    bl SvcCpuSet
+    bl CpuSet
     b _08009116
     .align 2, 0
 _08009108: .4byte 0x0000FFFF
@@ -3490,7 +3490,7 @@ _0800910C:
     adds r0, r4, #0
     adds r1, r3, #0
     adds r2, r6, #0
-    bl SvcCpuSet
+    bl CpuSet
 _08009116:
     adds r7, #0x10
     cmp r7, sb
@@ -4228,7 +4228,7 @@ func_080096B0: @ 0x080096B0
     ldr r2, _080096EC @ =0x0100002B
     mov r0, sp
     adds r1, r4, #0
-    bl SvcCpuSet
+    bl CpuSet
     movs r0, #0x80
     str r0, [r4]
     movs r0, #0

@@ -142,7 +142,7 @@ _0800026E:
     strh r3, [r0, #0xa]
     ldrh r0, [r0, #0xa]
     movs r0, #0xff
-    bl sub_080D375C
+    bl SoftReset
 _080002C4:
     b _080002C4
     .align 2, 0

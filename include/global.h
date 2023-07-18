@@ -1,12 +1,5 @@
 #pragma once
 
-#include <six/prelude.h>
-
-typedef u8 fu8;
-typedef u16 fu16;
-typedef i8 fi8;
-typedef i16 fi16;
-
 #ifdef __cplusplus
 #  define EXTERN_C extern "C" {
 #  define EXTERN_C_END }
@@ -17,6 +10,11 @@ typedef i16 fi16;
 
 EXTERN_C
 
+#include <stddef.h>
+#include <stdint.h>
+
+#include "types.h"
+
 #define nullptr 0
 
 #define TRUE  1
@@ -26,6 +24,9 @@ EXTERN_C
 
 #define NAKED __attribute__((naked))
 #define ALIAS(n) __attribute__((alias(# n)))
+#define SECTION(n) __attribute__((section(n)))
+#define PACKED __attribute__((packed))
+#define ALIGN(n) __attribute__((aligned(n)))
 
 // macro for marking data and methods that should be const but can't be for matching
 #if defined(MODERN) && MODERN != 0
