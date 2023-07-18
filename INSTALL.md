@@ -4,8 +4,9 @@
 
 Better instructions will come eventually.
 
-- get devkitARM. Other `arm-none-eabi` toolchain may work.
-- get [notyourav/agbcc] (or another fork of agbcc that includes agbcp) and install it into this repository.
+- get a `arm-none-eabi` toolchain (devkitARM probably works)
+- get [notyourav/agbcc] (or another fork of agbcc that includes agbcp) and install it into this repository. You can use the install_agbcp.sh script in the tools folder to achieve that.
+- get the base rom, put it in root directory as `baserom.gba`
 - `make compare`
 
 [notyourav/agbcc]: https://github.com/notyourav/agbcc
