@@ -2,6 +2,11 @@
 
 #include <six/prelude.h>
 
+typedef u8 fu8;
+typedef u16 fu16;
+typedef i8 fi8;
+typedef i16 fi16;
+
 #ifdef __cplusplus
 #  define EXTERN_C extern "C" {
 #  define EXTERN_C_END }

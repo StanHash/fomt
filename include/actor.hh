@@ -8,6 +8,8 @@ struct PACKED ALIGN(2) Location
     Location(u32 map, u32 x, u32 y) : map(map), x(x), y(y) {}
 
     u32 GetMap(void) const { return map; }
+    i16 GetX(void) const { return x; }
+    i16 GetY(void) const { return y; }
 
     /* +00 */ u16 map : 10;
     /* +01 */ i16 x : 16;

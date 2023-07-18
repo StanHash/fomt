@@ -320,9 +320,7 @@ vtable_unk_080E6038:
 vtable_unk_080E61A0:
 	.incbin "baserom.gba", 0xE61A0, 0xB0
 
-	.global __vt_7AEntity
-__vt_7AEntity:
-	.incbin "baserom.gba", 0xE6250, 0x34
+	.section .rodata.080E6284
 
 	.global vtable_unk_080E6284
 vtable_unk_080E6284:
@@ -348,8 +346,8 @@ vtable_unk_080E64B4:
 vtable_unk_080E64C8:
 	.incbin "baserom.gba", 0xE64C8, 0x8C
 
-	.global vtable_unk_080E6554
-vtable_unk_080E6554:
+	.global __vt_15Entity_080E6554
+__vt_15Entity_080E6554:
 	.incbin "baserom.gba", 0xE6554, 0x8C
 
 	.global vtable_unk_080E65E0
@@ -392,8 +390,8 @@ vtable_unk_080E6828:
 vtable_unk_080E6864:
 	.incbin "baserom.gba", 0xE6864, 0x14
 
-	.global vtable_unk_080E6878
-vtable_unk_080E6878:
+	.global __vt_12AActorEntity
+__vt_12AActorEntity:
 	.incbin "baserom.gba", 0xE6878, 0x3C
 
 	.global vtable_unk_080E68B4

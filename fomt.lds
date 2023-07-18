@@ -88,7 +88,10 @@ SECTIONS
         asm/game_scene.o(.text);
         asm/game_state.o(.text);
         src/entity.o(.text);
+        src/code_entity_08020018.o(.text);
         asm/code_entities.o(.text);
+        src/entity_actor.o(.text);
+        asm/code_entities_080320DC.o(.text);
 
         asm/code_0803A8A4.o(.text);
 
@@ -135,6 +138,8 @@ SECTIONS
         *(.gnu.linkonce.d.__vt_6AScene);
         *(.gnu.linkonce.d.__vt_13AUnk_0800080C);
         . = ALIGN(4); asm/vtables.o(.rodata);
+        *(.gnu.linkonce.d.__vt_7AEntity);
+        . = ALIGN(4); asm/vtables.o(.rodata.080E6284);
 
         . = ALIGN(4); asm/data/data_080E8610.o(.rodata);
         src/shipping_bin.o(.rodata);

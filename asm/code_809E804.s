@@ -30227,7 +30227,7 @@ _080AD504:
 	adds r1, r7, #0
 	add r2, sp, #4
 	movs r3, #2
-	bl func_080320DC
+	bl __12AActorEntityP10GameObjectRC13ActorLocationUiUi
 	ldr r0, _080AD568 @ =vtable_unk_080E8404
 	str r0, [r5, #0x14]
 	b _080AD5AA
