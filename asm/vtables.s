@@ -738,9 +738,7 @@ vtable_unk_080E77D0:
 vtable_unk_080E77E0:
 	.incbin "baserom.gba", 0xE77E0, 0x30
 
-	.global vtable_unk_080E7810
-vtable_unk_080E7810:
-	.incbin "baserom.gba", 0xE7810, 0x14
+	.section .rodata.080E7824
 
 	.global vtable_unk_080E7824
 vtable_unk_080E7824:

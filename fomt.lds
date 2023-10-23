@@ -94,6 +94,8 @@ SECTIONS
         asm/code_entities_080320DC.o(.text);
 
         asm/code_0803A8A4.o(.text);
+        src/script_engine.o(.text);
+        asm/code_0803EE94.o(.text);
 
         src/actor.o(.text);
         src/animal.o(.text);
@@ -140,12 +142,16 @@ SECTIONS
         . = ALIGN(4); asm/vtables.o(.rodata);
         *(.gnu.linkonce.d.__vt_7AEntity);
         . = ALIGN(4); asm/vtables.o(.rodata.080E6284);
+        *(.gnu.linkonce.d.__vt_13AScriptEngine);
+        . = ALIGN(4); asm/vtables.o(.rodata.080E7824);
 
         . = ALIGN(4); asm/data/data_080E8610.o(.rodata);
         src/shipping_bin.o(.rodata);
         src/record_player.o(.rodata);
         . = ALIGN(4); src/item.o(.rodata);
         . = ALIGN(4); asm/data/data_080F0348.o(.rodata);
+        . = ALIGN(4); src/script_engine.o(.rodata);
+        . = ALIGN(4); asm/data/data_080F9EB8.o(.rodata);
         . = ALIGN(4); src/sound_data.o(.rodata.*);
         . = ALIGN(4); asm/data/data_0813B288.o(.rodata);
     } > ROM = 0xFF

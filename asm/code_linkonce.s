@@ -23775,7 +23775,7 @@ _080DFD0C:
 	lsls r1, r1, #2
 	adds r1, r1, r2
 	ldr r1, [r1]
-	bl func_0803EEEC
+	bl Load__13AScriptEnginePCv
 	b _080E0080
 	.align 2, 0
 _080DFD20: .4byte 0x080F89D4
@@ -24677,7 +24677,7 @@ _080E03AE:
 	adds r0, r0, r2
 	ldr r1, [r0]
 	ldr r0, [sp, #0x98]
-	bl func_0803EEEC
+	bl Load__13AScriptEnginePCv
 	movs r4, #0xd9
 	lsls r4, r4, #2
 	adds r0, r7, r4
@@ -25400,7 +25400,7 @@ _080E0984:
 	adds r0, r4, #0
 	adds r0, #0xc
 	movs r1, #0
-	bl func_0803EEC8
+	bl _._13AScriptEngine
 	adds r0, r4, #4
 	movs r1, #0
 	bl func_080086BC
@@ -26090,7 +26090,7 @@ _080E0EE6:
 	thumb_func_start func_080E0EF0
 func_080E0EF0: @ 0x080E0EF0
 	push {lr}
-	bl func_0803EEC8
+	bl _._13AScriptEngine
 	pop {r0}
 	bx r0
 	.align 2, 0
