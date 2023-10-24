@@ -740,9 +740,12 @@ vtable_unk_080E77E0:
 
 	.section .rodata.080E7824
 
-	.global vtable_unk_080E7824
-vtable_unk_080E7824:
-	.incbin "baserom.gba", 0xE7824, 0x14
+	.global __vt_12ScriptEngine
+__vt_12ScriptEngine:
+	.word 0, 0
+	.4byte func_080E0EF0 @ ScriptEngine::~ScriptEngine
+	.4byte method_0803EFD8__13AScriptEngine
+	.4byte func_0803F8DC @ ScriptEngine::OnCall
 
 	.global vtable_unk_080E7838
 vtable_unk_080E7838:

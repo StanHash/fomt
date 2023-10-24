@@ -81,4 +81,21 @@ struct AScriptEngine
     /* +34C */ // vtable
 };
 
+struct ScriptEngine : public AScriptEngine
+{
+    // arg_r1 is either GameObject or GameState?
+    // or is it arg_r2?
+    ScriptEngine(void * arg_r1);
+    ScriptEngine(void * arg_r1, void * arg_r2);
+
+    void LoadById(int id, int arg_r2);
+    void SetUnk(void * unk);
+    void ClearUnk();
+    void Push(i32 value);
+
+    /* +350 */ void * unk_350;
+    /* +354 */ void * unk_354;
+    /* +358 */ i32 unk_358;
+};
+
 #endif // SCRIPT_ENGINE_HH

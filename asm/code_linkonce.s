@@ -381,7 +381,7 @@ func_080D3EF4: @ 0x080D3EF4
 	str r1, [r6, #4]
 	adds r0, r6, #0
 	adds r0, #8
-	bl func_0803F804
+	bl __12ScriptEnginePv
 	movs r1, #0xd9
 	lsls r1, r1, #2
 	adds r0, r6, r1
@@ -6129,7 +6129,7 @@ func_080D6C58: @ 0x080D6C58
 	str r1, [r7, #4]
 	adds r0, r7, #0
 	adds r0, #8
-	bl func_0803F804
+	bl __12ScriptEnginePv
 	movs r0, #0xd9
 	lsls r0, r0, #2
 	adds r1, r7, r0
@@ -10343,7 +10343,7 @@ _080D8F3C:
 _080D8F88:
 	adds r0, r2, #0
 _080D8F8A:
-	bl func_0803F8B8
+	bl Push__12ScriptEnginei
 _080D8F8E:
 	mov r0, sl
 	bl func_080D7F3C
@@ -10381,7 +10381,7 @@ _080D8FA8:
 	mov r1, sl
 	adds r1, #0x94
 	ldrb r1, [r1]
-	bl func_0803F8B8
+	bl Push__12ScriptEnginei
 	mov r0, sl
 	bl func_080D7F3C
 _080D8FE8:
@@ -12803,7 +12803,7 @@ _080DA44E:
 	add r1, sp
 	ldr r1, [r1]
 	ldr r2, [r3, #4]
-	bl func_0803F878
+	bl LoadById__12ScriptEngineii
 	b _080DAAE6
 	.align 2, 0
 _080DA464: .4byte gUnk_0300040C
@@ -13022,7 +13022,7 @@ _080DA60C:
 	ldr r0, [r0]
 	adds r0, #8
 	movs r1, #4
-	bl func_0803F8B8
+	bl Push__12ScriptEnginei
 	b _080DAAE6
 	.align 2, 0
 _080DA628: .4byte gUnk_0300040C
@@ -13041,7 +13041,7 @@ _080DA62C:
 	ldr r0, [r0]
 	adds r0, #8
 	movs r1, #5
-	bl func_0803F8B8
+	bl Push__12ScriptEnginei
 	b _080DAAE6
 	.align 2, 0
 _080DA650: .4byte gUnk_0300040C
@@ -13059,7 +13059,7 @@ _080DA654:
 	ldr r0, [r0]
 	adds r0, #8
 	movs r1, #0
-	bl func_0803F8B8
+	bl Push__12ScriptEnginei
 	b _080DAAE6
 	.align 2, 0
 _080DA674: .4byte gUnk_0300040C
@@ -13077,7 +13077,7 @@ _080DA678:
 	ldr r0, [r0]
 	adds r0, #8
 	movs r1, #1
-	bl func_0803F8B8
+	bl Push__12ScriptEnginei
 	b _080DAAE6
 	.align 2, 0
 _080DA698: .4byte gUnk_0300040C
@@ -13095,7 +13095,7 @@ _080DA69C:
 	ldr r0, [r0]
 	adds r0, #8
 	movs r1, #2
-	bl func_0803F8B8
+	bl Push__12ScriptEnginei
 	b _080DAAE6
 	.align 2, 0
 _080DA6BC: .4byte gUnk_0300040C
@@ -13115,7 +13115,7 @@ _080DA6CA:
 	ldr r0, [r0]
 	adds r0, #8
 	movs r1, #3
-	bl func_0803F8B8
+	bl Push__12ScriptEnginei
 	b _080DAAE6
 	.align 2, 0
 _080DA6E4: .4byte gUnk_0300040C
@@ -13232,7 +13232,7 @@ _080DA7AC:
 	bl func_08050DF0
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl func_0803F8B8
+	bl Push__12ScriptEnginei
 	b _080DAA88
 	.align 2, 0
 _080DA7C4: .4byte gUnk_0300040C
@@ -16561,7 +16561,7 @@ func_080DC294: @ 0x080DC294
 	ldr r0, _080DC2B0 @ =gUnk_0300040C
 	ldr r0, [r0]
 	adds r0, #8
-	bl func_0803F878
+	bl LoadById__12ScriptEngineii
 	adds r0, r4, #0
 	bl func_080D7F3C
 	pop {r4}

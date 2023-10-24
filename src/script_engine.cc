@@ -617,3 +617,43 @@ char const * AScriptEngine::GetString(u32 id) const
 
     return "Error";
 }
+
+ScriptEngine::ScriptEngine(void * arg_r1)
+{
+    unk_350 = arg_r1;
+    unk_354 = nullptr;
+    unk_358 = 0;
+}
+
+ScriptEngine::ScriptEngine(void * arg_r1, void * arg_r2)
+{
+    unk_350 = arg_r1;
+    unk_354 = arg_r2;
+    unk_358 = 0;
+}
+
+// TODO: move and dump
+extern void const * const gUnk_080F89D4[]; // event scripts
+
+void ScriptEngine::LoadById(int id, int arg_r2)
+{
+    Load(gUnk_080F89D4[id]);
+    unk_358 = arg_r2;
+}
+
+void ScriptEngine::SetUnk(void * unk)
+{
+    unk_354 = unk;
+}
+
+void ScriptEngine::ClearUnk()
+{
+    unk_354 = nullptr;
+}
+
+void ScriptEngine::Push(i32 value)
+{
+    stack.Push(value);
+}
+
+// next up: int OnCall(int id);

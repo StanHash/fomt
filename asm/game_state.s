@@ -3433,7 +3433,7 @@ func_08011DC4: @ 0x08011DC4
     ldr r0, [r0]
     adds r0, #8
     adds r1, r6, #0
-    bl func_0803F8A0
+    bl SetUnk__12ScriptEnginePv
     adds r0, r6, #0
     add sp, #8
     pop {r3}
@@ -3478,7 +3478,7 @@ func_08011FE8: @ 0x08011FE8
     ldr r0, _08012024 @ =gUnk_0300040C
     ldr r0, [r0]
     adds r0, #8
-    bl func_0803F8AC
+    bl ClearUnk__12ScriptEngine
     ldr r1, [r4, #4]
     cmp r1, #0
     beq _08012012
@@ -5004,7 +5004,7 @@ func_08012B04: @ 0x08012B04
     ldr r0, _08012B20 @ =gUnk_0300040C
     ldr r0, [r0]
     adds r0, #8
-    bl func_0803F878
+    bl LoadById__12ScriptEngineii
     adds r0, r4, #0
     bl func_080D7F3C
     pop {r4}
