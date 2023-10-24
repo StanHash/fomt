@@ -106,7 +106,7 @@ $(BUILD_DIR)/%.d: %.c
 $(BUILD_DIR)/%.o: %.c $(BUILD_DIR)/%.d
 	@echo "CC $<"
 	@$(CPP) $(CPPFLAGS) $< | $(CC1) $(CFLAGS) -o $(BUILD_DIR)/$*.s
-	@echo ".text\n\t.align\t2, 0\n" >> $(BUILD_DIR)/$*.s
+	@tools/scripts/align_sections.sh $(BUILD_DIR)/$*.s
 	@$(AS) $(ASFLAGS) $(BUILD_DIR)/$*.s -o $@ 
 
 # C++ dependency file
@@ -117,7 +117,7 @@ $(BUILD_DIR)/%.d: %.cc
 $(BUILD_DIR)/%.o: %.cc $(BUILD_DIR)/%.d
 	@echo "CP $<"
 	@$(CPP) $(CPPFLAGS) $< | $(CC1PLUS) $(CXXFLAGS) -o $(BUILD_DIR)/$*.s
-	@echo ".text\n\t.align\t2, 0\n" >> $(BUILD_DIR)/$*.s
+	@tools/scripts/align_sections.sh $(BUILD_DIR)/$*.s
 	@$(AS) $(ASFLAGS) $(BUILD_DIR)/$*.s -o $@
 
 # ASM dependency file (dummy, generated with the object)

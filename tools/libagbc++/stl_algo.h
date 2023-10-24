@@ -1723,8 +1723,7 @@ template <class _ForwardIter, class _Tp, class _Distance>
 _ForwardIter __lower_bound(_ForwardIter __first, _ForwardIter __last,
                            const _Tp& __val, _Distance*) 
 {
-  _Distance __len = 0;
-  distance(__first, __last, __len);
+  _Distance __len = distance(__first, __last);
   _Distance __half;
   _ForwardIter __middle;
 
@@ -1754,8 +1753,7 @@ template <class _ForwardIter, class _Tp, class _Compare, class _Distance>
 _ForwardIter __lower_bound(_ForwardIter __first, _ForwardIter __last,
                               const _Tp& __val, _Compare __comp, _Distance*)
 {
-  _Distance __len = 0;
-  distance(__first, __last, __len);
+  _Distance __len = distance(__first, __last);
   _Distance __half;
   _ForwardIter __middle;
 

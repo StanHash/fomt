@@ -1,8 +1,6 @@
 #include "script_engine.hh"
 
-// TODO: MOVE OUT
-// NOTE: this is something very similar to std::lower_bound, but with an extra arg (fsr)
-extern "C" JumpTableEnt const * func_080E0EB4(JumpTableEnt const * beg, JumpTableEnt const * end, int const & value, int *, int);
+#include <algorithm>
 
 AScriptEngine::AScriptEngine()
     : unk_00(0)
@@ -201,6 +199,14 @@ u32 AScriptEngine::Operand8(int offset) const
 void AScriptEngine::method_0803F0DC() const
 {
 }
+
+struct ScriptJumpTableSearchCompare
+{
+    bool operator() (JumpTableEnt const & left, int right)
+    {
+        return left.value < right;
+    }
+};
 
 int AScriptEngine::NextInstruction()
 {
@@ -577,7 +583,7 @@ int AScriptEngine::NextInstruction()
             int value = stack.Top();
             stack.Pop();
 
-            JumpTableEnt const * ent = func_080E0EB4(beg, end, value, 0, 0);
+            JumpTableEnt const * ent = std::lower_bound(beg, end, value, ScriptJumpTableSearchCompare());
 
             if (ent != end && ent->value == value)
             {
@@ -605,7 +611,8 @@ int AScriptEngine::NextInstruction()
 
 char const * AScriptEngine::GetString(u32 id) const
 {
-    if ((u32)id <= (u32)string_count)
+    // BUG: this should be strict compare
+    if (id <= string_count)
         return string_pool + string_offset_table[id];
 
     return "Error";

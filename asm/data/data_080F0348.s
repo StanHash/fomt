@@ -466,4 +466,4 @@ gUnk_080F8678:
 
 	.global gUnk_080F89D4 @ script table
 gUnk_080F89D4:
-	.incbin "baserom.gba", 0xF89D4, 0x14D0
+	.incbin "baserom.gba", 0xF89D4, 0x14C4

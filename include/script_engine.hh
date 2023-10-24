@@ -14,11 +14,6 @@ struct JumpTableEnt
 {
     int value;
     u32 target;
-
-    bool operator < (int const & other) const
-    {
-        return value < other;
-    }
 };
 
 struct ScriptStack
