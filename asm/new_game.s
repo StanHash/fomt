@@ -330,7 +330,7 @@ _08003A0A:
 _08003A2A:
     ldr r0, [sp, #0x24]
     adds r0, #0x14
-    bl func_08009AF4
+    bl method_08009AF4__C4Farm
     mov r8, r0
     mov r4, r8
     adds r0, r6, #0

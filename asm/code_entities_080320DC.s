@@ -1975,13 +1975,13 @@ _08033328:
 _08033338: .4byte 0x000009C8
 _0803333C:
     add r0, sp, #0x24
-    bl func_08009ADC
+    bl smethod_08009ADC__4Farm
     ldr r0, [sp, #0x24]
     str r0, [sp, #0x28]
     add r6, sp, #0x28
     mov r8, r6
     add r0, sp, #0x2c
-    bl func_08009AE8
+    bl smethod_08009AE8__4Farm
     ldr r0, [sp, #0x2c]
     str r0, [sp, #0x30]
     add r6, sp, #0x30
@@ -4056,7 +4056,7 @@ _0803497C:
     bne _080349C4
     mov r4, sp
     mov r0, sp
-    bl func_08009ADC
+    bl smethod_08009ADC__4Farm
     mov r0, sp
     movs r1, #0
     ldrsh r2, [r0, r1]
@@ -4071,7 +4071,7 @@ _080349A8: .4byte 0x00000385
 _080349AC:
     add r4, sp, #4
     adds r0, r4, #0
-    bl func_08009AE8
+    bl smethod_08009AE8__4Farm
     movs r1, #0
     ldrsh r2, [r4, r1]
     movs r0, #2

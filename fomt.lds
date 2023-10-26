@@ -71,6 +71,7 @@ SECTIONS
         asm/intro_scene.o(.text);
         asm/new_game.o(.text);
         asm/hardware.o(.text);
+        src/farm.o(.text);
         asm/code_08009A48.o(.text);
         src/shipping_bin.o(.text);
         src/tool_chest.o(.text);

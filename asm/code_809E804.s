@@ -10591,7 +10591,7 @@ _080A3D9C: @ jump table
 _080A3DB4:
 	ldr r0, [r5, #8]
 	adds r0, #0x14
-	bl func_08009C3C
+	bl GetHorse__4Farm
 	b _080A3DEC
 _080A3DBE:
 	ldr r0, [r5, #8]
@@ -100709,7 +100709,7 @@ func_080CFB28: @ 0x080CFB28
 	rsbs r7, r7, #0
 _080CFB42:
 	adds r0, r4, #0
-	bl func_08009F8C
+	bl __9FieldPlot
 	adds r4, #4
 	subs r5, #1
 	cmp r5, r7

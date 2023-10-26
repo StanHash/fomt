@@ -17,9 +17,6 @@ EXTERN_C
 
 #define nullptr 0
 
-#define TRUE  1
-#define FALSE 0
-
 #define asm_unified(x) asm(".syntax unified\n" x "\n.syntax divided")
 
 #define NAKED __attribute__((naked))
@@ -39,5 +36,10 @@ EXTERN_C
 
 #define CONST_MIN(a, b) (((a) < (b)) ? (a) : (b))
 #define CONST_MAX(a, b) (((a) > (b)) ? (a) : (b))
+
+#define STRUCT_PAD(from, to) unsigned char pad_ ## from [(to) - (from)]
+
+// helper for temporary declarations
+#define EC extern "C"
 
 EXTERN_C_END

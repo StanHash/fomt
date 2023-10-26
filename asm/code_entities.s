@@ -23975,7 +23975,7 @@ _0802E224: @ jump table
 _0802E30C:
     ldr r0, [r7, #0x34]
     adds r0, #0x14
-    bl func_08009C3C
+    bl GetHorse__4Farm
     bl GetGrowthStage__C5Horse
     cmp r0, #1
     beq _0802E31E
@@ -30170,7 +30170,7 @@ _080313B4:
     mov r5, sl
     ldr r0, [r5, #0x34]
     adds r0, #0x14
-    bl func_08009B60
+    bl GetUnkFlag12__C4Farm
     lsls r0, r0, #0x18
     cmp r0, #0
     beq _080313DC
@@ -30212,7 +30212,7 @@ _08031424:
     mov r7, sl
     ldr r0, [r7, #0x34]
     adds r0, #0x14
-    bl func_08009F80
+    bl method_08009F80__4Farm
     mov r1, sl
     adds r1, #0x52
     movs r0, #1

@@ -3147,7 +3147,7 @@ _08041328:
 	lsls r0, r3, #2
 	adds r0, r1, r0
 	movs r1, #0
-	bl sub_08045516
+	bl _08045516
 _08041332:
 	movs r6, #0xd4
 	lsls r6, r6, #2
@@ -3186,7 +3186,7 @@ _08041378:
 	adds r0, r1, r0
 	movs r1, #1
 	rsbs r1, r1, #0
-	bl sub_08045516
+	bl _08045516
 _08041384:
 	movs r6, #0xd4
 	lsls r6, r6, #2
@@ -3225,7 +3225,7 @@ _080413CC:
 	lsls r0, r3, #2
 	adds r0, r1, r0
 	movs r1, #0
-	bl sub_08045516
+	bl _08045516
 _080413D6:
 	movs r6, #0xd4
 	lsls r6, r6, #2
@@ -3271,7 +3271,7 @@ _08041430:
 	adds r0, r1, r0
 	movs r1, #1
 	rsbs r1, r1, #0
-	bl sub_08045516
+	bl _08045516
 _0804143C:
 	movs r6, #0xd4
 	lsls r6, r6, #2
@@ -3319,7 +3319,7 @@ _08041498:
 	adds r0, r1, r0
 	movs r1, #1
 	rsbs r1, r1, #0
-	bl sub_08045516
+	bl _08045516
 _080414A4:
 	movs r6, #0xd4
 	lsls r6, r6, #2
@@ -3362,7 +3362,7 @@ _080414F4:
 	adds r0, r1, r0
 	movs r1, #1
 	rsbs r1, r1, #0
-	bl sub_08045516
+	bl _08045516
 _08041500:
 	movs r6, #0xd5
 	lsls r6, r6, #2
@@ -7322,7 +7322,7 @@ _08043578:
 	adds r0, r5, r4
 	ldr r0, [r0]
 	adds r0, #0x14
-	bl func_08009B20
+	bl method_08009B20__C4Farm
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	bl _080454A8
@@ -7571,7 +7571,7 @@ _08043770:
 	adds r0, r1, r0
 	movs r1, #1
 	rsbs r1, r1, #0
-	bl sub_08045516
+	bl _08045516
 _0804377C:
 	ldr r0, [r4]
 	movs r1, #0xfa
@@ -9153,7 +9153,7 @@ _08044466:
 	adds r0, r1, #0
 	bl GetName__C6Animal
 	adds r2, r0, #0
-	bl sub_08044D86
+	bl _08044D86
 _08044472:
 	movs r4, #0
 	movs r3, #0xd5
@@ -9553,7 +9553,7 @@ _08044784:
 	adds r0, r5, r4
 	ldr r0, [r0]
 	adds r0, #0x14
-	bl func_08009C3C
+	bl GetHorse__4Farm
 	cmp r0, #0
 	bne _08044798
 	b _08044A1C
@@ -10314,9 +10314,7 @@ _08044D7E:
 	adds r0, r4, #0
 	bl func_080167AC
 	ldr r2, [r0]
-
-	non_word_aligned_thumb_func_start sub_08044D86
-sub_08044D86: @ 0x08044D86
+_08044D86:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	bl func_08012ACC
@@ -11082,12 +11080,12 @@ _08045340:
 	bl AddAffection__6Animali
 	ldr r0, [r4]
 	adds r0, #0x14
-	bl func_08009C3C
+	bl GetHorse__4Farm
 	cmp r0, #0
 	beq _0804536C
 	ldr r0, [r4]
 	adds r0, #0x14
-	bl func_08009C3C
+	bl GetHorse__4Farm
 	adds r1, r7, #0
 	bl AddAffection__6Animali
 _0804536C:
@@ -11315,9 +11313,7 @@ _080454FA:
 	lsls r0, r3, #2
 	adds r0, r4, r0
 	ldr r1, [r1]
-
-	non_word_aligned_thumb_func_start sub_08045516
-sub_08045516: @ 0x08045516
+_08045516:
 	str r1, [r0]
 	adds r0, r3, #1
 	str r0, [r2]
@@ -12627,7 +12623,7 @@ _080463C0:
 	adds r0, r2, r1
 	ldr r0, [r0]
 	adds r0, #0x14
-	bl func_08009AF8
+	bl GetUnk10__C4Farm
 	bl _08048FEE
 _080463D2:
 	movs r1, #0xd4
@@ -12655,7 +12651,7 @@ _080463FE:
 	adds r0, r2, r1
 	ldr r0, [r0]
 	adds r0, #0x14
-	bl func_08009B18
+	bl GetUnkFlag11__C4Farm
 	b _080466D4
 _0804640E:
 	movs r1, #0xd4
@@ -13183,7 +13179,7 @@ _08046838:
 	adds r0, r2, r1
 	ldr r0, [r0]
 	adds r0, #0x14
-	bl func_08009C3C
+	bl GetHorse__4Farm
 	b _080464A0
 _08046848:
 	movs r1, #0xd4
@@ -13191,7 +13187,7 @@ _08046848:
 	adds r0, r2, r1
 	ldr r0, [r0]
 	adds r0, #0x14
-	bl func_08009C3C
+	bl GetHorse__4Farm
 	cmp r0, #0
 	bne _0804685E
 	bl sub_08048FEC
@@ -13204,7 +13200,7 @@ _08046866:
 	adds r0, r2, r1
 	ldr r0, [r0]
 	adds r0, #0x14
-	bl func_08009C3C
+	bl GetHorse__4Farm
 	cmp r0, #0
 	bne _0804687C
 	bl sub_08048FEC
@@ -18747,7 +18743,7 @@ _08049904:
 	adds r4, r7, r0
 	ldr r0, [r4]
 	adds r0, #0x14
-	bl func_08009B18
+	bl GetUnkFlag11__C4Farm
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0804991C
@@ -18755,7 +18751,7 @@ _08049904:
 _0804991C:
 	ldr r0, [r4]
 	adds r0, #0x14
-	bl func_08009C60
+	bl method_08009C60__4Farm
 	bl _0804DA2E
 _08049928:
 	movs r1, #0xd4
@@ -18763,19 +18759,19 @@ _08049928:
 	adds r4, r7, r1
 	ldr r0, [r4]
 	adds r0, #0x14
-	bl func_08009AF8
+	bl GetUnk10__C4Farm
 	subs r1, r6, r0
 	cmp r1, #0
 	blt _08049948
 	ldr r0, [r4]
 	adds r0, #0x14
-	bl func_08009B68
+	bl method_08009B68__4FarmUi
 	bl _0804DA2E
 _08049948:
 	ldr r0, [r4]
 	adds r0, #0x14
 	rsbs r1, r1, #0
-	bl func_08009BAC
+	bl method_08009BAC__4FarmUi
 	bl _0804DA2E
 _08049956:
 	movs r2, #0xd4
@@ -27854,7 +27850,7 @@ _0804E408:
 	adds r0, r3, r1
 	ldr r0, [r0]
 	adds r0, #0x14
-	bl func_08009C3C
+	bl GetHorse__4Farm
 	adds r6, r0, #0
 	b _0804E49E
 _0804E41A:
@@ -47904,7 +47900,7 @@ _08058852:
 	mov r2, sl
 	ldr r0, [r2, #8]
 	adds r0, #0x14
-	bl func_08009C3C
+	bl GetHorse__4Farm
 	ldr r1, _080588A8 @ =0x000014DC
 	add r1, sl
 	str r0, [r1]
@@ -62466,7 +62462,7 @@ func_0805FF14: @ 0x0805FF14
 	mov sl, r2
 	mov r0, sl
 	adds r0, #0x14
-	bl func_08009AF4
+	bl method_08009AF4__C4Farm
 	adds r6, r0, #0
 	add r5, sp, #0x20
 	bl strlen
@@ -67042,7 +67038,7 @@ _08062132:
 	adds r0, r4, r5
 	ldr r0, [r0]
 	adds r0, #0x14
-	bl func_08009B00
+	bl GetHorse__C4Farm
 	str r0, [sp, #0x1e0]
 	cmp r0, #0
 	bne _08062148
@@ -68794,7 +68790,7 @@ _08062E34:
 	adds r0, r2, r3
 	ldr r0, [r0]
 	adds r0, #0x14
-	bl func_08009AF8
+	bl GetUnk10__C4Farm
 	ldr r4, [sp, #0x1cc]
 	ldr r1, [r4, #0x18]
 	ldr r5, [sp, #0x220]
@@ -96844,7 +96840,7 @@ _080702D2:
 _08070372:
 	ldr r0, [r7, #8]
 	adds r0, #0x14
-	bl func_08009C3C
+	bl GetHorse__4Farm
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _080703E0
@@ -97543,7 +97539,7 @@ _08070960:
 _08070966:
 	ldr r0, [r7, #8]
 	adds r0, #0x14
-	bl func_08009B18
+	bl GetUnkFlag11__C4Farm
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _08070986
@@ -113949,7 +113945,7 @@ _0807882E:
 	bls _080787DE
 	ldr r0, [r7, #8]
 	adds r0, #0x14
-	bl func_08009AF4
+	bl method_08009AF4__C4Farm
 	mov sb, r0
 	ldr r6, [sp, #0x8c]
 	mov r4, sb
@@ -114029,7 +114025,7 @@ _080788CA:
 _080788DA:
 	ldr r0, [r7, #8]
 	adds r0, #0x14
-	bl func_08009AF4
+	bl method_08009AF4__C4Farm
 	mov sb, r0
 	ldr r6, [sp, #0x84]
 	mov r4, sb
@@ -117455,7 +117451,7 @@ _0807A7A2:
 	mov r2, r8
 	ldr r0, [r2, #8]
 	adds r0, #0x14
-	bl func_08009AF4
+	bl method_08009AF4__C4Farm
 	adds r0, r0, r4
 	ldrb r0, [r0]
 	strb r0, [r5]
@@ -117467,7 +117463,7 @@ _0807A7B6:
 	mov r1, r8
 	ldr r0, [r1, #8]
 	adds r0, #0x14
-	bl func_08009AF4
+	bl method_08009AF4__C4Farm
 	adds r0, r0, r4
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -135526,7 +135522,7 @@ _08083CA4:
 _08083CAA:
 	ldr r0, [r7, #8]
 	adds r0, #0x14
-	bl func_08009AF8
+	bl GetUnk10__C4Farm
 	ldr r1, _08083D04 @ =0x000003E7
 	cmp r0, r1
 	bne _08083CD8
@@ -136472,7 +136468,7 @@ _080843F8:
 	str r7, [sp, #0x5c]
 	ldr r0, [r6, #8]
 	adds r0, #0x14
-	bl func_08009AF8
+	bl GetUnk10__C4Farm
 	ldr r1, _080844E0 @ =0x000003E7
 	cmp r0, r1
 	bne _08084498
@@ -136939,7 +136935,7 @@ _08084E7C: .4byte 0x080FF858
 _08084E80:
 	adds r0, r1, #0
 	adds r0, #0x14
-	bl func_08009AF8
+	bl GetUnk10__C4Farm
 	ldr r1, [r4, #8]
 	cmp r0, r1
 	bhs _08084EB4
@@ -137076,7 +137072,7 @@ _08084FA4:
 	ldr r0, [r6, #8]
 	adds r0, #0x14
 	adds r1, r7, #0
-	bl func_08009B68
+	bl method_08009B68__4FarmUi
 	ldr r1, _08084FB4 @ =0x080FF9F4
 	b _0808502E
 	.align 2, 0
@@ -137163,7 +137159,7 @@ _08085044:
 	str r0, [r4]
 	ldr r0, [r6, #8]
 	adds r0, #0x14
-	bl func_08009AF8
+	bl GetUnk10__C4Farm
 	ldr r1, _08085090 @ =0x000003E7
 	cmp r0, r1
 	beq _08085072
@@ -137424,7 +137420,7 @@ _08085238:
 	ldr r0, [r6, #8]
 	adds r0, #0x14
 	ldr r1, [r4, #8]
-	bl func_08009BAC
+	bl method_08009BAC__4FarmUi
 	ldr r2, _08085304 @ =0x000061F0
 	adds r2, r2, r6
 	mov r8, r2
@@ -137585,7 +137581,7 @@ _0808539A:
 	ldr r0, [r6, #8]
 	adds r0, #0x14
 	ldr r1, [r4, #8]
-	bl func_08009BAC
+	bl method_08009BAC__4FarmUi
 	ldr r2, _08085428 @ =0x000061F0
 	adds r1, r6, r2
 	ldrb r0, [r1]
@@ -143077,7 +143073,7 @@ _08087FFE:
 _0808800E:
 	ldr r0, [r7, #8]
 	adds r0, #0x14
-	bl func_08009AF4
+	bl method_08009AF4__C4Farm
 	mov sb, r0
 	ldr r2, _080880B4 @ =0x00003AB4
 	adds r4, r7, r2
@@ -166200,7 +166196,7 @@ func_08094844: @ 0x08094844
 	ldr r1, [r1, #4]
 	str r1, [sp]
 	adds r0, #0x14
-	bl func_08009AF4
+	bl method_08009AF4__C4Farm
 	mov sb, r0
 	ldr r0, [r4]
 	ldr r1, _080948D4 @ =0x00001BD8

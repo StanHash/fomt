@@ -9,3 +9,8 @@ enum Season
     SEASON_AUTUMN,
     SEASON_WINTER,
 };
+
+struct PACKED Date
+{
+    Season season : 2;
+};

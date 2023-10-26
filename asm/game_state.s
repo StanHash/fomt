@@ -102,7 +102,7 @@ func_08010358: @ 0x08010358
     str r0, [r2, #8]
     adds r0, r3, #0
     adds r0, #0x14
-    bl func_08009A48
+    bl __4FarmPCc
     ldr r1, [sp, #0x48]
     ldr r2, _08010600 @ =0x00001AA8
     adds r0, r1, r2
@@ -379,7 +379,7 @@ _08010676:
     lsls r0, r0, #2
     add r0, r8
     mov sl, r0
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010730
@@ -391,7 +391,7 @@ _08010676:
     adds r0, r5, r3
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010730
@@ -402,14 +402,14 @@ _08010676:
     adds r0, r6, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010730
     adds r0, r5, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010730
@@ -481,7 +481,7 @@ _0801073E:
     add r0, r8
     movs r1, #0x1f
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
     ldr r0, [sp, #0x18]
     adds r0, #1
     ldr r6, [sp, #0x4c]
@@ -493,7 +493,7 @@ _0801073E:
     add r0, r8
     movs r1, #0x20
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
     ldr r0, [sp, #0x18]
     ldr r1, [r6, #4]
     adds r1, #1
@@ -503,7 +503,7 @@ _0801073E:
     add r0, r8
     movs r1, #0x21
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
     ldr r0, [sp, #0x18]
     adds r0, #1
     ldr r1, [r6, #4]
@@ -514,7 +514,7 @@ _0801073E:
     add r0, r8
     movs r1, #0x22
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
 _080107A2:
     ldr r0, [sp, #0x80]
     cmp r0, #9
@@ -564,7 +564,7 @@ _080107F2:
     lsls r0, r0, #2
     add r0, r8
     mov sl, r0
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _080108AC
@@ -576,7 +576,7 @@ _080107F2:
     adds r0, r5, r3
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _080108AC
@@ -587,14 +587,14 @@ _080107F2:
     adds r0, r6, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _080108AC
     adds r0, r5, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _080108AC
@@ -664,7 +664,7 @@ _080108B8:
     add r0, r8
     movs r1, #0x23
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
     ldr r0, [sp, #0x20]
     adds r0, #1
     ldr r6, [sp, #0x54]
@@ -676,7 +676,7 @@ _080108B8:
     add r0, r8
     movs r1, #0x24
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
     ldr r0, [sp, #0x20]
     ldr r1, [r6, #4]
     adds r1, #1
@@ -686,7 +686,7 @@ _080108B8:
     add r0, r8
     movs r1, #0x25
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
     ldr r0, [sp, #0x20]
     adds r0, #1
     ldr r1, [r6, #4]
@@ -697,7 +697,7 @@ _080108B8:
     add r0, r8
     movs r1, #0x26
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
 _0801091C:
     ldr r0, [sp, #0x88]
     cmp r0, #4
@@ -747,7 +747,7 @@ _0801096A:
     lsls r0, r0, #2
     add r0, r8
     mov sl, r0
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010A24
@@ -759,7 +759,7 @@ _0801096A:
     adds r0, r5, r3
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010A24
@@ -770,14 +770,14 @@ _0801096A:
     adds r0, r6, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010A24
     adds r0, r5, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010A24
@@ -847,7 +847,7 @@ _08010A30:
     add r0, r8
     movs r1, #0x1b
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
     ldr r0, [sp, #0x28]
     adds r0, #1
     ldr r6, [sp, #0x5c]
@@ -859,7 +859,7 @@ _08010A30:
     add r0, r8
     movs r1, #0x1c
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
     ldr r0, [sp, #0x28]
     ldr r1, [r6, #4]
     adds r1, #1
@@ -869,7 +869,7 @@ _08010A30:
     add r0, r8
     movs r1, #0x1d
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
     ldr r0, [sp, #0x28]
     adds r0, #1
     ldr r1, [r6, #4]
@@ -880,7 +880,7 @@ _08010A30:
     add r0, r8
     movs r1, #0x1e
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
 _08010A94:
     ldr r0, [sp, #0xa4]
     cmp r0, #9
@@ -930,7 +930,7 @@ _08010AE2:
     lsls r0, r0, #2
     add r0, r8
     mov sl, r0
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010B9C
@@ -942,7 +942,7 @@ _08010AE2:
     adds r0, r5, r3
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010B9C
@@ -953,14 +953,14 @@ _08010AE2:
     adds r0, r6, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010B9C
     adds r0, r5, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010B9C
@@ -1030,7 +1030,7 @@ _08010BA8:
     add r0, r8
     movs r1, #0x15
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
 _08010BC4:
     ldr r1, [sp, #0x7c]
     ldr r0, _08010C00 @ =0x0000012B
@@ -1082,7 +1082,7 @@ _08010C1A:
     lsls r0, r0, #2
     add r0, r8
     mov sl, r0
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010CD4
@@ -1094,7 +1094,7 @@ _08010C1A:
     adds r0, r5, r3
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010CD4
@@ -1105,14 +1105,14 @@ _08010C1A:
     adds r0, r6, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010CD4
     adds r0, r5, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010CD4
@@ -1182,7 +1182,7 @@ _08010CE0:
     add r0, r8
     movs r1, #0x16
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
 _08010CFC:
     ldr r0, [sp, #0x84]
     cmp r0, #0x31
@@ -1232,7 +1232,7 @@ _08010D4A:
     lsls r0, r0, #2
     add r0, r8
     mov sl, r0
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010E04
@@ -1244,7 +1244,7 @@ _08010D4A:
     adds r0, r5, r3
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010E04
@@ -1255,14 +1255,14 @@ _08010D4A:
     adds r0, r6, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010E04
     adds r0, r5, r4
     lsls r0, r0, #2
     add r0, r8
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _08010E04
@@ -1332,7 +1332,7 @@ _08010E10:
     add r0, r8
     movs r1, #0x17
     movs r2, #8
-    bl func_0800A134
+    bl method_0800A134__9FieldPlotii
 _08010E2C:
     ldr r0, [sp, #0xa0]
     cmp r0, #0x31
@@ -1392,7 +1392,7 @@ func_08010E68: @ 0x08010E68
 _08010E7C:
     adds r0, r6, #0
     adds r0, #0x14
-    bl func_08009B00
+    bl GetHorse__C4Farm
     cmp r0, #0
     beq _08010E92
     bl GetAffection__C6Animal
@@ -1794,7 +1794,7 @@ _0801116C:
     ldr r1, [r6, #8]
     mov r0, sl
     ldr r2, [sp, #0x18]
-    bl func_08009C6C
+    bl DayUpdate__4FarmiRC4Date
     ldrb r1, [r6, #0x11]
     lsls r0, r1, #0x19
     lsrs r0, r0, #0x1b
@@ -2478,7 +2478,7 @@ func_08011650: @ 0x08011650
     adds r0, #0x14
     ldr r5, _08011874 @ =0x080F058C
     adds r1, r5, #0
-    bl func_08009A48
+    bl __4FarmPCc
     ldr r1, _08011878 @ =0x00001AA8
     adds r0, r7, r1
     bl func_0809AB8C
@@ -9423,7 +9423,7 @@ func_08014C34: @ 0x08014C34
     bl __5HorseRC13ActorLocationUi
     mov r0, sl
     mov r1, sp
-    bl func_08009BE4
+    bl SetHorse__4FarmRC5Horse
     ldr r4, [sp, #0x40]
     adds r4, #0xa8
     ldr r0, [r4]
@@ -9480,7 +9480,7 @@ func_08014D30: @ 0x08014D30
     adds r0, #0x8c
     ldr r0, [r0]
     adds r0, #0x14
-    bl func_08009C54
+    bl RemoveHorse__4Farm
 _08014D54:
     pop {r4}
     pop {r0}
@@ -9633,7 +9633,7 @@ _08014E7C:
     adds r0, #0x8c
     ldr r0, [r0]
     adds r0, #0x14
-    bl func_08009AF4
+    bl method_08009AF4__C4Farm
     mov r8, r0
     mov r4, r8
     adds r0, r6, #0
@@ -10299,7 +10299,7 @@ _080153FC:
     adds r0, #0x8c
     ldr r0, [r0]
     adds r0, #0x14
-    bl func_08009AF4
+    bl method_08009AF4__C4Farm
     mov r8, r0
     mov r4, r8
     adds r0, r6, #0
@@ -14659,13 +14659,13 @@ _08017572:
     bne _0801759C
     mov r0, sb
     movs r1, #6
-    bl func_08009B68
+    bl method_08009B68__4FarmUi
     movs r0, #7
     b _08017598
 _08017586:
     mov r0, sb
     movs r1, #1
-    bl func_08009B68
+    bl method_08009B68__4FarmUi
     movs r0, #4
     b _08017598
 _08017592:
@@ -22183,7 +22183,7 @@ func_0801C874: @ 0x0801C874
     adds r6, r1, #0
     mov r8, r2
     adds r0, r4, #0
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     beq _0801C916
@@ -22545,7 +22545,7 @@ func_0801CDBC: @ 0x0801CDBC
     adds r7, r1, #0
     mov r8, r2
     adds r0, r4, #0
-    bl func_0800A78C
+    bl method_0800A78C__C9FieldPlot
     lsls r0, r0, #0x18
     cmp r0, #0
     beq _0801CE5E
@@ -22630,7 +22630,7 @@ _0801CE8A:
     ldr r0, [r0]
     adds r0, #0x14
     movs r1, #1
-    bl func_08009B68
+    bl method_08009B68__4FarmUi
     ldr r2, _0801CEB8 @ =0x00001028
     adds r0, r6, r2
     ldr r0, [r0]
@@ -22653,7 +22653,7 @@ _0801CEBC:
     ldr r0, [r0]
     adds r0, #0x14
     movs r1, #6
-    bl func_08009B68
+    bl method_08009B68__4FarmUi
     ldr r2, _0801CEF8 @ =0x00001028
     adds r0, r6, r2
     ldr r0, [r0]
