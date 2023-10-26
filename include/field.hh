@@ -10,15 +10,36 @@
 struct FieldPlot
 {
     FieldPlot();
+    FieldPlot(u32 arg_1, u32 arg_2, u32 arg_3);
+
+    u32 GetUnk0() const
+    {
+        return unk_00_00;
+    }
+
+    int GetUnk8() const
+    {
+        return unk_00_08;
+    }
+
+    u32 GetUnk11() const
+    {
+        return unk_00_11;
+    }
+
+    u32 method_0800A014() const;
 
     // NOTE: unsure if this is actually weather
     void DayUpdate(int weather, Date const & date);
     void method_0800A134(int id, int arg_2);
     bool method_0800A78C() const;
 
+    // typing on these is shaky
     /* bit 00 */ u32 unk_00_00 : 2;
-    /* bit 20 */ u32 unk_00_02 : 6;
-    /* bit 10 */ u32 unk_00_08 : 4;
+    /* bit 02 */ u32 unk_00_02 : 6;
+    /* bit 08 */ u32 unk_00_08 : 4;
+    /* bit 0C */ u16 unk_00_0C : 5;
+    /* bit 11 */ u16 unk_00_11 : 3;
 };
 
 template<u32 Width, u32 Height>
@@ -101,7 +122,7 @@ struct Field
     {
         if ((rand() & 1) != 0)
             return 0x1F;
-    
+
         return 0x23;
     }
 

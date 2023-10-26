@@ -23918,7 +23918,7 @@ _080DFE12:
 	adds r4, #0xb4
 	add r6, sp, #0x20
 	adds r0, r6, #0
-	bl func_08009FC8
+	bl __9FieldPlotUiUiUi
 	ldr r4, [r4]
 	adds r0, r5, #0
 	adds r1, r7, #0
