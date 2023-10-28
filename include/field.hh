@@ -12,9 +12,14 @@ struct FieldPlot
     FieldPlot();
     FieldPlot(u32 arg_1, u32 arg_2, u32 arg_3);
 
-    u32 GetUnk0() const
+    int GetUnk0() const
     {
         return unk_00_00;
+    }
+
+    int GetUnk2() const
+    {
+        return unk_00_02;
     }
 
     int GetUnk8() const

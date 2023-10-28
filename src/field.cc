@@ -1,5 +1,16 @@
 #include "field.hh"
 
+#include "rucksack_item.hh"
+
+struct Unk_080E93F8
+{
+    /* +00 */ void const * unk_00;
+    /* +04 */ STRUCT_PAD(0x04, 0x0A);
+    /* +0A */ u16 unk_0A;
+};
+
+extern struct Unk_080E93F8 SHOULD_BE_CONST gUnk_080E93F8[];
+
 FieldPlot::FieldPlot()
     : unk_00_00(0), unk_00_02(0), unk_00_08(0), unk_00_0C(0),
       unk_00_11(method_0800A014())
@@ -251,6 +262,7 @@ EC u32 func_0800A238(FieldPlot & self, int arg_1)
 
     }
 
+    // note: inline?
     if (arg_1 - r1 > 0)
     {
         arg_1 = arg_1 - r1;
@@ -274,8 +286,275 @@ EC u32 func_0800A238(FieldPlot & self, int arg_1)
     return 2;
 }
 
-#if 0
 EC u32 func_0800A33C(FieldPlot & self, int arg_1)
 {
+    if (self.GetUnk8() == 0)
+        return 0;
+
+    int r1, r5;
+
+    switch (self.GetUnk2())
+    {
+        default:
+            return 0;
+
+        case 0x17:
+            r1 = 0;
+            r5 = 1;
+            break;
+
+        case 0x1B:
+        case 0x1C:
+        case 0x1D:
+        case 0x1E:
+            r1 = 1;
+            r5 = 2;
+            break;
+    }
+
+    // note: inline?
+    if (arg_1 - r1 > 0)
+    {
+        arg_1 = arg_1 - r1;
+
+        if (arg_1 >= self.GetUnk11())
+        {
+            self.unk_00_11 = 0;
+            self.unk_00_08 = 0;
+
+            if (self.GetUnk0() != 3)
+                self.unk_00_00 = 0;
+
+            return r5;
+        }
+        else
+        {
+            self.unk_00_11 -= arg_1;
+        }
+    }
+
+    return 3;
 }
-#endif
+
+EC u32 func_0800A3C8(FieldPlot & self)
+{
+    if (self.GetUnk8() != 0)
+    {
+        if (self.GetUnk2() == 0x14)
+        {
+            if (self.GetUnk8() == 5)
+            {
+                self.unk_00_08 = 7;
+                self.unk_00_0C = 0;
+                return 1;
+            }
+        }
+        else if (self.GetUnk2() != 0x15)
+        {
+            u32 u0 = self.GetUnk0();
+
+            if (u0 == 1 || u0 == 2)
+            {
+                if (self.GetUnk8() == 6 || self.GetUnk8() == 2 || self.GetUnk8() == 3 || self.GetUnk8() == 4 || self.GetUnk8() == 5)
+                {
+                    self.unk_00_08 = 0;
+                    return 2;
+                }
+            }
+        }
+        else
+        {
+            self.unk_00_08 = 0;
+            return 2;
+        }
+    }
+
+    return 0;
+}
+
+EC u32 func_0800A438(FieldPlot & self)
+{
+    if (self.GetUnk0() == 1)
+    {
+        self.unk_00_00 = 2;
+        return 1;
+    }
+
+    return 0;
+}
+
+EC void func_0800A460(FieldPlot & self, int arg_1)
+{
+    u32 u0 = self.GetUnk0();
+
+    if (u0 == 1 || u0 == 2)
+    {
+        if (self.GetUnk8() == 0)
+        {
+            self.unk_00_08 = 1;
+            self.unk_00_02 = arg_1;
+            self.unk_00_0C = 0;
+        }
+    }
+}
+
+EC RucksackItem func_0800A4A4(FieldPlot & self)
+{
+    switch (self.GetUnk8())
+    {
+        case 5:
+            switch (self.GetUnk2())
+            {
+                case 0x2:
+                    self.unk_00_08 = 2;
+                    self.unk_00_0C = 4;
+                    break;
+
+                case 0x3:
+                    self.unk_00_08 = 3;
+                    self.unk_00_0C = 6;
+                    break;
+
+                case 0x5:
+                    self.unk_00_08 = 4;
+                    self.unk_00_0C = 6;
+                    break;
+
+                case 0x6:
+                    self.unk_00_08 = 4;
+                    self.unk_00_0C = 11;
+                    break;
+
+                case 0x9:
+                    self.unk_00_08 = 4;
+                    self.unk_00_0C = 15;
+                    break;
+
+                case 0xA:
+                    self.unk_00_08 = 3;
+                    self.unk_00_0C = 6;
+                    break;
+
+                case 0xC:
+                    self.unk_00_08 = 2;
+                    self.unk_00_0C = 3;
+                    break;
+
+                case 0xE:
+                    self.unk_00_08 = 4;
+                    self.unk_00_0C = 5;
+                    break;
+
+                case 0x14:
+                    return RucksackItem();
+
+                default:
+                    self.unk_00_08 = 0;
+                    self.unk_00_0C = 0;
+                    break;
+            }
+
+            break;
+
+        case 8:
+            if (gUnk_080E93F8[self.unk_00_02].unk_0A != 0xFF)
+            {
+                self.unk_00_08 = 0;
+            }
+
+            break;
+
+        default:
+            return RucksackItem();
+    }
+
+    fu16 id = gUnk_080E93F8[self.GetUnk2()].unk_0A;
+
+    if (id == 0xFF)
+        return RucksackItem();
+
+    if (self.GetUnk2() < 0xF)
+        return RucksackItem(Food(id));
+    else
+        return RucksackItem(Article(id));
+}
+
+EC bool func_0800A6C8(FieldPlot const & self, Article const & article)
+{
+    if (self.GetUnk8() == 0)
+    {
+        switch (article.GetId())
+        {
+            case ARTICLE_STONES:
+            case ARTICLE_BRANCHES:
+            case ARTICLE_LUMBER:
+            case ARTICLE_GOLDEN_LUMBER:
+                return true;
+        }
+    }
+
+    return false;
+}
+
+EC void func_0800A6F4(FieldPlot & self, Article const & article)
+{
+    if (func_0800A6C8(self, article))
+    {
+        switch (article.GetId())
+        {
+            case ARTICLE_STONES:
+                self.unk_00_02 = 0x16;
+                break;
+
+            case ARTICLE_LUMBER:
+                self.unk_00_02 = 0x18;
+                break;
+
+            case ARTICLE_GOLDEN_LUMBER:
+                self.unk_00_02 = 0x1A;
+                break;
+
+            case ARTICLE_BRANCHES:
+                self.unk_00_02 = 0x17;
+                break;
+
+            default:
+                return;
+        }
+
+        self.unk_00_08 = 8;
+
+        if (self.GetUnk0() != 3)
+            self.unk_00_00 = 0;
+
+        self.unk_00_11 = self.method_0800A014();
+    }
+}
+
+bool FieldPlot::method_0800A78C() const
+{
+    if (GetUnk8() != 0)
+    {
+        switch (GetUnk2())
+        {
+            case 0x1B:
+            case 0x1C:
+            case 0x1D:
+            case 0x1E:
+            case 0x1F:
+            case 0x20:
+            case 0x21:
+            case 0x22:
+            case 0x23:
+            case 0x24:
+            case 0x25:
+            case 0x26:
+                return true;
+
+            default:
+                return false;
+        }
+    }
+
+    return false;
+}
