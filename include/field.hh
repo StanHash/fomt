@@ -4,6 +4,7 @@
 #include "global.h"
 
 #include "game_time.hh"
+#include "rucksack_item.hh" // note: fwdable
 
 #include <cstdlib> // rand
 
@@ -33,10 +34,22 @@ struct FieldPlot
     }
 
     u32 method_0800A014() const;
+    bool method_0800A07C() const;
+    u32 method_0800A0A4() const;
+    void method_0800A120(int arg_1);
+    void method_0800A134(int id, int arg_2);
+    u32 method_0800A190(bool arg_1);
+    u32 method_0800A238(int arg_1);
+    u32 method_0800A33C(int arg_1);
+    u32 method_0800A3C8();
+    u32 method_0800A438();
+    void method_0800A460(int arg_1);
+    RucksackItem FieldPlot::method_0800A4A4();
+    bool method_0800A6C8(Article const & article) const;
+    void method_0800A6F4(Article const & article);
 
     // NOTE: unsure if this is actually weather
     void DayUpdate(int weather, Date const & date);
-    void method_0800A134(int id, int arg_2);
     bool method_0800A78C() const;
 
     // typing on these is shaky

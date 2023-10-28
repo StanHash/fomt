@@ -24130,7 +24130,7 @@ _080AA732:
 	strb r0, [r1]
 _080AA78E:
 	ldr r0, [sp, #4]
-	bl func_0800A07C
+	bl method_0800A07C__C9FieldPlot
 	ldr r2, [sp]
 	adds r2, r2, r5
 	mov r8, r2
@@ -24174,7 +24174,7 @@ _080AA78E:
 	orrs r1, r5
 	strb r1, [r2]
 	ldr r0, [sp, #4]
-	bl func_0800A0A4
+	bl method_0800A0A4__C9FieldPlot
 	ldr r1, [r7, #0x2c]
 	add r8, r1
 	movs r2, #4
@@ -101274,7 +101274,7 @@ _080CFF0A:
 	strb r0, [r1]
 _080CFF66:
 	ldr r0, [sp]
-	bl func_0800A07C
+	bl method_0800A07C__C9FieldPlot
 	mov r2, sb
 	adds r4, r2, r5
 	ldr r2, [r6, #0x2c]

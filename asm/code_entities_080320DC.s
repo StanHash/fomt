@@ -1788,7 +1788,7 @@ _080331AE:
     str r1, [sp, #0x1c]
     add r0, sp, #0x14
     add r1, sp, #0x1c
-    bl func_0800A4A4
+    bl method_0800A4A4__9FieldPlot
     add r5, sp, #0x14
     adds r0, r5, #0
     bl IsEmpty__C12RucksackItem
@@ -2345,7 +2345,7 @@ _08033608:
     str r1, [sp, #8]
     add r1, sp, #8
     mov r0, sp
-    bl func_0800A4A4
+    bl method_0800A4A4__9FieldPlot
     mov r0, sp
     bl IsEmpty__C12RucksackItem
     lsls r0, r0, #0x18

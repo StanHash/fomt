@@ -338,7 +338,7 @@ _0800AA8C:
     bge _0800AAAA
     adds r0, r5, #0
     movs r1, #0
-    bl func_0800A120
+    bl method_0800A120__9FieldPloti
     b _0800AAD2
 _0800AAAA:
     ldrb r3, [r4, #2]
@@ -373,7 +373,7 @@ _0800AAD2:
     bne _0800AAFE
     adds r0, r5, #0
     movs r1, #1
-    bl func_0800A120
+    bl method_0800A120__9FieldPloti
     b _0800AAFE
 _0800AAEC:
     ldr r0, [r5]
@@ -383,7 +383,7 @@ _0800AAEC:
     bne _0800AAFE
     adds r0, r5, #0
     movs r1, #2
-    bl func_0800A120
+    bl method_0800A120__9FieldPloti
 _0800AAFE:
     pop {r3}
     mov r8, r3
@@ -417,7 +417,7 @@ _0800AB28:
 _0800AB2A:
     adds r0, r4, #0
     movs r1, #0
-    bl func_0800A120
+    bl method_0800A120__9FieldPloti
     ldr r1, [r4]
     lsls r0, r1, #0x14
     lsrs r0, r0, #0x1c
