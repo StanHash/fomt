@@ -8,12 +8,24 @@
 
 #include <cstdlib> // rand
 
+// TODO: what is this?
+struct Unk_Something
+{
+    STRUCT_PAD(0x00, 0x0C);
+};
+
 struct FieldPlot
 {
     FieldPlot();
     FieldPlot(u32 arg_1, u32 arg_2, u32 arg_3);
 
     int GetUnk0() const
+    {
+        return unk_00_00;
+    }
+
+    // this sucks
+    fu16 GetUnk0_2() const
     {
         return unk_00_00;
     }
@@ -44,13 +56,16 @@ struct FieldPlot
     u32 method_0800A3C8();
     u32 method_0800A438();
     void method_0800A460(int arg_1);
-    RucksackItem FieldPlot::method_0800A4A4();
+    RucksackItem method_0800A4A4();
     bool method_0800A6C8(Article const & article) const;
     void method_0800A6F4(Article const & article);
+    bool method_0800A78C() const;
 
     // NOTE: unsure if this is actually weather
     void DayUpdate(int weather, Date const & date);
-    bool method_0800A78C() const;
+    void method_0800AB08(Season season);
+    void const * method_0800AF20() const;
+    Unk_Something const * method_0800AF5C(FieldPlot const * arg_1, FieldPlot const * arg_2) const;
 
     // typing on these is shaky
     /* bit 00 */ u32 unk_00_00 : 2;
@@ -60,8 +75,7 @@ struct FieldPlot
     /* bit 11 */ u16 unk_00_11 : 3;
 };
 
-template<u32 Width, u32 Height>
-struct Field
+template <u32 Width, u32 Height> struct Field
 {
     FieldPlot const & PlotAt(int x, int y) const
     {
@@ -73,14 +87,14 @@ struct Field
         return plots[x + y * Width];
     }
 
-    bool FindRandomSpotFor(int id, i32 (& out_pos)[2]) const
+    bool FindRandomSpotFor(int id, i32 (&out_pos)[2]) const
     {
         bool big = id > 0x1A;
 
         for (u32 i = 0; i < 100; i++)
         {
             int x, y;
-    
+
             if (big)
             {
                 x = rand() % (Width - 1);
@@ -106,26 +120,26 @@ struct Field
                 if (PlotAt(x + 1, y + 1).method_0800A78C())
                     continue;
             }
-    
+
             out_pos[0] = x;
             out_pos[1] = y;
-    
+
             return true;
         }
-    
+
         return false;
     }
 
     void PutAtRandom(int id)
     {
         i32 pos[2];
-    
+
         if (FindRandomSpotFor(id, pos))
         {
             bool big = id > 0x1A;
-    
+
             PlotAt(pos[0] + 0, pos[1] + 0).method_0800A134(id + 0, 8);
-    
+
             if (big)
             {
                 PlotAt(pos[0] + 1, pos[1] + 0).method_0800A134(id + 1, 8);

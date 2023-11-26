@@ -1812,7 +1812,7 @@ _0801116C:
 _08011192:
     adds r0, r4, #0
     adds r1, r7, #0
-    bl func_0800AB08
+    bl method_0800AB08__9FieldPlot6Season
     adds r4, #4
     cmp r4, r5
     blo _08011192
@@ -21877,7 +21877,7 @@ _0801C390:
     movs r2, #0
 _0801C392:
     adds r0, r7, #0
-    bl func_0800AF5C
+    bl method_0800AF5C__C9FieldPlotPC9FieldPlotT1
     add r1, sp, #4
     ldrh r1, [r1, #4]
     add r2, sp, #4
@@ -22143,7 +22143,7 @@ _0801C84C:
     movs r2, #0
 _0801C84E:
     adds r0, r4, #0
-    bl func_0800AF5C
+    bl method_0800AF5C__C9FieldPlotPC9FieldPlotT1
     str r0, [sp]
     adds r0, r7, #0
     ldr r1, [sp, #0xc]
@@ -22502,7 +22502,7 @@ _0801CD8E:
     movs r2, #0
 _0801CD90:
     adds r0, r4, #0
-    bl func_0800AF5C
+    bl method_0800AF5C__C9FieldPlotPC9FieldPlotT1
     lsls r1, r5, #1
     adds r1, #0x22
     mov r3, r8
@@ -23826,7 +23826,7 @@ _0801E046:
     movs r2, #0
 _0801E048:
     mov r0, ip
-    bl func_0800AF5C
+    bl method_0800AF5C__C9FieldPlotPC9FieldPlotT1
     str r0, [sp]
     ldr r0, [sp, #0x10]
     ldr r1, [sp, #0xc]

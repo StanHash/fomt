@@ -16482,7 +16482,7 @@ _080A6CA0:
 	movs r2, #0
 _080A6CA2:
 	adds r0, r7, #0
-	bl func_0800AF5C
+	bl method_0800AF5C__C9FieldPlotPC9FieldPlotT1
 	str r0, [sp]
 	mov r0, r8
 	mov r1, sl
@@ -16665,7 +16665,7 @@ _080A6E00:
 	movs r2, #0
 _080A6E02:
 	adds r0, r7, #0
-	bl func_0800AF5C
+	bl method_0800AF5C__C9FieldPlotPC9FieldPlotT1
 	str r0, [sp]
 	mov r0, r8
 	mov r1, sl
@@ -24054,7 +24054,7 @@ func_080AA6D0: @ 0x080AA6D0
 	ldrh r0, [r0, #0x20]
 	mov sl, r0
 	ldr r0, [sp, #4]
-	bl func_0800AF20
+	bl method_0800AF20__C9FieldPlot
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _080AA732
@@ -100847,7 +100847,7 @@ _080CFC44:
 	movs r2, #0
 _080CFC46:
 	adds r0, r3, #0
-	bl func_0800AF5C
+	bl method_0800AF5C__C9FieldPlotPC9FieldPlotT1
 	lsls r1, r4, #1
 	str r0, [sp]
 	ldr r0, [sp, #4]
@@ -101198,7 +101198,7 @@ func_080CFEA8: @ 0x080CFEA8
 	ldrh r0, [r0, #0x20]
 	mov r8, r0
 	ldr r0, [sp]
-	bl func_0800AF20
+	bl method_0800AF20__C9FieldPlot
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _080CFF0A
@@ -101429,7 +101429,7 @@ _080D0084:
 	movs r2, #0
 _080D0086:
 	adds r0, r4, #0
-	bl func_0800AF5C
+	bl method_0800AF5C__C9FieldPlotPC9FieldPlotT1
 	lsls r4, r5, #1
 	mov r1, r8
 	lsls r2, r1, #1
@@ -101500,7 +101500,7 @@ _080D0108:
 	movs r2, #0
 _080D010A:
 	mov r0, ip
-	bl func_0800AF5C
+	bl method_0800AF5C__C9FieldPlotPC9FieldPlotT1
 	ldr r2, [sp, #4]
 	adds r2, #7
 	str r0, [sp]
@@ -101594,7 +101594,7 @@ _080D01B6:
 	movs r2, #0
 _080D01B8:
 	adds r0, r7, #0
-	bl func_0800AF5C
+	bl method_0800AF5C__C9FieldPlotPC9FieldPlotT1
 	lsls r2, r6, #1
 	adds r2, #7
 	str r0, [sp]

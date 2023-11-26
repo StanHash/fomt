@@ -73,7 +73,6 @@ SECTIONS
         asm/hardware.o(.text);
         src/farm.o(.text);
         src/field.o(.text);
-        asm/code_08009A48.o(.text);
         src/shipping_bin.o(.text);
         src/tool_chest.o(.text);
         src/fridge.o(.text);
