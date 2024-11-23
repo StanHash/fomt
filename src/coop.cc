@@ -1,34 +1,31 @@
 #include "coop.hh"
 
-#include <cstdlib>
+#include "utility/popcnt.hh"
+
+#include <stdlib.h> // rand
 #include <algorithm>
 
-Coop::Coop(void)
-    : upgrade_level(0),
-      stored_bushel_count(0),
-      unk_001_3(false),
-      unk_001_4(0),
-      unk_002_4(false),
-      unk_003_0(0)
+Coop::Coop()
+    : upgrade_level(0), stored_bushel_count(0), unk_001_3(false), unk_001_4(0), unk_002_4(false), unk_003_0(0)
 {
 }
 
-Vec2 Coop::method_0800C554(void)
+Vec2 Coop::method_0800C554()
 {
     return Vec2(0x78, 0xD8);
 }
 
-u32 Coop::GetUpgradeLevel(void) const
+u32 Coop::GetUpgradeLevel() const
 {
     return upgrade_level;
 }
 
-u32 Coop::GetStoredBushelCount(void) const
+u32 Coop::GetStoredBushelCount() const
 {
     return stored_bushel_count;
 }
 
-u32 Coop::GetCapacity(void) const
+u32 Coop::GetCapacity() const
 {
     return std::min<u32>(MAX_CAPACITY, 4 + upgrade_level * 4);
 }
@@ -41,7 +38,7 @@ bool Coop::HasBushelForEnt(u32 ent_idx) const
     return false;
 }
 
-bool Coop::method_0800C5C4(void) const
+bool Coop::method_0800C5C4() const
 {
     return unk_001_3;
 }
@@ -69,7 +66,7 @@ int Coop::GetNextFreeEnt(u32 ent_idx) const
     return -1;
 }
 
-u32 Coop::CountChickens(void) const
+u32 Coop::CountChickens() const
 {
     u32 capacity = GetCapacity();
     u32 result = 0;
@@ -83,7 +80,7 @@ u32 Coop::CountChickens(void) const
     return result;
 }
 
-u32 Coop::GetIncubatorCapacity(void) const
+u32 Coop::GetIncubatorCapacity() const
 {
     return upgrade_level == 0 ? 1 : 2;
 }
@@ -102,14 +99,14 @@ Coop::Egg const * Coop::GetEgg(u32 ent_idx) const
 {
     if (ent_idx < GetCapacity())
     {
-        if (egg[ent_idx].location.map < 0x234)
+        if (egg[ent_idx].location.map < MAP_NONE)
             return &egg[ent_idx];
     }
 
     return nullptr;
 }
 
-int Coop::GetUnkEnt(void) const
+int Coop::GetUnkEnt() const
 {
     if (unk_002_4)
         return unk_002_5;
@@ -129,7 +126,7 @@ Vec2 Coop::method_0800C6F0(u32 ent_idx) const
     return Vec2(136 + x_off, 96);
 }
 
-bool Coop::ShouldHatch(u32 incubator_idx) SHOULD_BE_CONST
+bool Coop::ShouldHatch(u32 incubator_idx) SHOULD_BE(const)
 {
     if (incubator_idx < GetIncubatorCapacity())
         return incubator[incubator_idx].ShouldHatch();
@@ -142,17 +139,17 @@ Vec2 Coop::method_0800C748(u32 incubator_idx) const
     return Vec2(40, 152 - 32 * incubator_idx);
 }
 
-u32 Coop::GetUnkAge(void) const
+u32 Coop::GetUnkAge() const
 {
     return unk_003_0;
 }
 
-char const * Coop::GetUnkName(void) const
+char const * Coop::GetUnkName() const
 {
     return unk_chicken_name;
 }
 
-void Coop::Upgrade(void)
+void Coop::Upgrade()
 {
     if (upgrade_level == 0)
         upgrade_level += 1;
@@ -189,7 +186,7 @@ void Coop::ClearEntBushel(u32 ent_idx)
     }
 }
 
-void Coop::method_0800C888(void)
+void Coop::method_0800C888()
 {
     unk_001_3 = true;
 }
@@ -251,11 +248,11 @@ void Coop::method_0800C9B8(u32 ent_idx)
 {
     if (ent_idx < GetCapacity())
     {
-        egg[ent_idx].location.map = 0x234;
+        egg[ent_idx].location.map = MAP_NONE;
     }
 }
 
-void Coop::DayUpdate(void)
+void Coop::DayUpdate()
 {
     u32 feed_count = popcnt(unk_001_4);
     unk_001_4 = 0;
@@ -321,7 +318,7 @@ void Coop::method_0800CB7C(u32 ent_idx)
     }
 }
 
-void Coop::method_0800CBC0(void)
+void Coop::method_0800CBC0()
 {
     unk_002_4 = false;
 }
@@ -346,17 +343,17 @@ int Coop::AttemptHatch(u32 incubator_idx)
     return -1;
 }
 
-bool Coop::Ent::IsFree(void) const
+bool Coop::Ent::IsFree() const
 {
     return !occupied;
 }
 
-Chicken const * Coop::Ent::GetChicken(void) const
+Chicken const * Coop::Ent::GetChicken() const
 {
     return !occupied ? nullptr : reinterpret_cast<Chicken const *>(&placeholder);
 }
 
-Chicken * Coop::Ent::GetChicken(void)
+Chicken * Coop::Ent::GetChicken()
 {
     return !occupied ? nullptr : reinterpret_cast<Chicken *>(&placeholder);
 }
@@ -378,40 +375,40 @@ bool Coop::Ent::Insert(Chicken const & to_copy)
     return false;
 }
 
-void Coop::Ent::Remove(void)
+void Coop::Ent::Remove()
 {
     if (occupied)
         occupied = false;
 }
 
-bool Coop::Incubator::IsOccupied(void) const
+bool Coop::Incubator::IsOccupied() const
 {
     return occupied;
 }
 
-u32 Coop::Incubator::GetDaysLeft(void) const
+u32 Coop::Incubator::GetDaysLeft() const
 {
     return occupied ? days_left : 0;
 }
 
-bool Coop::Incubator::ShouldHatch(void) SHOULD_BE_CONST
+bool Coop::Incubator::ShouldHatch() SHOULD_BE(const)
 {
     return occupied && days_left == 0;
 }
 
-void Coop::Incubator::BeginIncubation(void)
+void Coop::Incubator::BeginIncubation()
 {
     occupied = true;
     days_left = 3;
 }
 
-void Coop::Incubator::DayUpdate(void)
+void Coop::Incubator::DayUpdate()
 {
     if (days_left > 0)
         days_left--;
 }
 
-void Coop::Incubator::Remove(void)
+void Coop::Incubator::Remove()
 {
     occupied = false;
 }

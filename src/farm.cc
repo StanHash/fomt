@@ -17,9 +17,7 @@ Vec2 Farm::smethod_08009AE8()
     return Vec2(0x8F, 0x20C);
 }
 
-void Farm::method_08009AF4() const
-{
-}
+void Farm::method_08009AF4() const {}
 
 u32 Farm::GetUnk10() const
 {
@@ -28,9 +26,7 @@ u32 Farm::GetUnk10() const
 
 Horse const * Farm::GetHorse() const
 {
-    return has_horse
-        ? reinterpret_cast<Horse const *>(&horse_placeholder)
-        : nullptr;
+    return has_horse ? reinterpret_cast<Horse const *>(&horse_placeholder) : nullptr;
 }
 
 bool Farm::GetUnkFlag11() const
@@ -93,9 +89,7 @@ void Farm::SetHorse(Horse const & a_horse)
 
 Horse * Farm::GetHorse()
 {
-    return has_horse
-        ? reinterpret_cast<Horse *>(&horse_placeholder)
-        : nullptr;
+    return has_horse ? reinterpret_cast<Horse *>(&horse_placeholder) : nullptr;
 }
 
 void Farm::RemoveHorse()

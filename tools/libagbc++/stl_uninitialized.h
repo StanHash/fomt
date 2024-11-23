@@ -189,17 +189,14 @@ __uninitialized_fill_n_aux(_ForwardIter __first, _Size __n,
 }
 
 template <class _ForwardIter, class _Size, class _Tp>
-_ForwardIter
+inline _ForwardIter
 __uninitialized_fill_n_aux(_ForwardIter __first, _Size __n,
                            const _Tp& __x, __false_type)
 {
   _ForwardIter __cur = __first;
-  __STL_TRY {
     for ( ; __n > 0; --__n, ++__cur)
       construct(&*__cur, __x);
     return __cur;
-  }
-  __STL_UNWIND(destroy(__first, __cur));
 }
 
 template <class _ForwardIter, class _Size, class _Tp, class _Tp1>

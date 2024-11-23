@@ -1169,7 +1169,7 @@ _080209EA:
     muls r4, r1, r4
     movs r1, #0x34
     muls r0, r1, r0
-    ldr r1, _08020A50 @ =0x080F0838
+    ldr r1, _08020A50 @ =gUnk_080F0838
     adds r0, r0, r1
     adds r4, r4, r0
     adds r0, r4, #0
@@ -1210,7 +1210,7 @@ _08020A48:
     strh r4, [r3]
     b _080210A0
     .align 2, 0
-_08020A50: .4byte 0x080F0838
+_08020A50: .4byte gUnk_080F0838
 _08020A54:
     mov r4, sl
     adds r4, #0x24
@@ -2094,7 +2094,7 @@ _08021108: .4byte 0xFF00FFFF
 func_0802110C: @ 0x0802110C
     push {r4, r5, lr}
     adds r4, r1, #0
-    ldr r5, _0802112C @ =0x080F0908
+    ldr r5, _0802112C @ =gUnk_080F0908
     lsls r4, r4, #1
     ldr r0, [r0, #0x34]
     bl GetGrowthStage__C3Dog
@@ -2108,7 +2108,7 @@ _08021120:
     pop {r1}
     bx r1
     .align 2, 0
-_0802112C: .4byte 0x080F0908
+_0802112C: .4byte gUnk_080F0908
 
     thumb_func_start func_08021130
 func_08021130: @ 0x08021130
@@ -2220,7 +2220,7 @@ _080211FA:
     cmp r0, r1
     beq _08021210
     adds r0, r4, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
 _08021210:
     adds r0, r4, #0
     adds r0, #0x20
@@ -2229,7 +2229,7 @@ _08021210:
     beq _08021222
     adds r0, r4, #0
     adds r1, r6, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _08021222:
     adds r0, r4, #0
     adds r1, r5, #0
@@ -2963,7 +2963,7 @@ _08021F84: .4byte 0xFF00FFFF
 func_08021F88: @ 0x08021F88
     push {r4, r5, lr}
     adds r4, r1, #0
-    ldr r5, _08021FA8 @ =0x080F09AC
+    ldr r5, _08021FA8 @ =gUnk_080F09AC
     ldr r0, [r0, #0x34]
     bl GetGrowthStage__C5Horse
     lsls r1, r0, #3
@@ -2976,7 +2976,7 @@ func_08021F88: @ 0x08021F88
     pop {r1}
     bx r1
     .align 2, 0
-_08021FA8: .4byte 0x080F09AC
+_08021FA8: .4byte gUnk_080F09AC
 
     thumb_func_start func_08021FAC
 func_08021FAC: @ 0x08021FAC
@@ -3082,7 +3082,7 @@ _0802205E:
     cmp r0, r1
     beq _08022074
     adds r0, r4, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
 _08022074:
     adds r0, r4, #0
     adds r0, #0x20
@@ -3091,7 +3091,7 @@ _08022074:
     beq _08022086
     adds r0, r4, #0
     adds r1, r6, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _08022086:
     adds r0, r4, #0
     adds r1, r5, #0
@@ -3706,7 +3706,7 @@ _08022734:
     lsls r1, r5, #2
     adds r1, r1, r5
     lsls r1, r1, #3
-    ldr r2, _080227B0 @ =0x080F09C8
+    ldr r2, _080227B0 @ =gUnk_080F09C8
     adds r1, r1, r2
     adds r4, r4, r1
     lsls r0, r0, #0x18
@@ -3753,7 +3753,7 @@ _080227AA:
     strh r4, [r6]
     b _08022894
     .align 2, 0
-_080227B0: .4byte 0x080F09C8
+_080227B0: .4byte gUnk_080F09C8
 _080227B4:
     adds r0, r7, #0
     adds r0, #0x28
@@ -3896,7 +3896,7 @@ func_080228B4: @ 0x080228B4
     cmp r0, r1
     beq _080228CE
     adds r0, r4, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
 _080228CE:
     adds r0, r4, #0
     adds r0, #0x20
@@ -3905,7 +3905,7 @@ _080228CE:
     beq _080228E0
     adds r0, r4, #0
     adds r1, r6, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _080228E0:
     adds r0, r4, #0
     adds r1, r5, #0
@@ -3997,7 +3997,7 @@ _0802297A:
 func_08022980: @ 0x08022980
     push {r4, r5, lr}
     adds r4, r1, #0
-    ldr r5, _080229A0 @ =0x080F0A68
+    ldr r5, _080229A0 @ =gUnk_080F0A68
     ldr r0, [r0, #0x34]
     bl GetGrowthStage__C7Chicken
     lsls r1, r0, #2
@@ -4010,7 +4010,7 @@ func_08022980: @ 0x08022980
     pop {r1}
     bx r1
     .align 2, 0
-_080229A0: .4byte 0x080F0A68
+_080229A0: .4byte gUnk_080F0A68
 
     thumb_func_start func_080229A4
 func_080229A4: @ 0x080229A4
@@ -4243,7 +4243,7 @@ func_08023308: @ 0x08023308
     cmp r0, r1
     beq _08023322
     adds r0, r4, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
 _08023322:
     adds r0, r4, #0
     adds r0, #0x20
@@ -4252,7 +4252,7 @@ _08023322:
     beq _08023334
     adds r0, r4, #0
     adds r1, r6, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _08023334:
     adds r0, r4, #0
     adds r1, r5, #0
@@ -4345,7 +4345,7 @@ func_080233B4: @ 0x080233B4
     orrs r1, r0
     lsrs r6, r1, #0x1f
 _080233D4:
-    ldr r7, _080233E4 @ =0x080F0C3C
+    ldr r7, _080233E4 @ =gUnk_080F0C3C
     lsls r5, r5, #1
     cmp r6, #0
     beq _080233E8
@@ -4353,7 +4353,7 @@ _080233D4:
     adds r0, #0x2a
     b _080233F6
     .align 2, 0
-_080233E4: .4byte 0x080F0C3C
+_080233E4: .4byte gUnk_080F0C3C
 _080233E8:
     ldr r0, [r4, #0x34]
     bl GetGrowthStage__C3Cow
@@ -4649,7 +4649,7 @@ func_08023FB0: @ 0x08023FB0
     cmp r0, r1
     beq _08023FCA
     adds r0, r4, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
 _08023FCA:
     adds r0, r4, #0
     adds r0, #0x20
@@ -4658,7 +4658,7 @@ _08023FCA:
     beq _08023FDC
     adds r0, r4, #0
     adds r1, r6, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _08023FDC:
     adds r0, r4, #0
     adds r1, r5, #0
@@ -4751,7 +4751,7 @@ func_0802405C: @ 0x0802405C
     orrs r1, r0
     lsrs r6, r1, #0x1f
 _0802407C:
-    ldr r7, _0802408C @ =0x080F0E34
+    ldr r7, _0802408C @ =gUnk_080F0E34
     lsls r4, r4, #1
     cmp r6, #0
     beq _08024090
@@ -4759,7 +4759,7 @@ _0802407C:
     adds r0, #0x2a
     b _080240B0
     .align 2, 0
-_0802408C: .4byte 0x080F0E34
+_0802408C: .4byte gUnk_080F0E34
 _08024090:
     ldr r0, [r5, #0x34]
     bl IsSheared__C5Sheep
@@ -5419,7 +5419,7 @@ func_08024974: @ 0x08024974
     strh r4, [r0]
     adds r6, r7, #0
     adds r6, #0x60
-    ldr r0, _08024A78 @ =0x080F0E80
+    ldr r0, _08024A78 @ =gUnk_080F0E80
     str r0, [r7, #0x60]
     strh r4, [r6, #4]
     adds r0, r7, #0
@@ -5500,7 +5500,7 @@ func_08024974: @ 0x08024974
     cmp r0, r1
     beq _08024A66
     adds r0, r7, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
 _08024A66:
     adds r0, r7, #0
     pop {r4, r5, r6, r7}
@@ -5509,7 +5509,7 @@ _08024A66:
     .align 2, 0
 _08024A70: .4byte vtable_unk_080E6658
 _08024A74: .4byte 0x00001BD8
-_08024A78: .4byte 0x080F0E80
+_08024A78: .4byte gUnk_080F0E80
 _08024A7C: .4byte 0x0000FFFF
 
     thumb_func_start func_08024A80
@@ -5523,7 +5523,7 @@ func_08024A80: @ 0x08024A80
     ldr r4, [r5, #0x38]
     mov r0, sp
     adds r1, r5, #0
-    bl func_08032170
+    bl GetLocation__C12AActorEntity
     adds r0, r4, #0
     mov r1, sp
     bl func_0800EB34
@@ -5568,7 +5568,7 @@ _08024AE4:
     adds r4, r4, r0
     mov r0, sp
     adds r1, r5, #0
-    bl func_0801FE94
+    bl GetLocation__C7AEntity
     adds r0, r4, #0
     mov r1, sp
     movs r2, #6
@@ -5599,7 +5599,7 @@ _08024B24:
 _08024B40:
     mov r0, sp
     adds r1, r5, #0
-    bl func_08032170
+    bl GetLocation__C12AActorEntity
     adds r0, r4, #0
     mov r1, sp
     bl SetLocation__5ActorRC13ActorLocation
@@ -5611,7 +5611,7 @@ _08024B52:
     adds r4, r4, r0
     mov r0, sp
     adds r1, r5, #0
-    bl func_0801FE94
+    bl GetLocation__C7AEntity
     adds r0, r4, #0
     mov r1, sp
     bl func_08010014
@@ -5685,7 +5685,7 @@ _08024BE4: .4byte 0x00002171
 func_08024BE8: @ 0x08024BE8
     push {r4, lr}
     adds r4, r0, #0
-    bl func_0801FDC0
+    bl vfunc_10__7AEntity
     adds r0, r4, #0
     bl func_0802A588
     pop {r4}
@@ -5843,7 +5843,7 @@ func_08024CD0: @ 0x08024CD0
     cmp r0, r1
     beq _08024D08
     adds r0, r5, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
 _08024D08:
     ldrh r0, [r5, #0x24]
     cmp r0, #0
@@ -6289,7 +6289,7 @@ func_08025018: @ 0x08025018
     cmp r0, r1
     beq _0802505A
     adds r0, r4, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
 _0802505A:
     adds r0, r4, #0
     adds r1, r5, #0
@@ -7429,7 +7429,7 @@ func_080258A0: @ 0x080258A0
     bne _08025932
     ldr r0, [r4, #0x38]
     adds r0, #0x60
-    bl func_0800F634
+    bl GetFirstFreeItemSlot__C8Rucksack
     adds r1, r0, #0
     movs r0, #1
     rsbs r0, r0, #0
@@ -7437,7 +7437,7 @@ func_080258A0: @ 0x080258A0
     beq _0802592A
     ldr r0, [r4, #0x38]
     adds r0, #0x60
-    bl func_0800FCDC
+    bl GetItemAt__8RucksackUi
     ldr r1, [sp]
     str r1, [r0]
     ldr r0, [r4, #0x38]
@@ -8907,7 +8907,7 @@ _08026548:
     bgt _08026624
     cmp r3, #0
     blt _08026624
-    ldr r2, _08026584 @ =0x080F0FCC
+    ldr r2, _08026584 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -8929,7 +8929,7 @@ _08026548:
     mov r0, sp
     b _080266A6
     .align 2, 0
-_08026584: .4byte 0x080F0FCC
+_08026584: .4byte gUnk_080F0FCC
 _08026588:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -9214,7 +9214,7 @@ _08026792:
     cmp r0, r1
     beq _080267E4
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _080267E4
     .align 2, 0
 _080267A0: .4byte 0x00000792
@@ -9262,7 +9262,7 @@ _080267E4:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     ldr r0, [r6]
     ldr r1, [r0]
     movs r2, #0xa6
@@ -9510,7 +9510,7 @@ _08026A2C:
     bgt _08026B08
     cmp r3, #0
     blt _08026B08
-    ldr r2, _08026A68 @ =0x080F0FCC
+    ldr r2, _08026A68 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -9532,7 +9532,7 @@ _08026A2C:
     mov r0, sp
     b _08026B8A
     .align 2, 0
-_08026A68: .4byte 0x080F0FCC
+_08026A68: .4byte gUnk_080F0FCC
 _08026A6C:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -9817,7 +9817,7 @@ _08026C76:
     cmp r0, r1
     beq _08026CC8
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _08026CC8
     .align 2, 0
 _08026C84: .4byte 0x00000792
@@ -9865,7 +9865,7 @@ _08026CC8:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     ldr r0, [r6]
     ldr r1, [r0]
     movs r2, #0xa6
@@ -10157,7 +10157,7 @@ _08026F54:
     bgt _08027030
     cmp r3, #0
     blt _08027030
-    ldr r2, _08026F90 @ =0x080F0FCC
+    ldr r2, _08026F90 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -10179,7 +10179,7 @@ _08026F54:
     mov r0, sp
     b _080270B2
     .align 2, 0
-_08026F90: .4byte 0x080F0FCC
+_08026F90: .4byte gUnk_080F0FCC
 _08026F94:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -10464,7 +10464,7 @@ _0802719E:
     cmp r0, r1
     beq _080271F0
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _080271F0
     .align 2, 0
 _080271AC: .4byte 0x00000792
@@ -10511,7 +10511,7 @@ _080271F0:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     adds r1, r6, #0
     adds r1, #0xc0
     movs r0, #1
@@ -10578,7 +10578,7 @@ _0802726E:
     adds r1, r0, #0
     adds r0, r4, #0
     movs r2, #1
-    bl func_0800FEC8
+    bl AddAmountOfTool__8RucksackUiUi
     adds r3, r6, #0
     adds r3, #0x3c
     movs r0, #0x34
@@ -10751,7 +10751,7 @@ _0802742C:
     bgt _08027508
     cmp r3, #0
     blt _08027508
-    ldr r2, _08027468 @ =0x080F0FCC
+    ldr r2, _08027468 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -10773,7 +10773,7 @@ _0802742C:
     mov r0, sp
     b _0802758A
     .align 2, 0
-_08027468: .4byte 0x080F0FCC
+_08027468: .4byte gUnk_080F0FCC
 _0802746C:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -11058,7 +11058,7 @@ _08027676:
     cmp r0, r1
     beq _080276C8
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _080276C8
     .align 2, 0
 _08027684: .4byte 0x00000792
@@ -11106,7 +11106,7 @@ _080276C8:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     ldr r0, [r6]
     ldr r1, [r0]
     movs r2, #0xa6
@@ -11354,7 +11354,7 @@ _08027910:
     bgt _080279EC
     cmp r3, #0
     blt _080279EC
-    ldr r2, _0802794C @ =0x080F0FCC
+    ldr r2, _0802794C @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -11376,7 +11376,7 @@ _08027910:
     mov r0, sp
     b _08027A6E
     .align 2, 0
-_0802794C: .4byte 0x080F0FCC
+_0802794C: .4byte gUnk_080F0FCC
 _08027950:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -11661,7 +11661,7 @@ _08027B5A:
     cmp r0, r1
     beq _08027BB0
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _08027BB0
     .align 2, 0
 _08027B68: .4byte 0x00000792
@@ -11711,7 +11711,7 @@ _08027BB0:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     ldr r0, [r6]
     ldr r1, [r0]
     movs r2, #0xa6
@@ -12023,7 +12023,7 @@ _08027E78:
     bgt _08027F54
     cmp r3, #0
     blt _08027F54
-    ldr r2, _08027EB4 @ =0x080F0FCC
+    ldr r2, _08027EB4 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -12045,7 +12045,7 @@ _08027E78:
     mov r0, sp
     b _08027FC4
     .align 2, 0
-_08027EB4: .4byte 0x080F0FCC
+_08027EB4: .4byte gUnk_080F0FCC
 _08027EB8:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -12340,7 +12340,7 @@ _080280DA:
     cmp r0, r1
     beq _08028130
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _08028130
     .align 2, 0
 _080280E8: .4byte 0x00000792
@@ -12390,7 +12390,7 @@ _08028130:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     ldr r0, [r6]
     ldr r1, [r0]
     movs r2, #0xa6
@@ -12609,7 +12609,7 @@ _0802833C:
     bgt _08028418
     cmp r3, #0
     blt _08028418
-    ldr r2, _08028378 @ =0x080F0FCC
+    ldr r2, _08028378 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -12630,7 +12630,7 @@ _0802833C:
     add r0, sp, #8
     b _080284AC
     .align 2, 0
-_08028378: .4byte 0x080F0FCC
+_08028378: .4byte gUnk_080F0FCC
 _0802837C:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -12925,7 +12925,7 @@ _0802859E:
     cmp r0, r1
     beq _080285F4
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _080285F4
     .align 2, 0
 _080285AC: .4byte 0x00000792
@@ -12975,7 +12975,7 @@ _080285F4:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     ldr r0, [r6]
     ldr r1, [r0]
     movs r2, #0xa6
@@ -13254,7 +13254,7 @@ _08028868:
     bgt _08028944
     cmp r3, #0
     blt _08028944
-    ldr r2, _080288A4 @ =0x080F0FCC
+    ldr r2, _080288A4 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -13276,7 +13276,7 @@ _08028868:
     mov r0, sp
     b _080289C6
     .align 2, 0
-_080288A4: .4byte 0x080F0FCC
+_080288A4: .4byte gUnk_080F0FCC
 _080288A8:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -13561,7 +13561,7 @@ _08028AB2:
     cmp r0, r1
     beq _08028B08
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _08028B08
     .align 2, 0
 _08028AC0: .4byte 0x00000792
@@ -13611,7 +13611,7 @@ _08028B08:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     ldr r0, [r6]
     ldr r1, [r0]
     movs r2, #0xa6
@@ -13902,7 +13902,7 @@ _08028D94:
     bgt _08028E70
     cmp r3, #0
     blt _08028E70
-    ldr r2, _08028DD0 @ =0x080F0FCC
+    ldr r2, _08028DD0 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -13924,7 +13924,7 @@ _08028D94:
     mov r0, sp
     b _08028EF2
     .align 2, 0
-_08028DD0: .4byte 0x080F0FCC
+_08028DD0: .4byte gUnk_080F0FCC
 _08028DD4:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -14209,7 +14209,7 @@ _08028FDE:
     cmp r0, r1
     beq _08029034
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _08029034
     .align 2, 0
 _08028FEC: .4byte 0x00000792
@@ -14259,7 +14259,7 @@ _08029034:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     ldr r0, [r6]
     ldr r1, [r0]
     movs r2, #0xa6
@@ -14528,7 +14528,7 @@ _080292A8:
     bgt _08029384
     cmp r3, #0
     blt _08029384
-    ldr r2, _080292E4 @ =0x080F0FCC
+    ldr r2, _080292E4 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -14550,7 +14550,7 @@ _080292A8:
     mov r0, sp
     b _08029406
     .align 2, 0
-_080292E4: .4byte 0x080F0FCC
+_080292E4: .4byte gUnk_080F0FCC
 _080292E8:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -14835,7 +14835,7 @@ _080294F2:
     cmp r0, r1
     beq _08029544
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _08029544
     .align 2, 0
 _08029500: .4byte 0x00000792
@@ -14882,7 +14882,7 @@ _08029544:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     movs r0, #1
 _08029550:
     add sp, #8
@@ -15080,7 +15080,7 @@ _08029720:
     bgt _080297FC
     cmp r3, #0
     blt _080297FC
-    ldr r2, _0802975C @ =0x080F0FCC
+    ldr r2, _0802975C @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -15102,7 +15102,7 @@ _08029720:
     mov r0, sp
     b _0802987E
     .align 2, 0
-_0802975C: .4byte 0x080F0FCC
+_0802975C: .4byte gUnk_080F0FCC
 _08029760:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -15387,7 +15387,7 @@ _0802996A:
     cmp r0, r1
     beq _080299BC
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _080299BC
     .align 2, 0
 _08029978: .4byte 0x00000792
@@ -15434,7 +15434,7 @@ _080299BC:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     movs r0, #1
 _080299C8:
     add sp, #8
@@ -15453,7 +15453,7 @@ func_080299D0: @ 0x080299D0
     strb r2, [r1]
     movs r1, #0xc9
     lsls r1, r1, #1
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     pop {r0}
     bx r0
     .align 2, 0
@@ -15752,7 +15752,7 @@ _08029C74:
     bgt _08029D50
     cmp r3, #0
     blt _08029D50
-    ldr r2, _08029CB0 @ =0x080F0FCC
+    ldr r2, _08029CB0 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -15774,7 +15774,7 @@ _08029C74:
     mov r0, sp
     b _08029DD2
     .align 2, 0
-_08029CB0: .4byte 0x080F0FCC
+_08029CB0: .4byte gUnk_080F0FCC
 _08029CB4:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -16059,7 +16059,7 @@ _08029EBE:
     cmp r0, r1
     beq _08029F10
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _08029F10
     .align 2, 0
 _08029ECC: .4byte 0x00000792
@@ -16106,7 +16106,7 @@ _08029F10:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     movs r0, #1
     mov r1, sl
     strb r0, [r1]
@@ -16345,7 +16345,7 @@ _0802A148:
     bgt _0802A224
     cmp r3, #0
     blt _0802A224
-    ldr r2, _0802A184 @ =0x080F0FCC
+    ldr r2, _0802A184 @ =gUnk_080F0FCC
     adds r1, r6, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -16367,7 +16367,7 @@ _0802A148:
     adds r0, #1
     b _0802A2A4
     .align 2, 0
-_0802A184: .4byte 0x080F0FCC
+_0802A184: .4byte gUnk_080F0FCC
 _0802A188:
     ldr r0, [r6, #0x38]
     adds r0, #0x54
@@ -16651,7 +16651,7 @@ _0802A392:
     cmp r0, r1
     beq _0802A3E0
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _0802A3E0
     .align 2, 0
 _0802A3A0: .4byte 0x00000792
@@ -16696,7 +16696,7 @@ _0802A3E0:
     lsls r1, r5, #0x10
     lsrs r1, r1, #0x10
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     adds r1, r6, #0
     adds r1, #0xc0
     movs r0, #1
@@ -16794,7 +16794,7 @@ _0802A49E:
     movs r1, #0xa3
     lsls r1, r1, #1
     adds r0, r6, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     pop {r3, r4}
     mov r8, r3
     mov sb, r4
@@ -17549,7 +17549,7 @@ _0802AAE0: .4byte 0x00001C38
 _0802AAE4:
     adds r0, r7, #0
     adds r1, r6, #0
-    bl func_0800F868
+    bl GetToolAt__C8RucksackUi
     adds r5, r0, #0
     bl IsEmpty__C9ToolStack
     lsls r0, r0, #0x18
@@ -17574,7 +17574,7 @@ _0802AB1C:
     adds r6, #1
 _0802AB1E:
     adds r0, r7, #0
-    bl func_0800F5F8
+    bl GetSize__C8Rucksack
     cmp r6, r0
     blo _0802AAE4
     mov r1, r8
@@ -17611,7 +17611,7 @@ _0802AB6C:
     adds r6, #1
     cmp r6, #0x3f
     bls _0802AB34
-    ldr r1, _0802AB94 @ =0x080F11B4
+    ldr r1, _0802AB94 @ =gUnk_080F11B4
     mov r0, sp
     movs r2, #7
     bl memcpy
@@ -17627,7 +17627,7 @@ _0802AB6C:
     bx r1
     .align 2, 0
 _0802AB90: .4byte 0x00001BD8
-_0802AB94: .4byte 0x080F11B4
+_0802AB94: .4byte gUnk_080F11B4
 
     thumb_func_start func_0802AB98
 func_0802AB98: @ 0x0802AB98
@@ -18384,7 +18384,7 @@ _0802B118:
     bne _0802B1BC
     movs r7, #1
     movs r6, #0
-    ldr r4, _0802B144 @ =0x080F11BC
+    ldr r4, _0802B144 @ =gUnk_080F11BC
     b _0802B14C
     .align 2, 0
 _0802B130: .4byte 0x00002E58
@@ -18392,7 +18392,7 @@ _0802B134: .4byte 0x00002189
 _0802B138: .4byte 0x0000218B
 _0802B13C: .4byte 0x00000332
 _0802B140: .4byte 0x00002194
-_0802B144: .4byte 0x080F11BC
+_0802B144: .4byte gUnk_080F11BC
 _0802B148:
     adds r4, #4
     adds r6, #1
@@ -18459,13 +18459,13 @@ _0802B1BC:
     bne _0802B250
     movs r7, #1
     movs r6, #0
-    ldr r4, _0802B1E0 @ =0x080F11E0
+    ldr r4, _0802B1E0 @ =gUnk_080F11E0
     b _0802B1E8
     .align 2, 0
 _0802B1D4: .4byte 0x00002E58
 _0802B1D8: .4byte 0x0000034D
 _0802B1DC: .4byte 0x00002195
-_0802B1E0: .4byte 0x080F11E0
+_0802B1E0: .4byte gUnk_080F11E0
 _0802B1E4:
     adds r4, #4
     adds r6, #1
@@ -18537,7 +18537,7 @@ func_0802B260: @ 0x0802B260
     sub sp, #0x6c
     mov sb, r0
     mov r8, r1
-    ldr r3, _0802B3A4 @ =0x080F1218
+    ldr r3, _0802B3A4 @ =gUnk_080F1218
     movs r0, #3
     str r0, [sp]
     movs r4, #1
@@ -18687,7 +18687,7 @@ _0802B374:
     pop {r1}
     bx r1
     .align 2, 0
-_0802B3A4: .4byte 0x080F1218
+_0802B3A4: .4byte gUnk_080F1218
 _0802B3A8: .4byte vtable_unk_080E6708
 _0802B3AC: .4byte 0x00000281
 _0802B3B0: .4byte vtable_unk_080E681C
@@ -19090,7 +19090,7 @@ func_0802B9C0: @ 0x0802B9C0
     adds r0, #1
     strb r2, [r0]
     adds r0, r4, #0
-    bl func_0801FDC0
+    bl vfunc_10__7AEntity
     adds r0, r4, #0
     pop {r4}
     pop {r1}
@@ -19503,7 +19503,7 @@ _0802BECC:
     lsls r1, r1, #0x10
     lsrs r1, r1, #0x10
     adds r0, r5, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     adds r0, r5, #0
     adds r0, #0x54
     strb r4, [r0]
@@ -19531,7 +19531,7 @@ func_0802BEFC: @ 0x0802BEFC
     lsls r1, r1, #0x10
     lsrs r1, r1, #0x10
     adds r0, r4, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     adds r4, #0x54
     strb r5, [r4]
     pop {r4, r5}
@@ -19546,7 +19546,7 @@ func_0802BF2C: @ 0x0802BF2C
     sub sp, #0x14
     mov r8, r0
     adds r4, r1, #0
-    ldr r3, _0802BF94 @ =0x080F1224
+    ldr r3, _0802BF94 @ =gUnk_080F1224
     movs r0, #3
     str r0, [sp]
     movs r5, #1
@@ -19589,7 +19589,7 @@ func_0802BF2C: @ 0x0802BF2C
     pop {r1}
     bx r1
     .align 2, 0
-_0802BF94: .4byte 0x080F1224
+_0802BF94: .4byte gUnk_080F1224
 _0802BF98: .4byte vtable_unk_080E6644
 _0802BF9C: .4byte 0x0000FFFF
 
@@ -20051,7 +20051,7 @@ _0802C3B8:
 _0802C3BA:
     str r1, [r2, #0x18]
 _0802C3BC:
-    ldr r2, _0802C438 @ =0x080F1020
+    ldr r2, _0802C438 @ =gUnk_080F1020
     mov r5, r8
     adds r5, #0x40
     mov r4, r8
@@ -20092,7 +20092,7 @@ _0802C408:
     subs r0, r7, #4
     ldr r2, [r0]
 _0802C40C:
-    ldr r6, _0802C438 @ =0x080F1020
+    ldr r6, _0802C438 @ =gUnk_080F1020
     ldrb r1, [r4]
     lsls r0, r1, #3
     subs r0, r0, r1
@@ -20111,12 +20111,12 @@ _0802C40C:
     b _0802C4CC
     .align 2, 0
 _0802C434: .4byte 0x0001B6DB
-_0802C438: .4byte 0x080F1020
+_0802C438: .4byte gUnk_080F1020
 _0802C43C:
     ldr r2, [r6]
     b _0802C490
 _0802C440:
-    ldr r2, _0802C4C8 @ =0x080F1020
+    ldr r2, _0802C4C8 @ =gUnk_080F1020
     mov r5, r8
     adds r5, #0x40
     mov r4, r8
@@ -20157,7 +20157,7 @@ _0802C48C:
     subs r0, r7, #4
     ldr r2, [r0]
 _0802C490:
-    ldr r6, _0802C4C8 @ =0x080F1020
+    ldr r6, _0802C4C8 @ =gUnk_080F1020
     ldrb r1, [r4]
     lsls r0, r1, #3
     subs r0, r0, r1
@@ -20185,7 +20185,7 @@ _0802C4B4:
     ldrsb r5, [r0, r5]
     b _0802C840
     .align 2, 0
-_0802C4C8: .4byte 0x080F1020
+_0802C4C8: .4byte gUnk_080F1020
 _0802C4CC:
     ldrb r1, [r4]
     lsls r0, r1, #3
@@ -20235,7 +20235,7 @@ _0802C51E:
 _0802C522:
     movs r1, #0x9d
     bl func_08008B6C
-    ldr r0, _0802C54C @ =0x080F1184
+    ldr r0, _0802C54C @ =gUnk_080F1184
 _0802C52A:
     ldr r1, [r0]
     ldr r2, [r0, #4]
@@ -20255,7 +20255,7 @@ _0802C542:
 _0802C548:
     b _0802C828
     .align 2, 0
-_0802C54C: .4byte 0x080F1184
+_0802C54C: .4byte gUnk_080F1184
 _0802C550:
     ldr r0, [r4]
     b _0802C592
@@ -20294,10 +20294,10 @@ _0802C58E:
 _0802C592:
     movs r1, #0x9d
     bl func_08008B6C
-    ldr r0, _0802C59C @ =0x080F118C
+    ldr r0, _0802C59C @ =gUnk_080F118C
     b _0802C52A
     .align 2, 0
-_0802C59C: .4byte 0x080F118C
+_0802C59C: .4byte gUnk_080F118C
 _0802C5A0:
     ldr r0, [r4]
     b _0802C5DE
@@ -20376,7 +20376,7 @@ _0802C628:
 _0802C62C:
     movs r1, #0x93
     bl func_08008B6C
-    ldr r0, _0802C664 @ =0x080F1194
+    ldr r0, _0802C664 @ =gUnk_080F1194
     ldr r1, [r0]
     ldr r2, [r0, #4]
     mov r0, r8
@@ -20400,7 +20400,7 @@ _0802C64C:
     adds r1, r0, #0
     b _0802C66A
     .align 2, 0
-_0802C664: .4byte 0x080F1194
+_0802C664: .4byte gUnk_080F1194
 _0802C668:
     movs r1, #0
 _0802C66A:
@@ -20451,10 +20451,10 @@ _0802C6BC:
 _0802C6C0:
     movs r1, #0x9f
     bl func_08008B6C
-    ldr r0, _0802C6CC @ =0x080F119C
+    ldr r0, _0802C6CC @ =gUnk_080F119C
     b _0802C52A
     .align 2, 0
-_0802C6CC: .4byte 0x080F119C
+_0802C6CC: .4byte gUnk_080F119C
 _0802C6D0:
     ldr r0, [r4]
     b _0802C712
@@ -20493,7 +20493,7 @@ _0802C70E:
 _0802C712:
     movs r1, #0xa0
     bl func_08008B6C
-    ldr r0, _0802C748 @ =0x080F11A4
+    ldr r0, _0802C748 @ =gUnk_080F11A4
     ldr r1, [r0]
     ldr r2, [r0, #4]
     mov r0, r8
@@ -20517,7 +20517,7 @@ _0802C732:
     adds r1, r0, #0
     b _0802C74E
     .align 2, 0
-_0802C748: .4byte 0x080F11A4
+_0802C748: .4byte gUnk_080F11A4
 _0802C74C:
     movs r1, #0
 _0802C74E:
@@ -20608,7 +20608,7 @@ _0802C7EA:
 _0802C7EE:
     movs r1, #0x9d
     bl func_08008B6C
-    ldr r0, _0802C824 @ =0x080F11AC
+    ldr r0, _0802C824 @ =gUnk_080F11AC
     ldr r1, [r0]
     ldr r2, [r0, #4]
     mov r0, r8
@@ -20633,7 +20633,7 @@ _0802C812:
     adds r1, r0, #0
     b _0802C82A
     .align 2, 0
-_0802C824: .4byte 0x080F11AC
+_0802C824: .4byte gUnk_080F11AC
 _0802C828:
     movs r1, #0
 _0802C82A:
@@ -21410,15 +21410,15 @@ _0802CE58:
     beq _0802CEE8
     movs r3, #0x3c
     str r3, [sp, #0x68]
-    ldr r4, _0802CEE4 @ =0x080F0E88
+    ldr r4, _0802CEE4 @ =gUnk_080F0E88
     str r4, [sp, #0x6c]
     b _0802CEF0
     .align 2, 0
-_0802CEE4: .4byte 0x080F0E88
+_0802CEE4: .4byte gUnk_080F0E88
 _0802CEE8:
     movs r5, #0x15
     str r5, [sp, #0x68]
-    ldr r6, _0802D010 @ =0x080F0F78
+    ldr r6, _0802D010 @ =gUnk_080F0F78
     str r6, [sp, #0x6c]
 _0802CEF0:
     movs r0, #0
@@ -21567,7 +21567,7 @@ _0802CFF8:
     mov r8, r2
     b _0802D02A
     .align 2, 0
-_0802D010: .4byte 0x080F0F78
+_0802D010: .4byte gUnk_080F0F78
 _0802D014:
     ldr r3, [sp, #0x54]
     ldr r0, [r3]
@@ -21899,7 +21899,7 @@ _0802D2F0:
     bgt _0802D3CC
     cmp r3, #0
     blt _0802D3CC
-    ldr r2, _0802D32C @ =0x080F0FCC
+    ldr r2, _0802D32C @ =gUnk_080F0FCC
     adds r1, r5, #0
     adds r1, #0x40
     lsls r0, r3, #3
@@ -21921,7 +21921,7 @@ _0802D2F0:
     mov r0, sp
     b _0802D44E
     .align 2, 0
-_0802D32C: .4byte 0x080F0FCC
+_0802D32C: .4byte gUnk_080F0FCC
 _0802D330:
     ldr r0, [r5, #0x38]
     adds r0, #0x54
@@ -22208,7 +22208,7 @@ _0802D53E:
     cmp r0, r1
     beq _0802D590
     adds r0, r2, #0
-    bl func_080321B0
+    bl SetAnim__12AActorEntityUi
     b _0802D590
     .align 2, 0
 _0802D54C: .4byte 0x00000792
@@ -22302,7 +22302,7 @@ _0802D5D8:
 _0802D5E4:
     mov r0, sp
     adds r1, r6, #0
-    bl func_0801FE94
+    bl GetLocation__C7AEntity
     mov r2, sb
     ldrb r0, [r2]
     cmp r0, #1
@@ -22597,7 +22597,7 @@ _0802D7F8:
     beq _0802D814
     adds r0, r6, #0
     adds r1, r4, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _0802D814:
     ldr r0, [r6]
     ldr r1, [r0]
@@ -22611,7 +22611,7 @@ _0802D814:
     beq _0802D832
     adds r0, r1, #0
     adds r1, r4, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _0802D832:
     add sp, #0x20
     pop {r3, r4, r5}
@@ -22659,7 +22659,7 @@ _0802D862:
     beq _0802D8E2
     adds r0, r4, #0
     movs r1, #2
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
     b _0802D8E2
     .align 2, 0
 _0802D88C: .4byte 0x000003F3
@@ -22675,7 +22675,7 @@ _0802D890:
     beq _0802D8E2
     adds r0, r4, #0
     movs r1, #3
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
     b _0802D8E2
 _0802D8AC:
     movs r0, #0x40
@@ -22689,7 +22689,7 @@ _0802D8AC:
     beq _0802D8E2
     adds r0, r4, #0
     movs r1, #1
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
     b _0802D8E2
 _0802D8C8:
     movs r0, #0x80
@@ -22703,7 +22703,7 @@ _0802D8C8:
     beq _0802D8E2
     adds r0, r4, #0
     movs r1, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _0802D8E2:
     pop {r4, r5}
     pop {r0}
@@ -23520,7 +23520,7 @@ _0802DED6:
 _0802DF0A:
     adds r0, r6, #0
     movs r1, #2
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
     b _0802E0F2
 _0802DF14:
     movs r0, #0x10
@@ -23536,7 +23536,7 @@ _0802DF14:
 _0802DF28:
     adds r0, r6, #0
     movs r1, #3
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
     b _0802E0F2
 _0802DF32:
     movs r0, #0x40
@@ -23552,7 +23552,7 @@ _0802DF32:
 _0802DF46:
     adds r0, r6, #0
     movs r1, #1
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
     b _0802E0F2
 _0802DF50:
     movs r0, #0x80
@@ -23570,7 +23570,7 @@ _0802DF5A:
 _0802DF66:
     adds r0, r6, #0
     movs r1, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
     b _0802E0F2
 _0802DF70:
     add r1, sp, #4
@@ -23870,7 +23870,7 @@ _0802E1BA:
     mov sb, r2
     mov r0, sp
     adds r1, r7, #0
-    bl func_0801FE94
+    bl GetLocation__C7AEntity
     mov r3, sp
     str r3, [sp, #0x68]
     adds r4, r7, #0
@@ -24099,7 +24099,7 @@ _0802E402:
     beq _0802E450
     adds r0, r4, #0
     movs r1, #3
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
     b _0802E450
 _0802E416:
     adds r0, r4, #0
@@ -24109,7 +24109,7 @@ _0802E416:
     beq _0802E450
     adds r0, r4, #0
     movs r1, #2
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
     b _0802E450
 _0802E42A:
     adds r0, r4, #0
@@ -24119,7 +24119,7 @@ _0802E42A:
     beq _0802E450
     adds r0, r4, #0
     movs r1, #1
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
     b _0802E450
 _0802E43E:
     adds r0, r4, #0
@@ -24129,7 +24129,7 @@ _0802E43E:
     beq _0802E450
     adds r0, r4, #0
     movs r1, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _0802E450:
     ldr r0, [r7, #8]
     adds r5, r7, #0
@@ -24948,7 +24948,7 @@ _0802EA86:
     adds r4, r4, r0
     add r0, sp, #8
     adds r1, r7, #0
-    bl func_0801FE94
+    bl GetLocation__C7AEntity
     adds r0, r4, #0
     add r1, sp, #8
     movs r2, #6
@@ -25541,7 +25541,7 @@ _0802EF10:
     beq _0802EF1E
     adds r0, r7, #0
     adds r1, r5, #0
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _0802EF1E:
     ldrb r2, [r6]
     cmp r2, #1
@@ -25620,7 +25620,7 @@ _0802EF96:
     asrs r0, r0, #8
     str r0, [r7, #0x1c]
 _0802EFA2:
-    ldr r1, _0802F038 @ =0x080F117F
+    ldr r1, _0802F038 @ =gUnk_080F117F
     mov r0, sp
     movs r2, #3
     bl memcpy
@@ -25645,7 +25645,7 @@ _0802EFA2:
     add r5, sp, #4
     adds r0, r5, #0
     adds r1, r7, #0
-    bl func_0801FE94
+    bl GetLocation__C7AEntity
     ldr r2, [r4]
     adds r0, r6, #0
     adds r1, r5, #0
@@ -25691,7 +25691,7 @@ _0802F02E:
     bl func_08008B6C
     b _0802F0AE
     .align 2, 0
-_0802F038: .4byte 0x080F117F
+_0802F038: .4byte gUnk_080F117F
 _0802F03C:
     ldr r0, [r4]
     b _0802F06E
@@ -26953,7 +26953,7 @@ _0802FAB8: .4byte 0x000003DF
 _0802FABC:
     mov r0, sp
     mov r1, sl
-    bl func_0801FE94
+    bl GetLocation__C7AEntity
     mov r4, sl
     adds r4, #0x20
     ldrb r2, [r4]
@@ -27166,7 +27166,7 @@ _0802FC46:
     cmp r1, #3
     blt _0802FCBC
 _0802FC60:
-    ldr r0, _0802FC98 @ =0x080F1170
+    ldr r0, _0802FC98 @ =gUnk_080F1170
     ldr r1, [r0]
     ldr r2, [r0, #4]
     mov r0, sl
@@ -27193,7 +27193,7 @@ _0802FC7E:
     b _0802FC9E
     .align 2, 0
 _0802FC94: .4byte 0x00000233
-_0802FC98: .4byte 0x080F1170
+_0802FC98: .4byte gUnk_080F1170
 _0802FC9C:
     movs r4, #0
 _0802FC9E:
@@ -27341,7 +27341,7 @@ _0802FDB8: @ jump table
     .4byte _08030DD4 @ case 12
     .4byte _08030B5A @ case 13
 _0802FDF0:
-    ldr r0, _0802FE14 @ =0x080F1230
+    ldr r0, _0802FE14 @ =gUnk_080F1230
     mov r4, sl
     str r0, [r4, #0x48]
     mov r1, sl
@@ -27359,7 +27359,7 @@ _0802FDF0:
     ldr r0, [r0]
     mov pc, r0
     .align 2, 0
-_0802FE14: .4byte 0x080F1230
+_0802FE14: .4byte gUnk_080F1230
 _0802FE18: .4byte _0802FE1C
 _0802FE1C: @ jump table
     .4byte _0802FE38 @ case 0
@@ -27860,7 +27860,7 @@ _080301C8:
     adds r1, #0xf4
     ldr r1, [r1]
     bl _call_via_r1
-    ldr r1, _08030218 @ =0x080F1178
+    ldr r1, _08030218 @ =gUnk_080F1178
     mov r2, sl
     adds r2, #0x40
     ldrb r0, [r2]
@@ -27886,7 +27886,7 @@ _080301C8:
     strb r4, [r0]
     b _0803025A
     .align 2, 0
-_08030218: .4byte 0x080F1178
+_08030218: .4byte gUnk_080F1178
 _0803021C:
     cmp r0, #5
     bhi _0803023E
@@ -28576,7 +28576,7 @@ _080306B0:
     mov r4, sl
     str r0, [r4, #0x58]
     str r1, [r4, #0x5c]
-    ldr r0, _080307B8 @ =0x080F0E80
+    ldr r0, _080307B8 @ =gUnk_080F0E80
     str r0, [sp, #0x18]
     mov r5, r8
     strh r6, [r5, #4]
@@ -28631,7 +28631,7 @@ _080306B0:
     .align 2, 0
 _080307B0: .4byte 0x000003FF
 _080307B4: .4byte 0xFFFFFC00
-_080307B8: .4byte 0x080F0E80
+_080307B8: .4byte gUnk_080F0E80
 _080307BC: .4byte 0x0000218B
 _080307C0: .4byte 0x00000331
 _080307C4:
@@ -28645,7 +28645,7 @@ _080307C4:
     bl _08031F0E
 _080307D8:
     add r4, sp, #0x10
-    ldr r0, _08030808 @ =0x080F0E80
+    ldr r0, _08030808 @ =gUnk_080F0E80
     str r0, [sp, #0x10]
     movs r5, #0
     movs r0, #0
@@ -28668,7 +28668,7 @@ _080307D8:
     strb r0, [r2]
     b _08030F4C
     .align 2, 0
-_08030808: .4byte 0x080F0E80
+_08030808: .4byte gUnk_080F0E80
 _0803080C:
     mov r3, sl
     ldr r4, [r3, #0x38]
@@ -29390,7 +29390,7 @@ _08030DD0: .4byte 0x00001C2C
 _08030DD4:
     mov r0, sp
     mov r1, sl
-    bl func_0801FE94
+    bl GetLocation__C7AEntity
     mov r5, sp
     movs r4, #0x2b
 _08030DE0:
@@ -30811,7 +30811,7 @@ _080318B2:
     add r4, sp, #8
     adds r0, r4, #0
     mov r1, sl
-    bl func_08032170
+    bl GetLocation__C12AActorEntity
     mov r0, sp
     adds r1, r4, #0
     movs r2, #6
@@ -30998,7 +30998,7 @@ _080319EC:
     cmp r0, r1
     beq _08031A20
     mov r0, sl
-    bl func_08032198
+    bl SetAnimFacing__12AActorEntityUi
 _08031A20:
     movs r0, #7
     b _08031C7E

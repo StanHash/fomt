@@ -1,6 +1,7 @@
-#pragma once
+#ifndef UNKNOWN_TYPES_HH
+#define UNKNOWN_TYPES_HH
 
-#include "global.h"
+#include "prelude.h"
 
 // TODO: move elsewhere
 struct UnkBarnAnimal2C
@@ -28,9 +29,12 @@ struct Box
     {
     }
 
-    Box(u32 x1, u32 y1, u32 x2, u32 y2)
-        : x1(x1), y1(y1), x2(x2), y2(y2)
+    Box(u32 x, u32 y, u32 w, u32 h)
     {
+        x1 = x - w / 2;
+        y1 = y - h / 2;
+        x2 = x + w - w / 2;
+        y2 = y + h - h / 2;
     }
 
     Box(u32 x1, u32 y1, u32 x2, u32 y2, i32 x_off, i32 y_off)
@@ -38,10 +42,23 @@ struct Box
     {
     }
 
-    Box Moved(i32 x, i32 y) const
-    {
-        return Box(x1, y1, x2, y2, x, y);
-    }
+    Box Moved(i32 x, i32 y) const { return Box(x1, y1, x2, y2, x, y); }
+};
+
+// NOTE: this is not used yet in code, but I'm pretty sure that's correct
+struct MapData
+{
+    /* +00 */ void const * packed_img;
+    /* +04 */ void const * packed_pal;
+    /* +08 */ void const * packed_unk_08;
+    /* +0C */ void const * packed_unk_0C;
+    /* +10 */ void const * packed_unk_10;
+    /* +14 */ void const * packed_unk_14;
+    /* +18 */ void const * terrain_info;
+    /* +1C */ void const * terrain_map;
+    /* +20 */ u16 width;
+    /* +22 */ u16 height;
+    /* +24 */ bool unk_24;
 };
 
 // TODO: rename
@@ -96,7 +113,7 @@ struct GameObject
 
 struct SpriteAnimator
 {
-    /* +00 */ u8 pad_00[0x14];
+    /* +00 */ STRUCT_PAD(0x00, 0x14);
 };
 
 struct UnknownEntityThingBase
@@ -112,10 +129,39 @@ struct UnknownEntityThingBase
 // TODO: move elsewheres
 struct UnknownEntityThing : public UnknownEntityThingBase
 {
-    /* +08 */ u8 pad_08[0x30 - 0x08];
+    /* +08 */ STRUCT_PAD(0x08, 0x30);
     /* +30 */ SpriteAnimator sprite_animator;
     /* +44 */ u8 unk_44;
     /* +45 */ u8 unk_45;
     /* +46 */ u8 unk_46;
     /* +47 */ u8 unk_47;
+
+    // TODO: these may be in a different/derived class
+
+    /* +48 */ STRUCT_PAD(0x48, 0x70);
+
+    /* +70 */ SpriteAnimator sprite_animator_70;
+    /* +84 */ u8 unk_84;
+    /* +85 */ STRUCT_PAD(0x85, 0x86);
+    /* +86 */ u8 unk_86;
+    /* +87 */ u8 unk_87;
+    /* +88 */ u8 unk_88;
+    /* +89 */ STRUCT_PAD(0x89, 0x8A);
+    /* +8A */ u8 unk_8A_0 : 2;
+    /* +8A */ u8 unk_8A_2 : 6;
 };
+
+enum Season
+{
+    SEASON_SPRING,
+    SEASON_SUMMER,
+    SEASON_AUTUMN,
+    SEASON_WINTER,
+};
+
+struct PACKED Date
+{
+    Season season : 2;
+};
+
+#endif // UNKNOWN_TYPES_HH

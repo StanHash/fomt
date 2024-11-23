@@ -22,12 +22,12 @@ BarnAnimal::BarnAnimal(ActorLocation const & location, u32 age, u32 days_fed)
     unk_2C.a.unk_02 = 0;
 }
 
-bool BarnAnimal::IsPregnant(void) const
+bool BarnAnimal::IsPregnant() const
 {
     return pregnant;
 }
 
-u32 BarnAnimal::GetDaysPregnant(void) const
+u32 BarnAnimal::GetDaysPregnant() const
 {
     if (!pregnant)
         return 0;
@@ -35,7 +35,7 @@ u32 BarnAnimal::GetDaysPregnant(void) const
         return days_pregnant;
 }
 
-u32 BarnAnimal::GetDaysPregnantHealthy(void) const
+u32 BarnAnimal::GetDaysPregnantHealthy() const
 {
     if (!pregnant)
         return 0;
@@ -43,19 +43,19 @@ u32 BarnAnimal::GetDaysPregnantHealthy(void) const
         return days_pregnant_healthy;
 }
 
-void BarnAnimal::SetFed(void)
+void BarnAnimal::SetFed()
 {
     Livestock::SetFed();
 }
 
-void BarnAnimal::StartPregnancy(void)
+void BarnAnimal::StartPregnancy()
 {
     pregnant = true;
     days_pregnant = 0;
     days_pregnant_healthy = 0;
 }
 
-void BarnAnimal::ResetPregnancy(void)
+void BarnAnimal::ResetPregnancy()
 {
     pregnant = false;
     days_pregnant = 0;
@@ -80,7 +80,7 @@ void BarnAnimal::method_0809B958(UnkBarnAnimal2C_x2 const * param)
     unk_28 = 2;
 }
 
-void BarnAnimal::method_0809B968(void)
+void BarnAnimal::method_0809B968()
 {
     unk_28 = 3;
 }

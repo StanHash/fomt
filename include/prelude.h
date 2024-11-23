@@ -1,4 +1,8 @@
-#pragma once
+#ifndef PRELUDE_H
+#define PRELUDE_H
+
+// clang-format off
+// IWYU pragma: always_keep
 
 #ifdef __cplusplus
 #  define EXTERN_C extern "C" {
@@ -13,7 +17,7 @@ EXTERN_C
 #include <stddef.h>
 #include <stdint.h>
 
-#include "types.h"
+#include "types.h" // IWYU pragma: export
 
 #define nullptr 0
 
@@ -25,11 +29,13 @@ EXTERN_C
 #define PACKED __attribute__((packed))
 #define ALIGN(n) __attribute__((aligned(n)))
 
-// macro for marking data and methods that should be const but can't be for matching
+// macro for marking things that should or shouldn't be something but can't or have to be to produce matching code
 #if defined(MODERN) && MODERN != 0
-#  define SHOULD_BE_CONST const
+#  define SHOULD_BE(__term) __term
+#  define SHOULD_NOT_BE(__term)
 #else
-#  define SHOULD_BE_CONST
+#  define SHOULD_BE(__term)
+#  define SHOULD_NOT_BE(__term) __term
 #endif
 
 #define ARRAY_COUNT(array) (size_t)(sizeof(array) / sizeof((array)[0]))
@@ -43,3 +49,7 @@ EXTERN_C
 #define EC extern "C"
 
 EXTERN_C_END
+
+// clang-format on
+
+#endif // PRELUDE_H

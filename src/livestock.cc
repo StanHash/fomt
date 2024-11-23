@@ -31,52 +31,52 @@ Livestock::Livestock(ActorLocation const & location, u32 age, u32 days_fed)
     total_outdoor_minutes = 0;
 }
 
-u32 Livestock::GetDaysFed(void) const
+u32 Livestock::GetDaysFed() const
 {
     return days_fed;
 }
 
-bool Livestock::HasBeenFed(void) const
+bool Livestock::HasBeenFed() const
 {
     return fed;
 }
 
-bool Livestock::IsUnhappy(void) const
+bool Livestock::IsUnhappy() const
 {
     return unhappy;
 }
 
-bool Livestock::IsSick(void) const
+bool Livestock::IsSick() const
 {
     return sick;
 }
 
 // Returns the unknown 2bit value 0x1D_0
-u8 Livestock::method_0809B514(void) const
+u8 Livestock::method_0809B514() const
 {
     return unk_0x1D_0;
 }
 
-u32 Livestock::GetCurrentOutdoorMinutes(void) const
+u32 Livestock::GetCurrentOutdoorMinutes() const
 {
     return current_outdoor_minutes;
 }
 
-u32 Livestock::GetOutdoorMinutes(void) const
+u32 Livestock::GetOutdoorMinutes() const
 {
     return total_outdoor_minutes;
 }
 
-Livestock::ProductRank Livestock::GetProductRank(void) const
+Livestock::ProductRank Livestock::GetProductRank() const
 {
     u32 affection = GetAffection();
 
     // 0-3 Hearts
-    if(affection <= 100)
+    if (affection <= 100)
         return PRODUCT_RANK_0;
 
     // 4-7 Hearts
-    if(affection <= 200)
+    if (affection <= 200)
         return PRODUCT_RANK_1;
 
     // Festival winner + 8-10 Hearts
@@ -108,34 +108,34 @@ void Livestock::AddOutdoorMinutes(u32 minutes)
     }
 }
 
-void Livestock::ResetCurrentOutdoorMinutes(void)
+void Livestock::ResetCurrentOutdoorMinutes()
 {
     current_outdoor_minutes = 0;
 }
 
-void Livestock::SetSick(void)
+void Livestock::SetSick()
 {
     sick = true;
 }
 
-void Livestock::ResetSick(void)
+void Livestock::ResetSick()
 {
     sick = false;
     days_sick = 0;
 }
 
-void Livestock::SetUnhappy(void)
+void Livestock::SetUnhappy()
 {
     unhappy = true;
 }
 
-void Livestock::ResetUnhappy(void)
+void Livestock::ResetUnhappy()
 {
     unhappy = false;
     days_unhappy = 0;
 }
 
-void Livestock::SetFed(void)
+void Livestock::SetFed()
 {
     if (!fed)
         fed = true;

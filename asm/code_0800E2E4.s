@@ -7,20 +7,20 @@ func_0800E2E4: @ 0x0800E2E4
     adds r1, r0, #0
     cmp r1, #3
     bls _0800E2F4
-    ldr r0, _0800E2F0 @ =0x080F050C
+    ldr r0, _0800E2F0 @ =gUnk_080F050C
     b _0800E2FC
     .align 2, 0
-_0800E2F0: .4byte 0x080F050C
+_0800E2F0: .4byte gUnk_080F050C
 _0800E2F4:
     lsls r0, r1, #3
     subs r0, r0, r1
-    ldr r1, _0800E300 @ =0x080F04EE
+    ldr r1, _0800E300 @ =gUnk_080F04EE
     adds r0, r0, r1
 _0800E2FC:
     pop {r1}
     bx r1
     .align 2, 0
-_0800E300: .4byte 0x080F04EE
+_0800E300: .4byte gUnk_080F04EE
 
     thumb_func_start func_0800E304
 func_0800E304: @ 0x0800E304
@@ -28,20 +28,20 @@ func_0800E304: @ 0x0800E304
     adds r1, r0, #0
     cmp r1, #6
     bls _0800E314
-    ldr r0, _0800E310 @ =0x080F050C
+    ldr r0, _0800E310 @ =gUnk_080F050C
     b _0800E31C
     .align 2, 0
-_0800E310: .4byte 0x080F050C
+_0800E310: .4byte gUnk_080F050C
 _0800E314:
     lsls r0, r1, #2
     adds r0, r0, r1
-    ldr r1, _0800E320 @ =0x080F050F
+    ldr r1, _0800E320 @ =gUnk_080F050F
     adds r0, r0, r1
 _0800E31C:
     pop {r1}
     bx r1
     .align 2, 0
-_0800E320: .4byte 0x080F050F
+_0800E320: .4byte gUnk_080F050F
 
     thumb_func_start func_0800E324
 func_0800E324: @ 0x0800E324
@@ -247,7 +247,7 @@ _0800E40A:
     ldr r0, [sp, #0x1c]
     bl __9ToolStack
     ldr r0, [sp, #0x20]
-    bl func_0800F574
+    bl __8Rucksack
     adds r0, r6, #0
     add sp, #0x24
     pop {r3, r4, r5}
@@ -1065,7 +1065,7 @@ func_0800EB3C: @ 0x0800EB3C
     sub sp, #0xc
     adds r6, r0, #0
     adds r0, #0x60
-    bl func_0800F604
+    bl HasNoItems__C8Rucksack
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _0800EB72
@@ -1105,7 +1105,7 @@ _0800EB90:
     str r2, [sp, #8]
     adds r0, r6, #0
     adds r1, r7, #0
-    bl func_0800FD20
+    bl CycleItemBack__8RucksackG12RucksackItem
     ldr r0, [sp, #4]
     str r0, [sp]
     adds r5, #1
@@ -1132,7 +1132,7 @@ func_0800EBC4: @ 0x0800EBC4
     sub sp, #0xc
     adds r6, r0, #0
     adds r0, #0x60
-    bl func_0800F604
+    bl HasNoItems__C8Rucksack
     lsls r0, r0, #0x18
     cmp r0, #0
     bne _0800EBFA
@@ -1172,7 +1172,7 @@ _0800EC18:
     str r2, [sp, #8]
     adds r0, r6, #0
     adds r1, r7, #0
-    bl func_0800FD38
+    bl CycleItemFront__8RucksackG12RucksackItem
     ldr r0, [sp, #4]
     str r0, [sp]
     adds r5, #1
@@ -1203,7 +1203,7 @@ func_0800EC4C: @ 0x0800EC4C
     adds r4, r6, #0
     adds r4, #0x60
     adds r0, r4, #0
-    bl func_0800F874
+    bl HasNoTools__C8Rucksack
     lsls r0, r0, #0x18
     cmp r0, #0
     beq _0800EC6A
@@ -1223,7 +1223,7 @@ _0800EC74:
     mov r0, sp
     mov r1, r8
     adds r2, r5, #0
-    bl func_0800FE78
+    bl CycleToolBack__8RucksackG9ToolStack
     adds r0, r4, #0
     mov r1, sp
     movs r2, #2
@@ -1254,7 +1254,7 @@ func_0800ECB0: @ 0x0800ECB0
     adds r4, r6, #0
     adds r4, #0x60
     adds r0, r4, #0
-    bl func_0800F874
+    bl HasNoTools__C8Rucksack
     lsls r0, r0, #0x18
     cmp r0, #0
     beq _0800ECCE
@@ -1274,7 +1274,7 @@ _0800ECD8:
     mov r0, sp
     mov r1, r8
     adds r2, r5, #0
-    bl func_0800FEA0
+    bl CycleToolFront__8RucksackG9ToolStack
     adds r0, r4, #0
     mov r1, sp
     movs r2, #2
@@ -1407,7 +1407,7 @@ _0800EDCE:
     adds r0, r5, #0
     adds r0, #0x60
     movs r1, #0x4c
-    bl func_0800F92C
+    bl GetFirstSlotWithTool__C8RucksackUi
     movs r1, #1
     rsbs r1, r1, #0
     cmp r0, r1
@@ -1527,7 +1527,7 @@ _0800EE9E:
     bhi _0800EEC6
     adds r0, r3, #0
     adds r0, #0x60
-    bl func_0800F5D8
+    bl GetUpgradeLevel__C8Rucksack
     cmp r0, #0
     beq _0800EEC6
     ldrb r2, [r4]

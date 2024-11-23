@@ -11,7 +11,7 @@ Dog::Dog(char const * name)
     unk_24.a.unk_02 = 0;
 }
 
-Dog::Dog(void)
+Dog::Dog()
     : Pet(ActorLocation(Location(2, 0x17E, 0x52), 0), 1)
 {
     unk_20 = 0;
@@ -22,7 +22,7 @@ Dog::Dog(void)
     unk_24.a.unk_02 = 0;
 }
 
-Dog::GrowthStage Dog::GetGrowthStage(void) const
+Dog::GrowthStage Dog::GetGrowthStage() const
 {
     return GetAge() < 60 ? STAGE_0 : STAGE_1;
 }
@@ -69,7 +69,7 @@ void Dog::method_0809BB9C(UnkBarnAnimal2C const * param)
     unk_20 = 6;
 }
 
-void Dog::DayUpdate(void)
+void Dog::DayUpdate()
 {
     Pet::DayUpdate(unk_2D_2 != 0);
     unk_2D_2 = 0;

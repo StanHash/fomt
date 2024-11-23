@@ -1,10 +1,10 @@
 #include "sheep.hh"
 
-#include <cstdlib>
+#include <stdlib.h> // rand
 
 extern "C"
 {
-extern LivestockDayUpdateInfo const gUnk_081036A0;
+    extern LivestockDayUpdateInfo const gUnk_081036A0;
 }
 
 Sheep::Sheep(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
@@ -19,7 +19,7 @@ Sheep::Sheep(ActorLocation const & location, u32 age, u32 days_fed)
     days_until_product = 0;
 }
 
-Sheep::GrowthStage Sheep::GetGrowthStage(void) const
+Sheep::GrowthStage Sheep::GetGrowthStage() const
 {
     u32 days_fed = GetDaysFed();
     u32 age = GetAge();
@@ -30,27 +30,22 @@ Sheep::GrowthStage Sheep::GetGrowthStage(void) const
         return STAGE_1;
 }
 
-bool Sheep::IsSheared(void) const
+bool Sheep::IsSheared() const
 {
     return days_until_product == 0 ? false : true;
 }
 
-bool Sheep::CanBeSheared(void) const
+bool Sheep::CanBeSheared() const
 {
-    return !IsPregnant()
-        && GetGrowthStage() == STAGE_1
-        && !IsSheared();
+    return !IsPregnant() && GetGrowthStage() == STAGE_1 && !IsSheared();
 }
 
-bool Sheep::CanBeMadePregnant(void) const
+bool Sheep::CanBeMadePregnant() const
 {
-    return !IsPregnant()
-        && !IsSick()
-        && GetGrowthStage() == STAGE_1
-        && !IsSheared();
+    return !IsPregnant() && !IsSick() && GetGrowthStage() == STAGE_1 && !IsSheared();
 }
 
-Livestock::ProductRank Sheep::ConsumeProduct(void)
+Livestock::ProductRank Sheep::ConsumeProduct()
 {
     days_until_product = 7;
 
@@ -71,7 +66,7 @@ Livestock::ProductRank Sheep::ConsumeProduct(void)
     return rank;
 }
 
-void Sheep::DayUpdate(void)
+void Sheep::DayUpdate()
 {
     BarnAnimal::DayUpdate(&gUnk_081036A0);
 

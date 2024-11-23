@@ -336,6 +336,8 @@ gUnk_080F1A34:
 gUnk_080F1A66:
 	.incbin "baserom.gba", 0xF1A66, 0x1A
 
+	@ schedules
+
 	.global gUnk_080F1A80
 gUnk_080F1A80:
 	.incbin "baserom.gba", 0xF1A80, 0x540

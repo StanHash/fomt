@@ -1,13 +1,9 @@
 #include "animal.hh"
 
-#include "unk-inl.hh"
-
-#include <cstring>
-
 extern "C"
 {
-// TODO: sjis string
-extern char const gUnk_08103658[];
+    // TODO: sjis string
+    extern char const gUnk_08103658[];
 }
 
 Animal::Animal(char const * a_name, ActorLocation const & location, u32 a_age)
@@ -30,7 +26,7 @@ Animal::Animal(ActorLocation const & location, u32 a_age)
     affection = 0;
 }
 
-char const * Animal::GetName(void) const
+char const * Animal::GetName() const
 {
     if (!name.IsEmpty())
         return name;
@@ -38,27 +34,27 @@ char const * Animal::GetName(void) const
     return gUnk_08103658;
 }
 
-bool Animal::IsFestivalWinner(void) const
+bool Animal::IsFestivalWinner() const
 {
     return festival_winner;
 }
 
-u32 Animal::GetAge(void) const
+u32 Animal::GetAge() const
 {
     return age;
 }
 
-u32 Animal::GetAffection(void) const
+u32 Animal::GetAffection() const
 {
     return affection;
 }
 
-bool Animal::HasBeenBrushedToday(void) const
+bool Animal::HasBeenBrushedToday() const
 {
     return brushed;
 }
 
-bool Animal::HasBeenTalkedTo(void) const
+bool Animal::HasBeenTalkedTo() const
 {
     return talked;
 }
@@ -68,18 +64,18 @@ void Animal::SetName(char const * a_name)
     name = a_name;
 }
 
-void Animal::SetFestivalWinner(void)
+void Animal::SetFestivalWinner()
 {
     festival_winner = true;
 }
 
-void Animal::SetBrushed(void)
+void Animal::SetBrushed()
 {
     if (!brushed)
         brushed = true;
 }
 
-void Animal::SetTalkedTo(void)
+void Animal::SetTalkedTo()
 {
     if (!talked)
         talked = true;
@@ -90,7 +86,7 @@ void Animal::AddAffection(int amount)
     u32 new_affection = affection + amount;
 
     // Clamps the value between 0 and 250
-    if ((int) new_affection < 0)
+    if ((int)new_affection < 0)
         new_affection = 0;
     else if (new_affection > 250)
         new_affection = 250;
@@ -103,7 +99,7 @@ void Animal::SubtractAffection(int amount)
     AddAffection(-amount);
 }
 
-void Animal::DayUpdate(void)
+void Animal::DayUpdate()
 {
     if (age <= 1022)
         age++;

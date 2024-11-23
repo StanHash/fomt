@@ -1,5 +1,6 @@
 #include "script_engine.hh"
 
+#include <string.h> // memset, memcpy
 #include <algorithm>
 
 AScriptEngine::AScriptEngine()
@@ -8,9 +9,7 @@ AScriptEngine::AScriptEngine()
     stack.Clear();
 }
 
-AScriptEngine::~AScriptEngine()
-{
-}
+AScriptEngine::~AScriptEngine() {}
 
 bool AScriptEngine::Load(void const * script_data)
 {
@@ -35,7 +34,7 @@ bool AScriptEngine::Load(void const * script_data)
     unsigned char const * script = reinterpret_cast<unsigned char const *>(script_data);
 
     ScriptHead head;
-    std::memcpy(&head, script, sizeof(ScriptHead));
+    memcpy(&head, script, sizeof(ScriptHead));
 
     u32 offset = sizeof(ScriptHead);
 
@@ -49,7 +48,7 @@ bool AScriptEngine::Load(void const * script_data)
         while (offset <= length)
         {
             ChunkHead chunk;
-            std::memcpy(&chunk, script + offset, sizeof(ChunkHead));
+            memcpy(&chunk, script + offset, sizeof(ChunkHead));
 
             offset = offset + sizeof(ChunkHead);
 
@@ -78,7 +77,7 @@ bool AScriptEngine::Load(void const * script_data)
         {
             stack.Clear();
             unk_348 = 0;
-            std::memset(vmmem, 0, sizeof(vmmem));
+            memset(vmmem, 0, sizeof(vmmem));
             unk_00 = 1;
 
             return true;
@@ -150,7 +149,7 @@ u32 AScriptEngine::Operand32(int offset) const
 
     fu8 flag = OpcodeFlag(offset);
 
-    result  = code[offset + 1];
+    result = code[offset + 1];
     result += code[offset + 2] << 8;
     result += code[offset + 3] << 16;
     result += code[offset + 4] << 24;
@@ -169,7 +168,7 @@ u32 AScriptEngine::Operand16(int offset) const
 
     fu8 flag = OpcodeFlag(offset);
 
-    result  = code[offset + 1];
+    result = code[offset + 1];
     result += code[offset + 2] << 8;
 
     if (flag != 0)
@@ -196,16 +195,11 @@ u32 AScriptEngine::Operand8(int offset) const
     return result;
 }
 
-void AScriptEngine::method_0803F0DC() const
-{
-}
+void AScriptEngine::method_0803F0DC() const {}
 
 struct ScriptJumpTableSearchCompare
 {
-    bool operator() (JumpTableEnt const & left, int right)
-    {
-        return left.value < right;
-    }
+    bool operator()(JumpTableEnt const & left, int right) { return left.value < right; }
 };
 
 int AScriptEngine::NextInstruction()

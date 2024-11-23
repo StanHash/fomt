@@ -39,7 +39,7 @@ _08000320:
 _08000324: .4byte gUnk_03000400
 _08000328:
     movs r4, #0
-    ldr r1, _08000354 @ =0x080E862C
+    ldr r1, _08000354 @ =gUnk_080E862C
     mov r0, sp
     movs r2, #0x20
     bl memcmp
@@ -62,14 +62,14 @@ _0800034C:
     pop {r1}
     bx r1
     .align 2, 0
-_08000354: .4byte 0x080E862C
+_08000354: .4byte gUnk_080E862C
 
     thumb_func_start func_08000358
 func_08000358: @ 0x08000358
     push {r4, r5, lr}
     sub sp, #4
     adds r4, r0, #0
-    ldr r2, _08000398 @ =0x080E862C
+    ldr r2, _08000398 @ =gUnk_080E862C
     movs r1, #0
     movs r3, #0x20
     bl func_080006A4
@@ -97,7 +97,7 @@ _08000390:
     pop {r0}
     bx r0
     .align 2, 0
-_08000398: .4byte 0x080E862C
+_08000398: .4byte gUnk_080E862C
 _0800039C: .4byte gUnk_03000400
 
     thumb_func_start func_080003A0

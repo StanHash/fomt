@@ -1,4 +1,7 @@
-#pragma once
+#ifndef LIVESTOCK_HH
+#define LIVESTOCK_HH
+
+#include "prelude.h"
 
 #include "animal.hh"
 
@@ -32,21 +35,21 @@ struct Livestock : public Animal
     Livestock(char const * name, ActorLocation const & location, u32 age, u32 days_fed);
     Livestock(ActorLocation const & location, u32 age, u32 days_fed);
 
-    u32 GetDaysFed(void) const;
-    bool HasBeenFed(void) const;
-    bool IsUnhappy(void) const;
-    bool IsSick(void) const;
-    u8 method_0809B514(void) const;
-    u32 GetCurrentOutdoorMinutes(void) const;
-    u32 GetOutdoorMinutes(void) const;
-    ProductRank GetProductRank(void) const;
+    u32 GetDaysFed() const;
+    bool HasBeenFed() const;
+    bool IsUnhappy() const;
+    bool IsSick() const;
+    u8 method_0809B514() const;
+    u32 GetCurrentOutdoorMinutes() const;
+    u32 GetOutdoorMinutes() const;
+    ProductRank GetProductRank() const;
     void AddOutdoorMinutes(u32 minutes);
-    void ResetCurrentOutdoorMinutes(void);
-    void SetSick(void);
-    void ResetSick(void);
-    void SetUnhappy(void);
-    void ResetUnhappy(void);
-    void SetFed(void);
+    void ResetCurrentOutdoorMinutes();
+    void SetSick();
+    void ResetSick();
+    void SetUnhappy();
+    void ResetUnhappy();
+    void SetFed();
     void DayUpdate(LivestockDayUpdateInfo const * info);
 
     /* +28 */ u32 days_fed : 5;
@@ -59,3 +62,5 @@ struct Livestock : public Animal
     /* +30 */ u32 current_outdoor_minutes : 9;
     /* +30 */ u32 total_outdoor_minutes : 16;
 };
+
+#endif // LIVESTOCK_HH

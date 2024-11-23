@@ -4,7 +4,7 @@
 
 extern "C"
 {
-extern LivestockDayUpdateInfo const gUnk_08103680;
+    extern LivestockDayUpdateInfo const gUnk_08103680;
 }
 
 Cow::Cow(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
@@ -19,7 +19,7 @@ Cow::Cow(ActorLocation const & location, u32 age, u32 days_fed)
     milked = false;
 }
 
-Cow::GrowthStage Cow::GetGrowthStage(void) const
+Cow::GrowthStage Cow::GetGrowthStage() const
 {
     u32 days_fed = GetDaysFed();
     u32 age = GetAge();
@@ -32,28 +32,22 @@ Cow::GrowthStage Cow::GetGrowthStage(void) const
         return STAGE_2;
 }
 
-bool Cow::CanBeMilked(void) const
+bool Cow::CanBeMilked() const
 {
-    return !milked
-        && !IsPregnant()
-        && !IsSick()
-        && !IsUnhappy()
-        && GetGrowthStage() == STAGE_2;
+    return !milked && !IsPregnant() && !IsSick() && !IsUnhappy() && GetGrowthStage() == STAGE_2;
 }
 
-bool Cow::CanBeMadePregnant(void) const
+bool Cow::CanBeMadePregnant() const
 {
-    return !IsPregnant()
-        && !IsSick()
-        && GetGrowthStage() == STAGE_2;
+    return !IsPregnant() && !IsSick() && GetGrowthStage() == STAGE_2;
 }
 
-bool Cow::HasBeenMilked(void) const
+bool Cow::HasBeenMilked() const
 {
     return milked;
 }
 
-Livestock::ProductRank Cow::ConsumeProduct(void)
+Livestock::ProductRank Cow::ConsumeProduct()
 {
     milked = true;
 
@@ -74,7 +68,7 @@ Livestock::ProductRank Cow::ConsumeProduct(void)
     return rank;
 }
 
-void Cow::DayUpdate(void)
+void Cow::DayUpdate()
 {
     BarnAnimal::DayUpdate(&gUnk_08103680);
     milked = false;

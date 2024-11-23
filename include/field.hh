@@ -1,14 +1,14 @@
 #ifndef FIELD_HH
 #define FIELD_HH
 
-#include "global.h"
+#include "prelude.h"
 
-#include "game_time.hh"
 #include "rucksack_item.hh" // note: fwdable
+#include "unknown_types.hh"
 
-#include <cstdlib> // rand
+#include <stdlib.h> // rand
 
-// TODO: what is this?
+// TODO: what is this? (colors, mayhaps?)
 struct Unk_Something
 {
     STRUCT_PAD(0x00, 0x0C);
@@ -19,31 +19,16 @@ struct FieldPlot
     FieldPlot();
     FieldPlot(u32 arg_1, u32 arg_2, u32 arg_3);
 
-    int GetUnk0() const
-    {
-        return unk_00_00;
-    }
+    int GetUnk0() const { return unk_00_00; }
 
     // this sucks
-    fu16 GetUnk0_2() const
-    {
-        return unk_00_00;
-    }
+    fu16 GetUnk0_2() const { return unk_00_00; }
 
-    int GetUnk2() const
-    {
-        return unk_00_02;
-    }
+    int GetUnk2() const { return unk_00_02; }
 
-    int GetUnk8() const
-    {
-        return unk_00_08;
-    }
+    int GetUnk8() const { return unk_00_08; }
 
-    u32 GetUnk11() const
-    {
-        return unk_00_11;
-    }
+    u32 GetUnk11() const { return unk_00_11; }
 
     u32 method_0800A014() const;
     bool method_0800A07C() const;
@@ -75,17 +60,12 @@ struct FieldPlot
     /* bit 11 */ u16 unk_00_11 : 3;
 };
 
-template <u32 Width, u32 Height> struct Field
+template <u32 Width, u32 Height>
+struct Field
 {
-    FieldPlot const & PlotAt(int x, int y) const
-    {
-        return plots[x + y * Width];
-    }
+    FieldPlot const & PlotAt(int x, int y) const { return plots[x + y * Width]; }
 
-    FieldPlot & PlotAt(int x, int y)
-    {
-        return plots[x + y * Width];
-    }
+    FieldPlot & PlotAt(int x, int y) { return plots[x + y * Width]; }
 
     bool FindRandomSpotFor(int id, i32 (&out_pos)[2]) const
     {

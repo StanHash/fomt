@@ -16,7 +16,7 @@ Horse::Horse(ActorLocation const & location, u32 age)
     unk_24.a.unk_02 = 0;
 }
 
-Horse::GrowthStage Horse::GetGrowthStage(void) const
+Horse::GrowthStage Horse::GetGrowthStage() const
 {
     return GetAge() < 120 ? STAGE_0 : STAGE_1;
 }
@@ -33,12 +33,12 @@ void Horse::method_0809BC30(UnkBarnAnimal2C_x2 const * param)
     unk_20 = 1;
 }
 
-void Horse::method_0809BC40(void)
+void Horse::method_0809BC40()
 {
     unk_20 = 2;
 }
 
-void Horse::DayUpdate(void)
+void Horse::DayUpdate()
 {
     Pet::DayUpdate(false);
 

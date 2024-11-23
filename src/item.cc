@@ -69,12 +69,12 @@ Tool::Tool(u32 a_id)
     id = a_id;
 }
 
-int Tool::GetId(void) const
+int Tool::GetId() const
 {
     return id;
 }
 
-char const * Tool::GetName(void) const
+char const * Tool::GetName() const
 {
     if (IsValidToolId(id))
         return gToolInfo[id].name;
@@ -82,7 +82,7 @@ char const * Tool::GetName(void) const
     return "Broken Tool";
 }
 
-u16 Tool::GetIconId(void) const
+u16 Tool::GetIconId() const
 {
     if (IsValidToolId(id))
         return gToolInfo[id].icon_id;
@@ -99,7 +99,7 @@ static inline char const * GetToolDescById(u32 id)
     return "No Explanation";
 }
 
-char const * Tool::GetDesc(void) const
+char const * Tool::GetDesc() const
 {
     if (IsValidToolId(id))
         return GetToolDescById(id);
@@ -107,7 +107,7 @@ char const * Tool::GetDesc(void) const
     return "No Explanation";
 }
 
-ToolStack::ToolStack(void)
+ToolStack::ToolStack()
     : Tool(TOOL_NONE)
 {
     amount = 0;
@@ -119,7 +119,7 @@ ToolStack::ToolStack(Tool kind, u32 a_amount)
     if (a_amount != 0)
     {
         // ugh
-        amount = *(u8 *) &std::min<u32>(MAX_AMOUNT, a_amount);
+        amount = *(u8 *)&std::min<u32>(MAX_AMOUNT, a_amount);
     }
     else
     {
@@ -127,7 +127,7 @@ ToolStack::ToolStack(Tool kind, u32 a_amount)
     }
 }
 
-Tool ToolStack::GetTool(void) const
+Tool ToolStack::GetTool() const
 {
     if (amount != 0)
         return *this;
@@ -135,12 +135,12 @@ Tool ToolStack::GetTool(void) const
     return Tool(TOOL_NONE);
 }
 
-bool ToolStack::IsEmpty(void) const
+bool ToolStack::IsEmpty() const
 {
     return amount == 0;
 }
 
-u32 ToolStack::GetAmount(void) const
+u32 ToolStack::GetAmount() const
 {
     if (amount != 0)
         return amount;
@@ -174,12 +174,12 @@ Food::Food(u32 a_id)
     fatigue_bonus = 0;
 }
 
-int Food::GetId(void) const
+int Food::GetId() const
 {
     return id;
 }
 
-char const * Food::GetName(void) const
+char const * Food::GetName() const
 {
     if (IsValidFoodId(id))
         return gFoodInfo[id].name;
@@ -187,7 +187,7 @@ char const * Food::GetName(void) const
     return "Broken Food";
 }
 
-u16 Food::GetIconId(void) const
+u16 Food::GetIconId() const
 {
     if (IsValidFoodId(id))
         return gFoodInfo[id].icon_id;
@@ -196,7 +196,7 @@ u16 Food::GetIconId(void) const
     return 428; // Stones
 }
 
-int Food::GetStaminaGain(void) const
+int Food::GetStaminaGain() const
 {
     if (IsValidFoodId(id))
         return gFoodInfo[id].stamina + stamina_bonus;
@@ -204,7 +204,7 @@ int Food::GetStaminaGain(void) const
     return -100;
 }
 
-int Food::GetFatigueGain(void) const
+int Food::GetFatigueGain() const
 {
     if (IsValidFoodId(id))
         return gFoodInfo[id].fatigue + fatigue_bonus;
@@ -212,7 +212,7 @@ int Food::GetFatigueGain(void) const
     return +100;
 }
 
-int Food::GetStaminaBonus(void) const
+int Food::GetStaminaBonus() const
 {
     if (IsValidFoodId(id))
         return stamina_bonus;
@@ -220,7 +220,7 @@ int Food::GetStaminaBonus(void) const
     return -100;
 }
 
-int Food::GetFatigueBonus(void) const
+int Food::GetFatigueBonus() const
 {
     if (IsValidFoodId(id))
         return fatigue_bonus;
@@ -228,7 +228,7 @@ int Food::GetFatigueBonus(void) const
     return +100;
 }
 
-bool Food::IsDrink(void) const
+bool Food::IsDrink() const
 {
     if (IsValidFoodId(id))
         return gFoodInfo[id].is_drink;
@@ -244,7 +244,7 @@ static inline char const * GetFoodDescById(u32 id)
     return "No Explanation";
 }
 
-char const * Food::GetDesc(void) const
+char const * Food::GetDesc() const
 {
     if (IsValidFoodId(id))
         return GetFoodDescById(id);
@@ -278,7 +278,7 @@ void Food::AddBonuses(i8 stamina_amount, i8 fatigue_amount)
     }
 }
 
-FoodStack::FoodStack(void)
+FoodStack::FoodStack()
     : Food(FOOD_NONE)
 {
     amount = 0;
@@ -290,7 +290,7 @@ FoodStack::FoodStack(Food food, u32 a_amount)
     if (a_amount != 0)
     {
         // ugh
-        amount = *(u8 *) &std::min<u32>(MAX_AMOUNT, a_amount);
+        amount = *(u8 *)&std::min<u32>(MAX_AMOUNT, a_amount);
     }
     else
     {
@@ -298,7 +298,7 @@ FoodStack::FoodStack(Food food, u32 a_amount)
     }
 }
 
-Food FoodStack::GetFood(void) const
+Food FoodStack::GetFood() const
 {
     if (amount > 0)
         return *this;
@@ -306,12 +306,12 @@ Food FoodStack::GetFood(void) const
     return Food(FOOD_NONE);
 }
 
-bool FoodStack::IsEmpty(void) const
+bool FoodStack::IsEmpty() const
 {
     return amount == 0;
 }
 
-u32 FoodStack::GetAmount(void) const
+u32 FoodStack::GetAmount() const
 {
     if (amount > 0)
         return amount;
@@ -343,12 +343,12 @@ Article::Article(u32 a_id)
     id = a_id;
 }
 
-int Article::GetId(void) const
+int Article::GetId() const
 {
     return id;
 }
 
-char const * Article::GetName(void) const
+char const * Article::GetName() const
 {
     if (IsValidArticleId(id))
         return gArticleInfo[id].name;
@@ -356,7 +356,7 @@ char const * Article::GetName(void) const
     return "Broken Article";
 }
 
-u16 Article::GetIconId(void) const
+u16 Article::GetIconId() const
 {
     if (IsValidArticleId(id))
         return gArticleInfo[id].icon_id;
@@ -364,7 +364,7 @@ u16 Article::GetIconId(void) const
     return 457; // Turnip
 }
 
-bool Article::CanBeDiscarded(void) const
+bool Article::CanBeDiscarded() const
 {
     switch (id)
     {
@@ -392,7 +392,7 @@ static inline char const * GetArticleDescById(u32 id)
     return "No Explanation";
 }
 
-char const * Article::GetDesc(void) const
+char const * Article::GetDesc() const
 {
     if (IsValidArticleId(id))
         return GetArticleDescById(id);
@@ -400,7 +400,7 @@ char const * Article::GetDesc(void) const
     return "No Explanation";
 }
 
-ArticleStack::ArticleStack(void)
+ArticleStack::ArticleStack()
     : Article(ARTICLE_NONE)
 {
     amount = 0;
@@ -412,7 +412,7 @@ ArticleStack::ArticleStack(Article article, u32 a_amount)
     if (a_amount != 0)
     {
         // ugh
-        amount = *(u8 *) &std::min<u32>(MAX_AMOUNT, a_amount);
+        amount = *(u8 *)&std::min<u32>(MAX_AMOUNT, a_amount);
     }
     else
     {
@@ -420,7 +420,7 @@ ArticleStack::ArticleStack(Article article, u32 a_amount)
     }
 }
 
-Article ArticleStack::GetArticle(void) const
+Article ArticleStack::GetArticle() const
 {
     if (amount != 0)
         return *this;
@@ -428,12 +428,12 @@ Article ArticleStack::GetArticle(void) const
     return Article(ARTICLE_NONE);
 }
 
-bool ArticleStack::IsEmpty(void) const
+bool ArticleStack::IsEmpty() const
 {
     return amount == 0;
 }
 
-u32 ArticleStack::GetAmount(void) const
+u32 ArticleStack::GetAmount() const
 {
     if (amount != 0)
         return amount;
@@ -460,7 +460,7 @@ void ArticleStack::SubtractAmount(u32 a_amount)
     }
 }
 
-Product::Product(void)
+Product::Product()
 {
     id = PRODUCT_NONE;
 }
@@ -506,12 +506,12 @@ Product::Product(Article article)
     }
 }
 
-int Product::GetId(void) const
+int Product::GetId() const
 {
     return id;
 }
 
-u32 Product::GetPrice(void) const
+u32 Product::GetPrice() const
 {
     if (IsValidProductId(id))
         return gProductInfo[id].price;
@@ -519,7 +519,7 @@ u32 Product::GetPrice(void) const
     return 0;
 }
 
-char const * Product::GetName(void) const
+char const * Product::GetName() const
 {
     if (IsValidProductId(id))
     {
@@ -538,7 +538,7 @@ char const * Product::GetName(void) const
     return "Broken Shipment";
 }
 
-u16 Product::GetIconId(void) const
+u16 Product::GetIconId() const
 {
     if (IsValidProductId(id))
     {
@@ -557,53 +557,43 @@ u16 Product::GetIconId(void) const
     return 0;
 }
 
-Tool ItemVariant::AsTool(void) const
+Tool ItemVariant::AsTool() const
 {
-    return (kind == KIND_TOOL)
-        ? Tool(id)
-        : Tool(TOOL_NONE);
+    return (kind == KIND_TOOL) ? Tool(id) : Tool(TOOL_NONE);
 }
 
-Food ItemVariant::AsFood(void) const
+Food ItemVariant::AsFood() const
 {
-    return (kind == KIND_FOOD)
-        ? Food(id)
-        : Food(FOOD_NONE);
+    return (kind == KIND_FOOD) ? Food(id) : Food(FOOD_NONE);
 }
 
-Article ItemVariant::AsArticle(void) const
+Article ItemVariant::AsArticle() const
 {
-    return (kind == KIND_ARTICLE)
-        ? Article(id)
-        : Article(ARTICLE_NONE);
+    return (kind == KIND_ARTICLE) ? Article(id) : Article(ARTICLE_NONE);
 }
 
 // Item Info tables
 
-ToolInfo const gToolInfo[] =
-{
-#   define o(tag, icon, name, desc) { (name), (icon), (desc) },
-#   include "data/item/tool.def"
-#   undef o
+ToolInfo const gToolInfo[] = {
+#define o(tag, icon, name, desc) { (name), (icon), (desc) },
+#include "data/item/tool.def"
+#undef o
 };
 
-FoodInfo const gFoodInfo[] =
-{
-#   define o(tag, is_drink, stamina, fatigue, icon, name, desc) { (name), (is_drink), (stamina), (fatigue), (icon), (desc) },
-#   include "data/item/food.def"
-#   undef o
+FoodInfo const gFoodInfo[] = {
+#define o(tag, is_drink, stamina, fatigue, icon, name, desc) { (name), (is_drink), (stamina), (fatigue), (icon), (desc) },
+#include "data/item/food.def"
+#undef o
 };
 
-ArticleInfo const gArticleInfo[] =
-{
-#   define o(tag, icon, name, desc) { (name), (icon), (desc) },
-#   include "data/item/article.def"
-#   undef o
+ArticleInfo const gArticleInfo[] = {
+#define o(tag, icon, name, desc) { (name), (icon), (desc) },
+#include "data/item/article.def"
+#undef o
 };
 
-ProductInfo const gProductInfo[] =
-{
-#   define o(tag, kind, price) { (price), (ProductInfo::KIND_ ## kind), (kind ## _ ## tag) },
-#   include "data/item/product.def"
-#   undef o
+ProductInfo const gProductInfo[] = {
+#define o(tag, kind, price) { (price), (ProductInfo::KIND_##kind), (kind##_##tag) },
+#include "data/item/product.def"
+#undef o
 };

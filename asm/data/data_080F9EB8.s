@@ -2347,7 +2347,7 @@ gUnk_08105708:
 	.incbin "baserom.gba", 0x105708, 0x7D4
 
 	.global gUnk_08105EDC
-gUnk_08105EDC:
+gUnk_08105EDC: @ map data?
 	.incbin "baserom.gba", 0x105EDC, 0xA50
 
 	.global gUnk_0810692C

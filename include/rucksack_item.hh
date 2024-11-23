@@ -1,6 +1,7 @@
-#pragma once
+#ifndef RUCKSACK_ITEM_HH
+#define RUCKSACK_ITEM_HH
 
-#include "global.h"
+#include "prelude.h"
 
 #include "item.hh"
 
@@ -19,18 +20,20 @@ struct RucksackItem
         i8 fatigue_bonus;
     };
 
-    RucksackItem(void);
+    RucksackItem();
     RucksackItem(Food food);
     RucksackItem(Article article);
 
-    bool IsEmpty(void) const;
-    Kind GetKind(void) const;
-    Food GetFood(void) const;
-    Article GetArticle(void) const;
-    bool IsWrapped(void) const;
-    bool TryWrap(void);
+    bool IsEmpty() const;
+    Kind GetKind() const;
+    Food GetFood() const;
+    Article GetArticle() const;
+    bool IsWrapped() const;
+    bool TryWrap();
 
     /* +00 */ Kind kind : 1;
     /* +00 */ bool wrapped : 1;
     /* +01 */ Inner inner;
 };
+
+#endif // RUCKSACK_ITEM_HH

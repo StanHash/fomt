@@ -1,6 +1,6 @@
 #include "bachelorette.hh"
 
-#include <cstdlib>
+#include <stdlib.h> // rand
 
 Bachelorette::Bachelorette(ActorLocation const & location)
     : Npc(location)
@@ -13,32 +13,32 @@ Bachelorette::Bachelorette(ActorLocation const & location)
     unk_17_4 = 0;
 }
 
-u32 Bachelorette::GetLove(void) const
+u32 Bachelorette::GetLove() const
 {
     return love;
 }
 
-u32 Bachelorette::GetPlayerEventCount(void) const
+u32 Bachelorette::GetPlayerEventCount() const
 {
     return player_events;
 }
 
-u32 Bachelorette::GetDaysSincePlayerEvent_bugged(void) const
+u32 Bachelorette::GetDaysSincePlayerEvent_bugged() const
 {
     return days_since_rival_event;
 }
 
-u32 Bachelorette::GetRivalEventCount(void) const
+u32 Bachelorette::GetRivalEventCount() const
 {
     return rival_events;
 }
 
-u32 Bachelorette::GetDaysSinceRivalEvent(void) const
+u32 Bachelorette::GetDaysSinceRivalEvent() const
 {
     return days_since_rival_event;
 }
 
-u32 Bachelorette::method_0809E4BC(void) const
+u32 Bachelorette::method_0809E4BC() const
 {
     return unk_17_4;
 }
@@ -48,7 +48,7 @@ void Bachelorette::AddLove(int amount)
     u32 total = love + amount;
 
     // Clamps the value between 0 and 0xFFFF
-    if ((int) total < 0)
+    if ((int)total < 0)
         total = 0;
     else if (0xFFFF < total)
         total = 0xFFFF;
@@ -66,7 +66,7 @@ void Bachelorette::SetLove(int amount)
     love = amount;
 }
 
-void Bachelorette::PlayerEventUpdate(void)
+void Bachelorette::PlayerEventUpdate()
 {
     if (player_events < 6)
     {
@@ -75,7 +75,7 @@ void Bachelorette::PlayerEventUpdate(void)
     }
 }
 
-void Bachelorette::RivalEventUpdate(void)
+void Bachelorette::RivalEventUpdate()
 {
     if (rival_events < 5)
     {
@@ -84,7 +84,7 @@ void Bachelorette::RivalEventUpdate(void)
     }
 }
 
-void Bachelorette::method_0809E550(void)
+void Bachelorette::method_0809E550()
 {
     if (unk_17_4 < 5)
     {

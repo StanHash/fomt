@@ -1,26 +1,29 @@
-#pragma once
+#ifndef ANIMAL_HH
+#define ANIMAL_HH
 
+#include "prelude.h"
+
+#include "utility/fixed_str.hh"
 #include "actor.hh"
-#include "fixed_str.hh"
 
 struct Animal : public Actor
 {
     Animal(char const * name, ActorLocation const & location, u32 age);
     Animal(ActorLocation const & location, u32 age);
 
-    char const * GetName(void) const;
-    bool IsFestivalWinner(void) const;
-    u32 GetAge(void) const;
-    u32 GetAffection(void) const;
-    bool HasBeenBrushedToday(void) const;
-    bool HasBeenTalkedTo(void) const;
+    char const * GetName() const;
+    bool IsFestivalWinner() const;
+    u32 GetAge() const;
+    u32 GetAffection() const;
+    bool HasBeenBrushedToday() const;
+    bool HasBeenTalkedTo() const;
     void SetName(char const * name);
-    void SetFestivalWinner(void);
-    void SetBrushed(void);
-    void SetTalkedTo(void);
+    void SetFestivalWinner();
+    void SetBrushed();
+    void SetTalkedTo();
     void AddAffection(int amount);
     void SubtractAffection(int amount);
-    void DayUpdate(void);
+    void DayUpdate();
 
     /* +08 */ FixedStr<12> name;
     /* +18 */ u32 age : 10;
@@ -29,3 +32,5 @@ struct Animal : public Actor
     /* +19 */ bool talked : 1;
     /* +19 */ u32 affection : 8;
 };
+
+#endif // ANIMAL_HH

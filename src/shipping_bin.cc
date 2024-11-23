@@ -1,6 +1,8 @@
 #include "shipping_bin.hh"
 
-#include "unk-inl.hh"
+#include "unknown_inlines.hh"
+
+// clang-format off
 
 static u8 const sStartingDisplayedProductList[] =
 {
@@ -71,14 +73,16 @@ static u8 const sMineralProductList[] =
     PRODUCT_AMETHYST,
 };
 
-ShippingBin::ShippingBin(void)
+// clang-format on
+
+ShippingBin::ShippingBin()
     : value_shipped(0)
 {
     for (u32 i = 0; i < ARRAY_COUNT(sStartingDisplayedProductList); ++i)
         product_stats[sStartingDisplayedProductList[i]].ForceEnableDisplay();
 }
 
-u32 ShippingBin::GetValueShipped(void) const
+u32 ShippingBin::GetValueShipped() const
 {
     return value_shipped;
 }
@@ -99,7 +103,7 @@ u32 ShippingBin::GetAmountShipped(int product_id) const
     return 0;
 }
 
-bool ShippingBin::HasShippedOneOfEachProduct(void) const
+bool ShippingBin::HasShippedOneOfEachProduct() const
 {
     for (u32 i = 0; i < NUM_PRODUCTS; ++i)
     {
@@ -110,7 +114,7 @@ bool ShippingBin::HasShippedOneOfEachProduct(void) const
     return true;
 }
 
-bool ShippingBin::HasShippedOneOfEachCrop(void) const
+bool ShippingBin::HasShippedOneOfEachCrop() const
 {
     for (u32 i = 0; i < ARRAY_COUNT(sCropProductList); ++i)
     {
@@ -123,7 +127,7 @@ bool ShippingBin::HasShippedOneOfEachCrop(void) const
     return true;
 }
 
-bool ShippingBin::HasShippedOneOfEachMineral(void) const
+bool ShippingBin::HasShippedOneOfEachMineral() const
 {
     for (u32 i = 0; i < ARRAY_COUNT(sMineralProductList); ++i)
     {
@@ -156,7 +160,7 @@ void ShippingBin::Ship(Product const & slot)
     }
 }
 
-void ShippingBin::ResetValueShipped(void)
+void ShippingBin::ResetValueShipped()
 {
     value_shipped = 0;
 }
@@ -167,18 +171,18 @@ void ShippingBin::ForceEnableDisplay(int product_id)
         product_stats[product_id].ForceEnableDisplay();
 }
 
-ShippingBin::StatEnt::StatEnt(void)
+ShippingBin::StatEnt::StatEnt()
 {
     amount_shipped = 0;
     display_enabled = false;
 }
 
-bool ShippingBin::StatEnt::IsDisplayEnabled(void) const
+bool ShippingBin::StatEnt::IsDisplayEnabled() const
 {
     return display_enabled;
 }
 
-u32 ShippingBin::StatEnt::GetAmountShipped(void) const
+u32 ShippingBin::StatEnt::GetAmountShipped() const
 {
     if (display_enabled)
         return amount_shipped;
@@ -186,7 +190,7 @@ u32 ShippingBin::StatEnt::GetAmountShipped(void) const
     return 0;
 }
 
-void ShippingBin::StatEnt::ShipOne(void)
+void ShippingBin::StatEnt::ShipOne()
 {
     if (!display_enabled)
         display_enabled = true;
@@ -195,7 +199,7 @@ void ShippingBin::StatEnt::ShipOne(void)
         amount_shipped++;
 }
 
-void ShippingBin::StatEnt::ForceEnableDisplay(void)
+void ShippingBin::StatEnt::ForceEnableDisplay()
 {
     if (!display_enabled)
         display_enabled = true;

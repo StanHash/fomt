@@ -3,9 +3,7 @@
 #include <iterator>
 #include <algorithm>
 
-Shelf::Shelf(void)
-{
-}
+Shelf::Shelf() {}
 
 ArticleStack const * Shelf::GetArticleStackAt(u32 idx) const
 {
@@ -59,7 +57,7 @@ u32 Shelf::GetAmountOf(u32 article_id) const
     return result;
 }
 
-u32 Shelf::GetFirstFreeSlot(void) const
+u32 Shelf::GetFirstFreeSlot() const
 {
     u32 idx = 0;
 
@@ -75,7 +73,7 @@ u32 Shelf::GetFirstFreeSlot(void) const
     return static_cast<u32>(-1);
 }
 
-u32 Shelf::GetLastFreeSlot(void) const
+u32 Shelf::GetLastFreeSlot() const
 {
     typedef std::reverse_iterator<ArticleStack const *> It;
 
@@ -119,7 +117,7 @@ ArticleStack * Shelf::GetArticleStackAt(u32 idx)
 
 u32 Shelf::AddAmountOf(u32 article_id, u32 amount)
 {
-    if ((int) article_id >= ARTICLE_NONE)
+    if ((int)article_id >= ARTICLE_NONE)
         return amount;
 
     ArticleStack * beg = contents;

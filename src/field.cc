@@ -36,12 +36,12 @@ extern Unk_080E8CC4 const gUnk_080E8CC4[4][2];
 extern Unk_080E8CC4 const gUnk_080E8D04;
 extern Unk_080E8CC4 const gUnk_080E8D0C;
 
-extern u8 SHOULD_BE_CONST gUnk_086D6518[];
-extern u8 SHOULD_BE_CONST gUnk_086D6520[];
-extern u8 SHOULD_BE_CONST gUnk_086D6528[];
+extern u8 SHOULD_BE(const) gUnk_086D6518[];
+extern u8 SHOULD_BE(const) gUnk_086D6520[];
+extern u8 SHOULD_BE(const) gUnk_086D6528[];
 
-extern Unk_Something SHOULD_BE_CONST gUnk_086D6458;
-extern Unk_Something SHOULD_BE_CONST gUnk_086D6608;
+extern Unk_Something SHOULD_BE(const) gUnk_086D6458;
+extern Unk_Something SHOULD_BE(const) gUnk_086D6608;
 
 FieldPlot::FieldPlot()
     : unk_00_00(0), unk_00_02(0), unk_00_08(0), unk_00_0C(0), unk_00_11(method_0800A014())

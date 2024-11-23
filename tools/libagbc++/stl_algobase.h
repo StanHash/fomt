@@ -343,7 +343,7 @@ copy_n(_InputIter __first, _Size __count, _OutputIter __result) {
 
 
 template <class _ForwardIter, class _Tp>
-void fill(_ForwardIter __first, _ForwardIter __last, const _Tp& __value) {
+inline void fill(_ForwardIter __first, _ForwardIter __last, const _Tp& __value) {
   for ( ; __first != __last; ++__first)
     *__first = __value;
 }

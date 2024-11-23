@@ -1,9 +1,9 @@
 #ifndef SCRIPT_ENGINE_HH
 #define SCRIPT_ENGINE_HH
 
-#include "global.h"
+#include "prelude.h"
 
-#include <cstring>
+#include <string.h>
 
 #define SCRIPT_STACK_MAX 100
 #define SCRIPT_VMMEM_MAX 100
@@ -21,13 +21,10 @@ struct ScriptStack
     void Clear()
     {
         top = 0;
-        std::memset(data, 0, sizeof(data));
+        memset(data, 0, sizeof(data));
     }
 
-    int & Top()
-    {
-        return data[top - 1];
-    }
+    int & Top() { return data[top - 1]; }
 
     void Pop()
     {

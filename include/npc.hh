@@ -1,25 +1,31 @@
-#pragma once
+#ifndef NPC_HH
+#define NPC_HH
+
+#include "prelude.h"
 
 #include "actor.hh"
+
+/* TODO: move */
+#define NO_ANIM (static_cast<u16>(-1))
 
 struct Npc
 {
     Npc(ActorLocation const & location);
 
-    ActorLocation GetLocation(void) const;
-    u8 GetFriendship(void) const;
-    u32 GetDaysSinceLastSpoken(void) const;
-    bool HasBeenGiftedToday(void) const;
-    bool HasBeenSpokenToToday(void) const;
-    bool HasBeenSpokenToJustNow(void) const;
-    bool HasBeenMet(void) const;
+    ActorLocation GetLocation() const;
+    u8 GetFriendship() const;
+    u32 GetDaysSinceLastSpoken() const;
+    bool HasBeenGiftedToday() const;
+    bool HasBeenSpokenToToday() const;
+    bool HasBeenSpokenToJustNow() const;
+    bool HasBeenMet() const;
     void SetLocation(ActorLocation const & location);
     void AddFriendship(int amount);
     void SubtractFriendship(int amount);
     void SetFriendship(int amount);
-    void SetSpokenTo(void);
-    void SetGifted(void);
-    void SetChangedLocation(void);
+    void SetSpokenTo();
+    void SetGifted();
+    void SetChangedLocation();
     void DayUpdate(u32 arg_00);
 
     /* +00 */ ActorLocation location;
@@ -37,3 +43,5 @@ struct Npc
     /* +10 */ u16 unk_10;
     /* +12 */ u16 anim_id;
 };
+
+#endif // NPC_HH

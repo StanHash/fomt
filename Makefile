@@ -116,7 +116,7 @@ $(BUILD_DIR)/%.d: %.cc
 # C++ object
 $(BUILD_DIR)/%.o: %.cc $(BUILD_DIR)/%.d
 	@echo "CP $<"
-	@$(CPP) $(CPPFLAGS) $< | $(CC1PLUS) $(CXXFLAGS) -o $(BUILD_DIR)/$*.s
+	@$(CPP) $(CPPFLAGS) $< | ($(CC1PLUS) $(CXXFLAGS) -o $(BUILD_DIR)/$*.s || false)
 	@tools/scripts/align_sections.sh $(BUILD_DIR)/$*.s
 	@$(AS) $(ASFLAGS) $(BUILD_DIR)/$*.s -o $@
 

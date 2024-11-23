@@ -3,7 +3,7 @@
 #include <iterator>
 #include <algorithm>
 
-ToolChest::ToolChest(void)
+ToolChest::ToolChest()
 {
     ToolStack * row;
 
@@ -72,7 +72,7 @@ u32 ToolChest::GetAmountOf(u32 tool_id) const
     return result;
 }
 
-u32 ToolChest::GetFirstFreeSlot(void) const
+u32 ToolChest::GetFirstFreeSlot() const
 {
     u32 idx = 0;
 
@@ -88,7 +88,7 @@ u32 ToolChest::GetFirstFreeSlot(void) const
     return static_cast<u32>(-1);
 }
 
-u32 ToolChest::GetLastFreeSlot(void) const
+u32 ToolChest::GetLastFreeSlot() const
 {
     typedef std::reverse_iterator<ToolStack const *> It;
 
@@ -132,7 +132,7 @@ ToolStack * ToolChest::GetToolStackAt(u32 idx)
 
 u32 ToolChest::AddAmountOf(u32 tool_id, u32 amount)
 {
-    if ((int) tool_id >= TOOL_NONE)
+    if ((int)tool_id >= TOOL_NONE)
         return amount;
 
     ToolStack * beg = contents;

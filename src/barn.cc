@@ -1,6 +1,8 @@
 #include "barn.hh"
 
-#include <cstdlib>
+#include "utility/popcnt.hh"
+
+#include <stdlib.h>
 #include <algorithm>
 
 Barn::Barn()
@@ -17,27 +19,27 @@ Barn::Barn()
     fill_n_inl(pregnancy_stall_ent_idx, static_cast<int>(MAX_PREGNANCY_STALL_CAPACITY), -1);
 }
 
-Vec2 Barn::method_0800CE58(void)
+Vec2 Barn::method_0800CE58()
 {
     return Vec2(184, 272);
 }
 
-u32 Barn::GetUpgradeLevel(void) const
+u32 Barn::GetUpgradeLevel() const
 {
     return upgrade_level;
 }
 
-u32 Barn::GetStoredBushelCount(void) const
+u32 Barn::GetStoredBushelCount() const
 {
     return stored_bushel_count;
 }
 
-u32 Barn::GetCapacity(void) const
+u32 Barn::GetCapacity() const
 {
     return std::min<u32>(MAX_CAPACITY, 8 + upgrade_level * 8);
 }
 
-u32 Barn::GetPregnancyStallCapacity(void) const
+u32 Barn::GetPregnancyStallCapacity() const
 {
     return 1 + upgrade_level;
 }
@@ -58,12 +60,12 @@ bool Barn::HasBushelForPregnancyStall(u32 pregnancy_stall_idx) const
     return false;
 }
 
-bool Barn::method_0800CF00(void) const
+bool Barn::method_0800CF00() const
 {
     return unk_1_3;
 }
 
-bool Barn::method_0800CF08(void) const
+bool Barn::method_0800CF08() const
 {
     return unk_1_4;
 }
@@ -103,11 +105,11 @@ int Barn::GetNextFreeStall(u32 ent_idx) const
 
         ent_idx++;
     }
-    
+
     return -1;
 }
 
-u32 Barn::CountCows(void) const
+u32 Barn::CountCows() const
 {
     u32 capacity = GetCapacity();
     u32 result = 0;
@@ -121,7 +123,7 @@ u32 Barn::CountCows(void) const
     return result;
 }
 
-u32 Barn::CountSheeps(void) const
+u32 Barn::CountSheeps() const
 {
     u32 capacity = GetCapacity();
     u32 result = 0;
@@ -135,7 +137,7 @@ u32 Barn::CountSheeps(void) const
     return result;
 }
 
-u32 Barn::CountBarnAnimals(void) const
+u32 Barn::CountBarnAnimals() const
 {
     u32 capacity = GetCapacity();
     u32 result = 0;
@@ -149,7 +151,7 @@ u32 Barn::CountBarnAnimals(void) const
     return result;
 }
 
-int Barn::method_0800D058(void) const
+int Barn::method_0800D058() const
 {
     if (unk_3_7)
         return unk_4_0;
@@ -166,9 +168,7 @@ Vec2 Barn::method_0800D074(u32 ent_idx) const
 
     u32 x_off = (ent_idx % 4) * 40;
 
-    return Vec2(
-        (ent_idx < 8) ? 216 + x_off : 456 + x_off,
-        (ent_idx % 8 < 4) ? 104 : 144);
+    return Vec2((ent_idx < 8) ? 216 + x_off : 456 + x_off, (ent_idx % 8 < 4) ? 104 : 144);
 }
 
 Vec2 Barn::method_0800D0C0(u32 pregnancy_stall_idx) const
@@ -176,7 +176,7 @@ Vec2 Barn::method_0800D0C0(u32 pregnancy_stall_idx) const
     return Vec2(0x20, 0x70 + 96 * pregnancy_stall_idx);
 }
 
-int Barn::GetFreePregnancyStall(void) const
+int Barn::GetFreePregnancyStall() const
 {
     int free_count = GetCapacity() - CountBarnAnimals();
 
@@ -249,27 +249,27 @@ Vec2 Barn::method_0800D1D8(u32 pregnancy_stall_idx) const
     return vec;
 }
 
-u32 Barn::GetUnkCowAge(void) const
+u32 Barn::GetUnkCowAge() const
 {
     return unk_cow_age;
 }
 
-char const * Barn::GetUnkCowName(void) const
+char const * Barn::GetUnkCowName() const
 {
     return unk_cow_name;
 }
 
-u32 Barn::GetUnkSheepAge(void) const
+u32 Barn::GetUnkSheepAge() const
 {
     return unk_sheep_age;
 }
 
-char const * Barn::GetUnkSheepName(void) const
+char const * Barn::GetUnkSheepName() const
 {
     return unk_sheep_name;
 }
 
-void Barn::Upgrade(void)
+void Barn::Upgrade()
 {
     if (upgrade_level == 0)
         upgrade_level += 1;
@@ -324,13 +324,13 @@ void Barn::ClearBushelForPregnancyStall(u32 pregnancy_stall_idx)
     }
 }
 
-void Barn::method_0800D3A0(void)
+void Barn::method_0800D3A0()
 {
     if (!unk_1_3)
         unk_1_3 = true;
 }
 
-void Barn::method_0800D3B8(void)
+void Barn::method_0800D3B8()
 {
     if (!unk_1_4)
         unk_1_4 = true;
@@ -425,7 +425,7 @@ static inline void SetAnimalPositionWithinBarn(BarnAnimal * barn_animal, Vec2 co
     barn_animal->SetLocation(ActorLocation(Location(0x25, vec.x, vec.y), 3));
 }
 
-void Barn::DayUpdate(void)
+void Barn::DayUpdate()
 {
     u32 feed_count = popcnt(stall_bushels);
     stall_bushels = 0;
@@ -510,7 +510,7 @@ void Barn::method_0800D80C(u32 ent_idx)
     }
 }
 
-void Barn::method_0800D858(void)
+void Barn::method_0800D858()
 {
     unk_3_7 = false;
 }
@@ -572,56 +572,44 @@ int Barn::AttemptBirth(u32 pregnancy_stall_idx)
     return -1;
 }
 
-Barn::Ent::Ent(void)
+Barn::Ent::Ent()
     : occupied(false)
 {
 }
 
-bool Barn::Ent::IsEmpty(void) const
+bool Barn::Ent::IsEmpty() const
 {
     return !occupied;
 }
 
-BarnAnimal const * Barn::Ent::AsBarnAnimal(void) const
+BarnAnimal const * Barn::Ent::AsBarnAnimal() const
 {
-    return occupied
-        ? reinterpret_cast<BarnAnimal const *>(&placeholder)
-        : nullptr;
+    return occupied ? reinterpret_cast<BarnAnimal const *>(&placeholder) : nullptr;
 }
 
-Cow const * Barn::Ent::AsCow(void) const
+Cow const * Barn::Ent::AsCow() const
 {
-    return (occupied && kind == KIND_COW)
-        ? reinterpret_cast<Cow const *>(&placeholder)
-        : nullptr;
+    return (occupied && kind == KIND_COW) ? reinterpret_cast<Cow const *>(&placeholder) : nullptr;
 }
 
-Sheep const * Barn::Ent::AsSheep(void) const
+Sheep const * Barn::Ent::AsSheep() const
 {
-    return (occupied && kind == KIND_SHEEP)
-        ? reinterpret_cast<Sheep const *>(&placeholder)
-        : nullptr;
+    return (occupied && kind == KIND_SHEEP) ? reinterpret_cast<Sheep const *>(&placeholder) : nullptr;
 }
 
-BarnAnimal * Barn::Ent::AsBarnAnimal(void)
+BarnAnimal * Barn::Ent::AsBarnAnimal()
 {
-    return occupied
-        ? reinterpret_cast<BarnAnimal *>(&placeholder)
-        : nullptr;
+    return occupied ? reinterpret_cast<BarnAnimal *>(&placeholder) : nullptr;
 }
 
-Cow * Barn::Ent::AsCow(void)
+Cow * Barn::Ent::AsCow()
 {
-    return (occupied && kind == KIND_COW)
-        ? reinterpret_cast<Cow *>(&placeholder)
-        : nullptr;
+    return (occupied && kind == KIND_COW) ? reinterpret_cast<Cow *>(&placeholder) : nullptr;
 }
 
-Sheep * Barn::Ent::AsSheep(void)
+Sheep * Barn::Ent::AsSheep()
 {
-    return (occupied && kind == KIND_SHEEP)
-        ? reinterpret_cast<Sheep *>(&placeholder)
-        : nullptr;
+    return (occupied && kind == KIND_SHEEP) ? reinterpret_cast<Sheep *>(&placeholder) : nullptr;
 }
 
 bool Barn::Ent::InsertCow(Cow const & to_copy)
@@ -660,7 +648,7 @@ bool Barn::Ent::InsertSheep(Sheep const & to_copy)
     return false;
 }
 
-void Barn::Ent::Remove(void)
+void Barn::Ent::Remove()
 {
     if (occupied)
         occupied = false;

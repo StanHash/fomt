@@ -1,8 +1,8 @@
 #include "farm_house.hh"
 
-#include <cstdlib>
+#include <stdlib.h>
 
-FarmHouse::FarmHouse(void)
+FarmHouse::FarmHouse()
     : upgrade_level(0),
       window_style(0),
       mailbox_style(0),
@@ -13,10 +13,12 @@ FarmHouse::FarmHouse(void)
       has_record_player(false),
       has_large_bed(false),
       has_carpet(false),
-      has_vase(false), vase_article_id(ARTICLE_NONE),
+      has_vase(false),
+      vase_article_id(ARTICLE_NONE),
       has_mirror(false),
       has_clock(false),
-      has_stocking(false), stocking_article_id(ARTICLE_NONE),
+      has_stocking(false),
+      stocking_article_id(ARTICLE_NONE),
       fireplace_lighted(false),
       has_kitchen(false),
       has_kitchen_knife(false),
@@ -30,153 +32,153 @@ FarmHouse::FarmHouse(void)
 {
 }
 
-u32 FarmHouse::GetUpgradeLevel(void) const
+u32 FarmHouse::GetUpgradeLevel() const
 {
     return upgrade_level;
 }
 
-Fridge const * FarmHouse::GetFridge(void) const
+Fridge const * FarmHouse::GetFridge() const
 {
     return !has_fridge ? nullptr : &fridge;
 }
 
-Shelf const * FarmHouse::GetShelf(void) const
+Shelf const * FarmHouse::GetShelf() const
 {
     return !has_shelf ? nullptr : &shelf;
 }
 
-RecordPlayer const * FarmHouse::GetRecordPlayer(void) const
+RecordPlayer const * FarmHouse::GetRecordPlayer() const
 {
     return !has_record_player ? nullptr : &record_player;
 }
 
-u32 FarmHouse::GetWindowStyle(void) const
+u32 FarmHouse::GetWindowStyle() const
 {
     return window_style;
 }
 
-u32 FarmHouse::GetMailboxStyle(void) const
+u32 FarmHouse::GetMailboxStyle() const
 {
     return mailbox_style;
 }
 
-u32 FarmHouse::GetDoghouseStyle(void) const
+u32 FarmHouse::GetDoghouseStyle() const
 {
     return doghouse_style;
 }
 
-bool FarmHouse::HasBathroom(void) const
+bool FarmHouse::HasBathroom() const
 {
     return has_bathroom;
 }
 
-bool FarmHouse::HasLargeBed(void) const
+bool FarmHouse::HasLargeBed() const
 {
     return has_large_bed;
 }
 
-bool FarmHouse::HasCarpet(void) const
+bool FarmHouse::HasCarpet() const
 {
     return has_carpet;
 }
 
-bool FarmHouse::HasVase(void) const
+bool FarmHouse::HasVase() const
 {
     return has_vase;
 }
 
-u32 FarmHouse::GetVaseArticleId(void) const
+u32 FarmHouse::GetVaseArticleId() const
 {
     return vase_article_id;
 }
 
-bool FarmHouse::HasMirror(void) const
+bool FarmHouse::HasMirror() const
 {
     return has_mirror;
 }
 
-bool FarmHouse::HasClock(void) const
+bool FarmHouse::HasClock() const
 {
     return has_clock;
 }
 
-bool FarmHouse::HasStocking(void) const
+bool FarmHouse::HasStocking() const
 {
     return has_stocking;
 }
 
-bool FarmHouse::IsFireplaceLighted(void) const
+bool FarmHouse::IsFireplaceLighted() const
 {
     return fireplace_lighted;
 }
 
-bool FarmHouse::HasKitchen(void) const
+bool FarmHouse::HasKitchen() const
 {
     return has_kitchen;
 }
 
-bool FarmHouse::HasKitchenKnife(void) const
+bool FarmHouse::HasKitchenKnife() const
 {
     return has_kitchen_knife;
 }
 
-bool FarmHouse::HasKitchenFryingPan(void) const
+bool FarmHouse::HasKitchenFryingPan() const
 {
     return has_kitchen_frying_pan;
 }
 
-bool FarmHouse::HasKitchenPot(void) const
+bool FarmHouse::HasKitchenPot() const
 {
     return has_kitchen_pot;
 }
 
-bool FarmHouse::HasKitchenMixer(void) const
+bool FarmHouse::HasKitchenMixer() const
 {
     return has_kitchen_mixer;
 }
 
-bool FarmHouse::HasKitchenWhisk(void) const
+bool FarmHouse::HasKitchenWhisk() const
 {
     return has_kitchen_whisk;
 }
 
-bool FarmHouse::HasKitchenRollingPin(void) const
+bool FarmHouse::HasKitchenRollingPin() const
 {
     return has_kitchen_rolling_pin;
 }
 
-bool FarmHouse::HasKitchenOven(void) const
+bool FarmHouse::HasKitchenOven() const
 {
     return has_kitchen_oven;
 }
 
-bool FarmHouse::HasKitchenSeasoningSet(void) const
+bool FarmHouse::HasKitchenSeasoningSet() const
 {
     return has_kitchen_seasoning_set;
 }
 
-u32 FarmHouse::GetStockingArticleId(void) const
+u32 FarmHouse::GetStockingArticleId() const
 {
     return stocking_article_id;
 }
 
-void FarmHouse::UpgradeHouseLevel(void)
+void FarmHouse::UpgradeHouseLevel()
 {
     if (upgrade_level < 2)
         upgrade_level++;
 }
 
-Fridge * FarmHouse::GetFridge(void)
+Fridge * FarmHouse::GetFridge()
 {
     return !has_fridge ? nullptr : &fridge;
 }
 
-Shelf * FarmHouse::GetShelf(void)
+Shelf * FarmHouse::GetShelf()
 {
     return !has_shelf ? nullptr : &shelf;
 }
 
-RecordPlayer * FarmHouse::GetRecordPlayer(void)
+RecordPlayer * FarmHouse::GetRecordPlayer()
 {
     return !has_record_player ? nullptr : &record_player;
 }
@@ -199,42 +201,42 @@ void FarmHouse::SetDoghouseStyle(u32 style_id)
         doghouse_style = style_id;
 }
 
-void FarmHouse::AddBathroom(void)
+void FarmHouse::AddBathroom()
 {
     if (upgrade_level == 2)
         has_bathroom = true;
 }
 
-void FarmHouse::AddFridge(void)
+void FarmHouse::AddFridge()
 {
     if (upgrade_level != 0)
         has_fridge = true;
 }
 
-void FarmHouse::AddShelf(void)
+void FarmHouse::AddShelf()
 {
     if (upgrade_level != 0)
         has_shelf = true;
 }
 
-void FarmHouse::AddRecordPlayer(void)
+void FarmHouse::AddRecordPlayer()
 {
     has_record_player = true;
 }
 
-void FarmHouse::AddLargeBed(void)
+void FarmHouse::AddLargeBed()
 {
     if (upgrade_level > 1)
         has_large_bed = true;
 }
 
-void FarmHouse::AddCarpet(void)
+void FarmHouse::AddCarpet()
 {
     if (upgrade_level != 0)
         has_carpet = true;
 }
 
-void FarmHouse::AddVase(void)
+void FarmHouse::AddVase()
 {
     has_vase = true;
 }
@@ -265,81 +267,81 @@ void FarmHouse::SetVaseArticleId(u32 article_id)
     }
 }
 
-void FarmHouse::AddMirror(void)
+void FarmHouse::AddMirror()
 {
     has_mirror = true;
 }
 
-void FarmHouse::AddClock(void)
+void FarmHouse::AddClock()
 {
     has_clock = true;
 }
 
-void FarmHouse::AddStocking(void)
+void FarmHouse::AddStocking()
 {
     has_stocking = true;
 }
 
-void FarmHouse::RemoveStocking(void)
+void FarmHouse::RemoveStocking()
 {
     has_stocking = false;
 }
 
-void FarmHouse::LightFireplace(void)
+void FarmHouse::LightFireplace()
 {
     if (upgrade_level > 1 && !fireplace_lighted)
         fireplace_lighted = true;
 }
 
-void FarmHouse::AddKitchen(void)
+void FarmHouse::AddKitchen()
 {
     if (upgrade_level != 0 && GetFridge() != nullptr)
         has_kitchen = true;
 }
 
-void FarmHouse::AddKitchenKnife(void)
+void FarmHouse::AddKitchenKnife()
 {
     if (has_kitchen)
         has_kitchen_knife = true;
 }
 
-void FarmHouse::AddKitchenFryingPan(void)
+void FarmHouse::AddKitchenFryingPan()
 {
     if (has_kitchen)
         has_kitchen_frying_pan = true;
 }
 
-void FarmHouse::AddKitchenPot(void)
+void FarmHouse::AddKitchenPot()
 {
     if (has_kitchen)
         has_kitchen_pot = true;
 }
 
-void FarmHouse::AddKitchenMixer(void)
+void FarmHouse::AddKitchenMixer()
 {
     if (has_kitchen)
         has_kitchen_mixer = true;
 }
 
-void FarmHouse::AddKitchenWhisk(void)
+void FarmHouse::AddKitchenWhisk()
 {
     if (has_kitchen)
         has_kitchen_whisk = true;
 }
 
-void FarmHouse::KitchenRollingPin(void)
+void FarmHouse::KitchenRollingPin()
 {
     if (has_kitchen)
         has_kitchen_rolling_pin = true;
 }
 
-void FarmHouse::AddKitchenOven(void)
+void FarmHouse::AddKitchenOven()
 {
     if (has_kitchen)
         has_kitchen_oven = true;
 }
 
-void FarmHouse::AddKitchenSeasoningSet(void)
+void FarmHouse::AddKitchenSeasoningSet()
 {
     if (has_kitchen)
         has_kitchen_seasoning_set = true;
@@ -354,7 +356,7 @@ void FarmHouse::DayUpdate(Season season)
 {
     fireplace_lighted = false;
 
-    if (!has_vase || (u8) vase_article_id == ARTICLE_NONE)
+    if (!has_vase || (u8)vase_article_id == ARTICLE_NONE)
         return;
 
     if (vase_article_lifespan)

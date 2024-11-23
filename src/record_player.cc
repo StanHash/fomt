@@ -1,23 +1,22 @@
 #include "furniture.hh"
 
 // are those song ids?
-u8 const unk_080E9605[] =
-{
-    18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32
+u8 const unk_080E9605[] = {
+    18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
 };
 
-RecordPlayer::RecordPlayer(void)
+RecordPlayer::RecordPlayer()
 {
     has_album = false;
     album_id = 0;
 }
 
-bool RecordPlayer::HasAlbum(void) const
+bool RecordPlayer::HasAlbum() const
 {
     return has_album;
 }
 
-u32 RecordPlayer::GetUnknown(void) const
+u32 RecordPlayer::GetUnknown() const
 {
     if (!HasAlbum())
         return 199;
@@ -25,7 +24,7 @@ u32 RecordPlayer::GetUnknown(void) const
     return unk_080E9605[album_id];
 }
 
-ArticleStack RecordPlayer::RemoveAlbum(void)
+ArticleStack RecordPlayer::RemoveAlbum()
 {
     if (!HasAlbum())
         return ArticleStack();
@@ -37,7 +36,7 @@ ArticleStack RecordPlayer::RemoveAlbum(void)
 
 ArticleStack RecordPlayer::SetAlbum(Article const & album_article)
 {
-    u8 old_album_id;
+    fu8 old_album_id;
 
     switch (album_article.GetId())
     {

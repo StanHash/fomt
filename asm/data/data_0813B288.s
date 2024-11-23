@@ -1132,7 +1132,7 @@ gUnk_0875A424:
 gUnk_0875A438:
 	.incbin "baserom.gba", 0x75A438, 0x8
 
-	.global gUnk_0875A440 @gClockFont
+	.global gUnk_0875A440 @ gClockFont
 gUnk_0875A440:
 	.incbin "baserom.gba", 0x75A440, 0x1004
 

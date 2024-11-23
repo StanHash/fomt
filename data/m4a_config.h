@@ -1,4 +1,4 @@
-#include "global.h"
+#include "prelude.h"
 #include "m4a.h"
 
 SECTION(".gMusicPlayerA")

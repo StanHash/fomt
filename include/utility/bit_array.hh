@@ -1,16 +1,22 @@
-#pragma once
+#ifndef BIT_ARRAY_HH
+#define BIT_ARRAY_HH
 
-#include "global.h"
+#include "prelude.h"
 
-#include "unk-inl.hh"
+#include "popcnt.hh"
+#include "unknown_inlines.hh"
 
 // I'm surprised we aren't just using std::bitset
+// TODO: decide on method naming case for these STL-like classes
 
-template<std::size_t BitCount>
+template <size_t BitCount>
 struct BitArray
 {
-    BitArray(void)
+    BitArray()
     {
+        /* FIXME: using std::fill here (or, more specifically, inluding a header that defines it) makes FarmHouse::DayUpdate not match.
+         * Which is wild. This should probably be investigated. */
+
         fill_inl(begin(), end(), 0);
         m_data[((BitCount + 31) / 32) - 1] &= ~((1 << (BitCount % 32)) - 1); // redundant
     }
@@ -21,12 +27,9 @@ struct BitArray
     u32 const * begin() const { return m_data; }
     u32 const * end() const { return m_data + ((BitCount + 31) / 32); }
 
-    bool Test(u32 const & bit) const
-    {
-        return (bit < BitCount) && (m_data[bit / 32] & (1 << (bit % 32))) != 0;
-    }
+    bool Test(u32 const & bit) const { return (bit < BitCount) && (m_data[bit / 32] & (1 << (bit % 32))) != 0; }
 
-    u32 Count(void) const
+    u32 Count() const
     {
         u32 const * it = begin();
         u32 const * en = end();
@@ -36,8 +39,7 @@ struct BitArray
         do
         {
             result += popcnt(*it++);
-        }
-        while (it != en);
+        } while (it != en);
 
         return result;
     }
@@ -57,3 +59,5 @@ struct BitArray
 private:
     /* +00 */ u32 m_data[(BitCount + 31) / 32];
 };
+
+#endif // BIT_ARRAY_HH

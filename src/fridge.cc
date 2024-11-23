@@ -3,9 +3,7 @@
 #include <iterator>
 #include <algorithm>
 
-Fridge::Fridge(void)
-{
-}
+Fridge::Fridge() {}
 
 FoodStack const * Fridge::GetFoodStackAt(u32 idx) const
 {
@@ -59,7 +57,7 @@ u32 Fridge::GetAmountOf(u32 food_id) const
     return result;
 }
 
-u32 Fridge::GetFirstFreeSlot(void) const
+u32 Fridge::GetFirstFreeSlot() const
 {
     u32 idx = 0;
 
@@ -75,7 +73,7 @@ u32 Fridge::GetFirstFreeSlot(void) const
     return static_cast<u32>(-1);
 }
 
-u32 Fridge::GetLastFreeSlot(void) const
+u32 Fridge::GetLastFreeSlot() const
 {
     typedef std::reverse_iterator<FoodStack const *> It;
 
@@ -119,7 +117,7 @@ FoodStack * Fridge::GetFoodStackAt(u32 idx)
 
 u32 Fridge::AddAmountOf(u32 food_id, u32 amount)
 {
-    if ((int) food_id >= FOOD_NONE)
+    if ((int)food_id >= FOOD_NONE)
         return amount;
 
     FoodStack * beg = contents;

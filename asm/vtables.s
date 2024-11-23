@@ -16,6 +16,7 @@ vtable_unk_080E5A0C:
 vtable_unk_080E5A18:
 	.incbin "baserom.gba", 0xE5A18, 0x10
 
+	@ ASprite
 	.global vtable_unk_080E5A28
 vtable_unk_080E5A28:
 	.incbin "baserom.gba", 0xE5A28, 0x14
@@ -546,8 +547,8 @@ vtable_unk_080E7158:
 vtable_unk_080E7198:
 	.incbin "baserom.gba", 0xE7198, 0x40
 
-	.global vtable_unk_080E71D8
-vtable_unk_080E71D8:
+	.global __vt_10ANpcEntity
+__vt_10ANpcEntity:
 	.incbin "baserom.gba", 0xE71D8, 0x40
 
 	.global vtable_unk_080E7218

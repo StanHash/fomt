@@ -1,69 +1,70 @@
-#pragma once
+#ifndef FARM_HOUSE_HH
+#define FARM_HOUSE_HH
 
-#include "global.h"
+#include "prelude.h"
 
 #include "furniture.hh"
-#include "game_time.hh"
+#include "unknown_types.hh"
 
 struct FarmHouse
 {
-    FarmHouse(void);
+    FarmHouse();
 
-    u32 GetUpgradeLevel(void) const;
-    Fridge const * GetFridge(void) const;
-    Shelf const * GetShelf(void) const;
-    RecordPlayer const * GetRecordPlayer(void) const;
-    u32 GetWindowStyle(void) const;
-    u32 GetMailboxStyle(void) const;
-    u32 GetDoghouseStyle(void) const;
-    bool HasBathroom(void) const;
-    bool HasLargeBed(void) const;
-    bool HasCarpet(void) const;
-    bool HasVase(void) const;
-    u32 GetVaseArticleId(void) const;
-    bool HasMirror(void) const;
-    bool HasClock(void) const;
-    bool HasStocking(void) const;
-    bool IsFireplaceLighted(void) const;
-    bool HasKitchen(void) const;
-    bool HasKitchenKnife(void) const;
-    bool HasKitchenFryingPan(void) const;
-    bool HasKitchenPot(void) const;
-    bool HasKitchenMixer(void) const;
-    bool HasKitchenWhisk(void) const;
-    bool HasKitchenRollingPin(void) const;
-    bool HasKitchenOven(void) const;
-    bool HasKitchenSeasoningSet(void) const;
-    u32 GetStockingArticleId(void) const;
-    void UpgradeHouseLevel(void);
-    Fridge * GetFridge(void);
-    Shelf * GetShelf(void);
-    RecordPlayer * GetRecordPlayer(void);
+    u32 GetUpgradeLevel() const;
+    Fridge const * GetFridge() const;
+    Shelf const * GetShelf() const;
+    RecordPlayer const * GetRecordPlayer() const;
+    u32 GetWindowStyle() const;
+    u32 GetMailboxStyle() const;
+    u32 GetDoghouseStyle() const;
+    bool HasBathroom() const;
+    bool HasLargeBed() const;
+    bool HasCarpet() const;
+    bool HasVase() const;
+    u32 GetVaseArticleId() const;
+    bool HasMirror() const;
+    bool HasClock() const;
+    bool HasStocking() const;
+    bool IsFireplaceLighted() const;
+    bool HasKitchen() const;
+    bool HasKitchenKnife() const;
+    bool HasKitchenFryingPan() const;
+    bool HasKitchenPot() const;
+    bool HasKitchenMixer() const;
+    bool HasKitchenWhisk() const;
+    bool HasKitchenRollingPin() const;
+    bool HasKitchenOven() const;
+    bool HasKitchenSeasoningSet() const;
+    u32 GetStockingArticleId() const;
+    void UpgradeHouseLevel();
+    Fridge * GetFridge();
+    Shelf * GetShelf();
+    RecordPlayer * GetRecordPlayer();
     void SetWindowStyle(u32 style_id);
     void SetMailboxStyle(u32 style_id);
     void SetDoghouseStyle(u32 style_id);
-    void AddBathroom(void);
-    void AddFridge(void);
-    void AddShelf(void);
-    void AddRecordPlayer(void);
-    void AddLargeBed(void);
-    void AddCarpet(void);
-    void AddVase(void);
+    void AddBathroom();
+    void AddFridge();
+    void AddShelf();
+    void AddRecordPlayer();
+    void AddLargeBed();
+    void AddCarpet();
+    void AddVase();
     void SetVaseArticleId(u32 article_id);
-    void AddMirror(void);
-    void AddClock(void);
-    void AddStocking(void);
-    void RemoveStocking(void);
-    void LightFireplace(void);
-    void AddKitchen(void);
-    void AddKitchenKnife(void);
-    void AddKitchenFryingPan(void);
-    void AddKitchenPot(void);
-    void AddKitchenMixer(void);
-    void AddKitchenWhisk(void);
-    void KitchenRollingPin(void);
-    void AddKitchenOven(void);
-    void AddKitchenSeasoningSet(void);
+    void AddMirror();
+    void AddClock();
+    void AddStocking();
+    void RemoveStocking();
+    void LightFireplace();
+    void AddKitchen();
+    void AddKitchenKnife();
+    void AddKitchenFryingPan();
+    void AddKitchenPot();
+    void AddKitchenMixer();
+    void AddKitchenWhisk();
+    void KitchenRollingPin();
+    void AddKitchenOven();
+    void AddKitchenSeasoningSet();
     void SetStockingArticleId(u32 article_id);
     void DayUpdate(Season season);
 
@@ -100,3 +101,5 @@ struct FarmHouse
     /* +18C */ ToolChest tool_chest;
     /* +20C */ Unk_0800BC58 unk;
 };
+
+#endif // FARM_HOUSE_HH

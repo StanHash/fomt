@@ -1,7 +1,10 @@
-#pragma once
+#ifndef HARVEST_SPRITE_HH
+#define HARVEST_SPRITE_HH
+
+#include "prelude.h"
 
 #include "npc.hh"
-#include "unk-types.hh"
+#include "unknown_types.hh"
 
 struct HarvestSprite : public Npc
 {
@@ -43,3 +46,5 @@ struct HarvestSprite : public Npc
     /* +1C */ u32 unk_1C;
     /* +20 */ UnkBarnAnimal2C unk_20;
 };
+
+#endif // HARVEST_SPRITE_HH

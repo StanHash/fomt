@@ -1,7 +1,5 @@
 #include "npc.hh"
 
-#include <cstring>
-
 Npc::Npc(ActorLocation const & a_location)
 {
     location = a_location;
@@ -12,44 +10,44 @@ Npc::Npc(ActorLocation const & a_location)
     gifted_today = false;
     met = false;
     unk_10 = 0;
-    anim_id = static_cast<u16>(-1); // TODO: anim id constant
+    anim_id = NO_ANIM;
     unk_0C_0 = 0;
     unk_0C_5 = 0;
     unk_0D_2 = 0;
     unk_0D_7 = 0;
 }
 
-ActorLocation Npc::GetLocation(void) const
+ActorLocation Npc::GetLocation() const
 {
     return location;
 }
 
-u8 Npc::GetFriendship(void) const
+u8 Npc::GetFriendship() const
 {
     return friendship;
 }
 
-u32 Npc::GetDaysSinceLastSpoken(void) const
+u32 Npc::GetDaysSinceLastSpoken() const
 {
     return days_since_last_spoken;
 }
 
-bool Npc::HasBeenGiftedToday(void) const
+bool Npc::HasBeenGiftedToday() const
 {
     return gifted_today;
 }
 
-bool Npc::HasBeenSpokenToToday(void) const
+bool Npc::HasBeenSpokenToToday() const
 {
     return spoken_today;
 }
 
-bool Npc::HasBeenSpokenToJustNow(void) const
+bool Npc::HasBeenSpokenToJustNow() const
 {
     return spoken_just_now;
 }
 
-bool Npc::HasBeenMet(void) const
+bool Npc::HasBeenMet() const
 {
     return met;
 }
@@ -63,7 +61,7 @@ void Npc::AddFriendship(int amount)
 {
     u32 total = friendship + amount;
 
-    if ((int) total < 0)
+    if ((int)total < 0)
         total = 0;
     else if (total > 255)
         total = 255;
@@ -81,8 +79,8 @@ void Npc::SetFriendship(int amount)
     friendship = amount;
 }
 
-void Npc::SetSpokenTo(void)
-{ 
+void Npc::SetSpokenTo()
+{
     if (met)
     {
         spoken_today = true;
@@ -96,13 +94,13 @@ void Npc::SetSpokenTo(void)
     days_since_last_spoken = 0;
 }
 
-void Npc::SetGifted(void)
+void Npc::SetGifted()
 {
     gifted_today = true;
     days_since_last_spoken = 0;
 }
 
-void Npc::SetChangedLocation(void)
+void Npc::SetChangedLocation()
 {
     spoken_just_now = false;
 }

@@ -1,9 +1,9 @@
 #ifndef FARM_HH
 #define FARM_HH
 
-#include "global.h"
+#include "prelude.h"
 
-#include "fixed_str.hh"
+#include "utility/fixed_str.hh"
 #include "horse.hh"
 #include "shipping_bin.hh"
 #include "farm_house.hh"
@@ -13,10 +13,14 @@
 
 struct Farm
 {
+    // clang-format off
+
     enum { FIELD_WIDTH = 43 };
     enum { FIELD_HEIGHT = 25 };
 
     enum { MAX_UNK_0010_0 = 999 };
+
+    // clang-format on
 
     Farm(char const * name);
 

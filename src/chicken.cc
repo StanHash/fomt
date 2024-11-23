@@ -1,10 +1,10 @@
 #include "chicken.hh"
 
-#include <cstdlib>
+#include <stdlib.h> // rand
 
 extern "C"
 {
-extern LivestockDayUpdateInfo const gUnk_08103660;
+    extern LivestockDayUpdateInfo const gUnk_08103660;
 }
 
 Chicken::Chicken(char const * name, ActorLocation const & location, u32 age, u32 days_fed)
@@ -23,7 +23,7 @@ Chicken::Chicken(ActorLocation const & location, u32 age, u32 days_fed)
     unk_28.unk_02 = 0;
 }
 
-Chicken::GrowthStage Chicken::GetGrowthStage(void) const
+Chicken::GrowthStage Chicken::GetGrowthStage() const
 {
     if (GetAge() < 7)
         return STAGE_0;
@@ -31,19 +31,17 @@ Chicken::GrowthStage Chicken::GetGrowthStage(void) const
         return STAGE_1;
 }
 
-bool Chicken::method_0809BCC0(void) const
+bool Chicken::method_0809BCC0() const
 {
-    return GetGrowthStage() == STAGE_1
-        && !IsSick()
-        && !IsUnhappy();
+    return GetGrowthStage() == STAGE_1 && !IsSick() && !IsUnhappy();
 }
 
-void Chicken::SetFed(void)
+void Chicken::SetFed()
 {
     Livestock::SetFed();
 }
 
-Livestock::ProductRank Chicken::ConsumeProduct(void)
+Livestock::ProductRank Chicken::ConsumeProduct()
 {
     ProductRank rank = GetProductRank();
 
@@ -74,7 +72,7 @@ void Chicken::method_0809BD2C(UnkBarnAnimal2C const * param)
     unk_24 = 1;
 }
 
-void Chicken::DayUpdate(void)
+void Chicken::DayUpdate()
 {
     Livestock::DayUpdate(&gUnk_08103660);
 }

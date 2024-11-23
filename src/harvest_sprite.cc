@@ -19,12 +19,12 @@ HarvestSprite::HarvestSprite(ActorLocation const & location)
     minigame_exp[2] = 0;
 }
 
-HarvestSprite::Task HarvestSprite::GetCurrentTask(void) const
+HarvestSprite::Task HarvestSprite::GetCurrentTask() const
 {
     return static_cast<HarvestSprite::Task>(current_task);
 }
 
-u32 HarvestSprite::GetWorkDaysLeft(void) const
+u32 HarvestSprite::GetWorkDaysLeft() const
 {
     return work_days_left;
 }
@@ -37,7 +37,7 @@ u32 HarvestSprite::GetTaskExp(HarvestSprite::Task task) const
         return 0;
 }
 
-bool HarvestSprite::HasPlayedMinigameToday(void) const
+bool HarvestSprite::HasPlayedMinigameToday() const
 {
     return played_minigame;
 }
@@ -57,7 +57,7 @@ void HarvestSprite::AddTaskExp(HarvestSprite::Task task, int amount)
         u32 total = task_exp[task] + amount;
 
         // Clamps the value between 0 and 255
-        if ((int) total < 0)
+        if ((int)total < 0)
             total = 0;
         else if (total > 255)
             total = 255;
@@ -72,7 +72,7 @@ void HarvestSprite::StartTask(HarvestSprite::Task task, int days)
     work_days_left = days;
 }
 
-void HarvestSprite::method_0809E6EC(void)
+void HarvestSprite::method_0809E6EC()
 {
     work_days_left = 1;
 }
@@ -102,7 +102,7 @@ void HarvestSprite::SetPlayedMinigame(HarvestSprite::Task task, bool succeeded)
     AddFriendship(1);
 }
 
-void HarvestSprite::TaskDayUpdate(void)
+void HarvestSprite::TaskDayUpdate()
 {
     if (work_days_left)
     {
@@ -115,18 +115,18 @@ void HarvestSprite::TaskDayUpdate(void)
     }
 }
 
-void HarvestSprite::DayUpdate(void)
+void HarvestSprite::DayUpdate()
 {
     Npc::DayUpdate(rand() % 100);
     played_minigame = false;
 }
 
-void HarvestSprite::method_0809E7C8(void)
+void HarvestSprite::method_0809E7C8()
 {
     unk_1C = 0;
 }
 
-void HarvestSprite::method_0809E7D0(void)
+void HarvestSprite::method_0809E7D0()
 {
     unk_1C = 1;
 }
@@ -149,7 +149,7 @@ void HarvestSprite::method_0809E7F0(UnkBarnAnimal2C const * param)
     unk_1C = 4;
 }
 
-void HarvestSprite::method_0809E7FC(void)
+void HarvestSprite::method_0809E7FC()
 {
     unk_1C = 5;
 }

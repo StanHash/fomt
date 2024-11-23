@@ -1,15 +1,23 @@
-#pragma once
+#ifndef ACTOR_HH
+#define ACTOR_HH
 
-#include "global.h"
+#include "prelude.h"
+
+/* TODO: move elsewhere */
+#define MAP_NONE 0x234
 
 struct PACKED ALIGN(2) Location
 {
-    Location(void) {}
-    Location(u32 map, u32 x, u32 y) : map(map), x(x), y(y) {}
+    Location() {}
 
-    u32 GetMap(void) const { return map; }
-    i16 GetX(void) const { return x; }
-    i16 GetY(void) const { return y; }
+    Location(u32 map, u32 x, u32 y)
+        : map(map), x(x), y(y)
+    {
+    }
+
+    u32 GetMap() const { return map; }
+    i16 GetX() const { return x; }
+    i16 GetY() const { return y; }
 
     /* +00 */ u16 map : 10;
     /* +01 */ i16 x : 16;
@@ -18,8 +26,11 @@ struct PACKED ALIGN(2) Location
 
 struct ActorLocation : public Location
 {
-    ActorLocation(void) {}
-    ActorLocation(Location const & location, int facing) : Location(location), facing(facing) {}
+    ActorLocation() {}
+    ActorLocation(Location const & location, int facing)
+        : Location(location), facing(facing)
+    {
+    }
 
     /* +06 */ u8 facing;
 };
@@ -33,3 +44,5 @@ struct Actor
 
     ActorLocation location;
 };
+
+#endif // ACTOR_HH

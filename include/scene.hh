@@ -1,6 +1,7 @@
-#pragma once
+#ifndef SCENE_HH
+#define SCENE_HH
 
-#include "global.h"
+#include "prelude.h"
 
 #include "smart_ptr.hh"
 
@@ -20,3 +21,5 @@ struct AUnk_0800080C
 };
 
 void SceneMain(SmartPtr<AScene> scene_ptr);
+
+#endif // SCENE_HH

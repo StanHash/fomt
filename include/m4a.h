@@ -1,6 +1,7 @@
-#pragma once
+#ifndef M4A_H
+#define M4A_H
 
-#include "global.h"
+#include "prelude.h"
 
 EXTERN_C
 
@@ -15,13 +16,15 @@ struct MusicPlayer;
 struct MusicPlayerEnt;
 struct SongEnt;
 
-typedef void (* MPlayFunc)();
-typedef void (* PlyNoteFunc)(u32, struct MusicPlayer *, struct MusicPlayerTrack *);
-typedef void (* CgbSoundFunc)(void);
-typedef void (* CgbOscOffFunc)(u8);
-typedef u32 (* MidiKeyToCgbFreqFunc)(u8, u8, u8);
-typedef void (* ExtVolPitFunc)(void);
-typedef void (* MPlayMainFunc)(struct MusicPlayer *);
+typedef void (*MPlayFunc)();
+typedef void (*PlyNoteFunc)(u32, struct MusicPlayer *, struct MusicPlayerTrack *);
+typedef void (*CgbSoundFunc)(void);
+typedef void (*CgbOscOffFunc)(u8);
+typedef u32 (*MidiKeyToCgbFreqFunc)(u8, u8, u8);
+typedef void (*ExtVolPitFunc)(void);
+typedef void (*MPlayMainFunc)(struct MusicPlayer *);
+
+// clang-format off
 
 // ASCII encoding of 'Smsh' in reverse
 // This is presumably short for SMASH, the developer of MKS4AGB.
@@ -29,33 +32,35 @@ enum { ID_NUMBER = 0x68736D53 };
 
 enum { C_V = 0x40 }; // center value for PAN, BEND, and TUNE
 
+// clang-format on
+
 enum
 {
-    SOUND_MODE_REVERB_VAL   = 0x0000007F,
-    SOUND_MODE_REVERB_SET   = 0x00000080,
-    SOUND_MODE_MAXCHN       = 0x00000F00,
+    SOUND_MODE_REVERB_VAL = 0x0000007F,
+    SOUND_MODE_REVERB_SET = 0x00000080,
+    SOUND_MODE_MAXCHN = 0x00000F00,
     SOUND_MODE_MAXCHN_SHIFT = 8,
-    SOUND_MODE_MASVOL       = 0x0000F000,
+    SOUND_MODE_MASVOL = 0x0000F000,
     SOUND_MODE_MASVOL_SHIFT = 12,
-    SOUND_MODE_FREQ_05734   = 0x00010000,
-    SOUND_MODE_FREQ_07884   = 0x00020000,
-    SOUND_MODE_FREQ_10512   = 0x00030000,
-    SOUND_MODE_FREQ_13379   = 0x00040000,
-    SOUND_MODE_FREQ_15768   = 0x00050000,
-    SOUND_MODE_FREQ_18157   = 0x00060000,
-    SOUND_MODE_FREQ_21024   = 0x00070000,
-    SOUND_MODE_FREQ_26758   = 0x00080000,
-    SOUND_MODE_FREQ_31536   = 0x00090000,
-    SOUND_MODE_FREQ_36314   = 0x000A0000,
-    SOUND_MODE_FREQ_40137   = 0x000B0000,
-    SOUND_MODE_FREQ_42048   = 0x000C0000,
-    SOUND_MODE_FREQ         = 0x000F0000,
-    SOUND_MODE_FREQ_SHIFT   = 16,
-    SOUND_MODE_DA_BIT_9     = 0x00800000,
-    SOUND_MODE_DA_BIT_8     = 0x00900000,
-    SOUND_MODE_DA_BIT_7     = 0x00A00000,
-    SOUND_MODE_DA_BIT_6     = 0x00B00000,
-    SOUND_MODE_DA_BIT       = 0x00B00000,
+    SOUND_MODE_FREQ_05734 = 0x00010000,
+    SOUND_MODE_FREQ_07884 = 0x00020000,
+    SOUND_MODE_FREQ_10512 = 0x00030000,
+    SOUND_MODE_FREQ_13379 = 0x00040000,
+    SOUND_MODE_FREQ_15768 = 0x00050000,
+    SOUND_MODE_FREQ_18157 = 0x00060000,
+    SOUND_MODE_FREQ_21024 = 0x00070000,
+    SOUND_MODE_FREQ_26758 = 0x00080000,
+    SOUND_MODE_FREQ_31536 = 0x00090000,
+    SOUND_MODE_FREQ_36314 = 0x000A0000,
+    SOUND_MODE_FREQ_40137 = 0x000B0000,
+    SOUND_MODE_FREQ_42048 = 0x000C0000,
+    SOUND_MODE_FREQ = 0x000F0000,
+    SOUND_MODE_FREQ_SHIFT = 16,
+    SOUND_MODE_DA_BIT_9 = 0x00800000,
+    SOUND_MODE_DA_BIT_8 = 0x00900000,
+    SOUND_MODE_DA_BIT_7 = 0x00A00000,
+    SOUND_MODE_DA_BIT_6 = 0x00B00000,
+    SOUND_MODE_DA_BIT = 0x00B00000,
     SOUND_MODE_DA_BIT_SHIFT = 20,
 };
 
@@ -65,26 +70,26 @@ struct WaveData
     /* +02 */ u16 status;
     /* +04 */ u32 freq;
     /* +08 */ u32 loop_start;
-    /* +0C */ u32 size; // number of samples
+    /* +0C */ u32 size;   // number of samples
     /* +10 */ i8 data[1]; // samples
 };
 
 enum
 {
-    TONEDATA_TYPE_CGB    = 0x07,
-    TONEDATA_TYPE_FIX    = 0x08,
-    TONEDATA_TYPE_SPL    = 0x40, // key split
-    TONEDATA_TYPE_RHY    = 0x80, // rhythm
+    TONEDATA_TYPE_CGB = 0x07,
+    TONEDATA_TYPE_FIX = 0x08,
+    TONEDATA_TYPE_SPL = 0x40, // key split
+    TONEDATA_TYPE_RHY = 0x80, // rhythm
 
-    TONEDATA_P_S_PAN     = 0xc0,
-    TONEDATA_P_S_PAM     = TONEDATA_P_S_PAN,
+    TONEDATA_P_S_PAN = 0xc0,
+    TONEDATA_P_S_PAM = TONEDATA_P_S_PAN,
 };
 
 struct ToneData
 {
     /* +00 */ u8 kind;
     /* +01 */ u8 key;
-    /* +02 */ u8 length; // sound length (compatible sound)
+    /* +02 */ u8 length;    // sound length (compatible sound)
     /* +03 */ u8 pan_sweep; // pan or sweep (compatible sound ch. 1)
     /* +04 */ struct WaveData * wav;
     /* +08 */ u8 attack;
@@ -95,13 +100,13 @@ struct ToneData
 
 enum
 {
-    SOUND_CHANNEL_SF_START       = 0x80,
-    SOUND_CHANNEL_SF_STOP        = 0x40,
-    SOUND_CHANNEL_SF_LOOP        = 0x10,
-    SOUND_CHANNEL_SF_IEC         = 0x04,
-    SOUND_CHANNEL_SF_ENV         = 0x03,
-    SOUND_CHANNEL_SF_ENV_ATTACK  = 0x03,
-    SOUND_CHANNEL_SF_ENV_DECAY   = 0x02,
+    SOUND_CHANNEL_SF_START = 0x80,
+    SOUND_CHANNEL_SF_STOP = 0x40,
+    SOUND_CHANNEL_SF_LOOP = 0x10,
+    SOUND_CHANNEL_SF_IEC = 0x04,
+    SOUND_CHANNEL_SF_ENV = 0x03,
+    SOUND_CHANNEL_SF_ENV_ATTACK = 0x03,
+    SOUND_CHANNEL_SF_ENV_DECAY = 0x02,
     SOUND_CHANNEL_SF_ENV_SUSTAIN = 0x01,
     SOUND_CHANNEL_SF_ENV_RELEASE = 0x00,
     SOUND_CHANNEL_SF_ON = (SOUND_CHANNEL_SF_START | SOUND_CHANNEL_SF_STOP | SOUND_CHANNEL_SF_IEC | SOUND_CHANNEL_SF_ENV),
@@ -152,7 +157,7 @@ struct CgbChannel
     /* +1E */ u8 length;
     /* +1F */ u8 sweep;
     /* +20 */ u32 frequency;
-    /* +24 */ u32 * wav; // instructs CgbMain to load targeted wave
+    /* +24 */ u32 * wav;         // instructs CgbMain to load targeted wave
     /* +28 */ u32 * current_ptr; // stores the currently loaded wave
     /* +2C */ struct MusicPlayerTrack * track;
     /* +30 */ void * prev_channel_ptr;
@@ -197,9 +202,13 @@ struct SoundChannel
     /* +3E */ u16 xpc;
 };
 
+// clang-format off
+
 enum { MAX_DIRECTSOUND_CHANNELS = 12 };
 
 enum { PCM_DMA_BUF_SIZE = 1584 }; // size of Direct Sound buffer
+
+// clang-format on
 
 struct SoundInfo
 {
@@ -218,7 +227,7 @@ struct SoundInfo
     /* +008 */ u8 freq;
 
     /* +009 */ u8 mode;
-    /* +00A */ u8 c15; // periodically counts from 14 down to 0 (15 states)
+    /* +00A */ u8 c15;            // periodically counts from 14 down to 0 (15 states)
     /* +00B */ u8 pcm_dma_period; // number of V-blanks per PCM DMA
     /* +00C */ u8 max_lines;
     /* +00D */ u8 gap[3];
@@ -255,8 +264,8 @@ enum
     MPT_FLG_VOLCHG = 0x03,
     MPT_FLG_PITSET = 0x04,
     MPT_FLG_PITCHG = 0x0C,
-    MPT_FLG_START  = 0x40,
-    MPT_FLG_EXIST  = 0x80,
+    MPT_FLG_START = 0x40,
+    MPT_FLG_EXIST = 0x80,
 };
 
 struct MusicPlayerTrack
@@ -308,15 +317,19 @@ enum
     MUSICPLAYER_STATUS_PAUSE = 0x80000000,
 };
 
+// clang-format off
+
 enum { MAX_MUSICPLAYER_TRACKS = 16 };
 
 enum { TRACKS_ALL = 0xFFFF };
 
+// clang-format on
+
 enum
 {
     TEMPORARY_FADE = 0x0001,
-    FADE_IN        = 0x0002,
-    FADE_VOL_MAX   = 64,
+    FADE_IN = 0x0002,
+    FADE_VOL_MAX = 64,
     FADE_VOL_SHIFT = 2,
 };
 
@@ -388,3 +401,5 @@ void m4aMPlayModDepthSet(struct MusicPlayer * music_player, u16 track_bits, u8 m
 void m4aMPlayLFOSpeedSet(struct MusicPlayer * music_player, u16 track_bits, u8 lfo_speed);
 
 EXTERN_C_END
+
+#endif // M4A_H

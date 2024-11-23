@@ -22,11 +22,11 @@ typedef i8 fi8;
 typedef i16 fi16;
 
 #if !defined(__cplusplus)
-#  if defined(MODERN)
-#    include <stdbool.h>
-#  else
+#if defined(MODERN)
+#include <stdbool.h>
+#else
 typedef int bool;
-#  endif
+#endif
 #endif
 
 enum

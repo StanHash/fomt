@@ -2,10 +2,10 @@
  * implementation of the new and delete operators
  */
 
-#include "global.h"
+#include "prelude.h"
 
-#include <cstddef>
-#include <cstdlib>
+#include <stddef.h>
+#include <stdlib.h>
 #include <new>
 
 extern std::new_handler __new_handler;
@@ -33,7 +33,7 @@ std::new_handler std::set_new_handler(std::new_handler nh)
     return old;
 }
 
-void * operator new (std::size_t size)
+void * operator new(std::size_t size)
 {
     void * result = alloc(size);
 
@@ -43,37 +43,37 @@ void * operator new (std::size_t size)
     return result;
 }
 
-void * operator new[] (std::size_t size)
+void * operator new[](std::size_t size)
 {
-    return operator new (size);
+    return operator new(size);
 }
 
-void * operator new (std::size_t size, std::nothrow_t const & nothrow)
+void * operator new(std::size_t size, std::nothrow_t const & nothrow)
 {
     return alloc(size);
 }
 
-void * operator new[] (std::size_t size, std::nothrow_t const & nothrow)
+void * operator new[](std::size_t size, std::nothrow_t const & nothrow)
 {
-    return operator new (size, nothrow);
+    return operator new(size, nothrow);
 }
 
-void operator delete (void * ptr)
+void operator delete(void * ptr)
 {
     free(ptr);
 }
 
-void operator delete[] (void * ptr)
+void operator delete[](void * ptr)
 {
-    operator delete (ptr);
+    operator delete(ptr);
 }
 
-void operator delete (void * ptr, std::nothrow_t const & nothrow)
+void operator delete(void * ptr, std::nothrow_t const & nothrow)
 {
     free(ptr);
 }
 
-void operator delete[] (void * ptr, std::nothrow_t const & nothrow)
+void operator delete[](void * ptr, std::nothrow_t const & nothrow)
 {
-    operator delete (ptr, nothrow);
+    operator delete(ptr, nothrow);
 }
